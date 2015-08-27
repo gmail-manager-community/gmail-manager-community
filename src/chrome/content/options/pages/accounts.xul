@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://gmanager/content/options/options.css" type="text/css"?>
+
+<!-- 
+  Gmail Manager NG
+  Erik Nedwidek (http://github.com/nedwidek)
+  Based on Gmail Manager by Todd Long <longfocus@gmail.com>
+ -->
+
+<!DOCTYPE page SYSTEM "chrome://gmanager/locale/gmanager.dtd">
+
+<page id="gmanager-options-accounts"
+	onload="parent.gmanager_Options.loadPagePrefs();"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	
+	<groupbox>
+		<caption label="&options-tab-accounts;"/>
+		
+		<hbox flex="1">
+			<listbox id="gmanager-options-accounts-listbox"
+					flex="1"
+					onselect="parent.gmanager_Options.selectAccount();">
+					
+				<listhead>
+					<listheader label="&common-email;"/>
+					<listheader label="&options-accounts-auto-login;"/>
+				</listhead>
+				
+				<listcols>
+					<listcol flex="1"/>
+					<listcol/>
+				</listcols>
+			</listbox>
+			
+			<vbox collapsed="true">
+				<button id="gmanager-options-accounts-move-up-button"
+						disabled="true"
+						label="&btn-move-up;"
+						accesskey="&btn-move-up.ak;"/>
+						
+				<button id="gmanager-options-accounts-move-down-button"
+						disabled="true"
+						label="&btn-move-down;"
+						accesskey="&btn-move-down.ak;"/>
+			</vbox>
+		</hbox>
+		
+		<hbox>
+			<button label="&btn-add;"
+					accesskey="&btn-add.ak;"
+					default="true"
+					oncommand="parent.gmanager_Options.accountsAdd();"/>
+					
+			<button id="gmanager-options-accounts-modify-button"
+					disabled="true"
+					label="&btn-modify;"
+					accesskey="&btn-modify.ak;"
+					oncommand="parent.gmanager_Options.accountsModify();"/>
+					
+			<button id="gmanager-options-accounts-remove-button"
+					label="&btn-remove;"
+					disabled="true"
+					accesskey="&btn-remove.ak;"
+					oncommand="parent.gmanager_Options.accountsRemove();"/>
+		</hbox>
+	</groupbox>
+</page>

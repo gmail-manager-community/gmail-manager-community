@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+  Gmail Manager NG
+  https://github.com/nedwidek/firefox-gmail-manager-ng
+
+Based on:
+  Gmail Manager
+  Todd Long <longfocus@gmail.com>
+  http://www.longfocus.com/firefox/gmanager
+ -->
+
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+		xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+		
+	<Description about="urn:mozilla:install-manifest">
+		<em:id>gmail-manager-ng@nedwidek.github.com</em:id>
+		<em:version>0.6.5.3-fixFF32</em:version>
+		<em:type>2</em:type>
+		
+		<em:name>Gmail Manager NG</em:name>
+		<em:description>Based on Gmail Manager by Todd Long. This fork is intended to a supported version of Gmail Manager since Todd appears to have gone MIA. Manage multiple Gmail accounts and receive new mail notifications.</em:description>
+		<em:creator>Erik Nedwidek</em:creator>
+        <em:contributor>Todd Long</em:contributor>
+		<em:contributor>BabelZilla.org translation team</em:contributor>
+		<em:homepageURL>https://github.com/nedwidek/firefox-gmail-manager-ng</em:homepageURL>
+		<em:iconURL>chrome://gmanager/skin/gmail-icon.png</em:iconURL>
+		<em:optionsURL>chrome://gmanager/content/options/options.xul</em:optionsURL>
+		
+		<!-- Firefox -->
+		<em:targetApplication>
+			<Description>
+				<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+				<em:minVersion>3.5</em:minVersion>
+				<em:maxVersion>13.0a1</em:maxVersion>
+			</Description>
+		</em:targetApplication>
+		
+		<!-- Flock -->
+		<em:targetApplication>
+			<Description>
+				<em:id>{a463f10c-3994-11da-9945-000d60ca027b}</em:id>
+				<em:minVersion>1.0</em:minVersion>
+				<em:maxVersion>2.6.*</em:maxVersion>
+			</Description>
+		</em:targetApplication>
+		
+		<!-- Seamonkey -->
+		<em:targetApplication>
+			<Description>
+				<em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
+				<em:minVersion>1.1</em:minVersion>
+				<em:maxVersion>2.0.*</em:maxVersion>
+			</Description>
+		</em:targetApplication>
+		
+		<!-- Songbird -->
+		<em:targetApplication>
+			<Description>
+				<em:id>songbird@songbirdnest.com</em:id>
+				<em:minVersion>1.0</em:minVersion>
+				<em:maxVersion>1.9.*</em:maxVersion>
+			</Description>
+		</em:targetApplication>
+	</Description>
+</RDF>

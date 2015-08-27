@@ -1,0 +1,8 @@
+chromepackage.out
+xpipackage.out
+
+# IntelliJ IDEA
+*.iml
+*.ipr
+*.iws
+.idea/

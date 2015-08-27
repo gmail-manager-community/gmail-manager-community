@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://gmanager/content/options/options.css" type="text/css"?>
+
+<!-- 
+  Gmail Manager NG
+  Erik Nedwidek (http://github.com/nedwidek)
+  Based on Gmail Manager by Todd Long <longfocus@gmail.com>
+ -->
+
+<!DOCTYPE page SYSTEM "chrome://gmanager/locale/gmanager.dtd">
+
+<page id="gmanager-options-general"
+	onload="parent.gmanager_Options.loadPagePrefs();"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	
+	<script type="application/x-javascript" src="chrome://gmanager/content/utils/bundle.js"/>
+	<script type="application/x-javascript" src="chrome://gmanager/content/utils/prefs.js"/>
+	
+	<groupbox>
+		<caption label="&options-tab-general;"/>
+		
+		<checkbox id="gm-prefs-general-hide-context-menu"
+				label="&options-general-hide-context-menu;"/>
+				
+		<checkbox id="gm-prefs-general-hide-tools-menu"
+				label="&options-general-hide-tools-menu;"/>
+	</groupbox>
+	
+	<groupbox>
+		<caption label="&options-general-startup;"/>
+		
+		<checkbox id="gm-prefs-general-auto-login"
+				label="&options-general-auto-login;"/>
+	</groupbox>
+	
+	<separator class="thin"/>
+	
+	<hbox>
+		<button label="&btn-import;"
+				accesskey="&btn-import.ak;"
+				oncommand="parent.gmanager_Options.importPrefs();"/>
+				
+		<button label="&btn-export;"
+				accesskey="&btn-export.ak;"
+				oncommand="parent.gmanager_Options.exportPrefs();"/>
+	</hbox>
+</page>

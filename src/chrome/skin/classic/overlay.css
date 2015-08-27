@@ -1,0 +1,179 @@
+@import url("chrome://global/skin/");
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/*
+  Gmail Manager NG
+  Erik Nedwidek (http://github.com/nedwidek)
+  Based on Gmail Manager by Todd Long <longfocus@gmail.com>
+*/
+
+/*** General ***/
+
+.gmanager-bold {
+	font-weight: bold;
+}
+
+.gmanager-indent {
+	margin-left: 10px;
+}
+
+/*** Bindings ***/
+
+.gmanager-account-info {
+	-moz-binding: url("chrome://gmanager/content/overlay.xml#gmanager-account-info") !important;
+}
+
+.gmanager-toolbar-menuitem {
+	-moz-binding: url("chrome://gmanager/content/overlay.xml#gmanager-toolbar-menuitem") !important;
+}
+
+/*** Toolbar *****/
+
+toolbar .gmanager-account-info {
+	-moz-appearance: toolbarbutton !important;
+}
+
+statusbar .gmanager-account-info {
+	-moz-appearance: statusbarpanel !important;
+}
+
+toolbarpaletteitem .gmanager-account-info {
+	-moz-appearance: none !important;
+}
+
+.gmanager-account-info {
+	border: 0 none !important;
+	margin: 0;
+	padding: 0 2px;
+}
+
+.gmanager-account-info tooltip {
+	padding: 6px 6px 4px 4px;
+}
+
+.gmanager-account-info tooltip label {
+	margin: 0 4px 2px 0;
+}
+
+/*** Tooltip ***/
+
+#gmanager-tooltip-header {
+	font-size: 12px;
+	margin-bottom:4px;
+}
+
+#gmanager-tooltip-details {
+	font-size: 11px;
+	margin-left: 6px;
+}
+
+#gmanager-tooltip-details > grid {
+	margin: 6px 2px;
+}
+
+#gmanager-tooltip-details > grid label {
+	margin-left: 4px;
+}
+
+.gmanager-tooltip-details-snippet {
+	font-size: 10px;
+	margin-bottom: 8px;
+}
+
+.gmanager-tooltip-details-snippet > description {
+	font-size: 9px;
+	margin: 2px 0 0 0;
+}
+
+/*** Account information ***/
+
+.gmanager-icon {
+	margin: 0 5px 0 3px;
+}
+
+.gmanager-unread, .gmanager-alias {
+	display: block;
+	margin: 0 3px 0 0;
+}
+
+.gmanager-unread[value=""], .gmanager-alias[value=""] {
+	display: none;
+}
+
+/*** Throbber image ***/
+
+image[status="connecting"] {
+	opacity: 0.5;
+}
+
+/*** Large image ***/
+
+.gmanager-icon[icontype="gmail"] {
+	list-style-image: url(chrome://gmanager/skin/gmail/gmail-large.png);
+}
+
+.gmanager-icon[status="logged-out"] {
+	-moz-image-region: rect(0px 24px 24px 0px); /* Logged out */
+}
+
+.gmanager-icon[status="logged-in"][newMail="false"] {
+	-moz-image-region: rect(0px 72px 24px 48px); /* Logged in (no mail) */
+}
+
+.gmanager-icon[status="logged-in"][newMail="true"] {
+	-moz-image-region: rect(0px 96px 24px 72px); /* Logged in (new mail) */
+}
+
+.gmanager-icon[status="error"] {
+	-moz-image-region: rect(0px 48px 24px 24px); /* Error */
+}
+
+.gmanager-icon[status="connecting"] {
+	list-style-image: url(chrome://gmanager/skin/throbber/throbber-large.gif);
+	-moz-image-region: rect(0px 20px 20px 0px); /* Throbber */
+}
+
+/*** Small image ***/
+
+toolbar[type="menubar"] .gmanager-icon[icontype="gmail"],
+toolbar[iconsize="small"] .gmanager-icon[icontype="gmail"],
+statusbar .gmanager-icon[icontype="gmail"],
+.gmanager-icon[iconsize="small"][icontype="gmail"] {
+	list-style-image: url(chrome://gmanager/skin/gmail/gmail-small.png);
+}
+
+toolbar[type="menubar"] .gmanager-icon[status="logged-out"],
+toolbar[iconsize="small"] .gmanager-icon[status="logged-out"],
+statusbar .gmanager-icon[status="logged-out"],
+.gmanager-icon[iconsize="small"][status="logged-out"] {
+	-moz-image-region: rect(0px 16px 16px 0px); /* Logged out */
+}
+
+toolbar[type="menubar"] .gmanager-icon[status="logged-in"][newMail="false"],
+toolbar[iconsize="small"] .gmanager-icon[status="logged-in"][newMail="false"],
+statusbar .gmanager-icon[status="logged-in"][newMail="false"],
+.gmanager-icon[iconsize="small"][status="logged-in"][newMail="false"] {
+	-moz-image-region: rect(0px 48px 16px 32px); /* Logged in (no mail) */
+}
+
+toolbar[type="menubar"] .gmanager-icon[status="logged-in"][newMail="true"],
+toolbar[iconsize="small"] .gmanager-icon[status="logged-in"][newMail="true"],
+statusbar .gmanager-icon[status="logged-in"][newMail="true"],
+.gmanager-icon[iconsize="small"][status="logged-in"][newMail="true"] {
+	-moz-image-region: rect(0px 64px 16px 48px); /* Logged in (new mail) */
+}
+
+toolbar[type="menubar"] .gmanager-icon[status="error"],
+toolbar[iconsize="small"] .gmanager-icon[status="error"],
+statusbar .gmanager-icon[status="error"],
+.gmanager-icon[iconsize="small"][status="error"] {
+	-moz-image-region: rect(0px 32px 16px 16px); /* Error */
+}
+
+toolbar[type="menubar"] .gmanager-icon[status="connecting"],
+toolbar[iconsize="small"] .gmanager-icon[status="connecting"],
+statusbar .gmanager-icon[status="connecting"],
+.gmanager-icon[iconsize="small"][status="connecting"] {
+	list-style-image: url(chrome://gmanager/skin/throbber/throbber-small.gif);
+	-moz-image-region: rect(0px 16px 16px 0px); /* Throbber */
+}

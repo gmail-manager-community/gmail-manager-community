@@ -1,0 +1,54 @@
+@import url("chrome://global/skin/");
+@import url("chrome://gmanager/skin/overlay.css");
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/*
+  Gmail Manager NG
+  Erik Nedwidek (http://github.com/nedwidek)
+  Based on Gmail Manager by Todd Long <longfocus@gmail.com>
+*/
+
+.gmanager-disclaimer {
+	color: darkred;
+}
+
+.gmanager-link {
+	color: #039;
+	cursor: pointer;
+}
+
+.gmanager-link:hover {
+	text-decoration: underline;
+}
+
+#gmanager-options {
+	height: 40em !important;
+	width: 60em !important;
+}
+
+#gmanager-options-listbox {
+	width: 12em !important;
+}
+
+#gmanager-options-listbox listitem {
+    padding: 0.1em !important;
+}
+
+#gmanager-options-accounts-listbox > listitem {
+	-moz-binding: url("chrome://gmanager/content/options/options.xml#gmanager-account-listitem") !important;
+}
+
+#gmanager-options-accounts-listbox > listitem label {
+	margin: 0;
+	padding: 0;
+}
+
+#gmanager-options-accounts-listbox > listitem .checkbox-label-box {
+	display: none;
+}
+
+#gmanager-options-help-contributors-popup > menuitem {
+	-moz-binding: url("chrome://gmanager/content/options/options.xml#gmanager-donate-menuitem") !important;
+	-moz-padding-end: 0px;
+	-moz-padding-start: 0px;
+}

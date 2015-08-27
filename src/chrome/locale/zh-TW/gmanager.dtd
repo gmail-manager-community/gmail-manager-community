@@ -1,0 +1,124 @@
+<!ENTITY ext-name "Gmail Manager NG">
+<!ENTITY ext-description "管理多個 Gmail 帳號及新郵件通知。">
+<!ENTITY common-alias "別名">
+<!ENTITY common-email "Email">
+<!ENTITY common-password "密碼">
+<!ENTITY btn-add "新增...">
+<!ENTITY btn-modify "修改...">
+<!ENTITY btn-remove "移除">
+<!ENTITY btn-migrate "搬移...">
+<!ENTITY btn-move-up "上移">
+<!ENTITY btn-move-down "下移">
+<!ENTITY btn-import "匯入偏好設定...">
+<!ENTITY btn-export "匯出偏好設定...">
+<!ENTITY btn-browse "瀏覽...">
+<!ENTITY btn-preview "預覽">
+<!ENTITY btn-visit-site "訪問網站">
+<!ENTITY btn-add.ak "A">
+<!ENTITY btn-modify.ak "M">
+<!ENTITY btn-remove.ak "R">
+<!ENTITY btn-migrate.ak "I">
+<!ENTITY btn-move-up.ak "U">
+<!ENTITY btn-move-down.ak "D">
+<!ENTITY btn-import.ak "I">
+<!ENTITY btn-export.ak "E">
+<!ENTITY btn-browse.ak "B">
+<!ENTITY btn-preview.ak "P">
+<!ENTITY btn-visit-site.ak "V">
+<!ENTITY migrate-title "Gmail Manager NG 搬移功能">
+<!ENTITY migrate-select-accounts "請選擇您要搬移的帳號：">
+<!ENTITY migrate-login-accounts "登入所選帳號。">
+<!ENTITY login-title "Gmail Manager NG 登入">
+<!ENTITY login-header-label "請輸入您帳號資訊以登入帳號：">
+<!ENTITY login-remember-password-label "下次記住此密碼。">
+<!ENTITY alert-from "從">
+<!ENTITY alert-date "日期">
+<!ENTITY alert-subject "主旨">
+<!ENTITY tab-location "分頁位置">
+<!ENTITY tab-location-open "開啟位置：">
+<!ENTITY tab-location-blank "空白分頁（第一個可用的）">
+<!ENTITY tab-location-current "目前的視窗或分頁">
+<!ENTITY tab-location-existing "已存在的視窗或分頁">
+<!ENTITY tab-location-focused "新分頁（前景）">
+<!ENTITY tab-location-background "新分頁（背景）">
+<!ENTITY tab-location-window "新視窗">
+<!ENTITY options-title "Gmail Manager NG 選項">
+<!ENTITY options-tab-general "一般">
+<!ENTITY options-tab-accounts "帳號">
+<!ENTITY options-tab-compose "撰寫郵件">
+<!ENTITY options-tab-security "安全性">
+<!ENTITY options-tab-toolbar "工具列">
+<!ENTITY options-tab-tooltip "提示">
+<!ENTITY options-tab-notifications "通知">
+<!ENTITY options-tab-help "求助">
+<!ENTITY options-tab-debug "除錯">
+<!ENTITY options-general-hide-context-menu "隱藏 Gmail Manager NG 右鍵選單。">
+<!ENTITY options-general-hide-tools-menu "隱藏 Gmail Manager NG 工具選單。">
+<!ENTITY options-general-startup "啟動">
+<!ENTITY options-general-auto-login "啟動時自動登入全部帳號。">
+<!ENTITY options-accounts-auto-login "自動登入">
+<!ENTITY options-compose-mailto-links "Mailto: 連結">
+<!ENTITY options-compose-internet-links "使用 Gmail Manager NG 管理網頁 mailto: 連結。">
+<!ENTITY options-compose-prompt-for "詢問帳號...">
+<!ENTITY options-compose-default-account "預設帳號：">
+<!ENTITY options-compose-context-menu "右鍵選單">
+<!ENTITY options-compose-click-mailto "只在 mailto: 連結上顯示選單。">
+<!ENTITY options-security-passwords "密碼">
+<!ENTITY options-security-never-save-passwords "永不儲存郵件帳號的密碼。">
+<!ENTITY options-security-connection "連線">
+<!ENTITY options-security-secured-connection "檢查帳號時永遠使用安全連線。">
+<!ENTITY options-toolbar-switching-accounts "切換帳號">
+<!ENTITY options-toolbar-auto-login "選擇帳號時自動登入。">
+<!ENTITY options-toolbar-auto-check "選擇帳號時自動檢查新郵件。">
+<!ENTITY options-toolbar-auto-switch "自動切換到有新郵件的帳號。">
+<!ENTITY options-toolbar-auto-switch-disclaimer "這個選項只會在一個工具列顯示時啟用。">
+<!ENTITY options-toolbar-selected-account "選擇帳號">
+<!ENTITY options-toolbar-left-click "左鍵：">
+<!ENTITY options-toolbar-middle-click "中鍵：">
+<!ENTITY options-toolbar-prompt-options "可用的選項...">
+<!ENTITY options-toolbar-check-messages "檢查新郵件">
+<!ENTITY options-toolbar-compose-message "撰寫新郵件">
+<!ENTITY options-toolbar-reset-unread-count "開啟帳號時重設未讀郵件計數器。">
+<!ENTITY options-help-release-manager "Release Manager:">
+<!ENTITY options-help-based-on "Based On:">
+<!ENTITY options-help-join-community "Join the Community">
+<!ENTITY options-help-join-community-message "Gmail Manager NG is intended to be a community driven project. Getting started is as simple as creating a fork of the repository on GitHub.com. Gmail Manager NG is developed and distributed under the same license as the original Gmail Manager.">
+<!ENTITY options-help-translate-message "Interested in translating? Create your own GitHub fork of the repository and look for the files under src/chrome/locale. If you're not a developer, you can create an issue and add the contents of your gmanager.dtd and gmanager.properties files.">
+<!ENTITY options-help-issues "Bug Support and Features">
+<!ENTITY options-help-issues-message "Found a bug or have a cool idea for a new feature? Open an issue in the issue tracker at GitHub.com.">
+<!ENTITY options-help-supporters "Thanks to the Supporters of Gmail Manager">
+<!ENTITY options-help-supporters-message "The following people donated to the original project. They deserve a special thanks for helping to make Gmail Manager a fantastic add on.">
+<!ENTITY options-help-author "作者：">
+<!ENTITY options-help-website "網站：">
+<!ENTITY options-help-contact "聯絡方式">
+<!ENTITY options-help-questions-comments "有疑問或是建議嗎？">
+<!ENTITY options-help-translate "翻譯">
+<!ENTITY options-help-interested-translating "對翻譯有興趣嗎？">
+<!ENTITY options-help-donate-paypal "透過 PayPal 提供贊助">
+<!ENTITY options-help-support "贊助 Gmail Manager NG 及其未來的開發。這將使我們得以繼續改良此套件。我們會將您的姓名及網站列在下面的列表中。在此先說聲感謝！">
+<!ENTITY options-help-click-here-paypal "透過 PayPal 贊助...">
+<!ENTITY options-help-thanks-to "感謝：">
+<!ENTITY options-account-title "Gmail Manager NG 帳號">
+<!ENTITY options-account-general-account "帳號">
+<!ENTITY options-account-general-startup "啟動">
+<!ENTITY options-account-general-auto-login "啟動時自動登入此帳號。">
+<!ENTITY options-account-toolbar-display-placement "顯示位置">
+<!ENTITY options-account-toolbar-display-toolbar "顯示於工具列">
+<!ENTITY options-account-toolbar-always-last "總在最後">
+<!ENTITY options-account-toolbar-specific-position "指定位置：">
+<!ENTITY options-account-toolbar-hide-count "工具列中不顯示未讀郵件數目">
+<!ENTITY options-account-toolbar-hide-alias "工具列中不顯示別名">
+<!ENTITY options-account-toolbar-show-labels "只在未讀郵件顯示標籤。">
+<!ENTITY options-account-toolbar-show-snippets "顯在收件匣中的新郵件片段">
+<!ENTITY options-account-toolbar-unread-count "未讀郵件數目">
+<!ENTITY options-account-toolbar-unread-include "包含">
+<!ENTITY options-account-toolbar-unread-count-inbox "收件匣">
+<!ENTITY options-account-toolbar-unread-toolbar-spam "垃圾郵件">
+<!ENTITY options-account-toolbar-unread-toolbar-labels "標籤">
+<!ENTITY options-account-notifications-check-messages "檢查郵件">
+<!ENTITY options-account-notifications-check-every "每隔">
+<!ENTITY options-account-notifications-minutes "分鐘檢查新郵件。">
+<!ENTITY options-account-notifications-snippets "通知視窗">
+<!ENTITY options-account-notifications-display-snippets "收到新郵件時顯示郵件片段">
+<!ENTITY options-account-notifications-sounds "音效">
+<!ENTITY options-account-notifications-play-sound "新郵件送達時播放音效。">

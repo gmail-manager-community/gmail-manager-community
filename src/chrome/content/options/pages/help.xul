@@ -1,0 +1,335 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://gmanager/content/options/options.css" type="text/css"?>
+
+<!-- 
+  Gmail Manager NG
+  Erik Nedwidek (http://github.com/nedwidek)
+  Based on Gmail Manager by Todd Long <longfocus@gmail.com>
+ -->
+
+<!DOCTYPE page SYSTEM "chrome://gmanager/locale/gmanager.dtd">
+
+<page id="gmanager-options-help"
+	onload="parent.gmanager_Options.loadPagePrefs();"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	
+	<groupbox>
+		<grid>
+			<rows>
+				<row>
+					<label value="&options-help-release-manager;"/>
+					
+					<label value="Erik Nedwidek"
+						tooltiptext="http://github.com/nedwidek/"/>
+				</row>
+				
+				<row>
+					<label value="&options-help-website;"/>
+					
+					<label class="gmanager-link"
+						value="https://github.com/nedwidek/firefox-gmail-manager-ng"
+						tooltiptext="https://github.com/nedwidek/firefox-gmail-manager-ng"
+						onclick="parent.gmanager_Utils.loadSimpleURI('https://github.com/nedwidek/firefox-gmail-manager-ng');"/>
+				</row>
+                				
+				<row>
+					<label value="&options-help-based-on;"/>
+					
+					<label class="gmanager-link"
+                        value="Gmail Manager by Todd Long &lt;longfocus@gmail.com&gt;"
+						tooltiptext="http://www.longfocus.com/firefox/gmanager/"
+						onclick="parent.gmanager_Utils.loadSimpleURI('http://www.longfocus.com/firefox/gmanager/');"/>
+				</row>
+			</rows>
+		</grid>
+	</groupbox>
+	
+	<groupbox>
+		<caption label="&options-help-join-community;"/>
+		
+		<label>&options-help-join-community-message;</label>
+	</groupbox>
+	
+	<groupbox>
+		<caption label="&options-help-translate;"/>
+		
+		<label>&options-help-translate-message;</label>
+	</groupbox>
+
+    <groupbox>
+		<caption label="&options-help-issues;"/>
+		
+		<label>&options-help-issues-message;</label>
+	</groupbox>
+	
+	<groupbox>
+		<caption label="&options-help-supporters;"/>
+		
+		<label>&options-help-supporters-message;</label>
+		
+		<separator class="thin"/>
+		
+		<hbox align="center">
+			<label>&options-help-thanks-to;</label>
+			
+			<menulist id="gmanager-options-help-contributors-list"
+					flex="1"
+					sizetopopup="none">
+					
+				<menupopup id="gmanager-options-help-contributors-popup"
+						flex="1">
+						
+					<menuitem label="BabelZilla translators" site="http://www.babelzilla.org/"/>
+					<menuitem label="Matthew D." site="http://www.demeusy.com/"/>
+					<menuitem label="Alfred L."/>
+					<menuitem label="Sam G."/>
+					<menuitem label="Shannon M." site="http://www.samiam.com/"/>
+					<menuitem label="Ray T." site="http://www.martialartsresource.com/"/>
+					<menuitem label="AbleNET IRC" site="http://www.AbleNET.Org/"/>
+					<menuitem label="Pierre V."/>
+					<menuitem label="Michael R."/>
+					<menuitem label="Shawn W."/>
+					<menuitem label="Mark R."/>
+					<menuitem label="Lyndon W."/>
+					<menuitem label="Linh N." site="http://www.typicalmedium.com/"/>
+					<menuitem label="Kelly"/>
+					<menuitem label="Varisa H."/>
+					<menuitem label="Reeovase"/>
+					<menuitem label="Albert H."/>
+					<menuitem label="Paul C."/>
+					<menuitem label="Jim van H." site="http://www.lowbudgetkillers.com/"/>
+					<menuitem label="Mirek" site="http://www.100lat.pl/"/>
+					<menuitem label="Masahiro A."/>
+					<menuitem label="Luke S." site="http://www.witimagery.com/"/>
+					<menuitem label="Connections Counselling" site="http://www.connections-c.com/"/>
+					<menuitem label="Peter L."/>
+					<menuitem label="US Business Link" site="http://www.usbusinesslink.com/"/>
+					<menuitem label="Steve H."/>
+					<menuitem label="Julio Gomez D." site="http://www.sudinox.net/"/>
+					<menuitem label="Alan S."/>
+					<menuitem label="Michael M."/>
+					<menuitem label="Jeffrey L."/>
+					<menuitem label="Mein Persönliches Konzept" site="http://www.Mann-Sein.eu/"/>
+					<menuitem label="Charles H."/>
+					<menuitem label="Anonymous" site="http://www.binrev.com/"/>
+					<menuitem label="Jason P."/>
+					<menuitem label="John A." site="http://www.johnabela.com/"/>
+					<menuitem label="Manuel S."/>
+					<menuitem label="Abdul M." site="http://www.islamworld.net/"/>
+					<menuitem label="Anonymous" site="http://www.brainclone.com/"/>
+					<menuitem label="Donna C."/>
+					<menuitem label="Naoki K."/>
+					<menuitem label="Julio Gomez D." site="http://www.sudinox.net/"/>
+					<menuitem label="Vu V."/>
+					<menuitem label="Paul B."/>
+					<menuitem label="Brad S."/>
+					<menuitem label="John B."/>
+					<menuitem label="Tarique N."/>
+					<menuitem label="Musab M."/>
+					<menuitem label="Thomas T."/>
+					<menuitem label="Todd M."/>
+					<menuitem label="Douglas V." site="http://godwaffle.com/"/>
+					<menuitem label="Hive" site="http://www.dantaylor.com/"/>
+					<menuitem label="Cindy C."/>
+					<menuitem label="Tin Pang T."/>
+					<menuitem label="Hermann Josef E." site="http://regenpfeifer.eu/"/>
+					<menuitem label="Daniel S."/>
+					<menuitem label="Filip M."/>
+					<menuitem label="Damien G."/>
+					<menuitem label="Radu B."/>
+					<menuitem label="Sheng Yi T."/>
+					<menuitem label="Kok-Thiam Y."/>
+					<menuitem label="wertrose caution" site="http://www.werty.net/"/>
+					<menuitem label="Ben H."/>
+					<menuitem label="Paul B."/>
+					<menuitem label="J Smooth Corp." site="http://www.jsmoothsalsa.com/"/>
+					<menuitem label="Amaury B." site="http://www.amau96.com/"/>
+					<menuitem label="John B."/>
+					<menuitem label="Katherine M."/>
+					<menuitem label="Basile G." site="http://www.vidome.com/"/>
+					<menuitem label="Rafael R."/>
+					<menuitem label="James Z." site="http://zzzone.net/"/>
+					<menuitem label="Ingemar B."/>
+					<menuitem label="Crawford L."/>
+					<menuitem label="Filip M."/>
+					<menuitem label="Alex B." site="http://slipshade.googlepages.com/"/>
+					<menuitem label="Dave E." site="http://www.computer-center-web.com/"/>
+					<menuitem label="Amy L."/>
+					<menuitem label="IS/OOP Group"/>
+					<menuitem label="PrivacyScan"/>
+					<menuitem label="HogCall.com" site="http://www.hogcall.com/"/>
+					<menuitem label="there tang" site="http://www.boxup.org/"/>
+					<menuitem label="Balazs Lato co." site="http://lato.hu/"/>
+					<menuitem label="Anuwat C."/>
+					<menuitem label="IKARUS Solutions" site="http://www.ikarus-solutions.net/"/>
+					<menuitem label="Michel V." site="http://www.evo-x.de/"/>
+					<menuitem label="59Ideas" site="http://59ideas.com/"/>
+					<menuitem label="Peter L."/>
+					<menuitem label="Pavel G."/>
+					<menuitem label="David C."/>
+					<menuitem label="Andrew S."/>
+					<menuitem label="ASP Web Solution" site="http://www.aspwebsolution.com/"/>
+					<menuitem label="Jeff S."/>
+					<menuitem label="Chris W."/>
+					<menuitem label="Rajkumar S."/>
+					<menuitem label="Kenneth W."/>
+					<menuitem label="Shadi H."/>
+					<menuitem label="Kent J."/>
+					<menuitem label="Jean-C." site="http://www.restonantes.com/"/>
+					<menuitem label="Lisa T."/>
+					<menuitem label="Michael M."/>
+					<menuitem label="Ay Ziggy Zoomba" site="http://www.ay-ziggy-zoomba.com/"/>
+					<menuitem label="Grant C." site="http://www.pepperguy.com/"/>
+					<menuitem label="Victoria L."/>
+					<menuitem label="Jaume de Marcos A."/>
+					<menuitem label="Eric V."/>
+					<menuitem label="Ganesh V."/>
+					<menuitem label="Evan N."/>
+					<menuitem label="Blair M."/>
+					<menuitem label="Sz-Chyuan L."/>
+					<menuitem label="Lin Lan F."/>
+					<menuitem label="Gary R."/>
+					<menuitem label="Tarek B." site="http://www.footytube.com/"/>
+					<menuitem label="Evelyn L."/>
+					<menuitem label="Kevin J."/>
+					<menuitem label="Serhat Y." site="http://www.colyak.info/"/>
+					<menuitem label="Michael J."/>
+					<menuitem label="Peter Z."/>
+					<menuitem label="Francesco R."/>
+					<menuitem label="Clay C."/>
+					<menuitem label="Core Media"/>
+					<menuitem label="Robert K."/>
+					<menuitem label="BluePeak Development, LLC" site="http://www.blue-peak.net/"/>
+					<menuitem label="Nicholas J."/>
+					<menuitem label="Paul C."/>
+					<menuitem label="Bryon R."/>
+					<menuitem label="SAHA" site="http://www.sahaindia.org/"/>
+					<menuitem label="Adrian H."/>
+					<menuitem label="Charles P."/>
+					<menuitem label="Gillian N."/>
+					<menuitem label="Allen U."/>
+					<menuitem label="Brian S."/>
+					<menuitem label="Lisa G."/>
+					<menuitem label="Digital Alias Incorporated" site="http://www.digitalalias.net/"/>
+					<menuitem label="Valerio Graziano E."/>
+					<menuitem label="Gregg W."/>
+					<menuitem label="Pietro B."/>
+					<menuitem label="Jonathan G."/>
+					<menuitem label="Richard S."/>
+					<menuitem label="John B."/>
+					<menuitem label="Patricia C."/>
+					<menuitem label="Sz-Chyuan L."/>
+					<menuitem label="Kirill K."/>
+					<menuitem label="Eric G."/>
+					<menuitem label="George K."/>
+					<menuitem label="Todd H."/>
+					<menuitem label="Jeff G."/>
+					<menuitem label="Leendert O."/>
+					<menuitem label="Andy L." site="http://www.here2there.ca/"/>
+					<menuitem label="Allan C." site="http://InterMod.net/"/>
+					<menuitem label="Larry M."/>
+					<menuitem label="PureScience, Inc." site="http://www.purescience.com/"/>
+					<menuitem label="Peter K." site="http://www.piep.nu/"/>
+					<menuitem label="Mattie C."/>
+					<menuitem label="Zack O."/>
+					<menuitem label="Jason G."/>
+					<menuitem label="Patrice B."/>
+					<menuitem label="Francisco A."/>
+					<menuitem label="Robert A." site="http://www.koexist.com/"/>
+					<menuitem label="Beano J."/>
+					<menuitem label="Paul R."/>
+					<menuitem label="Edward H."/>
+					<menuitem label="Ian W."/>
+					<menuitem label="Mattie C."/>
+					<menuitem label="Paul J."/>
+					<menuitem label="Vanessa E."/>
+					<menuitem label="Jordan B."/>
+					<menuitem label="Richard G."/>
+					<menuitem label="Melanie A."/>
+					<menuitem label="William B."/>
+					<menuitem label="Paris L."/>
+					<menuitem label="Vladimir S."/>
+					<menuitem label="Yan S."/>
+					<menuitem label="Filip O."/>
+					<menuitem label="Daniel M."/>
+					<menuitem label="Giovel G."/>
+					<menuitem label="Bukurije S." site="http://www.restoadriatico.be/"/>
+					<menuitem label="Igor A."/>
+					<menuitem label="Fraser B."/>
+					<menuitem label="C. Squar"/>
+					<menuitem label="Joan Pou N."/>
+					<menuitem label="Kevin B."/>
+					<menuitem label="Alastair L."/>
+					<menuitem label="Ann Marie B."/>
+					<menuitem label="Mark S."/>
+					<menuitem label="Alexander B." site="http://www.alecbrownstein.com/"/>
+					<menuitem label="Thomas G."/>
+					<menuitem label="Daniel J."/>
+					<menuitem label="John R."/>
+					<menuitem label="InTheStadium Tickets" site="http://www.inthestadium.com/"/>
+					<menuitem label="Darryl S."/>
+					<menuitem label="Paula F."/>
+					<menuitem label="Chappell D."/>
+					<menuitem label="Christopher M."/>
+					<menuitem label="Ferdinando T."/>
+					<menuitem label="Paweł K."/>
+					<menuitem label="Nicholas J."/>
+					<menuitem label="Jakub F."/>
+					<menuitem label="John W."/>
+					<menuitem label="Ralph M."/>
+					<menuitem label="Michael R."/>
+					<menuitem label="Juan Francisco Fernández R."/>
+					<menuitem label="Jean C."/>
+					<menuitem label="Ozh" site="http://planetozh.com/"/>
+					<menuitem label="Hidehito T."/>
+					<menuitem label="Satoya" site="http://Big-Bucks2U.com/"/>
+					<menuitem label="Michael W."/>
+					<menuitem label="Andreas K."/>
+					<menuitem label="Albert C."/>
+					<menuitem label="Zivile V."/>
+					<menuitem label="Mary K."/>
+					<menuitem label="Guillaume T."/>
+					<menuitem label="Layla A."/>
+					<menuitem label="Dominik B."/>
+					<menuitem label="Kole W."/>
+					<menuitem label="Grzegorz U."/>
+					<menuitem label="Spencer S."/>
+					<menuitem label="Martin O."/>
+					<menuitem label="Jean-François P."/>
+					<menuitem label="Chie-Hoon L."/>
+					<menuitem label="Katla N."/>
+					<menuitem label="Way to the Web" site="http://www.waytotheweb.com/"/>
+					<menuitem label="Ander P."/>
+					<menuitem label="Whiler" site="http://www.whiler.com/"/>
+					<menuitem label="Steve J."/>
+					<menuitem label="Armin S."/>
+					<menuitem label="Jay K."/>
+					<menuitem label="Elena S."/>
+					<menuitem label="Iceni-it" site="http://www.iceni-it.co.uk/"/>
+					<menuitem label="Carl H."/>
+					<menuitem label="K J E."/>
+					<menuitem label="Valery S."/>
+					<menuitem label="Edward H."/>
+					<menuitem label="Ron S."/>
+					<menuitem label="Emre D."/>
+					<menuitem label="Benjamin M."/>
+					<menuitem label="Ramie M."/>
+					<menuitem label="Dieter M."/>
+					<menuitem label="Barbara G."/>
+					<menuitem label="Marc-Antoine S."/>
+					<menuitem label="Manuel Suarez O."/>
+					<menuitem label="Michael M."/>
+					<menuitem label="Barbara L."/>
+					<menuitem label="Elora A."/>
+					<menuitem label="Dennis O J."/>
+					<menuitem label="Robin M."/>
+				</menupopup>
+			</menulist>
+			
+			<button id="gmanager-options-help-visit-button"
+					label="&btn-visit-site;"
+					accesskey="&btn-visit-site.ak;"
+					oncommand="parent.gmanager_Options.helpVisitSite();"/>
+		</hbox>
+	</groupbox>
+</page>

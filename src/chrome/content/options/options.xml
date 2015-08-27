@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+  Gmail Manager NG
+  Erik Nedwidek (http://github.com/nedwidek)
+  Based on Gmail Manager by Todd Long <longfocus@gmail.com>
+ -->
+
+<bindings xmlns="http://www.mozilla.org/xbl"
+		xmlns:xbl="http://www.mozilla.org/xbl"
+		xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+		
+	<binding id="gmanager-account-listitem"
+			extends="chrome://global/content/bindings/listbox.xml#listitem">
+			
+		<content allowevents="true">
+			<children>
+				<xul:listcell>
+					<xul:image class="gmanager-icon"
+							iconsize="small"
+							xbl:inherits="icontype,status,newMail"/>
+							
+					<xul:label xbl:inherits="value=email"/>
+				</xul:listcell>
+				
+				<xul:listcell pack="center">
+					<xul:checkbox anonid="checkbox"
+								xbl:inherits="checked"/>
+				</xul:listcell>
+			</children>
+		</content>
+		
+		<implementation>
+			<property name="email"
+					onget="return this.getAttribute('email');"
+					onset="return this.setAttribute('email', val);"/>
+					
+			<property name="checked"
+					onget="return document.getAnonymousElementByAttribute(this, 'anonid', 'checkbox').checked;"/>
+		</implementation>
+	</binding>
+	
+	<binding id="gmanager-donate-menuitem"
+			extends="chrome://global/content/bindings/menu.xml#menuitem">
+			
+		<content>
+			<xul:label flex="1"
+					xbl:inherits="value=label"/>
+					
+			<xul:spacer width="40"/>
+			
+			<xul:label xbl:inherits="value=site"/>
+		</content>
+	</binding>
+</bindings>

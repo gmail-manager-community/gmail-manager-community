@@ -1,0 +1,22 @@
+@import url("chrome://global/skin/");
+@import url("chrome://gmanager/skin/overlay.css");
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/*
+  Gmail Manager NG
+  Erik Nedwidek (http://github.com/nedwidek)
+  Based on Gmail Manager by Todd Long <longfocus@gmail.com>
+*/
+
+#gmanager-migrate listitem.gmanager-migrate-listitem {
+	-moz-binding: url("chrome://gmanager/content/migrate/migrate.xml#gmanager-migrate-listitem");
+}
+
+#gmanager-migrate listitem.gmanager-migrate-listitem checkbox {
+	margin: 0;
+	padding: 0;
+}
+
+#gmanager-migrate listitem > listcell {
+	padding: 3px 4px;
+}

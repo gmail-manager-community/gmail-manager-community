@@ -1,0 +1,124 @@
+<!ENTITY ext-name "Гмаил Менаџер">
+<!ENTITY ext-description "Менаџмент Гмаил налога и обавештавање о новим порукама.">
+<!ENTITY common-alias "Алиас">
+<!ENTITY common-email "Емаил">
+<!ENTITY common-password "Лозинка">
+<!ENTITY btn-add "Додај...">
+<!ENTITY btn-modify "Промени...">
+<!ENTITY btn-remove "Уклони...">
+<!ENTITY btn-migrate "Пребаци..">
+<!ENTITY btn-move-up "Помери на горе">
+<!ENTITY btn-move-down "Помери на доле">
+<!ENTITY btn-import "Увези подешавања">
+<!ENTITY btn-export "Извези подешавања">
+<!ENTITY btn-browse "Пронађи...">
+<!ENTITY btn-preview "Прегледај">
+<!ENTITY btn-visit-site "Прегледај">
+<!ENTITY btn-add.ak "А">
+<!ENTITY btn-modify.ak "М">
+<!ENTITY btn-remove.ak "Р">
+<!ENTITY btn-migrate.ak "Л">
+<!ENTITY btn-move-up.ak "У">
+<!ENTITY btn-move-down.ak "Д">
+<!ENTITY btn-import.ak "И">
+<!ENTITY btn-export.ak "Е">
+<!ENTITY btn-browse.ak "Б">
+<!ENTITY btn-preview.ak "П">
+<!ENTITY btn-visit-site.ak "В">
+<!ENTITY migrate-title "Гмаил менаџер увоз">
+<!ENTITY migrate-select-accounts "Означите налоге које желите да увезете">
+<!ENTITY migrate-login-accounts "Улогујте се на одабране налоге">
+<!ENTITY login-title "Гмаил менаџер логовање">
+<!ENTITY login-header-label "Унесите информације о вашем налогу да се улогујете">
+<!ENTITY login-remember-password-label "Упамти лозинку и за наредни пут">
+<!ENTITY alert-from "од">
+<!ENTITY alert-date "Датум">
+<!ENTITY alert-subject "Наслов">
+<!ENTITY tab-location "Локација језичка">
+<!ENTITY tab-location-open "Отвори у:">
+<!ENTITY tab-location-blank "Празном језичку(први доступан)">
+<!ENTITY tab-location-current "У отвореном прозору или језичку">
+<!ENTITY tab-location-existing "У постојећем прозору или језичку">
+<!ENTITY tab-location-focused "Новом језичку">
+<!ENTITY tab-location-background "Новом језичку (у позадини)">
+<!ENTITY tab-location-window "Новом прозору">
+<!ENTITY options-title "Гмаил менаџер подешавања">
+<!ENTITY options-tab-general "Главна">
+<!ENTITY options-tab-accounts "Налози">
+<!ENTITY options-tab-compose "Писање">
+<!ENTITY options-tab-security "Сигурност">
+<!ENTITY options-tab-toolbar "Алатке">
+<!ENTITY options-tab-tooltip "Алати">
+<!ENTITY options-tab-notifications "Обавештења">
+<!ENTITY options-tab-help "Помоћ">
+<!ENTITY options-tab-debug "Дебугирање">
+<!ENTITY options-general-hide-context-menu "Сакриј Гмаил менаџер контекст мени.">
+<!ENTITY options-general-hide-tools-menu "Сакриј Гмаил менаџер мени алатки">
+<!ENTITY options-general-startup "Покретање">
+<!ENTITY options-general-auto-login "Аутоматски се улогуј на све налоге при покретању.">
+<!ENTITY options-accounts-auto-login "Атоматско логовање">
+<!ENTITY options-compose-mailto-links "Е-маил линкови">
+<!ENTITY options-compose-internet-links "Користи Гмаил менаџер када кликнеш на Е-маил линкове.">
+<!ENTITY options-compose-prompt-for "Питај за специфични налог">
+<!ENTITY options-compose-default-account "Стандардни налог:">
+<!ENTITY options-compose-context-menu "Контекст мени">
+<!ENTITY options-compose-click-mailto "Прикажи контекст мени само кад кликнем на Е-маил линкове.">
+<!ENTITY options-security-passwords "Лозинке">
+<!ENTITY options-security-never-save-passwords "Никад немој да памтиш лозинке за налоге.">
+<!ENTITY options-security-connection "Интернет веза">
+<!ENTITY options-security-secured-connection "Увек користи сигурну вету када провераваш налоге.">
+<!ENTITY options-toolbar-switching-accounts "Пребацивање са налога на други налог">
+<!ENTITY options-toolbar-auto-login "Аутоматски се улогуј на изабрани налог.">
+<!ENTITY options-toolbar-auto-check "Аутоматски провери пошту на изабраном налогу.">
+<!ENTITY options-toolbar-auto-switch "Аутоматски се пребаци на налог са новим порукама.">
+<!ENTITY options-toolbar-auto-switch-disclaimer "Ова опција је укључена само кад је приказан један панел са алатима.">
+<!ENTITY options-toolbar-selected-account "Изабрани налог">
+<!ENTITY options-toolbar-left-click "Леви клик:">
+<!ENTITY options-toolbar-middle-click "Средњи клик:">
+<!ENTITY options-toolbar-prompt-options "Прикажи доступне опције...">
+<!ENTITY options-toolbar-check-messages "Провери пошту">
+<!ENTITY options-toolbar-compose-message "Напиши нову поруку">
+<!ENTITY options-toolbar-reset-unread-count "Поништи број непрочитаних порука приликом отварања налога.">
+<!ENTITY options-help-release-manager "Release Manager:">
+<!ENTITY options-help-based-on "Based On:">
+<!ENTITY options-help-join-community "Join the Community">
+<!ENTITY options-help-join-community-message "Gmail Manager NG is intended to be a community driven project. Getting started is as simple as creating a fork of the repository on GitHub.com. Gmail Manager NG is developed and distributed under the same license as the original Gmail Manager.">
+<!ENTITY options-help-translate-message "Interested in translating? Create your own GitHub fork of the repository and look for the files under src/chrome/locale. If you're not a developer, you can create an issue and add the contents of your gmanager.dtd and gmanager.properties files.">
+<!ENTITY options-help-issues "Bug Support and Features">
+<!ENTITY options-help-issues-message "Found a bug or have a cool idea for a new feature? Open an issue in the issue tracker at GitHub.com.">
+<!ENTITY options-help-supporters "Thanks to the Supporters of Gmail Manager">
+<!ENTITY options-help-supporters-message "The following people donated to the original project. They deserve a special thanks for helping to make Gmail Manager a fantastic add on.">
+<!ENTITY options-help-author "Аутор:">
+<!ENTITY options-help-website "Вебсајт:">
+<!ENTITY options-help-contact "Контакт">
+<!ENTITY options-help-questions-comments "Питања и коментари?">
+<!ENTITY options-help-translate "Превод">
+<!ENTITY options-help-interested-translating "Желите да преведете ову екстензију на свој језик?">
+<!ENTITY options-help-donate-paypal "Донирај путем PayPal-а">
+<!ENTITY options-help-support "Помозите и подржите Гмаил менаџер и његов будући развој. Ово ће нам омогућити да наставимо да развијамо ову екстензију. Такође за узврат ћемо ставити ваше име и веб сајт испод. Хвала унапред!">
+<!ENTITY options-help-click-here-paypal "Кликните овде да донирате путем PayPal-а...">
+<!ENTITY options-help-thanks-to "Захваљујући:">
+<!ENTITY options-account-title "Гмаил менаџер налог">
+<!ENTITY options-account-general-account "Налог">
+<!ENTITY options-account-general-startup "Покретање">
+<!ENTITY options-account-general-auto-login "Аутоматски се логуј при покретању.">
+<!ENTITY options-account-toolbar-display-placement "Позиција приказа">
+<!ENTITY options-account-toolbar-display-toolbar "Прикажи у панелу са алатима">
+<!ENTITY options-account-toolbar-always-last "Увек на крају">
+<!ENTITY options-account-toolbar-specific-position "Специфична позиција">
+<!ENTITY options-account-toolbar-hide-count "Не приказуј број непрочитаних порука.">
+<!ENTITY options-account-toolbar-hide-alias "Не приказуј алиас.">
+<!ENTITY options-account-toolbar-show-labels "Приказуј Ознаке само за непрочитану пошту">
+<!ENTITY options-account-toolbar-show-snippets "Прикажи клизач са новим примљеним порукама">
+<!ENTITY options-account-toolbar-unread-count "Број непрочитаних">
+<!ENTITY options-account-toolbar-unread-include "Обухвати">
+<!ENTITY options-account-toolbar-unread-count-inbox "Примљене">
+<!ENTITY options-account-toolbar-unread-toolbar-spam "Непожељне">
+<!ENTITY options-account-toolbar-unread-toolbar-labels "Ознаке">
+<!ENTITY options-account-notifications-check-messages "Провери пошту">
+<!ENTITY options-account-notifications-check-every "Провери пошту сваких">
+<!ENTITY options-account-notifications-minutes "минута.">
+<!ENTITY options-account-notifications-snippets "Клизачи">
+<!ENTITY options-account-notifications-display-snippets "Прикажи клизач када стигне нова порука.">
+<!ENTITY options-account-notifications-sounds "Звуци">
+<!ENTITY options-account-notifications-play-sound "Означи посебним звуком када стигне нова порука.">

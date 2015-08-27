@@ -1,0 +1,124 @@
+<!ENTITY ext-name "Gmail Manager NG">
+<!ENTITY ext-description "Permette la gestione di account e notifiche di Gmail">
+<!ENTITY common-alias "Alias">
+<!ENTITY common-email "Indirizzo e-mail">
+<!ENTITY common-password "Password">
+<!ENTITY btn-add "Aggiungi…">
+<!ENTITY btn-modify "Modifica…">
+<!ENTITY btn-remove "Elimina…">
+<!ENTITY btn-migrate "Migra…">
+<!ENTITY btn-move-up "Sposta su">
+<!ENTITY btn-move-down "Sposta giù">
+<!ENTITY btn-import "Importa impostazioni…">
+<!ENTITY btn-export "Esporta impostazioni…">
+<!ENTITY btn-browse "Sfoglia…">
+<!ENTITY btn-preview "Anteprima">
+<!ENTITY btn-visit-site "Visita il sito web">
+<!ENTITY btn-add.ak "A">
+<!ENTITY btn-modify.ak "M">
+<!ENTITY btn-remove.ak "l">
+<!ENTITY btn-migrate.ak "r">
+<!ENTITY btn-move-up.ak "u">
+<!ENTITY btn-move-down.ak "t">
+<!ENTITY btn-import.ak "I">
+<!ENTITY btn-export.ak "E">
+<!ENTITY btn-browse.ak "S">
+<!ENTITY btn-preview.ak "n">
+<!ENTITY btn-visit-site.ak "V">
+<!ENTITY migrate-title "Migrazione di Gmail Manager NG">
+<!ENTITY migrate-select-accounts "Selezionare gli account per la migrazione:">
+<!ENTITY migrate-login-accounts "Accedere agli account selezionati">
+<!ENTITY login-title "Accesso a Gmail Manager NG">
+<!ENTITY login-header-label "Inserire i dati di accesso">
+<!ENTITY login-remember-password-label "Ricorda la password per questo account">
+<!ENTITY alert-from "Mittente:">
+<!ENTITY alert-date "Data:">
+<!ENTITY alert-subject "Oggetto:">
+<!ENTITY tab-location "Posizione della scheda">
+<!ENTITY tab-location-open "Carica:">
+<!ENTITY tab-location-blank "nella prima scheda vuota disponibile">
+<!ENTITY tab-location-current "nella finestra/scheda attuale">
+<!ENTITY tab-location-existing "nella finestra/scheda esistente">
+<!ENTITY tab-location-focused "in una nuova scheda in primo piano">
+<!ENTITY tab-location-background "in una nuova scheda in secondo piano">
+<!ENTITY tab-location-window "in una nuova finestra">
+<!ENTITY options-title "Impostazioni di Gmail Manager NG">
+<!ENTITY options-tab-general "Generali">
+<!ENTITY options-tab-accounts "Account">
+<!ENTITY options-tab-compose "Composizione">
+<!ENTITY options-tab-security "Sicurezza">
+<!ENTITY options-tab-toolbar "Avanzate">
+<!ENTITY options-tab-tooltip "Tooltip">
+<!ENTITY options-tab-notifications "Notifiche">
+<!ENTITY options-tab-help "Informazioni">
+<!ENTITY options-tab-debug "Debug">
+<!ENTITY options-general-hide-context-menu "Non visualizzare il menu contestuale di Gmail Manager NG">
+<!ENTITY options-general-hide-tools-menu "Non visualizzare la voce &apos;Gmail Manager NG&apos; nel menu Strumenti">
+<!ENTITY options-general-startup "Accesso all&apos;avvio">
+<!ENTITY options-general-auto-login "Effettua automaticamente l&apos;accesso a tutti gli account all&apos;avvio">
+<!ENTITY options-accounts-auto-login "Accesso automatico">
+<!ENTITY options-compose-mailto-links "Link mailto:">
+<!ENTITY options-compose-internet-links "Usa Gmail Manager NG per i link mailto:">
+<!ENTITY options-compose-prompt-for "Attiva i link mailto: per account da specificare…">
+<!ENTITY options-compose-default-account "Account predefinito:">
+<!ENTITY options-compose-context-menu "Menu contestuale">
+<!ENTITY options-compose-click-mailto "Mostra il menu contestuale solo per i link mailto:">
+<!ENTITY options-security-passwords "Password">
+<!ENTITY options-security-never-save-passwords "Non salvare mai le password per gli account di posta">
+<!ENTITY options-security-connection "Connessione sicura">
+<!ENTITY options-security-secured-connection "Usa una connessione sicura quando si controllano gli account">
+<!ENTITY options-toolbar-switching-accounts "Opzioni da associare al clic del mouse sull&apos;icona nella barra di stato">
+<!ENTITY options-toolbar-auto-login "Effettua automaticamente l&apos;accesso all&apos;account selezionato">
+<!ENTITY options-toolbar-auto-check "Controlla automaticamente i nuovi messaggi per l&apos;account selezionato">
+<!ENTITY options-toolbar-auto-switch "Passa automaticamente all&apos;account a cui arrivano nuovi messaggi">
+<!ENTITY options-toolbar-auto-switch-disclaimer "Questa opzione viene attivata quando viene visualizzata una barra degli strumenti">
+<!ENTITY options-toolbar-selected-account "Avanzate">
+<!ENTITY options-toolbar-left-click "Con clic con tasto sinistro:">
+<!ENTITY options-toolbar-middle-click "Con clic con tasto centrale:">
+<!ENTITY options-toolbar-prompt-options "vengono suggerite le opzioni">
+<!ENTITY options-toolbar-check-messages "si controllano i nuovi messaggi">
+<!ENTITY options-toolbar-compose-message "si scrive un nuovo messaggio">
+<!ENTITY options-toolbar-reset-unread-count "Azzera il conteggio dei messaggi non letti quando si accede all&apos;account">
+<!ENTITY options-help-release-manager "Release Manager:">
+<!ENTITY options-help-based-on "Based On:">
+<!ENTITY options-help-join-community "Join the Community">
+<!ENTITY options-help-join-community-message "Gmail Manager NG is intended to be a community driven project. Getting started is as simple as creating a fork of the repository on GitHub.com. Gmail Manager NG is developed and distributed under the same license as the original Gmail Manager.">
+<!ENTITY options-help-translate-message "Interested in translating? Create your own GitHub fork of the repository and look for the files under src/chrome/locale. If you're not a developer, you can create an issue and add the contents of your gmanager.dtd and gmanager.properties files.">
+<!ENTITY options-help-issues "Bug Support and Features">
+<!ENTITY options-help-issues-message "Found a bug or have a cool idea for a new feature? Open an issue in the issue tracker at GitHub.com.">
+<!ENTITY options-help-supporters "Thanks to the Supporters of Gmail Manager">
+<!ENTITY options-help-supporters-message "The following people donated to the original project. They deserve a special thanks for helping to make Gmail Manager a fantastic add on.">
+<!ENTITY options-help-author "Autore:">
+<!ENTITY options-help-website "Sito web:">
+<!ENTITY options-help-contact "Contatti">
+<!ENTITY options-help-questions-comments "Fare clic qui per inviare domande e/o commenti">
+<!ENTITY options-help-translate "Traduzioni">
+<!ENTITY options-help-interested-translating "Fare clic qui se si è interessati ad aggiungere una traduzione">
+<!ENTITY options-help-donate-paypal "Donazioni">
+<!ENTITY options-help-support "Le donazioni supportano Gmail Manager NG ed il suo futuro sviluppo. I nomi dei donatori e relativi siti web verranno inclusi qui sotto. Grazie sin da ora!">
+<!ENTITY options-help-click-here-paypal "Fare clic qui per effettuare una donazione con PayPal">
+<!ENTITY options-help-thanks-to "Ringraziamenti a:">
+<!ENTITY options-account-title "Account di Gmail Manager NG">
+<!ENTITY options-account-general-account "Account">
+<!ENTITY options-account-general-startup "Accesso all&apos;avvio">
+<!ENTITY options-account-general-auto-login "Effettua automaticamente l&apos;accesso all&apos;account all&apos;avvio">
+<!ENTITY options-account-toolbar-display-placement "Aspetto">
+<!ENTITY options-account-toolbar-display-toolbar "Visualizza l&apos;icona in">
+<!ENTITY options-account-toolbar-always-last "Posiziona l&apos;icona sempre come ultima">
+<!ENTITY options-account-toolbar-specific-position "Specifica la posizione">
+<!ENTITY options-account-toolbar-hide-count "Non visualizzare il numero di messaggi non letti">
+<!ENTITY options-account-toolbar-hide-alias "Non visualizzare l&apos;alias">
+<!ENTITY options-account-toolbar-show-labels "Visualizza le etichette solo con i messaggi non letti">
+<!ENTITY options-account-toolbar-show-snippets "Visualizza frammenti dei nuovi messaggi di &apos;Posta in arrivo&apos;">
+<!ENTITY options-account-toolbar-unread-count "Conteggio dei messaggi non letti">
+<!ENTITY options-account-toolbar-unread-include "Includi">
+<!ENTITY options-account-toolbar-unread-count-inbox "Posta in arrivo">
+<!ENTITY options-account-toolbar-unread-toolbar-spam "Spam">
+<!ENTITY options-account-toolbar-unread-toolbar-labels "Etichette">
+<!ENTITY options-account-notifications-check-messages "Controlli">
+<!ENTITY options-account-notifications-check-every "Minuti dopo i quali controllare l&apos;arrivo di nuovi messaggi:">
+<!ENTITY options-account-notifications-minutes " ">
+<!ENTITY options-account-notifications-snippets "Frammenti">
+<!ENTITY options-account-notifications-display-snippets "Visualizza frammenti dei nuovi messaggi di &apos;Posta in arrivo&apos;">
+<!ENTITY options-account-notifications-sounds "Suoni">
+<!ENTITY options-account-notifications-play-sound "Emetti un suono specifico quando arrivano nuovi messaggi">

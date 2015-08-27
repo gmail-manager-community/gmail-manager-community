@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+  Gmail Manager NG
+  Erik Nedwidek (http://github.com/nedwidek)
+  Based on Gmail Manager by Todd Long <longfocus@gmail.com>
+ -->
+
+<bindings xmlns="http://www.mozilla.org/xbl"
+		xmlns:xbl="http://www.mozilla.org/xbl"
+		xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+		
+	<binding id="gmanager-migrate-listitem"
+			extends="chrome://global/content/bindings/listbox.xml#listitem">
+			
+		<content allowevents="true">
+			<children>
+				<xul:listcell>
+					<xul:checkbox anonid="checkbox"
+								checked="true"
+								xbl:inherits="label=email"/>
+				</xul:listcell>
+				
+				<xul:listcell xbl:inherits="label=password"/>
+			</children>
+		</content>
+		
+		<implementation>
+			<property name="email"
+					onget="return this.getAttribute('email');"
+					onset="return this.setAttribute('email', val);"/>
+					
+			<property name="password"
+					onget="return this.getAttribute('password');"
+					onset="return this.setAttribute('password', val);"/>
+					
+			<property name="checked"
+					onget="return document.getAnonymousElementByAttribute(this, 'anonid', 'checkbox').checked;"/>
+		</implementation>
+	</binding>
+</bindings>
