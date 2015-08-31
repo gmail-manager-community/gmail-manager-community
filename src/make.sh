@@ -18,4 +18,4 @@ echo "Packaging using version of $VERSION"
 echo "Package chrome jar"
 cd chrome && $ZIP $ZIPARGS $CHROMEPACKAGE $CHROMEFILES > ../../chromepackage.out
 echo "Packaging XPI $PACKAGE"
-cd .. && $ZIP $ZIPARGS $PACKAGE $FILES > ../../xpipackage.out
+cd .. && $ZIP $ZIPARGS $PACKAGE $FILES > ../xpipackage.out

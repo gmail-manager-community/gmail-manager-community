@@ -6,4 +6,4 @@
 
 SRCDIR=src
 
-cd $SRCDIR && make.sh
+cd $SRCDIR && ./make.sh
