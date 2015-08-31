@@ -1,5 +1,6 @@
-// Gmail Manager NG
-// Erik Nedwidek (http://github.com/nedwidek)
+// Gmail Manager-community
+// Alexis THOMAS (https://github.com/ath0mas)
+// Forked from Gmail Manager NG by Erik Nedwidek (https://github.com/nedwidek)
 // Based on Gmail Manager by Todd Long <longfocus@gmail.com>
 
 var gmanager_Bundle = new function()

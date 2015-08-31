@@ -1,4 +1,4 @@
-<!ENTITY ext-name "Gmail Manager NG">
+<!ENTITY ext-name "Gmail Manager-community">
 <!ENTITY ext-description "จัดการบัญชีผู้ใช้ Gmail และการแจ้งเตือนจดหมายรูปแบบใหม่">
 <!ENTITY common-alias "นามแฝง">
 <!ENTITY common-email "อีเมล">
@@ -25,10 +25,10 @@
 <!ENTITY btn-browse.ak "ค">
 <!ENTITY btn-preview.ak "ต">
 <!ENTITY btn-visit-site.ak "ม">
-<!ENTITY migrate-title "ย้าย Gmail Manager NG">
+<!ENTITY migrate-title "ย้าย Gmail Manager-community">
 <!ENTITY migrate-select-accounts "เลือกบัญชีผู้ใช้ที่ต้องการย้าย:">
 <!ENTITY migrate-login-accounts "เข้าสู่ระบบบัญชีผู้ใช้ที่เลือก">
-<!ENTITY login-title "เข้าสู่ระบบ Gmail Manager NG">
+<!ENTITY login-title "เข้าสู่ระบบ Gmail Manager-community">
 <!ENTITY login-header-label "กรอกบัญชีผู้ใช้เพื่อเข้าสู่ระบบ:">
 <!ENTITY login-remember-password-label "จำรหัสผ่าน">
 <!ENTITY alert-from "จาก">
@@ -42,7 +42,7 @@
 <!ENTITY tab-location-focused "แท็บใหม่(โฟกัสไปยัง)">
 <!ENTITY tab-location-background "แท็บใหม่(เป็นเบื้องหลัง)">
 <!ENTITY tab-location-window "หน้าต่างใหม่">
-<!ENTITY options-title "ตัวเลือก Gmail Manager NG">
+<!ENTITY options-title "ตัวเลือก Gmail Manager-community">
 <!ENTITY options-tab-general "ทั่วไป">
 <!ENTITY options-tab-accounts "บัญชีผู้ใช้">
 <!ENTITY options-tab-compose "ส่งจดหมาย">
@@ -52,13 +52,13 @@
 <!ENTITY options-tab-notifications "การแจ้งเตือน">
 <!ENTITY options-tab-help "ช่วยเหลือ">
 <!ENTITY options-tab-debug "แก้จุดบกพร่อง">
-<!ENTITY options-general-hide-context-menu "ซ่อนเมนูบริบท Gmail Manager NG">
-<!ENTITY options-general-hide-tools-menu "ซ่อนเมนูเครื่องมือ Gmail Manager NG">
+<!ENTITY options-general-hide-context-menu "ซ่อนเมนูบริบท Gmail Manager-community">
+<!ENTITY options-general-hide-tools-menu "ซ่อนเมนูเครื่องมือ Gmail Manager-community">
 <!ENTITY options-general-startup "ตอนเริ่มงาน">
 <!ENTITY options-general-auto-login "เข้าสู่ระบบทุกบัญชีผู้ใช้อัตโนมัติตอนเริ่มงาน">
 <!ENTITY options-accounts-auto-login "เข้าสู่ระบบอัตโนมัติ">
 <!ENTITY options-compose-mailto-links "Mailto: ลิงก์">
-<!ENTITY options-compose-internet-links "ใช้ Gmail Manager NG เมื่อคลิก mailto: ลิงก์">
+<!ENTITY options-compose-internet-links "ใช้ Gmail Manager-community เมื่อคลิก mailto: ลิงก์">
 <!ENTITY options-compose-prompt-for "เตื่อนสำหรับบัญชีผู้ใช้ที่ระบุ...">
 <!ENTITY options-compose-default-account "บัญชีผู้ใช้ดั้งเดิม:">
 <!ENTITY options-compose-context-menu "เมนูบริบท">
@@ -80,9 +80,10 @@
 <!ENTITY options-toolbar-compose-message "ส่งข้อความใหม่">
 <!ENTITY options-toolbar-reset-unread-count "เริ่มนับจำนวนข้อความที่ไม่ได้อ่านใหม่เมื่อเปิดบัญชีผู้ใช้">
 <!ENTITY options-help-release-manager "Release Manager:">
-<!ENTITY options-help-based-on "Based On:">
+<!ENTITY options-help-forked-from "Forked from:">
+<!ENTITY options-help-based-on "Based on:">
 <!ENTITY options-help-join-community "Join the Community">
-<!ENTITY options-help-join-community-message "Gmail Manager NG is intended to be a community driven project. Getting started is as simple as creating a fork of the repository on GitHub.com. Gmail Manager NG is developed and distributed under the same license as the original Gmail Manager.">
+<!ENTITY options-help-join-community-message "Gmail Manager-community is intended to be a community driven project. Getting started is as simple as creating a fork of the repository on GitHub.com. Gmail Manager-community is developed and distributed under the same license as the original Gmail Manager/Gmail Manager NG.">
 <!ENTITY options-help-translate-message "Interested in translating? Create your own GitHub fork of the repository and look for the files under src/chrome/locale. If you're not a developer, you can create an issue and add the contents of your gmanager.dtd and gmanager.properties files.">
 <!ENTITY options-help-issues "Bug Support and Features">
 <!ENTITY options-help-issues-message "Found a bug or have a cool idea for a new feature? Open an issue in the issue tracker at GitHub.com.">
@@ -95,10 +96,10 @@
 <!ENTITY options-help-translate "แปล">
 <!ENTITY options-help-interested-translating "อยากแปลมั้ย?">
 <!ENTITY options-help-donate-paypal "บริจาคผ่าน PayPal">
-<!ENTITY options-help-support "ช่วยเหลือสนับสนุน Gmail Manager NG และผู้พัฒนา จะเป็นการช่วยเราปรับปรุงส่วนเสริมนี้ อีกทั้งเรายังใส่ชื่อของคุณและเว็บไซต์ข้างล่่าง ขอบคุณล่วงหน้า!">
+<!ENTITY options-help-support "ช่วยเหลือสนับสนุน Gmail Manager-community และผู้พัฒนา จะเป็นการช่วยเราปรับปรุงส่วนเสริมนี้ อีกทั้งเรายังใส่ชื่อของคุณและเว็บไซต์ข้างล่่าง ขอบคุณล่วงหน้า!">
 <!ENTITY options-help-click-here-paypal "คลิกที่นี่เพื่อบริจาคผ่าน PayPal...">
 <!ENTITY options-help-thanks-to "ขอขอบคุณ:">
-<!ENTITY options-account-title "บัญชีผู้ใช้ Gmail Manager NG">
+<!ENTITY options-account-title "บัญชีผู้ใช้ Gmail Manager-community">
 <!ENTITY options-account-general-account "บัญชีผู้ใช้">
 <!ENTITY options-account-general-startup "ตอนเริ่มงาน">
 <!ENTITY options-account-general-auto-login "เข้าสู่ระบบบัญชีผู้ใช้นี้อัตโนมัติตอนเริ่มงาน">

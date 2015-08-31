@@ -1,5 +1,6 @@
-// Gmail Manager NG
-// Erik Nedwidek (http://github.com/nedwidek)
+// Gmail Manager-community
+// Alexis THOMAS (https://github.com/ath0mas)
+// Forked from Gmail Manager NG by Erik Nedwidek (https://github.com/nedwidek)
 // Based on Gmail Manager by Todd Long <longfocus@gmail.com>
 
 function gmanager_OverlayLoad(aEvent)
@@ -112,7 +113,7 @@ var gmanager_Overlay = new function()
     gmanager_Utils.log("Current version = " + aCurrentVersion);
     
     // Check for previous version
-    if (previousVersion < "0.6")
+    if (previousVersion < "0.7")
     {
       // Check if the preference exists
       if (gmanager_Prefs.hasPref("current"))

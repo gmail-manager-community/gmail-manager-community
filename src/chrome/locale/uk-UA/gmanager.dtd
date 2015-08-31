@@ -1,4 +1,4 @@
-<!ENTITY ext-name "Gmail Manager NG">
+<!ENTITY ext-name "Gmail Manager-community">
 <!ENTITY ext-description "Керування обліковими записами Gmail та попередження про надходження нових листів.">
 <!ENTITY common-alias "Псевдонім">
 <!ENTITY common-email "Адреса електронної пошти">
@@ -25,10 +25,10 @@
 <!ENTITY btn-browse.ak "В">
 <!ENTITY btn-preview.ak "п">
 <!ENTITY btn-visit-site.ak "д">
-<!ENTITY migrate-title "Менеджер перенесення Gmail Manager NG">
+<!ENTITY migrate-title "Менеджер перенесення Gmail Manager-community">
 <!ENTITY migrate-select-accounts "Виберіть облікові записи, які слід перенести:">
 <!ENTITY migrate-login-accounts "Увійти до облікових записів.">
-<!ENTITY login-title "Вхід Gmail Manager NG">
+<!ENTITY login-title "Вхід Gmail Manager-community">
 <!ENTITY login-header-label "Введіть дані облікового запису для входу:">
 <!ENTITY login-remember-password-label "Запам’ятати пароль для наступного разу.">
 <!ENTITY alert-from "від">
@@ -42,7 +42,7 @@
 <!ENTITY tab-location-focused "новій вкладці (активній)">
 <!ENTITY tab-location-background "новій вкладці (у фоні)">
 <!ENTITY tab-location-window "новому вікні">
-<!ENTITY options-title "Параметри Gmail Manager NG">
+<!ENTITY options-title "Параметри Gmail Manager-community">
 <!ENTITY options-tab-general "Загальні">
 <!ENTITY options-tab-accounts "Облікові записи">
 <!ENTITY options-tab-compose "Написання">
@@ -52,13 +52,13 @@
 <!ENTITY options-tab-notifications "Повідомлення">
 <!ENTITY options-tab-help "Допомога">
 <!ENTITY options-tab-debug "Налагодження">
-<!ENTITY options-general-hide-context-menu "Сховати контекстне меню Gmail Manager NG.">
-<!ENTITY options-general-hide-tools-menu "Сховати меню Gmail Manager NG в Інструментах.">
+<!ENTITY options-general-hide-context-menu "Сховати контекстне меню Gmail Manager-community.">
+<!ENTITY options-general-hide-tools-menu "Сховати меню Gmail Manager-community в Інструментах.">
 <!ENTITY options-general-startup "Запуск">
 <!ENTITY options-general-auto-login "Після запуску автоматично входити до всіх облікових записів.">
 <!ENTITY options-accounts-auto-login "Автоматичний вхід">
 <!ENTITY options-compose-mailto-links "Посилання mailto:">
-<!ENTITY options-compose-internet-links "Користуватись Gmail Manager NG, коли клацаєте посилання mailto:.">
+<!ENTITY options-compose-internet-links "Користуватись Gmail Manager-community, коли клацаєте посилання mailto:.">
 <!ENTITY options-compose-prompt-for "Спитати, який обліковий запис…">
 <!ENTITY options-compose-default-account "Типовий обліковий запис:">
 <!ENTITY options-compose-context-menu "Контекстне меню">
@@ -80,9 +80,10 @@
 <!ENTITY options-toolbar-compose-message "Написати новий лист">
 <!ENTITY options-toolbar-reset-unread-count "Скинути кількість непрочитаних листів під час відкриття облікового запису.">
 <!ENTITY options-help-release-manager "Release Manager:">
-<!ENTITY options-help-based-on "Based On:">
+<!ENTITY options-help-forked-from "Forked from:">
+<!ENTITY options-help-based-on "Based on:">
 <!ENTITY options-help-join-community "Join the Community">
-<!ENTITY options-help-join-community-message "Gmail Manager NG is intended to be a community driven project. Getting started is as simple as creating a fork of the repository on GitHub.com. Gmail Manager NG is developed and distributed under the same license as the original Gmail Manager.">
+<!ENTITY options-help-join-community-message "Gmail Manager-community is intended to be a community driven project. Getting started is as simple as creating a fork of the repository on GitHub.com. Gmail Manager-community is developed and distributed under the same license as the original Gmail Manager/Gmail Manager NG.">
 <!ENTITY options-help-translate-message "Interested in translating? Create your own GitHub fork of the repository and look for the files under src/chrome/locale. If you're not a developer, you can create an issue and add the contents of your gmanager.dtd and gmanager.properties files.">
 <!ENTITY options-help-issues "Bug Support and Features">
 <!ENTITY options-help-issues-message "Found a bug or have a cool idea for a new feature? Open an issue in the issue tracker at GitHub.com.">
@@ -95,10 +96,10 @@
 <!ENTITY options-help-translate "Перекласти">
 <!ENTITY options-help-interested-translating "Хочете перекласти?">
 <!ENTITY options-help-donate-paypal "Пожертвувати кошти через PayPal">
-<!ENTITY options-help-support "Підтримайте подальшу розробку Gmail Manager NG. Це допоможе нам надалі вдосконалювати розширення. Також, ми включимо ваше ім’я та сайт до списку нижче. Дякуємо за підтримку!">
+<!ENTITY options-help-support "Підтримайте подальшу розробку Gmail Manager-community. Це допоможе нам надалі вдосконалювати розширення. Також, ми включимо ваше ім’я та сайт до списку нижче. Дякуємо за підтримку!">
 <!ENTITY options-help-click-here-paypal "Клацніть тут, щоб надіслати кошти через PayPal…">
 <!ENTITY options-help-thanks-to "Дякуємо:">
-<!ENTITY options-account-title "Обліковий запис Gmail Manager NG">
+<!ENTITY options-account-title "Обліковий запис Gmail Manager-community">
 <!ENTITY options-account-general-account "Обліковий запис">
 <!ENTITY options-account-general-startup "Запуск">
 <!ENTITY options-account-general-auto-login "Після запуску входити до цього облікового запису.">

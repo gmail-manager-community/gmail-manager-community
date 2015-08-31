@@ -1,4 +1,4 @@
-<!ENTITY ext-name "Gmail Manager NG">
+<!ENTITY ext-name "Gmail Manager-community">
 <!ENTITY ext-description "Gmail fiók kezelés és új levél értesítés">
 <!ENTITY common-alias "Alias">
 <!ENTITY common-email "Email">
@@ -25,10 +25,10 @@
 <!ENTITY btn-browse.ak "T">
 <!ENTITY btn-preview.ak "P">
 <!ENTITY btn-visit-site.ak "M">
-<!ENTITY migrate-title "Gmail Manager NG Migrálás">
+<!ENTITY migrate-title "Gmail Manager-community Migrálás">
 <!ENTITY migrate-select-accounts "Válasza ki a migrálandó fiókot:">
 <!ENTITY migrate-login-accounts "Belépés a kiválasztott fiókokba.">
-<!ENTITY login-title "Gmail Manager NG Belépés">
+<!ENTITY login-title "Gmail Manager-community Belépés">
 <!ENTITY login-header-label "Adja meg a fiók információkat a belépéshez:">
 <!ENTITY login-remember-password-label "Jelszó megjegyzése következő alkalomra.">
 <!ENTITY alert-from "feladó">
@@ -42,7 +42,7 @@
 <!ENTITY tab-location-focused "Új fül (aktuális)">
 <!ENTITY tab-location-background "Új fül (háttérben)">
 <!ENTITY tab-location-window "Új ablak">
-<!ENTITY options-title "Gmail Manager NG Beállítások">
+<!ENTITY options-title "Gmail Manager-community Beállítások">
 <!ENTITY options-tab-general "Általános">
 <!ENTITY options-tab-accounts "Fiók">
 <!ENTITY options-tab-compose "Levélírás">
@@ -52,13 +52,13 @@
 <!ENTITY options-tab-notifications "Figyelmeztetések">
 <!ENTITY options-tab-help "Súgó">
 <!ENTITY options-tab-debug "Hibakereés">
-<!ENTITY options-general-hide-context-menu "Gmail Manager NG helyérzékeny menü elrejtése.">
-<!ENTITY options-general-hide-tools-menu "Gmail Manager NG eszköz menü elrejtése.">
+<!ENTITY options-general-hide-context-menu "Gmail Manager-community helyérzékeny menü elrejtése.">
+<!ENTITY options-general-hide-tools-menu "Gmail Manager-community eszköz menü elrejtése.">
 <!ENTITY options-general-startup "Indítás">
 <!ENTITY options-general-auto-login "Minden fiókba belépés induláskor.">
 <!ENTITY options-accounts-auto-login "Automatikus belépés">
 <!ENTITY options-compose-mailto-links "Mailto: linkek">
-<!ENTITY options-compose-internet-links "Gmail Manager NG kezeli a mailto: linkeket.">
+<!ENTITY options-compose-internet-links "Gmail Manager-community kezeli a mailto: linkeket.">
 <!ENTITY options-compose-prompt-for "Rákérdezés a fiókra...">
 <!ENTITY options-compose-default-account "Alapértelmezett fiók:">
 <!ENTITY options-compose-context-menu "Helyérzékeny menü">
@@ -80,9 +80,10 @@
 <!ENTITY options-toolbar-compose-message "Új üzenet létrehozása">
 <!ENTITY options-toolbar-reset-unread-count "Olvasatlan levél számláló törlése megnyitáskor.">
 <!ENTITY options-help-release-manager "Release Manager:">
-<!ENTITY options-help-based-on "Based On:">
+<!ENTITY options-help-forked-from "Forked from:">
+<!ENTITY options-help-based-on "Based on:">
 <!ENTITY options-help-join-community "Join the Community">
-<!ENTITY options-help-join-community-message "Gmail Manager NG is intended to be a community driven project. Getting started is as simple as creating a fork of the repository on GitHub.com. Gmail Manager NG is developed and distributed under the same license as the original Gmail Manager.">
+<!ENTITY options-help-join-community-message "Gmail Manager-community is intended to be a community driven project. Getting started is as simple as creating a fork of the repository on GitHub.com. Gmail Manager-community is developed and distributed under the same license as the original Gmail Manager/Gmail Manager NG.">
 <!ENTITY options-help-translate-message "Interested in translating? Create your own GitHub fork of the repository and look for the files under src/chrome/locale. If you're not a developer, you can create an issue and add the contents of your gmanager.dtd and gmanager.properties files.">
 <!ENTITY options-help-issues "Bug Support and Features">
 <!ENTITY options-help-issues-message "Found a bug or have a cool idea for a new feature? Open an issue in the issue tracker at GitHub.com.">
@@ -95,10 +96,10 @@
 <!ENTITY options-help-translate "Fordítás">
 <!ENTITY options-help-interested-translating "Érdeklődik a lefordítás iránt?">
 <!ENTITY options-help-donate-paypal "Támogatás PayPal-lal">
-<!ENTITY options-help-support "Segítse a Gmail Manager NG támogatását és további fejlesztését. Ez lehetővé teszi számunkra a bővítés további fejlesztését. Továbbá a neve felkerül a támogatói oldalunkra.. Előre is köszönjük.">
+<!ENTITY options-help-support "Segítse a Gmail Manager-community támogatását és további fejlesztését. Ez lehetővé teszi számunkra a bővítés további fejlesztését. Továbbá a neve felkerül a támogatói oldalunkra.. Előre is köszönjük.">
 <!ENTITY options-help-click-here-paypal "Kattintson ide PayPal-on keresztüli támogatás küldéshez...">
 <!ENTITY options-help-thanks-to "Köszönet:">
-<!ENTITY options-account-title "Gmail Manager NG Fiók">
+<!ENTITY options-account-title "Gmail Manager-community Fiók">
 <!ENTITY options-account-general-account "Fiók">
 <!ENTITY options-account-general-startup "Indítás">
 <!ENTITY options-account-general-auto-login "Automatikus belépés a fiókba minden induláskor.">

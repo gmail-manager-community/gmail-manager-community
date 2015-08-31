@@ -1,4 +1,4 @@
-<!ENTITY ext-name "Gmail Manager NG">
+<!ENTITY ext-name "Gmail Manager-community">
 <!ENTITY ext-description "Gmail kontu anitz kudeatu eta posta elektroniko berriaren jakinarazpena jaso.">
 <!ENTITY common-alias "Ezizena">
 <!ENTITY common-email "Posta elektronikoa">
@@ -25,10 +25,10 @@
 <!ENTITY btn-browse.ak "B">
 <!ENTITY btn-preview.ak "P">
 <!ENTITY btn-visit-site.ak "V">
-<!ENTITY migrate-title "Gmail Manager NG Migratu">
+<!ENTITY migrate-title "Gmail Manager-community Migratu">
 <!ENTITY migrate-select-accounts "Migratu nahi dituzun kontuak aukeratu:">
 <!ENTITY migrate-login-accounts "Aukeratutako kontuan saioa hasi.">
-<!ENTITY login-title "Gmail Manager NG Saioak">
+<!ENTITY login-title "Gmail Manager-community Saioak">
 <!ENTITY login-header-label "Zure kontuaren datuak idatzi saioa hasteko:">
 <!ENTITY login-remember-password-label "Gogoratu pasahitz hau hurrengoako.">
 <!ENTITY alert-from "nork">
@@ -42,7 +42,7 @@
 <!ENTITY tab-location-focused "Fitxa berria (fokua duena)">
 <!ENTITY tab-location-background "Fitxa berria (atzeko planoan)">
 <!ENTITY tab-location-window "Leiho berria">
-<!ENTITY options-title "Gmail Manager NG Aukerak">
+<!ENTITY options-title "Gmail Manager-community Aukerak">
 <!ENTITY options-tab-general "Orokorra">
 <!ENTITY options-tab-accounts "Kontuak">
 <!ENTITY options-tab-compose "Berria Prestatu">
@@ -52,13 +52,13 @@
 <!ENTITY options-tab-notifications "Jakinarazpenak">
 <!ENTITY options-tab-help "Laguntza">
 <!ENTITY options-tab-debug "Araztu">
-<!ENTITY options-general-hide-context-menu "Gmail Manager NG testuinguru menua ezkutatu.">
-<!ENTITY options-general-hide-tools-menu "Gmail Manager NG tresna menua ezkutatu.">
+<!ENTITY options-general-hide-context-menu "Gmail Manager-community testuinguru menua ezkutatu.">
+<!ENTITY options-general-hide-tools-menu "Gmail Manager-community tresna menua ezkutatu.">
 <!ENTITY options-general-startup "Abioa">
 <!ENTITY options-general-auto-login "Automatikoki saioa hasi kontu guztietan abioan.">
 <!ENTITY options-accounts-auto-login "Autosaioa">
 <!ENTITY options-compose-mailto-links "Mailto: estekak">
-<!ENTITY options-compose-internet-links "Gmail Manager NG erabili maito: estekak klikatzerakoan.">
+<!ENTITY options-compose-internet-links "Gmail Manager-community erabili maito: estekak klikatzerakoan.">
 <!ENTITY options-compose-prompt-for "Galdetu kontu jakin batengatik...">
 <!ENTITY options-compose-default-account "Kontu lehenetsia:">
 <!ENTITY options-compose-context-menu "Testuinguru menua">
@@ -80,9 +80,10 @@
 <!ENTITY options-toolbar-compose-message "Posta mezu berria idatzi">
 <!ENTITY options-toolbar-reset-unread-count "Berrezarri irakurri gabeko zenbatzailea kontua irekitzean.">
 <!ENTITY options-help-release-manager "Release Manager:">
-<!ENTITY options-help-based-on "Based On:">
+<!ENTITY options-help-forked-from "Forked from:">
+<!ENTITY options-help-based-on "Based on:">
 <!ENTITY options-help-join-community "Join the Community">
-<!ENTITY options-help-join-community-message "Gmail Manager NG is intended to be a community driven project. Getting started is as simple as creating a fork of the repository on GitHub.com. Gmail Manager NG is developed and distributed under the same license as the original Gmail Manager.">
+<!ENTITY options-help-join-community-message "Gmail Manager-community is intended to be a community driven project. Getting started is as simple as creating a fork of the repository on GitHub.com. Gmail Manager-community is developed and distributed under the same license as the original Gmail Manager/Gmail Manager NG.">
 <!ENTITY options-help-translate-message "Interested in translating? Create your own GitHub fork of the repository and look for the files under src/chrome/locale. If you're not a developer, you can create an issue and add the contents of your gmanager.dtd and gmanager.properties files.">
 <!ENTITY options-help-issues "Bug Support and Features">
 <!ENTITY options-help-issues-message "Found a bug or have a cool idea for a new feature? Open an issue in the issue tracker at GitHub.com.">
@@ -95,10 +96,10 @@
 <!ENTITY options-help-translate "Itzulpena">
 <!ENTITY options-help-interested-translating "Itzultzen interesatua?">
 <!ENTITY options-help-donate-paypal "PayPal bidez dohaintza egin">
-<!ENTITY options-help-support "Lagundu Gmail Manager NG eusten eta aurrerantzean garatzen. Honek hobetzen jarraitu eta hedapena garatzea baimenduko du. Gainera, zure izen eta web orria azpian erantsiko dira. Eskerrak aldez aurretik!">
+<!ENTITY options-help-support "Lagundu Gmail Manager-community eusten eta aurrerantzean garatzen. Honek hobetzen jarraitu eta hedapena garatzea baimenduko du. Gainera, zure izen eta web orria azpian erantsiko dira. Eskerrak aldez aurretik!">
 <!ENTITY options-help-click-here-paypal "Klikatu hemen PayPal dohaintza bat egiteko...">
 <!ENTITY options-help-thanks-to "Eskerrak:">
-<!ENTITY options-account-title "Gmail Manager NG Kontua">
+<!ENTITY options-account-title "Gmail Manager-community Kontua">
 <!ENTITY options-account-general-account "Kontua">
 <!ENTITY options-account-general-startup "Abioa">
 <!ENTITY options-account-general-auto-login "Automatikoki kontu hontan saioa hasi baioan.">

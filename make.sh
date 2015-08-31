@@ -1,5 +1,5 @@
 #!/bin/sh
-# Script to package gmail manager ng.
+# Script to package gmail-manager-community.
 # Erik Nedwidek
 # Alexis THOMAS
 #

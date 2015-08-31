@@ -1,5 +1,6 @@
-// Gmail Manager
-// Erik Nedwidek (http://github.com/nedwidek)
+// Gmail Manager-community
+// Alexis THOMAS (https://github.com/ath0mas)
+// Forked from Gmail Manager NG by Erik Nedwidek (https://github.com/nedwidek)
 // Based on Gmail Manager by Todd Long <longfocus@gmail.com>
 
 const GM_CLASS_NAME = "Preferences XML Parser";
@@ -7,7 +8,7 @@ const GM_CLASS_ID = Components.ID("{d0fe9af0-f7bc-11da-974d-0800200c9a66}");
 const GM_CONTRACT_ID = "@hatterassoftware.com/gmanager/parser;1";
 
 // Extension version
-const EXTENSION_VERSION = "0.6";
+const EXTENSION_VERSION = "0.7";
 
 // Version where the preferences file was first introduced
 const DEFAULT_VERSION = "0.5";
