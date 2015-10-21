@@ -5,9 +5,9 @@
 
 var gmanager_OptionsAccount = new function()
 {
-  this.__proto__ = new gmanager_BundlePrefix("gmanager-options-");
+  var gmOptionsAccount = Object.create(new gmanager_BundlePrefix("gmanager-options-"));
   
-  this.load = function()
+  gmOptionsAccount.load = function()
   {
     // Unwrap the window arguments; if available
     if (window.arguments)
@@ -15,18 +15,18 @@ var gmanager_OptionsAccount = new function()
       // window.arguments[0] : manager
       // window.arguments[1] : email
       
-      this._manager = window.arguments[0];
-      this._email = window.arguments[1];
+      gmOptionsAccount._manager = window.arguments[0];
+      gmOptionsAccount._email = window.arguments[1];
       
       // Check if the account exists
-      if (this._manager.isAccount(this._email))
-        this._account = this._manager.getAccount(this._email);
+      if (gmOptionsAccount._manager.isAccount(gmOptionsAccount._email))
+        gmOptionsAccount._account = gmOptionsAccount._manager.getAccount(gmOptionsAccount._email);
       else
-        this._account = this._manager.defaultAccount;
+        gmOptionsAccount._account = gmOptionsAccount._manager.defaultAccount;
     }
     
     // Check if the account is specified
-    if (this._account == null)
+    if (gmOptionsAccount._account == null)
     {
       // Close the dialog
       window.close();
@@ -44,24 +44,24 @@ var gmanager_OptionsAccount = new function()
     }
     
     // Display the email (if available)
-    document.getElementById("gmanager-options-account-email").value = this._account.email;
-    document.getElementById("gmanager-options-account-email").disabled = this._email;
+    document.getElementById("gmanager-options-account-email").value = gmOptionsAccount._account.email;
+    document.getElementById("gmanager-options-account-email").disabled = gmOptionsAccount._email;
     
     // Display the alias
-    var alias = this._account.node.getAttribute("alias");
+    var alias = gmOptionsAccount._account.node.getAttribute("alias");
     document.getElementById("gmanager-options-account-alias").value = (alias ? alias : "");
     
     // Display the password
-    var password = this._account.node.getAttribute("password");
+    var password = gmOptionsAccount._account.node.getAttribute("password");
     document.getElementById("gmanager-options-account-password").value = (password ? password : "");
     
     // Load the page preferences
-    gmanager_Prefs.loadPrefs(this._account.node, document);
+    gmanager_Prefs.loadPrefs(gmOptionsAccount._account.node, document);
     
-    this.input();
+    gmOptionsAccount.input();
   }
   
-  this.input = function()
+  gmOptionsAccount.input = function()
   {
     // Account
     document.getElementById("gmanager-options-account-alias").disabled = (document.getElementById("gmanager-options-account-email").value === "");
@@ -84,19 +84,19 @@ var gmanager_OptionsAccount = new function()
     document.getElementById("gm-prefs-notifications-sound-preview").disabled = (!isSound || (isSound && document.getElementById("gm-prefs-notifications-sounds-file").value === ""));
   }
   
-  this.selectSoundFile = function()
+  gmOptionsAccount.selectSoundFile = function()
   {
     var path = gmanager_Sounds.selectFile();
     if (path)
       document.getElementById("gm-prefs-notifications-sounds-file").value = path;
   }
   
-  this.previewSoundFile = function()
+  gmOptionsAccount.previewSoundFile = function()
   {
     gmanager_Sounds.play(document.getElementById("gm-prefs-notifications-sounds-file").value);
   }
   
-  this.dialogAccept = function()
+  gmOptionsAccount.dialogAccept = function()
   {
     var email = document.getElementById("gmanager-options-account-email").value;
     var alias = document.getElementById("gmanager-options-account-alias").value;
@@ -113,24 +113,24 @@ var gmanager_OptionsAccount = new function()
     }
     
     // Save the page preferences
-    gmanager_Prefs.savePrefs(this._account.node, document);
+    gmanager_Prefs.savePrefs(gmOptionsAccount._account.node, document);
     
-    if (this._account && this._email)
+    if (gmOptionsAccount._account && gmOptionsAccount._email)
     {
       // Update the account alias and password
-      this._account.node.setAttribute("alias", alias);
-      this._account.node.setAttribute("password", password);
+      gmOptionsAccount._account.node.setAttribute("alias", alias);
+      gmOptionsAccount._account.node.setAttribute("password", password);
     }
     else
     {
       // Create the account
-      var account = this._manager.addAccount("gmail", email, alias, password, this._account.node);
+      var account = gmOptionsAccount._manager.addAccount("gmail", email, alias, password, gmOptionsAccount._account.node);
       
       // Check if the account was created
       if (!account)
       {
         // The email already exists
-        alert(this.getString("email-exists"));
+        alert(gmOptionsAccount.getString("email-exists"));
         
         // Keep the dialog open
         return false;
@@ -140,4 +140,6 @@ var gmanager_OptionsAccount = new function()
     // Close the dialog
     return true;
   }
+
+  return gmOptionsAccount;
 }

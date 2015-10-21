@@ -5,9 +5,9 @@
 
 var gmanager_ToolbarTooltip = new function()
 {
-  this.__proto__ = new gmanager_BundlePrefix("gmanager-toolbar-tooltip-");
+  var gmToolbarTooltip = Object.create(new gmanager_BundlePrefix("gmanager-toolbar-tooltip-"));
   
-  this.buildTooltip = function(aTooltip)
+  gmToolbarTooltip.buildTooltip = function(aTooltip)
   {
     var toolbarItem = aTooltip.parentNode.parentNode;
     
@@ -23,7 +23,7 @@ var gmanager_ToolbarTooltip = new function()
       if (account)
       {
         // Account Header
-        aTooltip.appendChild(this._buildAccountHeader(account));
+        aTooltip.appendChild(gmToolbarTooltip._buildAccountHeader(account));
         
         // Check if the account is logged in
         hasDetails = account.loggedIn;
@@ -32,12 +32,12 @@ var gmanager_ToolbarTooltip = new function()
       if (hasDetails)
       {
         // Account Details
-        aTooltip.appendChild(this._buildAccountDetails(account));
+        aTooltip.appendChild(gmToolbarTooltip._buildAccountDetails(account));
       }
       else
       {
         // Account Status
-        aTooltip.appendChild(this._buildAccountStatus(account));
+        aTooltip.appendChild(gmToolbarTooltip._buildAccountStatus(account));
       }
     }
     
@@ -45,14 +45,14 @@ var gmanager_ToolbarTooltip = new function()
     return true;
   }
   
-  this._createLabel = function(aValue)
+  gmToolbarTooltip._createLabel = function(aValue)
   {
     var label = document.createElement("label");
     label.setAttribute("value", gmanager_Utils.toUnicode(aValue));
     return label;
   }
   
-  this._buildAccountHeader = function(aAccount)
+  gmToolbarTooltip._buildAccountHeader = function(aAccount)
   {
     var elParent = document.createElement("hbox");
     elParent.setAttribute("id", "gmanager-tooltip-header");
@@ -67,7 +67,7 @@ var gmanager_ToolbarTooltip = new function()
     elParent.appendChild(el);
     
     // Account Email
-    el = this._createLabel(aAccount.alias);
+    el = gmToolbarTooltip._createLabel(aAccount.alias);
     el.setAttribute("class", "gmanager-bold");
     elParent.appendChild(el);
     
@@ -79,34 +79,34 @@ var gmanager_ToolbarTooltip = new function()
       bundleKey = (aAccount.loggedIn ? "logged-in" : "logged-out");
     
     // Account Status
-    elParent.appendChild(this._createLabel(this.getString(bundleKey)));
+    elParent.appendChild(gmToolbarTooltip._createLabel(gmToolbarTooltip.getString(bundleKey)));
     
     return elParent;
   }
   
-  this._buildAccountDetails = function(aAccount)
+  gmToolbarTooltip._buildAccountDetails = function(aAccount)
   {
     var elParent = document.createElement("vbox");
     elParent.setAttribute("id", "gmanager-tooltip-details");
     
     // Important Unread
-    var el = this._createLabel(this.getFString("important-unread", [aAccount.wrappedJSObject.importantUnread]));
+    var el = gmToolbarTooltip._createLabel(gmToolbarTooltip.getFString("important-unread", [aAccount.wrappedJSObject.importantUnread]));
     el.setAttribute("flex", "1");
     el.setAttribute("hidden", (aAccount.wrappedJSObject.importantUnread === 0));
     elParent.appendChild(el);
 
     // Inbox Unread
-    el = this._createLabel(this.getFString("inbox-unread", [aAccount.inboxUnread]));
+    el = gmToolbarTooltip._createLabel(gmToolbarTooltip.getFString("inbox-unread", [aAccount.inboxUnread]));
     el.setAttribute("flex", "1");
     elParent.appendChild(el);
     
     // Saved Drafts
-    el = this._createLabel(this.getFString("saved-drafts", [aAccount.savedDrafts]));
+    el = gmToolbarTooltip._createLabel(gmToolbarTooltip.getFString("saved-drafts", [aAccount.savedDrafts]));
     el.setAttribute("hidden", (aAccount.savedDrafts === 0));
     elParent.appendChild(el);
     
     // Spam Unread
-    el = this._createLabel(this.getFString("spam-unread", [aAccount.spamUnread]));
+    el = gmToolbarTooltip._createLabel(gmToolbarTooltip.getFString("spam-unread", [aAccount.spamUnread]));
     el.setAttribute("hidden", (aAccount.spamUnread === 0));
     elParent.appendChild(el);
     
@@ -125,16 +125,16 @@ var gmanager_ToolbarTooltip = new function()
         elRow.setAttribute("class", (isUnread ? "gmanager-bold" : ""));
         
         // Label Name
-        elRow.appendChild(this._createLabel(label.name));
+        elRow.appendChild(gmToolbarTooltip._createLabel(label.name));
         
         // Label Unread
-        elRow.appendChild(this._createLabel(label.unread));
+        elRow.appendChild(gmToolbarTooltip._createLabel(label.unread));
         
         // TODO Add option to show/hide labels with unread mail
         
         if (isUnread || !aAccount.getBoolPref("toolbar-tooltip-show-labels"))
           elRows.appendChild(elRow);
-      }, this);
+      }, gmToolbarTooltip);
       
       if (elRows.hasChildNodes())
       {
@@ -144,7 +144,7 @@ var gmanager_ToolbarTooltip = new function()
     }
     
     // Space Used
-    elParent.appendChild(this._createLabel(this.getFString("space-used", [aAccount.spaceUsed, aAccount.percentUsed, aAccount.totalSpace])));
+    elParent.appendChild(gmToolbarTooltip._createLabel(gmToolbarTooltip.getFString("space-used", [aAccount.spaceUsed, aAccount.percentUsed, aAccount.totalSpace])));
     
     if (aAccount.getBoolPref("toolbar-tooltip-show-snippets"))
     {
@@ -168,13 +168,13 @@ var gmanager_ToolbarTooltip = new function()
           var elHbox = document.createElement("hbox");
           elHbox.setAttribute("flex", "1");
           
-          el = this._createLabel(snippets[i].from + " > " + snippets[i].subject);
+          el = gmToolbarTooltip._createLabel(snippets[i].from + " > " + snippets[i].subject);
           el.setAttribute("crop", "end");
           el.setAttribute("flex", "1");
           el.setAttribute("class", "gmanager-bold");
           elHbox.appendChild(el);
           
-          el = this._createLabel(snippets[i].date);
+          el = gmToolbarTooltip._createLabel(snippets[i].date);
           el.setAttribute("class", "gmanager-bold");
           elHbox.appendChild(el);
           elVbox.appendChild(elHbox);
@@ -192,7 +192,7 @@ var gmanager_ToolbarTooltip = new function()
     return elParent;
   }
   
-  this._buildAccountStatus = function(/* Optional */ aAccount)
+  gmToolbarTooltip._buildAccountStatus = function(/* Optional */ aAccount)
   {
     var bundleKey = "msg-logged-out";
     
@@ -219,10 +219,12 @@ var gmanager_ToolbarTooltip = new function()
     var elParent = document.createElement("vbox");
     elParent.setAttribute("id", "gmanager-tooltip-details");
     
-    var bundleStrings = this.getString(bundleKey).split("|");
+    var bundleStrings = gmToolbarTooltip.getString(bundleKey).split("|");
     for (var i = 0, n = bundleStrings.length; i < n; i++)
-      elParent.appendChild(this._createLabel(bundleStrings[i]));
+      elParent.appendChild(gmToolbarTooltip._createLabel(bundleStrings[i]));
     
     return elParent;
   }
+
+  return gmToolbarTooltip;
 }

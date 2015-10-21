@@ -5,9 +5,9 @@
 
 var gmanager_Migrate = new function()
 {
-  this.__proto__ = new gmanager_BundlePrefix("gmanager-migrate-");
+  var gmMigrate = Object.create(new gmanager_BundlePrefix("gmanager-migrate-"));
   
-  this.load = function()
+  gmMigrate.load = function()
   {
     var logins = null;
     
@@ -38,7 +38,7 @@ var gmanager_Migrate = new function()
       
       // Display message that there are no accounts
       var accountItem = document.createElement("listitem");
-      accountItem.setAttribute("label", this.getString("no-accounts"));
+      accountItem.setAttribute("label", gmMigrate.getString("no-accounts"));
       accountsList.appendChild(accountItem);
       
       // Disable the login checkbox
@@ -49,17 +49,17 @@ var gmanager_Migrate = new function()
     }
     
     // Toggle the passwords (initially hidden)
-    this.togglePasswords();
+    gmMigrate.togglePasswords();
   }
   
-  this.togglePasswords = function()
+  gmMigrate.togglePasswords = function()
   {
     var isHidden = document.getElementById("gmanager-migrate-accounts-password").collapsed;
-    document.getElementById("gmanager-migrate-passwords").label = (isHidden ? this.getString("hide-passwords") : this.getString("show-passwords"));
+    document.getElementById("gmanager-migrate-passwords").label = (isHidden ? gmMigrate.getString("hide-passwords") : gmMigrate.getString("show-passwords"));
     document.getElementById("gmanager-migrate-accounts-password").collapsed = !isHidden
   }
   
-  this.dialogAccept = function()
+  gmMigrate.dialogAccept = function()
   {
     var manager = Components.classes["@hatterassoftware.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
     var accountsList = document.getElementsByTagName("listitem");
@@ -93,4 +93,6 @@ var gmanager_Migrate = new function()
     // Close the dialog
     return true;
   }
+
+  return gmMigrate;
 }

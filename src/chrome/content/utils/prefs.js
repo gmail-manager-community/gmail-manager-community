@@ -5,60 +5,60 @@
 
 var gmanager_Prefs = new function()
 {
-  this.__proto__ = new gmanager_BundlePrefix("gmanager-prefs-");
+  var gmPrefs = Object.create(new gmanager_BundlePrefix("gmanager-prefs-"));
   
-  this.NOTIFY_CHANGED = "gmanager-prefs-notify-changed";
-  this.ELEMENT_PREFIX = "gm-prefs-";
-  this.BRANCH = "extensions.gmanager.";
+  gmPrefs.NOTIFY_CHANGED = "gmanager-prefs-notify-changed";
+  gmPrefs.ELEMENT_PREFIX = "gm-prefs-";
+  gmPrefs.BRANCH = "extensions.gmanager.";
   
-  this.init = function()
+  gmPrefs.init = function()
   {
     var prefService = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService);
-    this._prefBranch = prefService.getBranch(this.BRANCH);
+    gmPrefs._prefBranch = prefService.getBranch(gmPrefs.BRANCH);
   }
   
-  this.hasPref = function(aName)
+  gmPrefs.hasPref = function(aName)
   {
-    return this._prefBranch.prefHasUserValue(aName);
+    return gmPrefs._prefBranch.prefHasUserValue(aName);
   }
   
-  this.getBoolPref = function(aName)
+  gmPrefs.getBoolPref = function(aName)
   {
-    return this._prefBranch.getBoolPref(aName);
+    return gmPrefs._prefBranch.getBoolPref(aName);
   }
   
-  this.setBoolPref = function(aName, aValue)
+  gmPrefs.setBoolPref = function(aName, aValue)
   {
-    this._prefBranch.setBoolPref(aName, aValue);
+    gmPrefs._prefBranch.setBoolPref(aName, aValue);
   }
   
-  this.getCharPref = function(aName)
+  gmPrefs.getCharPref = function(aName)
   {
-    return this._prefBranch.getCharPref(aName);
+    return gmPrefs._prefBranch.getCharPref(aName);
   }
   
-  this.setCharPref = function(aName, aValue)
+  gmPrefs.setCharPref = function(aName, aValue)
   {
-    this._prefBranch.setCharPref(aName, aValue);
+    gmPrefs._prefBranch.setCharPref(aName, aValue);
   }
   
-  this.getIntPref = function(aName)
+  gmPrefs.getIntPref = function(aName)
   {
-    return this._prefBranch.getIntPref(aName);
+    return gmPrefs._prefBranch.getIntPref(aName);
   }
   
-  this.setIntPref = function(aName, aValue)
+  gmPrefs.setIntPref = function(aName, aValue)
   {
-    this._prefBranch.setIntPref(aName, aValue);
+    gmPrefs._prefBranch.setIntPref(aName, aValue);
   }
   
-  this.loadPrefs = function(aNode, aDocument)
+  gmPrefs.loadPrefs = function(aNode, aDocument)
   {
     var prefs = aNode.getElementsByTagName("pref");
     
     for (var i = 0, n = prefs.length; i < n; i++)
     {
-      var element = aDocument.getElementById(this.ELEMENT_PREFIX + prefs[i].getAttribute("id"));
+      var element = aDocument.getElementById(gmPrefs.ELEMENT_PREFIX + prefs[i].getAttribute("id"));
       
       if (element)
       {
@@ -95,13 +95,13 @@ var gmanager_Prefs = new function()
     }
   }
   
-  this.savePrefs = function(aNode, aDocument)
+  gmPrefs.savePrefs = function(aNode, aDocument)
   {
     var prefs = aNode.getElementsByTagName("pref");
     
     for (var i = 0, n = prefs.length; i < n; i++)
     {
-      var element = aDocument.getElementById(this.ELEMENT_PREFIX + prefs[i].getAttribute("id"));
+      var element = aDocument.getElementById(gmPrefs.ELEMENT_PREFIX + prefs[i].getAttribute("id"));
       
       if (element)
       {
@@ -124,5 +124,7 @@ var gmanager_Prefs = new function()
     }
   }
   
-  this.init();
+  gmPrefs.init();
+
+  return gmPrefs;
 }

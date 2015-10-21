@@ -5,18 +5,18 @@
 
 var gmanager_Sounds = new function()
 {
-  this.__proto__ = new gmanager_BundlePrefix("gmanager-sounds-");
+  var gmSounds = Object.create(new gmanager_BundlePrefix("gmanager-sounds-"));
   
-  this.WAV_FILTER_TYPE = "*.ogg; *.wav";
+  gmSounds.WAV_FILTER_TYPE = "*.ogg; *.wav";
   
-  this.init = function()
+  gmSounds.init = function()
   {
-    this._ioService = Components.classes["@mozilla.org/network/io-service;1"].getService(Components.interfaces.nsIIOService);
-    //this._soundService = Components.classes["@mozilla.org/sound;1"].createInstance(Components.interfaces.nsISound);
-    //this._soundService.init();
+    gmSounds._ioService = Components.classes["@mozilla.org/network/io-service;1"].getService(Components.interfaces.nsIIOService);
+    //gmSounds._soundService = Components.classes["@mozilla.org/sound;1"].createInstance(Components.interfaces.nsISound);
+    //gmSounds._soundService.init();
   }
   
-  this.play = function(aPath)
+  gmSounds.play = function(aPath)
   {
     var uri = null;
     
@@ -25,9 +25,9 @@ var gmanager_Sounds = new function()
       localFile.initWithPath(aPath);
       
       if (localFile.exists())
-        uri = this._ioService.newFileURI(localFile);
+        uri = gmSounds._ioService.newFileURI(localFile);
     } catch(e) {
-      uri = this._ioService.newURI(aPath, null, null);
+      uri = gmSounds._ioService.newURI(aPath, null, null);
     }
     
     if (uri) {
@@ -38,16 +38,18 @@ var gmanager_Sounds = new function()
       
   }
   
-  this.selectFile = function()
+  gmSounds.selectFile = function()
   {
     var filePicker = Components.classes["@mozilla.org/filepicker;1"].createInstance(Components.interfaces.nsIFilePicker);
     
-    filePicker.init(window, this.getString("select-file"), Components.interfaces.nsIFilePicker.modeOpen);
-    filePicker.appendFilter(this.getFString("sound-files", [this.WAV_FILTER_TYPE]), this.WAV_FILTER_TYPE);
+    filePicker.init(window, gmSounds.getString("select-file"), Components.interfaces.nsIFilePicker.modeOpen);
+    filePicker.appendFilter(gmSounds.getFString("sound-files", [gmSounds.WAV_FILTER_TYPE]), gmSounds.WAV_FILTER_TYPE);
     filePicker.show();
     
     return (filePicker.file ? filePicker.file.path : null);
   }
   
-  this.init();
+  gmSounds.init();
+
+  return gmSounds;
 }

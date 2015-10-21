@@ -5,17 +5,17 @@
 
 var gmanager_Options = new function()
 {
-  this.__proto__ = new gmanager_BundlePrefix("gmanager-options-");
+  var gmOptions = Object.create(new gmanager_BundlePrefix("gmanager-options-"));
   
-  this.FILTER_TYPE_XML = "*.xml";
+  gmOptions.FILTER_TYPE_XML = "*.xml";
   
-  this.load = function()
+  gmOptions.load = function()
   {
     // Load the accounts manager sandbox
-    this._manager = Components.classes["@hatterassoftware.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
-    this._sandbox = Components.classes["@hatterassoftware.com/gmanager/manager;1"].createInstance(Components.interfaces.gmIManager);
+    gmOptions._manager = Components.classes["@hatterassoftware.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
+    gmOptions._sandbox = Components.classes["@hatterassoftware.com/gmanager/manager;1"].createInstance(Components.interfaces.gmIManager);
     
-    var accounts = this._sandbox.getAccounts({});
+    var accounts = gmOptions._sandbox.getAccounts({});
     
     for (var i = 0, n = accounts.length; i < n; i++)
       accounts[i].node.setAttribute("password", accounts[i].password);
@@ -32,10 +32,10 @@ var gmanager_Options = new function()
     }
     
     // Load the page
-    this.loadPage(pageValue);
+    gmOptions.loadPage(pageValue);
   }
   
-  this.command = function()
+  gmOptions.command = function()
   {
     var pageIndex = document.getElementById("gmanager-options-listbox").selectedIndex;
     var pageDocument = document.getElementById("gmanager-options-iframe").contentDocument;
@@ -48,9 +48,9 @@ var gmanager_Options = new function()
       {
         var accountItem = pageDocument.getElementById("gmanager-options-accounts-listbox").selectedItem;
         
-        if (accountItem && this._sandbox.isAccount(accountItem.email))
+        if (accountItem && gmOptions._sandbox.isAccount(accountItem.email))
         {
-          var account = this._sandbox.getAccount(accountItem.email);
+          var account = gmOptions._sandbox.getAccount(accountItem.email);
           account.setBoolPref("general-auto-login", accountItem.checked);
         }
         
@@ -89,7 +89,7 @@ var gmanager_Options = new function()
     }
   }
   
-  this.loadPage = function(aPageValue)
+  gmOptions.loadPage = function(aPageValue)
   {
     var pagesList = document.getElementById("gmanager-options-listbox");
     var pageFrame = document.getElementById("gmanager-options-iframe");
@@ -105,13 +105,13 @@ var gmanager_Options = new function()
     gmanager_Prefs.setCharPref("options-page", pagesList.value);
     
     // Save the page preferences
-    gmanager_Prefs.savePrefs(this._sandbox.global.node, pageFrame.contentDocument);
+    gmanager_Prefs.savePrefs(gmOptions._sandbox.global.node, pageFrame.contentDocument);
     
     // Display the page
     pageFrame.setAttribute("src", pagesList.value);
   }
   
-  this.loadPagePrefs = function()
+  gmOptions.loadPagePrefs = function()
   {
     var pageIndex = document.getElementById("gmanager-options-listbox").selectedIndex;
     var pageDocument = document.getElementById("gmanager-options-iframe").contentDocument;
@@ -123,7 +123,7 @@ var gmanager_Options = new function()
       case 1: // accounts.xul
       {
         var accountsList = pageDocument.getElementById("gmanager-options-accounts-listbox");
-        var accounts = this._sandbox.getAccounts({});
+        var accounts = gmOptions._sandbox.getAccounts({});
         
         // Make sure the list of accounts is empty
         while (accountsList.getRowCount() > 0)
@@ -132,7 +132,7 @@ var gmanager_Options = new function()
         for (var i = 0, n = accounts.length; i < n; i++)
         {
           var accountSandbox = accounts[i];
-          var accountReal = this._manager.getAccount(accountSandbox.email);
+          var accountReal = gmOptions._manager.getAccount(accountSandbox.email);
           var accountItem = pageDocument.createElement("listitem");
           
           accountItem.setAttribute("email", accountSandbox.email);
@@ -149,7 +149,7 @@ var gmanager_Options = new function()
       case 2: // compose.xul
       {
         // Populate the accounts
-        this._populateAccounts(pageDocument.getElementById("gm-prefs-compose-mailto-default"));
+        gmOptions._populateAccounts(pageDocument.getElementById("gm-prefs-compose-mailto-default"));
         
         break;
       }
@@ -172,10 +172,10 @@ var gmanager_Options = new function()
       case 7: // debug.xul
       {
         var accountsPopup = pageDocument.getElementById("gmanager-options-debug-accounts-popup");
-        var accounts = this._sandbox.getAccounts({});
+        var accounts = gmOptions._sandbox.getAccounts({});
         
         // Populate the accounts
-        this._populateAccounts(accountsPopup);
+        gmOptions._populateAccounts(accountsPopup);
         
         if (accounts.length > 0)
         {
@@ -194,18 +194,18 @@ var gmanager_Options = new function()
     }
     
     // Load the page preferences
-    gmanager_Prefs.loadPrefs(this._sandbox.global.node, pageDocument);
+    gmanager_Prefs.loadPrefs(gmOptions._sandbox.global.node, pageDocument);
     
     // Update the page preferences
-    this.command();
+    gmOptions.command();
   }
   
-  this._populateAccounts = function(aPopup)
+  gmOptions._populateAccounts = function(aPopup)
   {
     // Check if the popup is specified
     if (aPopup)
     {
-      var accounts = this._sandbox.getAccounts({});
+      var accounts = gmOptions._sandbox.getAccounts({});
       
       // Clear the menu items
       gmanager_Utils.clearKids(aPopup);
@@ -224,7 +224,7 @@ var gmanager_Options = new function()
       else
       {
         var emailItem = document.createElement("menuitem");
-        emailItem.setAttribute("label", this.getString("no-accounts"));
+        emailItem.setAttribute("label", gmOptions.getString("no-accounts"));
         aPopup.appendChild(emailItem);
       }
       
@@ -233,36 +233,36 @@ var gmanager_Options = new function()
     }
   }
   
-  this.importPrefs = function()
+  gmOptions.importPrefs = function()
   {
-    var file = this._selectFile("import");
+    var file = gmOptions._selectFile("import");
     if (file)
     {
-      if (this._sandbox.importPrefs(file))
+      if (gmOptions._sandbox.importPrefs(file))
       {
         // Update the page preferences
-        this.loadPagePrefs();
+        gmOptions.loadPagePrefs();
         
-        alert(this.getString("import-success"));
+        alert(gmOptions.getString("import-success"));
       }
       else
-        alert(this.getString("import-error"));
+        alert(gmOptions.getString("import-error"));
     }
   }
   
-  this.exportPrefs = function()
+  gmOptions.exportPrefs = function()
   {
-    var file = this._selectFile("export");
+    var file = gmOptions._selectFile("export");
     if (file)
     {
-      var success = this._sandbox.exportPrefs(file);
+      var success = gmOptions._sandbox.exportPrefs(file);
       
       if (success)
-        alert(this.getString("export-success"));
+        alert(gmOptions.getString("export-success"));
     }
   }
   
-  this._selectFile = function(aMode)
+  gmOptions._selectFile = function(aMode)
   {
     var nsIFilePicker = Components.interfaces.nsIFilePicker;
     var filePicker = Components.classes["@mozilla.org/filepicker;1"].createInstance(nsIFilePicker);
@@ -270,20 +270,20 @@ var gmanager_Options = new function()
     switch (aMode)
     {
       case "export":
-        filePicker.init(window, this.getString("export"), nsIFilePicker.modeSave);
+        filePicker.init(window, gmOptions.getString("export"), nsIFilePicker.modeSave);
         break;
       case "import":
-        filePicker.init(window, this.getString("import"), nsIFilePicker.modeOpen);
+        filePicker.init(window, gmOptions.getString("import"), nsIFilePicker.modeOpen);
         break;
     }
     
-    filePicker.appendFilter(this.getFString("xml-files", [this.FILTER_TYPE_XML]), this.FILTER_TYPE_XML);
+    filePicker.appendFilter(gmOptions.getFString("xml-files", [gmOptions.FILTER_TYPE_XML]), gmOptions.FILTER_TYPE_XML);
     filePicker.show();
     
     return filePicker.file;
   }
   
-  this.selectAccount = function()
+  gmOptions.selectAccount = function()
   {
     var pageDocument = document.getElementById("gmanager-options-iframe").contentDocument;
     var accountsList = pageDocument.getElementById("gmanager-options-accounts-listbox");
@@ -294,27 +294,27 @@ var gmanager_Options = new function()
     pageDocument.getElementById("gmanager-options-accounts-remove-button").disabled = (accountsList.selectedCount == 0);
   }
   
-  this.accountsAdd = function()
+  gmOptions.accountsAdd = function()
   {
-    window.openDialog("chrome://gmanager/content/options/dialogs/account.xul", "account", "centerscreen,chrome,modal", this._sandbox);
+    window.openDialog("chrome://gmanager/content/options/dialogs/account.xul", "account", "centerscreen,chrome,modal", gmOptions._sandbox);
     
-    this.loadPagePrefs();
+    gmOptions.loadPagePrefs();
   }
   
-  this.accountsModify = function()
+  gmOptions.accountsModify = function()
   {
     var pageDocument = document.getElementById("gmanager-options-iframe").contentDocument;
     var accountItem = pageDocument.getElementById("gmanager-options-accounts-listbox").selectedItem;
     
     if (accountItem)
     {
-      window.openDialog("chrome://gmanager/content/options/dialogs/account.xul", "account", "centerscreen,chrome,modal", this._sandbox, accountItem.email);
+      window.openDialog("chrome://gmanager/content/options/dialogs/account.xul", "account", "centerscreen,chrome,modal", gmOptions._sandbox, accountItem.email);
       
-      this.loadPagePrefs();
+      gmOptions.loadPagePrefs();
     }
   }
   
-  this.accountsRemove = function()
+  gmOptions.accountsRemove = function()
   {
     var pageDocument = document.getElementById("gmanager-options-iframe").contentDocument;
     var accountItem = pageDocument.getElementById("gmanager-options-accounts-listbox").selectedItem;
@@ -323,10 +323,10 @@ var gmanager_Options = new function()
     {
       var email = accountItem.email;
       
-      if (confirm(this.getFString("remove-account", [email])))
+      if (confirm(gmOptions.getFString("remove-account", [email])))
       {
         // Remove the account
-        this._sandbox.removeAccount(email);
+        gmOptions._sandbox.removeAccount(email);
         
         // Remove the account from the list
         accountItem.parentNode.removeChild(accountItem);
@@ -334,7 +334,7 @@ var gmanager_Options = new function()
     }
   }
   
-  this.helpVisitSite = function()
+  gmOptions.helpVisitSite = function()
   {
     var pageDocument = document.getElementById("gmanager-options-iframe").contentDocument;
     var contributorItem = pageDocument.getElementById("gmanager-options-help-contributors-list").selectedItem;
@@ -343,38 +343,38 @@ var gmanager_Options = new function()
       gmanager_Utils.loadSimpleURI(contributorItem.getAttribute("site"));
   }
   
-  this.debugMigrate = function()
+  gmOptions.debugMigrate = function()
   {
     var logins = gmanager_Utils.getStoredLogins("https://www.google.com", "https://www.google.com", null);
     window.openDialog("chrome://gmanager/content/migrate/migrate.xul", "migrate", "centerscreen,chrome,modal,resizable", logins);
   }
   
-  this.debugLogin = function()
+  gmOptions.debugLogin = function()
   {
     var pageDocument = document.getElementById("gmanager-options-iframe").contentDocument;
     var accountItem = pageDocument.getElementById("gmanager-options-debug-accounts-popup").parentNode.selectedItem;
-    var account = this._manager.getAccount(accountItem.label);
+    var account = gmOptions._manager.getAccount(accountItem.label);
     gmanager_Utils.showLogin(account);
   }
   
-  this.debugAlert = function()
+  gmOptions.debugAlert = function()
   {
     var pageDocument = document.getElementById("gmanager-options-iframe").contentDocument;
     var accountItem = pageDocument.getElementById("gmanager-options-debug-accounts-popup").parentNode.selectedItem;
     gmanager_Alerts.display(accountItem.label);
   }
   
-  this.dialogAccept = function()
+  gmOptions.dialogAccept = function()
   {
     // Save the page preferences
     var pageDocument = document.getElementById("gmanager-options-iframe").contentDocument;
-    gmanager_Prefs.savePrefs(this._sandbox.global.node, pageDocument);
+    gmanager_Prefs.savePrefs(gmOptions._sandbox.global.node, pageDocument);
     
     // Save the preferences
-    this._sandbox.save();
+    gmOptions._sandbox.save();
     
     // Load the preferences
-    this._manager.load();
+    gmOptions._manager.load();
     
     // Notify observers that the preferences have changed
     var observer = Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService);
@@ -383,4 +383,6 @@ var gmanager_Options = new function()
     // Close the window
     return true;
   }
+
+  return gmOptions;
 }
