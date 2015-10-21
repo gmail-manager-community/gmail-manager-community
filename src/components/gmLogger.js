@@ -14,7 +14,7 @@ function gmLogger()
   
   // Load the preference branch observer
   var prefService = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService);
-  this._branch = prefService.getBranch("longfocus.gmanager.").QueryInterface(Components.interfaces.nsIPrefBranchInternal);
+  this._branch = prefService.getBranch("extensions.gmanager.").QueryInterface(Components.interfaces.nsIPrefBranchInternal);
   this._branch.addObserver("", this, false);
   
   // Get the current debug preference value (silent)
