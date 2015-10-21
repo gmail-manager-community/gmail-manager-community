@@ -18,7 +18,7 @@ Based on:
 		
 	<Description about="urn:mozilla:install-manifest">
 		<em:id>gmail-manager-community@gmail-manager-community.github.com</em:id>
-		<em:version>0.7-alpha.1</em:version>
+		<em:version>0.7-alpha.2</em:version>
 		<em:type>2</em:type>
 		
 		<em:name>Gmail Manager-community</em:name>
