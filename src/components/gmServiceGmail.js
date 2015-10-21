@@ -5,7 +5,7 @@
 
 const GM_CLASS_NAME = "Gmail Account Service";
 const GM_CLASS_ID = Components.ID("{b07df9d0-f7dd-11da-974d-0800200c9a66}");
-const GM_CONTRACT_ID = "@hatterassoftware.com/gmanager/service/gmail;1";
+const GM_CONTRACT_ID = "@gmail-manager-community.github.com/gmanager/service/gmail;1";
 
 const GM_NOTIFY_STATE = "gmanager-accounts-notify-state";
 
@@ -15,7 +15,7 @@ function gmServiceGmail()
 {
   this.wrappedJSObject = this;
   // Load the services
-  this._logger = Components.classes["@hatterassoftware.com/gmanager/logger;1"].getService(Components.interfaces.gmILogger);
+  this._logger = Components.classes["@gmail-manager-community.github.com/gmanager/logger;1"].getService(Components.interfaces.gmILogger);
   this._cookieManager = Components.classes["@mozilla.org/cookiemanager;1"].getService(Components.interfaces.nsICookieManager2);
   this._observer = Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService);
   this._timer = Components.classes["@mozilla.org/timer;1"].createInstance(Components.interfaces.nsITimer);
@@ -95,7 +95,7 @@ gmServiceGmail.prototype = {
   _getServiceURI: function(aPassword, /* Optional */ aContinueData)
   {
     // Create the connection and send the server request
-    var connection = Components.classes["@hatterassoftware.com/gmanager/connection;1"].createInstance(Components.interfaces.gmIConnection);
+    var connection = Components.classes["@gmail-manager-community.github.com/gmanager/connection;1"].createInstance(Components.interfaces.gmIConnection);
     connection.send(this._loginURL, null);
     
     var serviceURI = {
@@ -254,7 +254,7 @@ gmServiceGmail.prototype = {
         this._connectionPhase = 0;
         
         // Create the connection and send the server request
-        this._connection = Components.classes["@hatterassoftware.com/gmanager/connection;1"].createInstance(Components.interfaces.gmIConnection);
+        this._connection = Components.classes["@gmail-manager-community.github.com/gmanager/connection;1"].createInstance(Components.interfaces.gmIConnection);
         this._connection.sendAsync(this._loginURL, null, this);
       }
     }

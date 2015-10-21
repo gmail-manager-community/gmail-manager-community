@@ -5,12 +5,12 @@
 
 const GM_CLASS_NAME = "Connection Listener";
 const GM_CLASS_ID = Components.ID("{7e8e54b5-a41a-4a08-9fc3-bed4c5e9adb1}");
-const GM_CONTRACT_ID = "@hatterassoftware.com/gmanager/connection;1";
+const GM_CONTRACT_ID = "@gmail-manager-community.github.com/gmanager/connection;1";
 
 function gmConnection()
 {
   // Load the services
-  this._logger = Components.classes["@hatterassoftware.com/gmanager/logger;1"].getService(Components.interfaces.gmILogger);
+  this._logger = Components.classes["@gmail-manager-community.github.com/gmanager/logger;1"].getService(Components.interfaces.gmILogger);
   this._observer = Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService);
   
   // Initialize the cookies

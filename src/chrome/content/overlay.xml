@@ -169,7 +169,7 @@
 				      // aTopic   : gmanager_Prefs.NOTIFY_CHANGED
 				      // aData    : null
 				      
-				      var manager = Components.classes["@hatterassoftware.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
+				      var manager = Components.classes["@gmail-manager-community.github.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
 				      
 				      if (this._account && !manager.isAccount(this._account.email))
 				        this.destroy();

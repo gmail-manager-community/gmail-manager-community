@@ -17,7 +17,7 @@ function gmanager_OverlayUnload(aEvent)
 
 function gmanager_ContentAreaClick(aEvent)
 {
-  var manager = Components.classes["@hatterassoftware.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
+  var manager = Components.classes["@gmail-manager-community.github.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
   var global = manager.global;
   var href = gmanager_Utils.getHref(aEvent.target);
   
@@ -61,7 +61,7 @@ var gmanager_Overlay = new function()
   this.load = function()
   {
     // Load the services
-    this._manager = Components.classes["@hatterassoftware.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
+    this._manager = Components.classes["@gmail-manager-community.github.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
     this._observer = Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService);
     
     // Load the observers

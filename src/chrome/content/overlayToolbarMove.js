@@ -368,7 +368,7 @@ var gmanager_ToolbarMove = new function()
             account.setIntPref("toolbar-specific-position", specificPosition);
             
             // Save the account toolbar location
-            var manager = Components.classes["@hatterassoftware.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
+            var manager = Components.classes["@gmail-manager-community.github.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
             manager.save();
           }
         }

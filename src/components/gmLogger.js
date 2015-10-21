@@ -5,7 +5,7 @@
 
 const GM_CLASS_NAME = "Logger Service";
 const GM_CLASS_ID = Components.ID("{07d9b512-8e83-418a-a540-0ec804b82195}");
-const GM_CONTRACT_ID = "@hatterassoftware.com/gmanager/logger;1";
+const GM_CONTRACT_ID = "@gmail-manager-community.github.com/gmanager/logger;1";
 
 function gmLogger()
 {

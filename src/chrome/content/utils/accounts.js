@@ -10,7 +10,7 @@ var gmanager_Accounts = new function()
   this.init = function()
   {
     // Load the accounts manager
-    this._manager = Components.classes["@hatterassoftware.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
+    this._manager = Components.classes["@gmail-manager-community.github.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
   }
   
   this.loginAllAccounts = function()

@@ -10,7 +10,7 @@ var gmanager_Utils = new function()
   this.init = function()
   {
     // Get the logger service
-    this._logger = Components.classes["@hatterassoftware.com/gmanager/logger;1"].getService(Components.interfaces.gmILogger);
+    this._logger = Components.classes["@gmail-manager-community.github.com/gmanager/logger;1"].getService(Components.interfaces.gmILogger);
     
     // Get the platform version
     this._platformVersion = Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULAppInfo).platformVersion;

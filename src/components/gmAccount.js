@@ -5,7 +5,7 @@
 
 const GM_CLASS_NAME = "Mail Account";
 const GM_CLASS_ID = Components.ID("{d4676ee3-7e3c-455a-b417-37eaea3082ad}");
-const GM_CONTRACT_ID = "@hatterassoftware.com/gmanager/account;1";
+const GM_CONTRACT_ID = "@gmail-manager-community.github.com/gmanager/account;1";
 
 // Global account type
 const GLOBAL_TYPE = "global";
@@ -21,7 +21,7 @@ function gmAccount()
 {
   this.wrappedJSObject = this;
   // Load the services
-  this._logger = Components.classes["@hatterassoftware.com/gmanager/logger;1"].getService(Components.interfaces.gmILogger);
+  this._logger = Components.classes["@gmail-manager-community.github.com/gmanager/logger;1"].getService(Components.interfaces.gmILogger);
   this._timer = Components.classes["@mozilla.org/timer;1"].createInstance(Components.interfaces.nsITimer);
 }
 gmAccount.prototype = {
@@ -177,7 +177,7 @@ gmAccount.prototype = {
         {
           case ACCOUNT_TYPE_GMAIL:
             // Create the Gmail mail service
-            this._service = Components.classes["@hatterassoftware.com/gmanager/service/gmail;1"].createInstance(Components.interfaces.gmIServiceGmail);
+            this._service = Components.classes["@gmail-manager-community.github.com/gmanager/service/gmail;1"].createInstance(Components.interfaces.gmIServiceGmail);
             break;
           case ACCOUNT_TYPE_YAHOO:
             // TODO Create the Yahoo mail service

@@ -10,7 +10,7 @@ var gmanager_ToolbarMenu = new function()
   gmToolbarMenu.init = function()
   {
     // Load the accounts manager
-    gmToolbarMenu._manager = Components.classes["@hatterassoftware.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
+    gmToolbarMenu._manager = Components.classes["@gmail-manager-community.github.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
   }
 
   gmToolbarMenu._createMenuitem = function(aLabel)

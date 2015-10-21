@@ -12,8 +12,8 @@ var gmanager_Options = new function()
   gmOptions.load = function()
   {
     // Load the accounts manager sandbox
-    gmOptions._manager = Components.classes["@hatterassoftware.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
-    gmOptions._sandbox = Components.classes["@hatterassoftware.com/gmanager/manager;1"].createInstance(Components.interfaces.gmIManager);
+    gmOptions._manager = Components.classes["@gmail-manager-community.github.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
+    gmOptions._sandbox = Components.classes["@gmail-manager-community.github.com/gmanager/manager;1"].createInstance(Components.interfaces.gmIManager);
     
     var accounts = gmOptions._sandbox.getAccounts({});
     

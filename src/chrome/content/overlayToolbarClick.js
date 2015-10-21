@@ -15,7 +15,7 @@ var gmanager_ToolbarClick = new function()
       
       if (account)
       {
-        var manager = Components.classes["@hatterassoftware.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
+        var manager = Components.classes["@gmail-manager-community.github.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
         var action = null;
         
         switch (aEvent.button)

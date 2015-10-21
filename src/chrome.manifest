@@ -12,22 +12,22 @@ interfaces components/gmService.xpt
 interfaces components/gmServiceGmail.xpt
 
 component {d4676ee3-7e3c-455a-b417-37eaea3082ad} components/gmAccount.js
-contract @hatterassoftware.com/gmanager/account;1 {d4676ee3-7e3c-455a-b417-37eaea3082ad}
+contract @gmail-manager-community.github.com/gmanager/account;1 {d4676ee3-7e3c-455a-b417-37eaea3082ad}
 
 component {7e8e54b5-a41a-4a08-9fc3-bed4c5e9adb1} components/gmConnection.js
-contract @hatterassoftware.com/gmanager/connection;1 {7e8e54b5-a41a-4a08-9fc3-bed4c5e9adb1}
+contract @gmail-manager-community.github.com/gmanager/connection;1 {7e8e54b5-a41a-4a08-9fc3-bed4c5e9adb1}
 
 component {07d9b512-8e83-418a-a540-0ec804b82195} components/gmLogger.js
-contract @hatterassoftware.com/gmanager/logger;1 {07d9b512-8e83-418a-a540-0ec804b82195}
+contract @gmail-manager-community.github.com/gmanager/logger;1 {07d9b512-8e83-418a-a540-0ec804b82195}
 
 component {bf43b6d0-f7dd-11da-974d-0800200c9a66} components/gmManager.js
-contract @hatterassoftware.com/gmanager/manager;1 {bf43b6d0-f7dd-11da-974d-0800200c9a66}
+contract @gmail-manager-community.github.com/gmanager/manager;1 {bf43b6d0-f7dd-11da-974d-0800200c9a66}
 
 component {d0fe9af0-f7bc-11da-974d-0800200c9a66} components/gmParser.js
-contract @hatterassoftware.com/gmanager/parser;1 {d0fe9af0-f7bc-11da-974d-0800200c9a66}
+contract @gmail-manager-community.github.com/gmanager/parser;1 {d0fe9af0-f7bc-11da-974d-0800200c9a66}
 
 component {b07df9d0-f7dd-11da-974d-0800200c9a66} components/gmServiceGmail.js
-contract @hatterassoftware.com/gmanager/service/gmail;1 {b07df9d0-f7dd-11da-974d-0800200c9a66}
+contract @gmail-manager-community.github.com/gmanager/service/gmail;1 {b07df9d0-f7dd-11da-974d-0800200c9a66}
 
 content gmanager jar:chrome/gmanager.jar!/content/
 overlay chrome://browser/content/browser.xul chrome://gmanager/content/overlay.xul

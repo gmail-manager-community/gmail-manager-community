@@ -61,7 +61,7 @@ var gmanager_Login = new function()
     }
     else
     {
-      var manager = Components.classes["@hatterassoftware.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
+      var manager = Components.classes["@gmail-manager-community.github.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
       var account = (gmLogin._account ? gmLogin._account : manager.getAccount(email));
       
       // Check if the account does not exist
