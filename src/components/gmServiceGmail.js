@@ -557,7 +557,8 @@ gmServiceGmail.prototype = {
           }
           
           try {
-            var tbMatches = data.match(/\["tb",(?:.|\s)+?](?:\s]){2,}(?!\s,,)/g);
+            //var tbMatches = data.match(/\["tb",(?:.|\s)+?](?:\s]){2,}(?!\s,,)/g);   see: https://github.com/gmail-manager-community/gmail-manager-community/issues/4
+            var tbMatches = [];
             // Initialize the snippets
             this._snippets = [];
             
