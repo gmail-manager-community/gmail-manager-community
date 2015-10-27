@@ -507,7 +507,7 @@ gmServiceGmail.prototype = {
           
           try {
             // Inbox/Drafts/Spam/Labels
-            var ldMatchesPre = data.match(/\["ld",(?:.|\s)+?(?:\s*[\[\]]){3}/)[0].replace(/,(?=,)/g, ',""');
+            var ldMatchesPre = data.match(/\["ld",(?:.|\s)+?(?:\s*[\[\]]){3}/)[0];
             ldMatchesPre = ldMatchesPre.replace(/(\r\n|\r|\n)/gm, '');
             ldMatchesPre = ldMatchesPre.replace(/,(?=,)/g, ',""');
             var ldMatches = JSON.parse(ldMatchesPre);
