@@ -560,9 +560,9 @@ gmServiceGmail.prototype = {
           try {
             var loc1 = data.indexOf("var VIEW_DATA=[[");
             var loc2 = data.lastIndexOf("var GM_TIMING_END_CHUNK2");
-            var viewdata = data.substring(loc1+14, loc2-2);
-            viewdata = viewdata.replace(/,(?=,)/g, ',""').replace(/,(?=[],])/g, ',""').replace(/\[(?=,)/g, '[""');
-            var msgs = JSON.parse(viewdata);
+            var viewData = data.substring(loc1+14, loc2-2);
+            viewData = viewData.replace(/,(?=,)/g, ',""').replace(/,(?=[],])/g, ',""').replace(/\[(?=,)/g, '[""');
+            var msgs = JSON.parse(viewData);
             // Initialize the snippets
             this._snippets = [];
 
@@ -594,13 +594,13 @@ gmServiceGmail.prototype = {
             {
               this._log(this._snippets.length + " snippet(s) were found");
               
-              for (var i = 0, n = this._snippets.length; i < n; i++)
-              {
-                var snippet = this._snippets[i];
-                
-                //for (var j in snippet)
-                //  this._log("snippet[" + i + "]." + j + " = " + snippet[j]);
-              }
+              //for (var i = 0, n = this._snippets.length; i < n; i++)
+              //{
+              //  var snippet = this._snippets[i];
+              //
+              //  //for (var j in snippet)
+              //  //  this._log("snippet[" + i + "]." + j + " = " + snippet[j]);
+              //}
             }
             else
               this._log("no snippets were found");
