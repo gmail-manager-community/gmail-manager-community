@@ -557,33 +557,36 @@ gmServiceGmail.prototype = {
           }
           
           try {
-            //var tbMatches = data.match(/\["tb",(?:.|\s)+?](?:\s]){2,}(?!\s,,)/g);   see: https://github.com/gmail-manager-community/gmail-manager-community/issues/4
-            var tbMatches = [];
+            var loc1 = data.indexOf("var VIEW_DATA=[[");
+            var loc2 = data.lastIndexOf("var GM_TIMING_END_CHUNK2");
+            var viewdata = data.substring(loc1+14, loc2-2);
+            viewdata = viewdata.replace(/\,\,/g, ',"",').replace(/\,\,/g, ',"",');
+            var msgs = JSON.parse(viewdata);
             // Initialize the snippets
             this._snippets = [];
-            
-            for (var i = 0, n = tbMatches.length; i < n; i++)
+
+            for (var i=0; i<msgs.length ; i++)
             {
-              tbMatches[i] = tbMatches[i].replace(/(\r\n|\r|\n)/gm, '');
-              tbMatches[i] = tbMatches[i].replace(/,(?=,)/g, ',""');
-              //this._log(tbMatches[i]);
-              var snippets = JSON.parse(tbMatches[i]);
-              
-              snippets[2].forEach(function(snippet, index, array) {
-                // Check if the snippet is unread
-                if (snippet[3] === 0)
+              if (msgs[i][0] == "tb")
+              {
+                for (var j=0; j<msgs[i][2].length; j++)
                 {
-                  this._snippets.push({
-                    "id" : snippet[0],
-                    "from" : this._replaceHtmlCodes(this._stripHtml(snippet[7])),
-                    "email" : (snippet[7].match(/email=["'](.+?)["']/i) || [])[1],
-                    "subject" : this._replaceHtmlCodes(this._stripHtml(snippet[9])),
-                    "msg" : this._replaceHtmlCodes(this._stripHtml(snippet[10])),
-                    "date" : this._replaceHtmlCodes(this._stripHtml(snippet[14])),
-                    "time" : snippet[15]
-                  });
+                  var snippet = msgs[i][2][j];
+                  if (snippet[3] == 0)
+                  {
+                    //this._log("found");
+                    this._snippets.push({
+                      "id" : snippet[0],
+                      "from" : this._replaceHtmlCodes(this._stripHtml(snippet[7])),
+                      "email" : (snippet[7].match(/email=["'](.+?)["']/i) || [])[1],
+                      "subject" : this._replaceHtmlCodes(this._stripHtml(snippet[9])),
+                      "msg" : this._replaceHtmlCodes(this._stripHtml(snippet[10])),
+                      "date" : this._replaceHtmlCodes(this._stripHtml(snippet[14])),
+                      "time" : snippet[15]
+                    });
+                  }
                 }
-              }, this);
+              }
             }
             
             if (this._snippets.length > 0)
