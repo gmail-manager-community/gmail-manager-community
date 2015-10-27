@@ -560,7 +560,7 @@ gmServiceGmail.prototype = {
             var loc1 = data.indexOf("var VIEW_DATA=[[");
             var loc2 = data.lastIndexOf("var GM_TIMING_END_CHUNK2");
             var viewdata = data.substring(loc1+14, loc2-2);
-            viewdata = viewdata.replace(/,(?=,)/g, ',""');
+            viewdata = viewdata.replace(/,(?=,)/g, ',""').replace(/,(?=[],])/g, ',""').replace(/\[(?=,)/g, '[""');
             var msgs = JSON.parse(viewdata);
             // Initialize the snippets
             this._snippets = [];
