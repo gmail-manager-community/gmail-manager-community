@@ -492,7 +492,7 @@ gmServiceGmail.prototype = {
           
           try {
             // Quota
-            var quMatches = JSON.parse(data.match(/\["qu",(?:.|\s)+?]/)[0].replace(/,(?=,)/g, ',""'));
+            var quMatches = JSON.parse(data.match(/\["qu",.+?]/)[0].replace(/,(?=,)/g, ',""'));
             this._log(data.match(/\["qu",(?:.|\s)+?]/)[0]);
             this._spaceUsed = quMatches[1];
             this._totalSpace = quMatches[2];
