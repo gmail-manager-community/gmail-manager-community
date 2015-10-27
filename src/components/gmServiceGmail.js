@@ -492,7 +492,7 @@ gmServiceGmail.prototype = {
           
           try {
             // Quota
-            var quMatches = JSON.parse(data.match(/\["qu",(?:.|\s)+?]/)[0].replace(/\,\,/g, ',"",').replace(/\,\,/g, ',"",'));
+            var quMatches = JSON.parse(data.match(/\["qu",(?:.|\s)+?]/)[0].replace(/,(?=,)/g, ',""'));
             this._log(data.match(/\["qu",(?:.|\s)+?]/)[0]);
             this._spaceUsed = quMatches[1];
             this._totalSpace = quMatches[2];
@@ -507,7 +507,7 @@ gmServiceGmail.prototype = {
           
           try {
             // Inbox/Drafts/Spam/Labels
-            var ldMatchesPre = data.match(/\["ld",(?:.|\s)+?(?:\s*[\[\]]){3}/)[0].replace(/\,\,/g, ',"",').replace(/\,\,/g, ',"",');
+            var ldMatchesPre = data.match(/\["ld",(?:.|\s)+?(?:\s*[\[\]]){3}/)[0].replace(/,(?=,)/g, ',""');
             ldMatchesPre = ldMatchesPre.replace(/(\r\n|\r|\n)/gm, '');
             ldMatchesPre = ldMatchesPre.replace(/,(?=,)/g, ',""');
             var ldMatches = JSON.parse(ldMatchesPre);
@@ -560,7 +560,7 @@ gmServiceGmail.prototype = {
             var loc1 = data.indexOf("var VIEW_DATA=[[");
             var loc2 = data.lastIndexOf("var GM_TIMING_END_CHUNK2");
             var viewdata = data.substring(loc1+14, loc2-2);
-            viewdata = viewdata.replace(/\,\,/g, ',"",').replace(/\,\,/g, ',"",');
+            viewdata = viewdata.replace(/,(?=,)/g, ',""');
             var msgs = JSON.parse(viewdata);
             // Initialize the snippets
             this._snippets = [];
