@@ -492,7 +492,7 @@ gmServiceGmail.prototype = {
           
           try {
             // Quota
-            var quMatches = JSON.parse(data.match(/\["qu",(?:.|\s)+?]/)[0]);
+            var quMatches = JSON.parse(data.match(/\["qu",(?:.|\s)+?]/)[0].replace(/\,\,/g, ',"",').replace(/\,\,/g, ',"",'));
             this._log(data.match(/\["qu",(?:.|\s)+?]/)[0]);
             this._spaceUsed = quMatches[1];
             this._totalSpace = quMatches[2];
@@ -507,7 +507,7 @@ gmServiceGmail.prototype = {
           
           try {
             // Inbox/Drafts/Spam/Labels
-            var ldMatchesPre = data.match(/\["ld",(?:.|\s)+?(?:\s*[\[\]]){3}/)[0];
+            var ldMatchesPre = data.match(/\["ld",(?:.|\s)+?(?:\s*[\[\]]){3}/)[0].replace(/\,\,/g, ',"",').replace(/\,\,/g, ',"",');
             ldMatchesPre = ldMatchesPre.replace(/(\r\n|\r|\n)/gm, '');
             ldMatchesPre = ldMatchesPre.replace(/,(?=,)/g, ',""');
             var ldMatches = JSON.parse(ldMatchesPre);
