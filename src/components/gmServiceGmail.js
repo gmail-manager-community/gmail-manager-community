@@ -509,7 +509,7 @@ gmServiceGmail.prototype = {
             var ldMatchesPre = data.match(/\["ld",(?:.|\s)+?(?:\s*[\[\]]){3}/)[0];
             ldMatchesPre = ldMatchesPre.replace(/(\r\n|\r|\n)/gm, '');
             ldMatchesPre = ldMatchesPre.replace(/,(?=,)/g, ',""');
-            ldMatchesPre = ldMatchesPre.replace(/\\x26/, "\u0026");
+            ldMatchesPre = ldMatchesPre.replace(/\\x26/g, "\u0026");
             var ldMatches = JSON.parse(ldMatchesPre);
             
             ldMatches[1].forEach(function(element, index, array) {
