@@ -509,10 +509,8 @@ gmServiceGmail.prototype = {
             var ldMatchesPre = data.match(/\["ld",(?:.|\s)+?(?:\s*[\[\]]){3}/)[0];
             ldMatchesPre = ldMatchesPre.replace(/(\r\n|\r|\n)/gm, '');
             ldMatchesPre = ldMatchesPre.replace(/,(?=,)/g, ',""');
-            // for '&', '<' and '>' (hex escape sequences changed to unicode sequences)
-            ldMatchesPre = ldMatchesPre.replace(/\\x26/g, "\u0026")
-                                       .replace(/\\\\x/g, '\\u005c\\u0078')
-                                       .replace(/\\x([0-9a-f]{2})/g, '\\u00$1');
+            // hex escape sequences changed to unicode sequences (for example: '&', '<' and '>')
+            ldMatchesPre = ldMatchesPre.replace(/\\\\x/g, '\\u005c\\u0078').replace(/\\x([0-9a-f]{2})/g, '\\u00$1');
             var ldMatches = JSON.parse(ldMatchesPre);
             
             ldMatches[1].forEach(function(element, index, array) {
