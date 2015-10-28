@@ -56,7 +56,7 @@
 <!ENTITY options-general-hide-tools-menu "Скрывать Gmail Manager NG из меню «Инструменты»">
 <!ENTITY options-general-startup "При запуске браузера">
 <!ENTITY options-general-auto-login "Автоматически подключаться ко всем аккаунтам.">
-<!ENTITY options-accounts-auto-login "Авто-вход">
+<!ENTITY options-accounts-auto-login "Автовход">
 <!ENTITY options-compose-mailto-links "Почтовые ссылки (Mailto:)">
 <!ENTITY options-compose-internet-links "Использовать Gmail Manager NG для mailto: ссылок.">
 <!ENTITY options-compose-prompt-for "Предложить выбрать аккаунт...">
@@ -71,31 +71,31 @@
 <!ENTITY options-toolbar-auto-login "Автоматически входить при выборе аккаунта.">
 <!ENTITY options-toolbar-auto-check "Автоматически проверять аккаунт при выборе.">
 <!ENTITY options-toolbar-auto-switch "Автоматически переходить на аккаунт с новой почтой.">
-<!ENTITY options-toolbar-auto-switch-disclaimer "Можно использовать лишь когда одна панель отображена.">
+<!ENTITY options-toolbar-auto-switch-disclaimer "Можно использовать, когда отображена лишь одна панель.">
 <!ENTITY options-toolbar-selected-account "Выбранный аккаунт">
 <!ENTITY options-toolbar-left-click "Левая кн. мыши:">
 <!ENTITY options-toolbar-middle-click "Средняя кн. мыши:">
 <!ENTITY options-toolbar-prompt-options "Предоставлять выбор...">
 <!ENTITY options-toolbar-check-messages "Проверить почтовый ящик">
 <!ENTITY options-toolbar-compose-message "Написать новое сообщение">
-<!ENTITY options-toolbar-reset-unread-count "Сбрасывать счетчик сообщений при открытии аккаунта.">
-<!ENTITY options-help-release-manager "Release Manager:">
-<!ENTITY options-help-based-on "Based On:">
-<!ENTITY options-help-join-community "Join the Community">
-<!ENTITY options-help-join-community-message "Gmail Manager NG is intended to be a community driven project. Getting started is as simple as creating a fork of the repository on GitHub.com. Gmail Manager NG is developed and distributed under the same license as the original Gmail Manager.">
-<!ENTITY options-help-translate-message "Interested in translating? Create your own GitHub fork of the repository and look for the files under src/chrome/locale. If you're not a developer, you can create an issue and add the contents of your gmanager.dtd and gmanager.properties files.">
-<!ENTITY options-help-issues "Bug Support and Features">
-<!ENTITY options-help-issues-message "Found a bug or have a cool idea for a new feature? Open an issue in the issue tracker at GitHub.com.">
-<!ENTITY options-help-supporters "Thanks to the Supporters of Gmail Manager">
-<!ENTITY options-help-supporters-message "The following people donated to the original project. They deserve a special thanks for helping to make Gmail Manager a fantastic add on.">
+<!ENTITY options-toolbar-reset-unread-count "Сбрасывать счётчик сообщений при открытии аккаунта.">
+<!ENTITY options-help-release-manager "Автор форка:">
+<!ENTITY options-help-based-on "На основе:">
+<!ENTITY options-help-join-community "Присоединяйтесь к сообществу">
+<!ENTITY options-help-join-community-message "Gmail Manager NG является проектом, управляемым сообществом. Начало работы достаточно простое, как и создание форка в хранилище GitHub.com. Gmail Manager NG разработан и распространяется под той же лицензией, что и оригинальный Gmail Manager.">
+<!ENTITY options-help-translate-message "Заинтересованы в переводе? Создайте свой собственный форк в хранилище GitHub и найдите файлы в src/chrome/locale. Если вы не разработчик, можете создать запрос (issue) и добавить содержимое ваших файлов gmanager.dtd и gmanager.properties.">
+<!ENTITY options-help-issues "Поддержка ошибок и возможностей">
+<!ENTITY options-help-issues-message "Нашли ошибку или есть классная идея новой функции? Задайте вопрос в баг-трекере GitHub.com.">
+<!ENTITY options-help-supporters "Спасибо всем, кто поддержал Gmail Manager">
+<!ENTITY options-help-supporters-message "Следующие люди пожертвовали первоначальному проекту. Они заслуживают особой благодарности за помощь сделать Gmail Manager поистине фантастическим дополнением.">
 <!ENTITY options-help-author "Автор:">
-<!ENTITY options-help-website "Оф.сайт:">
+<!ENTITY options-help-website "Оф. сайт:">
 <!ENTITY options-help-contact "Контакты">
 <!ENTITY options-help-questions-comments "Вопросы? Предложения? Комментарии?">
 <!ENTITY options-help-translate "Переводы">
 <!ENTITY options-help-interested-translating "Заинтересованы перевести на другой язык?">
 <!ENTITY options-help-donate-paypal "Материальная поддержка через PayPal">
-<!ENTITY options-help-support "Поддержите Gmail Manager NG и будущие разработки. Также, мы включим ваше имя и веб-сайт ниже. Спасибо за вашу помощь!">
+<!ENTITY options-help-support "Поддержите Gmail Manager NG и будущие разработки. Также мы включим ваше имя и веб-сайт ниже. Спасибо за вашу помощь!">
 <!ENTITY options-help-click-here-paypal "Сделать пожертвование...">
 <!ENTITY options-help-thanks-to "Участники:">
 <!ENTITY options-account-title "Аккаунты Gmail Manager NG">
@@ -103,9 +103,9 @@
 <!ENTITY options-account-general-startup "При запуске">
 <!ENTITY options-account-general-auto-login "Автоматически подключаться при запуске.">
 <!ENTITY options-account-toolbar-display-placement "Расположение">
-<!ENTITY options-account-toolbar-display-toolbar "Показывать значок и информацию об аккаунте.">
+<!ENTITY options-account-toolbar-display-toolbar "Показывать значок и информацию об аккаунте">
 <!ENTITY options-account-toolbar-always-last "Всегда в конце панели">
-<!ENTITY options-account-toolbar-specific-position "Располагать в позиции:">
+<!ENTITY options-account-toolbar-specific-position "Располагать в позиции">
 <!ENTITY options-account-toolbar-hide-count "Скрывать счётчик непрочитанных сообщений.">
 <!ENTITY options-account-toolbar-hide-alias "Скрывать псевдоним аккаунта.">
 <!ENTITY options-account-toolbar-show-labels "Показывать только ярлыки с новыми сообщениями.">

@@ -4,7 +4,7 @@
 
 ZIP = zip
 ZIPARGS = -r
-VERSION = `cat ../version.txt`
+VERSION = $(sed -ne '/em:version/{s/.*<em:version>\(.*\)<\/em:version>.*/\1/p;q;}' install.rdf)
 DISTDIR = ../dist
 PACKAGE = $(DISTDIR)/gmail_manager_ng-${VERSION}.xpi
 CHROMEPACKAGE = gmanager.jar
