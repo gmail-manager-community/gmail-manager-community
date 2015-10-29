@@ -205,7 +205,7 @@ var gmanager_Utils = new function()
   
   this.loadSimpleURI = function(aUrl)
   {
-    const GM_EXTENSION_ID = "{582195F5-92E7-40a0-A127-DB71295901D7}";
+    const GM_EXTENSION_ID = "gmail-manager-ng@nedwidek.github.com";
     
     if (Components.classes["@mozilla.org/extensions/manager;1"])
     {
