@@ -124,7 +124,7 @@ var gmanager_ToolbarTooltip = new function()
         elRow.setAttribute("class", (isUnread ? "gmanager-bold" : ""));
         
         // Label Name
-        elRow.appendChild(this._createLabel(gmanager_Utils.toUnicode(label.name)));
+        elRow.appendChild(this._createLabel(label.name));
         
         // Label Unread
         elRow.appendChild(this._createLabel(label.unread));
