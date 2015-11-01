@@ -34,7 +34,7 @@ var gmanager_ToolbarMenu = new function()
     var composeMenupopup = document.createElement("menupopup");
     composeMenu.setAttribute("label", this.getString("compose-mail"));
     composeMenu.setAttribute("accesskey", this.getString("compose-mail-ak"));
-    composeMenupopup.addEventListener("popupshowing", function(event){event.stopPropagation(); return gmanager_ToolbarMenu.buildComposeMenu(this);});
+    composeMenupopup.addEventListener("popupshowing", function(event) { event.stopPropagation(); return gmanager_ToolbarMenu.buildComposeMenu(this); }, false);
     composeMenu.appendChild(composeMenupopup);
     aPopup.appendChild(composeMenu);
     
@@ -52,19 +52,19 @@ var gmanager_ToolbarMenu = new function()
       
       // Login All Accounts
       menuitem = this._createMenuitem("login-all-accounts");
-      menuitem.addEventListener("command", function(){gmanager_Accounts.loginAllAccounts();});
+      menuitem.addEventListener("command", function() { gmanager_Accounts.loginAllAccounts(); }, false);
       menuitem.setAttribute("disabled", (numLoggedIn === accounts.length));
       aPopup.appendChild(menuitem);
       
       // Logout All Accounts
       menuitem = this._createMenuitem("logout-all-accounts");
-      menuitem.addEventListener("command", function(){gmanager_Accounts.logoutAllAccounts();});
+      menuitem.addEventListener("command", function() { gmanager_Accounts.logoutAllAccounts(); }, false);
       menuitem.setAttribute("disabled", (numLoggedIn === 0));
       aPopup.appendChild(menuitem);
       
       // Check All Accounts
       menuitem = this._createMenuitem("check-all-accounts");
-      menuitem.addEventListener("command", function(){gmanager_Accounts.checkAllAccounts();});
+      menuitem.addEventListener("command", function() { gmanager_Accounts.checkAllAccounts(); }, false);
       menuitem.setAttribute("disabled", (numLoggedIn === 0));
       aPopup.appendChild(menuitem);
       
@@ -82,26 +82,26 @@ var gmanager_ToolbarMenu = new function()
           {
             // Logout Selected Account
             menuitem = this._createMenuitem("logout-selected-account");
-            menuitem.addEventListener("command", function(){gmanager_Accounts.logoutAccount(displayAccount.email);});
+            menuitem.addEventListener("command", function() { gmanager_Accounts.logoutAccount(displayAccount.email); }, false);
             aPopup.appendChild(menuitem);
           }
           else
           {
             // Login Selected Account
             menuitem = this._createMenuitem("login-selected-account");
-            menuitem.addEventListener("command", function(){gmanager_Accounts.loginAccount(displayAccount.email);});
+            menuitem.addEventListener("command", function() { gmanager_Accounts.loginAccount(displayAccount.email); }, false);
             aPopup.appendChild(menuitem);
           }
           
           // Check Selected Account
           menuitem = this._createMenuitem("check-selected-account");
-          menuitem.addEventListener("command", function(){gmanager_Accounts.checkAccount(displayAccount.email);});
+          menuitem.addEventListener("command", function() { gmanager_Accounts.checkAccount(displayAccount.email); }, false);
           menuitem.setAttribute("disabled", !displayAccount.loggedIn);
           aPopup.appendChild(menuitem);
           
           // Display Mail Snippets...
           menuitem = this._createMenuitem("display-snippets");
-          menuitem.addEventListener("command", function(){gmanager_Alerts.display(displayAccount.email);});
+          menuitem.addEventListener("command", function() { gmanager_Alerts.display(displayAccount.email); }, false);
           menuitem.setAttribute("disabled", (!displayAccount.loggedIn && displayAccount.getSnippets({}).length === 0));
           aPopup.appendChild(menuitem);
           
@@ -119,7 +119,7 @@ var gmanager_ToolbarMenu = new function()
           menuitem.setAttribute("icontype", account.type);
           menuitem.setAttribute("status", gmanager_Utils.toStyleStatus(account.status));
           menuitem.setAttribute("newMail", account.unread > 0);
-          menuitem.addEventListener("command", function(){gmanager_ToolbarMenu.switchAccount(account.email);});
+          menuitem.addEventListener("command", function() { gmanager_ToolbarMenu.switchAccount(account.email); }, false);
           
           aPopup.appendChild(menuitem);
         });
@@ -132,7 +132,7 @@ var gmanager_ToolbarMenu = new function()
     {
       // Login Account...
       menuitem = this._createMenuitem("login-account");
-      menuitem.addEventListener("command", function(){gmanager_Utils.showLogin();});
+      menuitem.addEventListener("command", function() { gmanager_Utils.showLogin(); }, false);
       aPopup.appendChild(menuitem);
       
       // Separator
@@ -141,13 +141,13 @@ var gmanager_ToolbarMenu = new function()
     
     // Visit Homepage
     menuitem = this._createMenuitem("visit-homepage");
-    menuitem.addEventListener("command", function(){gmanager_Utils.loadSimpleURI(gmanager_Utils.WEBSITE);});
+    menuitem.addEventListener("command", function() { gmanager_Utils.loadSimpleURI(gmanager_Utils.WEBSITE); }, false);
     aPopup.appendChild(menuitem);
     
     // Options...
     menuitem = this._createMenuitem("options");
     menuitem.setAttribute("default", "true");
-    menuitem.addEventListener("command", function(){window.openDialog('chrome://gmanager/content/options/options.xul', 'options', 'centerscreen,chrome,modal,resizable');});
+    menuitem.addEventListener("command", function() { window.openDialog('chrome://gmanager/content/options/options.xul', 'options', 'centerscreen,chrome,modal,resizable'); }, false);
     aPopup.appendChild(menuitem);
     
     // Show the menu
@@ -164,7 +164,7 @@ var gmanager_ToolbarMenu = new function()
     
     // Default Mail Client
     menuitem = this._createMenuitem("default-client");
-    menuitem.addEventListener("command", function(){gmanager_ToolbarMenu.composeAccount(null);});
+    menuitem.addEventListener("command", function() { gmanager_ToolbarMenu.composeAccount(null); }, false);
     aPopup.appendChild(menuitem);
     
     // Check if any accounts exist
@@ -176,7 +176,7 @@ var gmanager_ToolbarMenu = new function()
       accounts.forEach(function(account, index, array) {
         menuitem = document.createElement("menuitem");
         menuitem.setAttribute("label", account.email);
-        menuitem.addEventListener("command", function(){gmanager_ToolbarMenu.composeAccount(account.email);});
+        menuitem.addEventListener("command", function() { gmanager_ToolbarMenu.composeAccount(account.email); }, false);
         aPopup.appendChild(menuitem);
       });
     }
