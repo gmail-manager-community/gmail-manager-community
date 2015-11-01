@@ -7,7 +7,7 @@ const GM_CLASS_ID = Components.ID("{bf43b6d0-f7dd-11da-974d-0800200c9a66}");
 const GM_CONTRACT_ID = "@hatterassoftware.com/gmanager/manager;1";
 
 // Extension version
-const EXTENSION_VERSION = "0.6";
+const EXTENSION_VERSION = "0.7";
 
 // Global account type
 const GLOBAL_TYPE = "global";

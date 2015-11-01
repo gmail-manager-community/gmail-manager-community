@@ -112,7 +112,7 @@ var gmanager_Overlay = new function()
     gmanager_Utils.log("Current version = " + aCurrentVersion);
     
     // Check for previous version
-    if (previousVersion < "0.6")
+    if (previousVersion < "0.7")
     {
       // Check if the preference exists
       if (gmanager_Prefs.hasPref("current"))
