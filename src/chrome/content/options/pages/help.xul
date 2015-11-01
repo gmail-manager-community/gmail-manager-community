@@ -47,8 +47,8 @@
 					
 					<label class="gmanager-link"
                         value="Gmail Manager by Todd Long &lt;longfocus@gmail.com&gt;"
-						tooltiptext="http://www.longfocus.com/firefox/gmanager/"
-						onclick="parent.gmanager_Utils.loadSimpleURI('http://www.longfocus.com/firefox/gmanager/');"/>
+						tooltiptext="http://www.longfocus.com/firefox/gmanager"
+						onclick="parent.gmanager_Utils.loadSimpleURI('http://www.longfocus.com/firefox/gmanager');"/>
 				</row>
 			</rows>
 		</grid>
