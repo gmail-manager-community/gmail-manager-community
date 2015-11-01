@@ -213,7 +213,7 @@ var gmanager_Utils = new function()
     var self = this;
 
     AddonManager.getAddonByID(GM_EXTENSION_ID, function(aAddon) {
-      self.loadURI(aUrl, self.WEBSITE + aAddon.version + "/", null, "background");
+      self.loadURI(aUrl, self.WEBSITE + "/" + aAddon.version + "/", null, "background");
     });
   }
   
