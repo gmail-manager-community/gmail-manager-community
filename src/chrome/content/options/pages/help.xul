@@ -2,8 +2,9 @@
 <?xml-stylesheet href="chrome://gmanager/content/options/options.css" type="text/css"?>
 
 <!-- 
-  Gmail Manager NG
-  Erik Nedwidek (http://github.com/nedwidek)
+  Gmail Manager-community
+  Alexis THOMAS (https://github.com/ath0mas)
+  Forked from Gmail Manager NG by Erik Nedwidek (https://github.com/nedwidek)
   Based on Gmail Manager by Todd Long <longfocus@gmail.com>
  -->
 
@@ -19,17 +20,26 @@
 				<row>
 					<label value="&options-help-release-manager;"/>
 					
-					<label value="Erik Nedwidek"
-						tooltiptext="http://github.com/nedwidek/"/>
+					<label value="Alexis THOMAS"
+						tooltiptext="https://github.com/ath0mas/"/>
 				</row>
 				
 				<row>
 					<label value="&options-help-website;"/>
 					
 					<label class="gmanager-link"
-						value="https://github.com/nedwidek/firefox-gmail-manager-ng"
-						tooltiptext="https://github.com/nedwidek/firefox-gmail-manager-ng"
-						onclick="parent.gmanager_Utils.loadSimpleURI('https://github.com/nedwidek/firefox-gmail-manager-ng');"/>
+						value="https://github.com/gmail-manager-community/gmail-manager-community"
+						tooltiptext="https://github.com/gmail-manager-community/gmail-manager-community"
+						onclick="parent.gmanager_Utils.loadSimpleURI('https://github.com/gmail-manager-community/gmail-manager-community');"/>
+				</row>
+
+				<row>
+					<label value="&options-help-forked-from;"/>
+
+					<label class="gmanager-link"
+						   value="Gmail Manager NG by Erik Nedwidek (http://github.com/nedwidek/)"
+						   tooltiptext="https://github.com/nedwidek/firefox-gmail-manager-ng"
+						   onclick="parent.gmanager_Utils.loadSimpleURI('https://github.com/nedwidek/firefox-gmail-manager-ng');"/>
 				</row>
                 				
 				<row>

@@ -1,15 +1,16 @@
-// Gmail Manager NG
-// Erik Nedwidek (http://github.com/nedwidek)
+// Gmail Manager-community
+// Alexis THOMAS (https://github.com/ath0mas)
+// Forked from Gmail Manager NG by Erik Nedwidek (https://github.com/nedwidek)
 // Based on Gmail Manager by Todd Long <longfocus@gmail.com>
 
 var gmanager_Utils = new function()
 {
-  this.WEBSITE = "https://github.com/nedwidek/firefox-gmail-manager-ng";
+  this.WEBSITE = "https://github.com/gmail-manager-community/gmail-manager-community";
   
   this.init = function()
   {
     // Get the logger service
-    this._logger = Components.classes["@hatterassoftware.com/gmanager/logger;1"].getService(Components.interfaces.gmILogger);
+    this._logger = Components.classes["@gmail-manager-community.github.com/gmanager/logger;1"].getService(Components.interfaces.gmILogger);
     
     // Get the platform version
     this._platformVersion = Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULAppInfo).platformVersion;
@@ -205,7 +206,7 @@ var gmanager_Utils = new function()
   
   this.loadSimpleURI = function(aUrl)
   {
-    const GM_EXTENSION_ID = "gmail-manager-ng@nedwidek.github.com";
+    const GM_EXTENSION_ID = "gmail-manager-community@gmail-manager-community.github.com";
     
     if (Components.classes["@mozilla.org/extensions/manager;1"])
     {

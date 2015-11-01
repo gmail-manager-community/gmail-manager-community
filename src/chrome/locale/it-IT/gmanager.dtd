@@ -1,4 +1,4 @@
-<!ENTITY ext-name "Gmail Manager NG">
+<!ENTITY ext-name "Gmail Manager-community">
 <!ENTITY ext-description "Permette la gestione di account e notifiche di Gmail">
 <!ENTITY common-alias "Alias">
 <!ENTITY common-email "Indirizzo e-mail">
@@ -25,10 +25,10 @@
 <!ENTITY btn-browse.ak "S">
 <!ENTITY btn-preview.ak "n">
 <!ENTITY btn-visit-site.ak "V">
-<!ENTITY migrate-title "Migrazione di Gmail Manager NG">
+<!ENTITY migrate-title "Migrazione di Gmail Manager-community">
 <!ENTITY migrate-select-accounts "Selezionare gli account per la migrazione:">
 <!ENTITY migrate-login-accounts "Accedere agli account selezionati">
-<!ENTITY login-title "Accesso a Gmail Manager NG">
+<!ENTITY login-title "Accesso a Gmail Manager-community">
 <!ENTITY login-header-label "Inserire i dati di accesso">
 <!ENTITY login-remember-password-label "Ricorda la password per questo account">
 <!ENTITY alert-from "Mittente:">
@@ -42,7 +42,7 @@
 <!ENTITY tab-location-focused "in una nuova scheda in primo piano">
 <!ENTITY tab-location-background "in una nuova scheda in secondo piano">
 <!ENTITY tab-location-window "in una nuova finestra">
-<!ENTITY options-title "Impostazioni di Gmail Manager NG">
+<!ENTITY options-title "Impostazioni di Gmail Manager-community">
 <!ENTITY options-tab-general "Generali">
 <!ENTITY options-tab-accounts "Account">
 <!ENTITY options-tab-compose "Composizione">
@@ -52,13 +52,13 @@
 <!ENTITY options-tab-notifications "Notifiche">
 <!ENTITY options-tab-help "Informazioni">
 <!ENTITY options-tab-debug "Debug">
-<!ENTITY options-general-hide-context-menu "Non visualizzare il menu contestuale di Gmail Manager NG">
-<!ENTITY options-general-hide-tools-menu "Non visualizzare la voce &apos;Gmail Manager NG&apos; nel menu Strumenti">
+<!ENTITY options-general-hide-context-menu "Non visualizzare il menu contestuale di Gmail Manager-community">
+<!ENTITY options-general-hide-tools-menu "Non visualizzare la voce &apos;Gmail Manager-community&apos; nel menu Strumenti">
 <!ENTITY options-general-startup "Accesso all&apos;avvio">
 <!ENTITY options-general-auto-login "Effettua automaticamente l&apos;accesso a tutti gli account all&apos;avvio">
 <!ENTITY options-accounts-auto-login "Accesso automatico">
 <!ENTITY options-compose-mailto-links "Link mailto:">
-<!ENTITY options-compose-internet-links "Usa Gmail Manager NG per i link mailto:">
+<!ENTITY options-compose-internet-links "Usa Gmail Manager-community per i link mailto:">
 <!ENTITY options-compose-prompt-for "Attiva i link mailto: per account da specificare…">
 <!ENTITY options-compose-default-account "Account predefinito:">
 <!ENTITY options-compose-context-menu "Menu contestuale">
@@ -82,7 +82,7 @@
 <!ENTITY options-help-release-manager "Release Manager:">
 <!ENTITY options-help-based-on "Based On:">
 <!ENTITY options-help-join-community "Join the Community">
-<!ENTITY options-help-join-community-message "Gmail Manager NG is intended to be a community driven project. Getting started is as simple as creating a fork of the repository on GitHub.com. Gmail Manager NG is developed and distributed under the same license as the original Gmail Manager.">
+<!ENTITY options-help-join-community-message "Gmail Manager-community is intended to be a community driven project. Getting started is as simple as creating a fork of the repository on GitHub.com. Gmail Manager-community is developed and distributed under the same license as the original Gmail Manager/Gmail Manager NG.">
 <!ENTITY options-help-translate-message "Interested in translating? Create your own GitHub fork of the repository and look for the files under src/chrome/locale. If you're not a developer, you can create an issue and add the contents of your gmanager.dtd and gmanager.properties files.">
 <!ENTITY options-help-issues "Bug Support and Features">
 <!ENTITY options-help-issues-message "Found a bug or have a cool idea for a new feature? Open an issue in the issue tracker at GitHub.com.">
@@ -95,10 +95,10 @@
 <!ENTITY options-help-translate "Traduzioni">
 <!ENTITY options-help-interested-translating "Fare clic qui se si è interessati ad aggiungere una traduzione">
 <!ENTITY options-help-donate-paypal "Donazioni">
-<!ENTITY options-help-support "Le donazioni supportano Gmail Manager NG ed il suo futuro sviluppo. I nomi dei donatori e relativi siti web verranno inclusi qui sotto. Grazie sin da ora!">
+<!ENTITY options-help-support "Le donazioni supportano Gmail Manager-community ed il suo futuro sviluppo. I nomi dei donatori e relativi siti web verranno inclusi qui sotto. Grazie sin da ora!">
 <!ENTITY options-help-click-here-paypal "Fare clic qui per effettuare una donazione con PayPal">
 <!ENTITY options-help-thanks-to "Ringraziamenti a:">
-<!ENTITY options-account-title "Account di Gmail Manager NG">
+<!ENTITY options-account-title "Account di Gmail Manager-community">
 <!ENTITY options-account-general-account "Account">
 <!ENTITY options-account-general-startup "Accesso all&apos;avvio">
 <!ENTITY options-account-general-auto-login "Effettua automaticamente l&apos;accesso all&apos;account all&apos;avvio">

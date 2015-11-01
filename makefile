@@ -1,4 +1,4 @@
-# Makefile to package gmail manager ng.
+# Makefile to package gmail-manager-community.
 # Erik Nedwidek
 #
 

@@ -1,5 +1,6 @@
-// Gmail Manager NG
-// Erik Nedwidek (http://github.com/nedwidek)
+// Gmail Manager-community
+// Alexis THOMAS (https://github.com/ath0mas)
+// Forked from Gmail Manager NG by Erik Nedwidek (https://github.com/nedwidek)
 // Based on Gmail Manager by Todd Long <longfocus@gmail.com>
 
 var gmanager_Alerts = new function()
@@ -29,7 +30,7 @@ var gmanager_Alerts = new function()
   {
     if (this._emails.length > 0)
     {
-      var manager = Components.classes["@hatterassoftware.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
+      var manager = Components.classes["@gmail-manager-community.github.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
       
       this._email = this._emails.shift();
       

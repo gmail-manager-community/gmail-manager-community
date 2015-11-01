@@ -1,4 +1,4 @@
-<!ENTITY ext-name "Gmail Manager NG">
+<!ENTITY ext-name "Gmail Manager-community">
 <!ENTITY ext-description "Διαχείριση λογαριασμών Gmail και ειδοποίηση για νέα μηνύματα ηλεκτρονικής αλληλογραφίας">
 <!ENTITY common-alias "Ψευδώνυμο">
 <!ENTITY common-email "Διεύθυνση ηλεκτρονικού ταχυδρομείου">
@@ -25,10 +25,10 @@
 <!ENTITY btn-browse.ak "τ">
 <!ENTITY btn-preview.ak "ο">
 <!ENTITY btn-visit-site.ak "σ">
-<!ENTITY migrate-title "Μεταφορά Gmail Manager NG">
+<!ENTITY migrate-title "Μεταφορά Gmail Manager-community">
 <!ENTITY migrate-select-accounts "Επιλέξτε τους λογαριασμούς που θέλετε να μεταφερθούν:">
 <!ENTITY migrate-login-accounts "Σύνδεση στους επιλεγμένους λογαριασμούς">
-<!ENTITY login-title "Σύνδεση Gmail Manager NG">
+<!ENTITY login-title "Σύνδεση Gmail Manager-community">
 <!ENTITY login-header-label "Εισάγετε τις πληροφορίες λογαριασμού για σύνδεση:">
 <!ENTITY login-remember-password-label "Απομνημόνευση κωδικού.">
 <!ENTITY alert-from "από">
@@ -42,7 +42,7 @@
 <!ENTITY tab-location-focused "Νέα καρτέλα (εστιασμένη)">
 <!ENTITY tab-location-background "Νέα καρτέλα (άνοιγμα στο παρασκήνιο)">
 <!ENTITY tab-location-window "Νέο παράθυρο">
-<!ENTITY options-title "Επιλογές Gmail Manager NG">
+<!ENTITY options-title "Επιλογές Gmail Manager-community">
 <!ENTITY options-tab-general "Γενικά">
 <!ENTITY options-tab-accounts "Λογαριασμοί">
 <!ENTITY options-tab-compose "Σύνθεση">
@@ -52,13 +52,13 @@
 <!ENTITY options-tab-notifications "Ειδοποιήσεις">
 <!ENTITY options-tab-help "Βοήθεια">
 <!ENTITY options-tab-debug "Αποσφαλμάτωση">
-<!ENTITY options-general-hide-context-menu "Να μην εμφανίζεται το Gmail Manager NG στο μενού περιεχομένου">
-<!ENTITY options-general-hide-tools-menu "Να μην εμφανίζεται το Gmail Manager NG στο μενού εργαλείων">
+<!ENTITY options-general-hide-context-menu "Να μην εμφανίζεται το Gmail Manager-community στο μενού περιεχομένου">
+<!ENTITY options-general-hide-tools-menu "Να μην εμφανίζεται το Gmail Manager-community στο μενού εργαλείων">
 <!ENTITY options-general-startup "Εκκίνηση">
 <!ENTITY options-general-auto-login "Αυτόματη σύνδεση σε όλους τους λογαριασμούς κατά την εκκίνηση.">
 <!ENTITY options-accounts-auto-login "Αυτόματη σύνδεση">
 <!ENTITY options-compose-mailto-links "Δεσμοί «Mailto:»">
-<!ENTITY options-compose-internet-links "Χρήση του Gmail Manager NG όταν γίνεται κλικ σε δεσμούς «mailto:».">
+<!ENTITY options-compose-internet-links "Χρήση του Gmail Manager-community όταν γίνεται κλικ σε δεσμούς «mailto:».">
 <!ENTITY options-compose-prompt-for "Ερώτηση για συγκεκριμένο λογαριασμό...">
 <!ENTITY options-compose-default-account "Αρχικός λογαριασμός:">
 <!ENTITY options-compose-context-menu "Μενού περιεχομένου">
@@ -82,7 +82,7 @@
 <!ENTITY options-help-release-manager "Release Manager:">
 <!ENTITY options-help-based-on "Based On:">
 <!ENTITY options-help-join-community "Join the Community">
-<!ENTITY options-help-join-community-message "Gmail Manager NG is intended to be a community driven project. Getting started is as simple as creating a fork of the repository on GitHub.com. Gmail Manager NG is developed and distributed under the same license as the original Gmail Manager.">
+<!ENTITY options-help-join-community-message "Gmail Manager-community is intended to be a community driven project. Getting started is as simple as creating a fork of the repository on GitHub.com. Gmail Manager-community is developed and distributed under the same license as the original Gmail Manager/Gmail Manager NG.">
 <!ENTITY options-help-translate-message "Interested in translating? Create your own GitHub fork of the repository and look for the files under src/chrome/locale. If you're not a developer, you can create an issue and add the contents of your gmanager.dtd and gmanager.properties files.">
 <!ENTITY options-help-issues "Bug Support and Features">
 <!ENTITY options-help-issues-message "Found a bug or have a cool idea for a new feature? Open an issue in the issue tracker at GitHub.com.">
@@ -95,10 +95,10 @@
 <!ENTITY options-help-translate "Μετάφραση">
 <!ENTITY options-help-interested-translating "Θέλετε να μεταφράσετε στη γλώσσα σας;">
 <!ENTITY options-help-donate-paypal "Δωρεά μέσω PayPal">
-<!ENTITY options-help-support "Βοηθήστε την ανάπτυξη του Gmail Manager NG τώρα και στο μέλλον. Η δωρεά σας θα μας επιτρέψει να βελτιώσουμε περαιτέρω το πρόσθετο αυτό. Επίσης, θα συμπεριλάβουμε το όνομα και τον ιστότοπο σας στην παρακάτω λίστα. Ευχαριστούμε προκαταβολικά.">
+<!ENTITY options-help-support "Βοηθήστε την ανάπτυξη του Gmail Manager-community τώρα και στο μέλλον. Η δωρεά σας θα μας επιτρέψει να βελτιώσουμε περαιτέρω το πρόσθετο αυτό. Επίσης, θα συμπεριλάβουμε το όνομα και τον ιστότοπο σας στην παρακάτω λίστα. Ευχαριστούμε προκαταβολικά.">
 <!ENTITY options-help-click-here-paypal "Κάντε κλικ εδώ για να κάνετε δωρεά μέσω PayPal...">
 <!ENTITY options-help-thanks-to "Ευχαριστίες:">
-<!ENTITY options-account-title "Λογαριασμός Gmail Manager NG">
+<!ENTITY options-account-title "Λογαριασμός Gmail Manager-community">
 <!ENTITY options-account-general-account "Λογαριασμός">
 <!ENTITY options-account-general-startup "Εκκίνηση">
 <!ENTITY options-account-general-auto-login "Αυτόματη σύνδεση σ&apos; αυτό τον λογαριασμό κατά την εκκίνηση.">

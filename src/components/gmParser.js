@@ -1,10 +1,11 @@
-// Gmail Manager
-// Erik Nedwidek (http://github.com/nedwidek)
+// Gmail Manager-community
+// Alexis THOMAS (https://github.com/ath0mas)
+// Forked from Gmail Manager NG by Erik Nedwidek (https://github.com/nedwidek)
 // Based on Gmail Manager by Todd Long <longfocus@gmail.com>
 
 const GM_CLASS_NAME = "Preferences XML Parser";
 const GM_CLASS_ID = Components.ID("{d0fe9af0-f7bc-11da-974d-0800200c9a66}");
-const GM_CONTRACT_ID = "@hatterassoftware.com/gmanager/parser;1";
+const GM_CONTRACT_ID = "@gmail-manager-community.github.com/gmanager/parser;1";
 
 // Extension version
 const EXTENSION_VERSION = "0.7";
@@ -22,7 +23,7 @@ const UNORDERED_NODE_SNAPSHOT_TYPE = Components.interfaces.nsIDOMXPathResult.UNO
 function gmParser()
 {
   // Load the parsing services
-  this._logger = Components.classes["@hatterassoftware.com/gmanager/logger;1"].getService(Components.interfaces.gmILogger);
+  this._logger = Components.classes["@gmail-manager-community.github.com/gmanager/logger;1"].getService(Components.interfaces.gmILogger);
   this._converter = Components.classes["@mozilla.org/intl/scriptableunicodeconverter"].createInstance(Components.interfaces.nsIScriptableUnicodeConverter);
   this._domParser = Components.classes['@mozilla.org/xmlextras/domparser;1'].getService(Components.interfaces.nsIDOMParser);
   this._domSerializer = Components.classes['@mozilla.org/xmlextras/xmlserializer;1'].getService(Components.interfaces.nsIDOMSerializer);
@@ -34,7 +35,7 @@ function gmParser()
   var directoryService = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties);
   this._transformsDir = directoryService.get("ProfD", Components.interfaces.nsIFile);
   this._transformsDir.append("extensions");
-  this._transformsDir.append("gmail-manager-ng@nedwidek.github.com");
+  this._transformsDir.append("gmail-manager-community@gmail-manager-community.github.com");
   this._transformsDir.append("defaults");
   this._transformsDir.append("transforms");
   

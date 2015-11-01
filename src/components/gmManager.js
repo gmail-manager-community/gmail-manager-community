@@ -1,10 +1,11 @@
-// Gmail Manager
-// Erik Nedwidek (http://github.com/nedwidek)
+// Gmail Manager-community
+// Alexis THOMAS (https://github.com/ath0mas)
+// Forked from Gmail Manager NG by Erik Nedwidek (https://github.com/nedwidek)
 // Based on Gmail Manager by Todd Long <longfocus@gmail.com>
 
 const GM_CLASS_NAME = "Mail Accounts Manager";
 const GM_CLASS_ID = Components.ID("{bf43b6d0-f7dd-11da-974d-0800200c9a66}");
-const GM_CONTRACT_ID = "@hatterassoftware.com/gmanager/manager;1";
+const GM_CONTRACT_ID = "@gmail-manager-community.github.com/gmanager/manager;1";
 
 // Extension version
 const EXTENSION_VERSION = "0.7";
@@ -15,8 +16,8 @@ const GLOBAL_TYPE = "global";
 function gmManager()
 {
   // Load the services
-  this._logger = Components.classes["@hatterassoftware.com/gmanager/logger;1"].getService(Components.interfaces.gmILogger);
-  this._parser = Components.classes["@hatterassoftware.com/gmanager/parser;1"].getService(Components.interfaces.gmIParser);
+  this._logger = Components.classes["@gmail-manager-community.github.com/gmanager/logger;1"].getService(Components.interfaces.gmILogger);
+  this._parser = Components.classes["@gmail-manager-community.github.com/gmanager/parser;1"].getService(Components.interfaces.gmIParser);
   
   // Initialize the preferences directory
   var directoryService = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties);
@@ -127,7 +128,7 @@ gmManager.prototype = {
   _createAccount: function(aNode)
   {
     // Create the account
-    var gmAccount = new Components.Constructor("@hatterassoftware.com/gmanager/account;1", Components.interfaces.gmIAccount, "load");
+    var gmAccount = new Components.Constructor("@gmail-manager-community.github.com/gmanager/account;1", Components.interfaces.gmIAccount, "load");
     return new gmAccount(aNode.cloneNode(true));
   },
   

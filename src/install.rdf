@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- 
+  Gmail Manager-community
+  https://github.com/gmail-manager-community/gmail-manager-community
+
+Forked from:
   Gmail Manager NG
   https://github.com/nedwidek/firefox-gmail-manager-ng
-
 Based on:
   Gmail Manager
   Todd Long <longfocus@gmail.com>
@@ -14,17 +17,18 @@ Based on:
 		xmlns:em="http://www.mozilla.org/2004/em-rdf#">
 		
 	<Description about="urn:mozilla:install-manifest">
-		<em:id>gmail-manager-ng@nedwidek.github.com</em:id>
+		<em:id>gmail-manager-community@gmail-manager-community.github.com</em:id>
 		<em:version>0.7-SNAPSHOT</em:version>
 		<em:type>2</em:type>
-		
-		<em:name>Gmail Manager NG</em:name>
-		<em:description>Based on Gmail Manager by Todd Long. This fork is intended to a supported version of Gmail Manager since Todd appears to have gone MIA. Manage multiple Gmail accounts and receive new mail notifications.</em:description>
-		<em:creator>Erik Nedwidek</em:creator>
+
+		<em:name>Gmail Manager-community</em:name>
+		<em:description>Forked from Gmail Manager NG by Erik Nedwidek, based on Gmail Manager by Todd Long. This fork is intended to be a supported version of Gmail Manager since Erik and Todd appear to have gone MIA. Manage multiple Gmail accounts and receive new mail notifications.</em:description>
+		<em:creator>Alexis THOMAS</em:creator>
+		<em:contributor>Erik Nedwidek</em:contributor>
 		<em:contributor>Todd Long</em:contributor>
 		<em:contributor>BabelZilla.org translation team</em:contributor>
 		<em:translator>Капелька Яда</em:translator>
-		<em:homepageURL>https://github.com/nedwidek/firefox-gmail-manager-ng</em:homepageURL>
+		<em:homepageURL>https://github.com/gmail-manager-community/gmail-manager-community</em:homepageURL>
 		<em:iconURL>chrome://gmanager/skin/gmail-icon.png</em:iconURL>
 		<em:optionsURL>chrome://gmanager/content/options/options.xul</em:optionsURL>
 		

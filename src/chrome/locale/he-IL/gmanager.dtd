@@ -1,4 +1,4 @@
-<!ENTITY ext-name "Gmail Manager NG">
+<!ENTITY ext-name "Gmail Manager-community">
 <!ENTITY ext-description "ניהול חשבונות ג&apos;ימייל והודעות על דוא&quot;ל חדש.">
 <!ENTITY common-alias "כינויים">
 <!ENTITY common-email "אימייל">
@@ -25,10 +25,10 @@
 <!ENTITY btn-browse.ak "ד">
 <!ENTITY btn-preview.ak "ת">
 <!ENTITY btn-visit-site.ak "ק">
-<!ENTITY migrate-title "נדידת Gmail Manager NG">
+<!ENTITY migrate-title "נדידת Gmail Manager-community">
 <!ENTITY migrate-select-accounts "בחירת החשבונות להגירה:">
 <!ENTITY migrate-login-accounts "התחבר לחשבונות שנבחרו.">
-<!ENTITY login-title "התחברות לGmail Manager NG">
+<!ENTITY login-title "התחברות לGmail Manager-community">
 <!ENTITY login-header-label "רשום את מידע המשתמש בשביל להתחבר:">
 <!ENTITY login-remember-password-label "זכור את הססמה הזאת לפעם הבאה.">
 <!ENTITY alert-from "מ">
@@ -42,7 +42,7 @@
 <!ENTITY tab-location-focused "לשונית חדשה (ממוקד)">
 <!ENTITY tab-location-background "לשונית חדשה (ברקע)">
 <!ENTITY tab-location-window "חלון חדש">
-<!ENTITY options-title "אפשרויות Gmail Manager NG">
+<!ENTITY options-title "אפשרויות Gmail Manager-community">
 <!ENTITY options-tab-general "כללי">
 <!ENTITY options-tab-accounts "חשבונות">
 <!ENTITY options-tab-compose "הלחנה">
@@ -52,13 +52,13 @@
 <!ENTITY options-tab-notifications "התראות">
 <!ENTITY options-tab-help "עזרה">
 <!ENTITY options-tab-debug "דיבוג">
-<!ENTITY options-general-hide-context-menu "הסתרת Gmail Manager NG מתפריט לחצן ימני.">
-<!ENTITY options-general-hide-tools-menu "הסתרת Gmail Manager NG מתפריט הכלים .">
+<!ENTITY options-general-hide-context-menu "הסתרת Gmail Manager-community מתפריט לחצן ימני.">
+<!ENTITY options-general-hide-tools-menu "הסתרת Gmail Manager-community מתפריט הכלים .">
 <!ENTITY options-general-startup "התחלה">
 <!ENTITY options-general-auto-login "התחבר אוטומטית לכל החשבונות בהתחלה">
 <!ENTITY options-accounts-auto-login "התחברות אוטומטית">
 <!ENTITY options-compose-mailto-links "קישורי Mailto:">
-<!ENTITY options-compose-internet-links "השתמש בGmail Manager NG כאשר קישורי mailto: נלחצים.">
+<!ENTITY options-compose-internet-links "השתמש בGmail Manager-community כאשר קישורי mailto: נלחצים.">
 <!ENTITY options-compose-prompt-for "מוכן לבחירת חשבונות מסוימים...">
 <!ENTITY options-compose-default-account "חשבון ברירת מחדל:">
 <!ENTITY options-compose-context-menu "תפריט לחצן ימני">
@@ -82,7 +82,7 @@
 <!ENTITY options-help-release-manager "Release Manager:">
 <!ENTITY options-help-based-on "Based On:">
 <!ENTITY options-help-join-community "Join the Community">
-<!ENTITY options-help-join-community-message "Gmail Manager NG is intended to be a community driven project. Getting started is as simple as creating a fork of the repository on GitHub.com. Gmail Manager NG is developed and distributed under the same license as the original Gmail Manager.">
+<!ENTITY options-help-join-community-message "Gmail Manager-community is intended to be a community driven project. Getting started is as simple as creating a fork of the repository on GitHub.com. Gmail Manager-community is developed and distributed under the same license as the original Gmail Manager/Gmail Manager NG.">
 <!ENTITY options-help-translate-message "Interested in translating? Create your own GitHub fork of the repository and look for the files under src/chrome/locale. If you're not a developer, you can create an issue and add the contents of your gmanager.dtd and gmanager.properties files.">
 <!ENTITY options-help-issues "Bug Support and Features">
 <!ENTITY options-help-issues-message "Found a bug or have a cool idea for a new feature? Open an issue in the issue tracker at GitHub.com.">
@@ -95,10 +95,10 @@
 <!ENTITY options-help-translate "תרגום">
 <!ENTITY options-help-interested-translating "מעוניינים בתרגום?">
 <!ENTITY options-help-donate-paypal "תרום דרך PayPal">
-<!ENTITY options-help-support "עזרו לתמוך בGmail Manager NG ובפיתוחים עתידיים. זה יאפשר לנו שיפור מתמשך של הרחבה זו. כמו כן, שמכם ואתרכם יוכללו מתחת. תודה מראש!">
+<!ENTITY options-help-support "עזרו לתמוך בGmail Manager-community ובפיתוחים עתידיים. זה יאפשר לנו שיפור מתמשך של הרחבה זו. כמו כן, שמכם ואתרכם יוכללו מתחת. תודה מראש!">
 <!ENTITY options-help-click-here-paypal "לחץ כאן כדי לתרום דרך PayPal">
 <!ENTITY options-help-thanks-to "תודה ל:">
-<!ENTITY options-account-title "חשבון Gmail Manager NG">
+<!ENTITY options-account-title "חשבון Gmail Manager-community">
 <!ENTITY options-account-general-account "חשבון">
 <!ENTITY options-account-general-startup "התחלה">
 <!ENTITY options-account-general-auto-login "חיבור אוטומטי לחשבון זה באתחול.">

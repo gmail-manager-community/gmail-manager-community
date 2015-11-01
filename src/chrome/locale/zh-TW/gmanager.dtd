@@ -1,4 +1,4 @@
-<!ENTITY ext-name "Gmail Manager NG">
+<!ENTITY ext-name "Gmail Manager-community">
 <!ENTITY ext-description "管理多個 Gmail 帳號及新郵件通知。">
 <!ENTITY common-alias "別名">
 <!ENTITY common-email "Email">
@@ -25,10 +25,10 @@
 <!ENTITY btn-browse.ak "B">
 <!ENTITY btn-preview.ak "P">
 <!ENTITY btn-visit-site.ak "V">
-<!ENTITY migrate-title "Gmail Manager NG 搬移功能">
+<!ENTITY migrate-title "Gmail Manager-community 搬移功能">
 <!ENTITY migrate-select-accounts "請選擇您要搬移的帳號：">
 <!ENTITY migrate-login-accounts "登入所選帳號。">
-<!ENTITY login-title "Gmail Manager NG 登入">
+<!ENTITY login-title "Gmail Manager-community 登入">
 <!ENTITY login-header-label "請輸入您帳號資訊以登入帳號：">
 <!ENTITY login-remember-password-label "下次記住此密碼。">
 <!ENTITY alert-from "從">
@@ -42,7 +42,7 @@
 <!ENTITY tab-location-focused "新分頁（前景）">
 <!ENTITY tab-location-background "新分頁（背景）">
 <!ENTITY tab-location-window "新視窗">
-<!ENTITY options-title "Gmail Manager NG 選項">
+<!ENTITY options-title "Gmail Manager-community 選項">
 <!ENTITY options-tab-general "一般">
 <!ENTITY options-tab-accounts "帳號">
 <!ENTITY options-tab-compose "撰寫郵件">
@@ -52,13 +52,13 @@
 <!ENTITY options-tab-notifications "通知">
 <!ENTITY options-tab-help "求助">
 <!ENTITY options-tab-debug "除錯">
-<!ENTITY options-general-hide-context-menu "隱藏 Gmail Manager NG 右鍵選單。">
-<!ENTITY options-general-hide-tools-menu "隱藏 Gmail Manager NG 工具選單。">
+<!ENTITY options-general-hide-context-menu "隱藏 Gmail Manager-community 右鍵選單。">
+<!ENTITY options-general-hide-tools-menu "隱藏 Gmail Manager-community 工具選單。">
 <!ENTITY options-general-startup "啟動">
 <!ENTITY options-general-auto-login "啟動時自動登入全部帳號。">
 <!ENTITY options-accounts-auto-login "自動登入">
 <!ENTITY options-compose-mailto-links "Mailto: 連結">
-<!ENTITY options-compose-internet-links "使用 Gmail Manager NG 管理網頁 mailto: 連結。">
+<!ENTITY options-compose-internet-links "使用 Gmail Manager-community 管理網頁 mailto: 連結。">
 <!ENTITY options-compose-prompt-for "詢問帳號...">
 <!ENTITY options-compose-default-account "預設帳號：">
 <!ENTITY options-compose-context-menu "右鍵選單">
@@ -82,7 +82,7 @@
 <!ENTITY options-help-release-manager "Release Manager:">
 <!ENTITY options-help-based-on "Based On:">
 <!ENTITY options-help-join-community "Join the Community">
-<!ENTITY options-help-join-community-message "Gmail Manager NG is intended to be a community driven project. Getting started is as simple as creating a fork of the repository on GitHub.com. Gmail Manager NG is developed and distributed under the same license as the original Gmail Manager.">
+<!ENTITY options-help-join-community-message "Gmail Manager-community is intended to be a community driven project. Getting started is as simple as creating a fork of the repository on GitHub.com. Gmail Manager-community is developed and distributed under the same license as the original Gmail Manager/Gmail Manager NG.">
 <!ENTITY options-help-translate-message "Interested in translating? Create your own GitHub fork of the repository and look for the files under src/chrome/locale. If you're not a developer, you can create an issue and add the contents of your gmanager.dtd and gmanager.properties files.">
 <!ENTITY options-help-issues "Bug Support and Features">
 <!ENTITY options-help-issues-message "Found a bug or have a cool idea for a new feature? Open an issue in the issue tracker at GitHub.com.">
@@ -95,10 +95,10 @@
 <!ENTITY options-help-translate "翻譯">
 <!ENTITY options-help-interested-translating "對翻譯有興趣嗎？">
 <!ENTITY options-help-donate-paypal "透過 PayPal 提供贊助">
-<!ENTITY options-help-support "贊助 Gmail Manager NG 及其未來的開發。這將使我們得以繼續改良此套件。我們會將您的姓名及網站列在下面的列表中。在此先說聲感謝！">
+<!ENTITY options-help-support "贊助 Gmail Manager-community 及其未來的開發。這將使我們得以繼續改良此套件。我們會將您的姓名及網站列在下面的列表中。在此先說聲感謝！">
 <!ENTITY options-help-click-here-paypal "透過 PayPal 贊助...">
 <!ENTITY options-help-thanks-to "感謝：">
-<!ENTITY options-account-title "Gmail Manager NG 帳號">
+<!ENTITY options-account-title "Gmail Manager-community 帳號">
 <!ENTITY options-account-general-account "帳號">
 <!ENTITY options-account-general-startup "啟動">
 <!ENTITY options-account-general-auto-login "啟動時自動登入此帳號。">

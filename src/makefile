@@ -1,4 +1,4 @@
-# Makefile to package gmail manager ng.
+# Makefile to package gmail-manager-community.
 # Erik Nedwidek
 #
 
@@ -6,7 +6,7 @@ ZIP = zip
 ZIPARGS = -r
 VERSION = `sed -ne '/em:version/{s/.*<em:version>\(.*\)<\/em:version>.*/\1/p;q;}' install.rdf`
 DISTDIR = ../dist
-PACKAGE = $(DISTDIR)/gmail_manager_ng-${VERSION}.xpi
+PACKAGE = $(DISTDIR)/gmail_manager_community-${VERSION}.xpi
 CHROMEPACKAGE = gmanager.jar
 
 FILES = chrome/$(CHROMEPACKAGE) chrome.manifest components defaults install.js install.rdf license.txt

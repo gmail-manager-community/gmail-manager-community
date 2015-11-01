@@ -1,5 +1,6 @@
-// Gmail Manager NG
-// Erik Nedwidek (http://github.com/nedwidek)
+// Gmail Manager-community
+// Alexis THOMAS (https://github.com/ath0mas)
+// Forked from Gmail Manager NG by Erik Nedwidek (https://github.com/nedwidek)
 // Based on Gmail Manager by Todd Long <longfocus@gmail.com>
 
 function gmanager_OverlayLoad(aEvent)
@@ -16,7 +17,7 @@ function gmanager_OverlayUnload(aEvent)
 
 function gmanager_ContentAreaClick(aEvent)
 {
-  var manager = Components.classes["@hatterassoftware.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
+  var manager = Components.classes["@gmail-manager-community.github.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
   var global = manager.global;
   var href = gmanager_Utils.getHref(aEvent.target);
   
@@ -60,14 +61,14 @@ var gmanager_Overlay = new function()
   this.load = function()
   {
     // Load the services
-    this._manager = Components.classes["@hatterassoftware.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
+    this._manager = Components.classes["@gmail-manager-community.github.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
     this._observer = Components.classes["@mozilla.org/observer-service;1"].getService(Components.interfaces.nsIObserverService);
     
     // Load the observers
     this._observer.addObserver(this, gmanager_Prefs.NOTIFY_CHANGED, false);
     this._observer.addObserver(this, gmanager_Accounts.NOTIFY_STATE, false);
     
-    const GM_EXTENSION_ID = "gmail-manager-ng@nedwidek.github.com";
+    const GM_EXTENSION_ID = "gmail-manager-community@gmail-manager-community.github.com";
     
     if (Components.classes["@mozilla.org/extensions/manager;1"])
     {

@@ -1,10 +1,11 @@
-// Gmail Manager
-// Erik Nedwidek (http://github.com/nedwidek)
+// Gmail Manager-community
+// Alexis THOMAS (https://github.com/ath0mas)
+// Forked from Gmail Manager NG by Erik Nedwidek (https://github.com/nedwidek)
 // Based on Gmail Manager by Todd Long <longfocus@gmail.com>
 
 const GM_CLASS_NAME = "Logger Service";
 const GM_CLASS_ID = Components.ID("{07d9b512-8e83-418a-a540-0ec804b82195}");
-const GM_CONTRACT_ID = "@hatterassoftware.com/gmanager/logger;1";
+const GM_CONTRACT_ID = "@gmail-manager-community.github.com/gmanager/logger;1";
 
 function gmLogger()
 {

@@ -1,4 +1,4 @@
-<!ENTITY ext-name "Gmail Manager NG">
+<!ENTITY ext-name "Gmail Manager-community">
 <!ENTITY ext-description "Удобное управление вашими Gmail-аккаунтами и уведомлениями о новых сообщениях.">
 <!ENTITY common-alias "Имя">
 <!ENTITY common-email "Email">
@@ -25,10 +25,10 @@
 <!ENTITY btn-browse.ak "б">
 <!ENTITY btn-preview.ak "е">
 <!ENTITY btn-visit-site.ak "к">
-<!ENTITY migrate-title "Менеджер мигрирования Gmail Manager NG">
+<!ENTITY migrate-title "Менеджер мигрирования Gmail Manager-community">
 <!ENTITY migrate-select-accounts "Выберите аккаунты для мигрирования:">
 <!ENTITY migrate-login-accounts "Подключиться к выбранным аккаунтам.">
-<!ENTITY login-title "Авторизация Gmail Manager NG">
+<!ENTITY login-title "Авторизация Gmail Manager-community">
 <!ENTITY login-header-label "Введите информацию для подключения:">
 <!ENTITY login-remember-password-label "Запомнить пароль.">
 <!ENTITY alert-from "от">
@@ -42,7 +42,7 @@
 <!ENTITY tab-location-focused "Новой активной вкладке">
 <!ENTITY tab-location-background "Новой фоновой вкладке">
 <!ENTITY tab-location-window "Новом окне браузера">
-<!ENTITY options-title "Настройки Gmail Manager NG">
+<!ENTITY options-title "Настройки Gmail Manager-community">
 <!ENTITY options-tab-general "Основные">
 <!ENTITY options-tab-accounts "Аккаунты">
 <!ENTITY options-tab-compose "Написание">
@@ -52,13 +52,13 @@
 <!ENTITY options-tab-notifications "Уведомления">
 <!ENTITY options-tab-help "Справка">
 <!ENTITY options-tab-debug "Отладка">
-<!ENTITY options-general-hide-context-menu "Скрывать Gmail Manager NG из контекстного меню.">
-<!ENTITY options-general-hide-tools-menu "Скрывать Gmail Manager NG из меню «Инструменты»">
+<!ENTITY options-general-hide-context-menu "Скрывать Gmail Manager-community из контекстного меню.">
+<!ENTITY options-general-hide-tools-menu "Скрывать Gmail Manager-community из меню «Инструменты»">
 <!ENTITY options-general-startup "При запуске браузера">
 <!ENTITY options-general-auto-login "Автоматически подключаться ко всем аккаунтам.">
 <!ENTITY options-accounts-auto-login "Автовход">
 <!ENTITY options-compose-mailto-links "Почтовые ссылки (Mailto:)">
-<!ENTITY options-compose-internet-links "Использовать Gmail Manager NG для mailto: ссылок.">
+<!ENTITY options-compose-internet-links "Использовать Gmail Manager-community для mailto: ссылок.">
 <!ENTITY options-compose-prompt-for "Предложить выбрать аккаунт...">
 <!ENTITY options-compose-default-account "Стандартный аккаунт:">
 <!ENTITY options-compose-context-menu "Контекстное меню">
@@ -82,7 +82,7 @@
 <!ENTITY options-help-release-manager "Автор форка:">
 <!ENTITY options-help-based-on "На основе:">
 <!ENTITY options-help-join-community "Присоединяйтесь к сообществу">
-<!ENTITY options-help-join-community-message "Gmail Manager NG является проектом, управляемым сообществом. Начало работы достаточно простое, как и создание форка в хранилище GitHub.com. Gmail Manager NG разработан и распространяется под той же лицензией, что и оригинальный Gmail Manager.">
+<!ENTITY options-help-join-community-message "Gmail Manager-community является проектом, управляемым сообществом. Начало работы достаточно простое, как и создание форка в хранилище GitHub.com. Gmail Manager-community разработан и распространяется под той же лицензией, что и оригинальный Gmail Manager/Gmail Manager NG.">
 <!ENTITY options-help-translate-message "Заинтересованы в переводе? Создайте свой собственный форк в хранилище GitHub и найдите файлы в src/chrome/locale. Если вы не разработчик, можете создать запрос (issue) и добавить содержимое ваших файлов gmanager.dtd и gmanager.properties.">
 <!ENTITY options-help-issues "Поддержка ошибок и возможностей">
 <!ENTITY options-help-issues-message "Нашли ошибку или есть классная идея новой функции? Задайте вопрос в баг-трекере GitHub.com.">
@@ -95,10 +95,10 @@
 <!ENTITY options-help-translate "Переводы">
 <!ENTITY options-help-interested-translating "Заинтересованы перевести на другой язык?">
 <!ENTITY options-help-donate-paypal "Материальная поддержка через PayPal">
-<!ENTITY options-help-support "Поддержите Gmail Manager NG и будущие разработки. Также мы включим ваше имя и веб-сайт ниже. Спасибо за вашу помощь!">
+<!ENTITY options-help-support "Поддержите Gmail Manager-community и будущие разработки. Также мы включим ваше имя и веб-сайт ниже. Спасибо за вашу помощь!">
 <!ENTITY options-help-click-here-paypal "Сделать пожертвование...">
 <!ENTITY options-help-thanks-to "Участники:">
-<!ENTITY options-account-title "Аккаунты Gmail Manager NG">
+<!ENTITY options-account-title "Аккаунты Gmail Manager-community">
 <!ENTITY options-account-general-account "Аккаунт">
 <!ENTITY options-account-general-startup "При запуске">
 <!ENTITY options-account-general-auto-login "Автоматически подключаться при запуске.">
