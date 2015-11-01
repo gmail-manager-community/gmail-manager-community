@@ -1,5 +1,6 @@
-chromepackage.out
-xpipackage.out
+*.xpi
+*.jar
+*.out
 
 # IntelliJ IDEA
 *.iml
