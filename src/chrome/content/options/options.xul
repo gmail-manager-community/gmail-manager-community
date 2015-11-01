@@ -82,6 +82,6 @@
 		
 		<iframe id="gmanager-options-iframe"
 				flex="1"
-				type="chrome"/>
+				src=""/>
 	</hbox>
 </dialog>
