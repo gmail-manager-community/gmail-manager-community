@@ -21,6 +21,8 @@ Based on:
 		<em:version>0.7-alpha.3-SNAPSHOT</em:version>
 		<em:type>2</em:type>
 
+		<em:unpack>true</em:unpack>
+
 		<em:name>Gmail Manager-community</em:name>
 		<em:description>Forked from Gmail Manager NG by Erik Nedwidek, based on Gmail Manager by Todd Long. This fork is intended to be a supported version of Gmail Manager since Erik and Todd appear to have gone MIA. Manage multiple Gmail accounts and receive new mail notifications.</em:description>
 		<em:creator>Alexis THOMAS</em:creator>
