@@ -70,26 +70,16 @@ var gmanager_Overlay = new function()
     
     const GM_EXTENSION_ID = "gmail-manager-community@gmail-manager-community.github.com";
     
-    if (Components.classes["@mozilla.org/extensions/manager;1"])
-    {
-      var extensionManager = Components.classes["@mozilla.org/extensions/manager;1"].getService(Components.interfaces.nsIExtensionManager);
-      var extension = extensionManager.getItemForID(GM_EXTENSION_ID);
-      
-      if (extension.version !== gmanager_Prefs.getCharPref("version"))
-        this._welcome(extension.version);
-    }
-    else if (Components.utils && Components.utils.import)
-    {
-      Components.utils.import("resource://gre/modules/AddonManager.jsm");
-      
-      var self = this;
-      
-      AddonManager.getAddonByID(GM_EXTENSION_ID, function(aAddon) {
-        if (aAddon.version !== gmanager_Prefs.getCharPref("version"))
-          self._welcome(aAddon.version);
-      });
-    }
-    
+    Components.utils.import("resource://gre/modules/AddonManager.jsm");
+
+    var self = this;
+
+    AddonManager.getAddonByID(GM_EXTENSION_ID, function(aAddon) {
+      if (aAddon.version !== gmanager_Prefs.getCharPref("version")) {
+        self._welcome(aAddon.version);
+      }
+    });
+
     // Load the mail accounts
     this._loadAccounts(true);
     

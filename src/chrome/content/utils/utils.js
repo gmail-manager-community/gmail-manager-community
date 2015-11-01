@@ -208,23 +208,13 @@ var gmanager_Utils = new function()
   {
     const GM_EXTENSION_ID = "gmail-manager-community@gmail-manager-community.github.com";
     
-    if (Components.classes["@mozilla.org/extensions/manager;1"])
-    {
-      var extensionManager = Components.classes["@mozilla.org/extensions/manager;1"].getService(Components.interfaces.nsIExtensionManager);
-      var extension = extensionManager.getItemForID(GM_EXTENSION_ID);
-      
-      this.loadURI(aUrl, this.WEBSITE + extension.version + "/", null, "background");
-    }
-    else if (Components.utils && Components.utils.import)
-    {
-      Components.utils.import("resource://gre/modules/AddonManager.jsm");
-      
-      var self = this;
-      
-      AddonManager.getAddonByID(GM_EXTENSION_ID, function(aAddon) {
-        self.loadURI(aUrl, self.WEBSITE + aAddon.version + "/", null, "background");
-      });
-    }
+    Components.utils.import("resource://gre/modules/AddonManager.jsm");
+
+    var self = this;
+
+    AddonManager.getAddonByID(GM_EXTENSION_ID, function(aAddon) {
+      self.loadURI(aUrl, self.WEBSITE + aAddon.version + "/", null, "background");
+    });
   }
   
   this.loadURI = function(aUrl, aReferrerUrl, aData, aLocation)
