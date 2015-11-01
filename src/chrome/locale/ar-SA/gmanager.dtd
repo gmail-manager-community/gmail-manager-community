@@ -1,4 +1,4 @@
-<!ENTITY ext-name "مدير جيميل">
+<!ENTITY ext-name "Gmail Manager-community">
 <!ENTITY ext-description "ادارة حسابات جيميل والتنبيه لقدوم الرسائل الجديدة.">
 <!ENTITY common-alias "المعرّف (البريد الإلكتروني)">
 <!ENTITY common-email "البريد">
@@ -79,15 +79,6 @@
 <!ENTITY options-toolbar-check-messages "فحص رسائل جديدة">
 <!ENTITY options-toolbar-compose-message "انشاء رسالة جديدة">
 <!ENTITY options-toolbar-reset-unread-count "إعادة ضبط الرسائل غير مقروءة عند فتح الحساب.">
-<!ENTITY options-help-release-manager "Release Manager:">
-<!ENTITY options-help-based-on "Based On:">
-<!ENTITY options-help-join-community "Join the Community">
-<!ENTITY options-help-join-community-message "Gmail Manager-community is intended to be a community driven project. Getting started is as simple as creating a fork of the repository on GitHub.com. Gmail Manager-community is developed and distributed under the same license as the original Gmail Manager/Gmail Manager NG.">
-<!ENTITY options-help-translate-message "Interested in translating? Create your own GitHub fork of the repository and look for the files under src/chrome/locale. If you're not a developer, you can create an issue and add the contents of your gmanager.dtd and gmanager.properties files.">
-<!ENTITY options-help-issues "Bug Support and Features">
-<!ENTITY options-help-issues-message "Found a bug or have a cool idea for a new feature? Open an issue in the issue tracker at GitHub.com.">
-<!ENTITY options-help-supporters "Thanks to the Supporters of Gmail Manager">
-<!ENTITY options-help-supporters-message "The following people donated to the original project. They deserve a special thanks for helping to make Gmail Manager a fantastic add on.">
 <!ENTITY options-help-release-manager "Release Manager:">
 <!ENTITY options-help-based-on "Based On:">
 <!ENTITY options-help-join-community "Join the Community">
