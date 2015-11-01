@@ -47,7 +47,7 @@ var gmanager_ToolbarTooltip = new function()
   this._createLabel = function(aValue)
   {
     var label = document.createElement("label");
-    label.setAttribute("value", gmanager_Utils.toUnicode(aValue));
+    label.setAttribute("value", aValue);
     return label;
   }
   
@@ -66,7 +66,7 @@ var gmanager_ToolbarTooltip = new function()
     elParent.appendChild(el);
     
     // Account Email
-    el = this._createLabel(aAccount.alias);
+    el = this._createLabel(gmanager_Utils.toUnicode(aAccount.alias));
     el.setAttribute("class", "gmanager-bold");
     elParent.appendChild(el);
     
@@ -167,13 +167,13 @@ var gmanager_ToolbarTooltip = new function()
           var elHbox = document.createElement("hbox");
           elHbox.setAttribute("flex", "1");
           
-          el = this._createLabel(snippets[i].from + " > " + snippets[i].subject);
+          el = this._createLabel(gmanager_Utils.toUnicode(snippets[i].from) + " > " + gmanager_Utils.toUnicode(snippets[i].subject));
           el.setAttribute("crop", "end");
           el.setAttribute("flex", "1");
           el.setAttribute("class", "gmanager-bold");
           elHbox.appendChild(el);
           
-          el = this._createLabel(snippets[i].date);
+          el = this._createLabel(gmanager_Utils.toUnicode(snippets[i].date));
           el.setAttribute("class", "gmanager-bold");
           elHbox.appendChild(el);
           elVbox.appendChild(elHbox);

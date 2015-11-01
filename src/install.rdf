@@ -15,35 +15,25 @@ Based on:
 		
 	<Description about="urn:mozilla:install-manifest">
 		<em:id>gmail-manager-ng@nedwidek.github.com</em:id>
-		<em:version>0.6.5.3-2</em:version>
+		<em:version>0.6.5.3-3.beta.5</em:version>
 		<em:type>2</em:type>
 		
 		<em:name>Gmail Manager NG</em:name>
 		<em:description>Based on Gmail Manager by Todd Long. This fork is intended to a supported version of Gmail Manager since Todd appears to have gone MIA. Manage multiple Gmail accounts and receive new mail notifications.</em:description>
 		<em:creator>Erik Nedwidek</em:creator>
-        <em:contributor>Todd Long</em:contributor>
+		<em:contributor>Todd Long</em:contributor>
 		<em:contributor>BabelZilla.org translation team</em:contributor>
+		<em:translator>Капелька Яда</em:translator>
 		<em:homepageURL>https://github.com/nedwidek/firefox-gmail-manager-ng</em:homepageURL>
 		<em:iconURL>chrome://gmanager/skin/gmail-icon.png</em:iconURL>
 		<em:optionsURL>chrome://gmanager/content/options/options.xul</em:optionsURL>
-
-		<em:localized>
-			<Description>
-				<em:locale>ru-RU</em:locale>
-				<em:name>Gmail Manager NG</em:name>
-				<em:description>Форк Gmail Manager для управления несколькими аккаунтами Gmail и получения уведомлений о новой почте. Основан на разработках Gmail Manager от Todd Long, который, по-видимому, прекратил поддержку дополнения.</em:description>
-				<em:creator>Erik Nedwidek</em:creator>
-				<em:contributor>Todd Long</em:contributor>
-				<em:translator>Капелька Яда</em:translator>
-			</Description>
-		</em:localized>
 		
 		<!-- Firefox -->
 		<em:targetApplication>
 			<Description>
 				<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
 				<em:minVersion>3.5</em:minVersion>
-				<em:maxVersion>13.0a1</em:maxVersion>
+				<em:maxVersion>45.0.*</em:maxVersion>
 			</Description>
 		</em:targetApplication>
 		
