@@ -13,7 +13,7 @@ FILES = chrome/$(CHROMEPACKAGE) chrome.manifest components defaults install.js i
 CHROMEFILES = content locale skin
 
 package:
-	@echo "Packaging using version of ${VERSION}"
+	@echo "Packaging using version ${VERSION}"
 	@echo "Package chrome jar"
 	cd chrome && $(ZIP) $(ZIPARGS) $(CHROMEPACKAGE) $(CHROMEFILES) > ../../chromepackage.out
 	@echo "Packaging XPI ${PACKAGE}"
