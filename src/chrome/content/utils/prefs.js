@@ -9,7 +9,7 @@ var gmanager_Prefs = new function()
   
   this.NOTIFY_CHANGED = "gmanager-prefs-notify-changed";
   this.ELEMENT_PREFIX = "gm-prefs-";
-  this.BRANCH = "longfocus.gmanager.";
+  this.BRANCH = "extensions.gmanager.";
   
   this.init = function()
   {

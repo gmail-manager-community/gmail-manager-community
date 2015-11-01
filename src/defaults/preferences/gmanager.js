@@ -7,7 +7,7 @@
 pref("extensions.gmail-manager-community@gmail-manager-community.github.com.description", "chrome://gmanager/locale/gmanager.properties");
 
 // Extension preferences
-pref("longfocus.gmanager.debug", false);
-pref("longfocus.gmanager.first-time", true);
-pref("longfocus.gmanager.options-page", "chrome://gmanager/content/options/pages/general.xul");
-pref("longfocus.gmanager.version", "");
+pref("extensions.gmanager.debug", false);
+pref("extensions.gmanager.first-time", true);
+pref("extensions.gmanager.options-page", "chrome://gmanager/content/options/pages/general.xul");
+pref("extensions.gmanager.version", "");

@@ -15,7 +15,7 @@ const ACCOUNT_TYPE_GMAIL = "gmail";
 const ACCOUNT_TYPE_YAHOO = "yahoo";
 
 // Password site
-const PASSWORD_SITE = "longfocus.gmanager.account";
+const PASSWORD_SITE = "extensions.gmanager.account";
 
 function gmAccount()
 {
