@@ -80,6 +80,7 @@
 <!ENTITY options-toolbar-compose-message "Написать новое сообщение">
 <!ENTITY options-toolbar-reset-unread-count "Сбрасывать счётчик сообщений при открытии аккаунта.">
 <!ENTITY options-help-release-manager "Автор форка:">
+<!ENTITY options-help-forked-from "Forked from:">
 <!ENTITY options-help-based-on "На основе:">
 <!ENTITY options-help-join-community "Присоединяйтесь к сообществу">
 <!ENTITY options-help-join-community-message "Gmail Manager-community является проектом, управляемым сообществом. Начало работы достаточно простое, как и создание форка в хранилище GitHub.com. Gmail Manager-community разработан и распространяется под той же лицензией, что и оригинальный Gmail Manager/Gmail Manager NG.">
