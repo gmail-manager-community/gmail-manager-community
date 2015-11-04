@@ -1,9 +1,14 @@
 #!/bin/sh
 # Script to package gmail-manager-community.
-# Erik Nedwidek
-# Alexis THOMAS
 #
 
-SRCDIR=src
+VERSION=`sed -ne '/em:version/{s/.*<em:version>\(.*\)<\/em:version>.*/\1/p;q;}' install.rdf`
+PACKAGE=dist/gmail_manager_community-$VERSION.xpi
+FILES="components content defaults locale skin chrome.manifest install.rdf license.txt"
 
-cd $SRCDIR && ./make.sh
+echo "Cleaning"
+rm -f $PACKAGE
+
+echo "Packaging using version $VERSION"
+echo "Packaging XPI to $PACKAGE"
+zip -r $PACKAGE $FILES > xpipackage.out
