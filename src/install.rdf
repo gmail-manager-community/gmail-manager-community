@@ -31,7 +31,9 @@ Based on:
 		<em:homepageURL>https://github.com/gmail-manager-community/gmail-manager-community</em:homepageURL>
 		<em:iconURL>chrome://gmanager/skin/gmail-icon.png</em:iconURL>
 		<em:optionsURL>chrome://gmanager/content/options/options.xul</em:optionsURL>
-		
+
+		<em:multiprocessCompatible>true</em:multiprocessCompatible>
+
 		<!-- Firefox -->
 		<em:targetApplication>
 			<Description>
