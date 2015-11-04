@@ -90,7 +90,7 @@ gmParser.prototype = {
         '    <pref id="toolbar-placement" value="always-last"/>\n' + 
         '    <pref id="toolbar-specific-position" value="0"/>\n' + 
         '    <pref id="toolbar-account-hide-unread-count" value="false"/>\n' + 
-        '    <pref id="toolbar-account-hide-alias" value="false"/>\n' + 
+        '    <pref id="toolbar-account-hide-alias" value="true"/>\n' +
         '    <pref id="toolbar-tooltip-show-labels" value="true"/>\n' + 
         '    <pref id="toolbar-tooltip-show-snippets" value="true"/>\n' + 
         '    <pref id="toolbar-unread-count-inbox" value="true"/>\n' + 
