@@ -1,9 +1,9 @@
-*.xpi
-*.jar
-*.out
-
 # IntelliJ IDEA
+.idea/
 *.iml
 *.ipr
 *.iws
-.idea/
+
+# gmanager
+*.xpi
+*.out

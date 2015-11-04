@@ -1,0 +1,125 @@
+<!ENTITY ext-name "Gmail Manager-community">
+<!ENTITY ext-description "Upravljanje z računi Gmail in obveščanje o novi pošti.">
+<!ENTITY common-alias "Vzdevek">
+<!ENTITY common-email "E-poštni naslov">
+<!ENTITY common-password "Geslo">
+<!ENTITY btn-add "Dodaj ...">
+<!ENTITY btn-modify "Spremeni ...">
+<!ENTITY btn-remove "Odstrani ...">
+<!ENTITY btn-migrate "Migriraj ...">
+<!ENTITY btn-move-up "Pomakni navzgor">
+<!ENTITY btn-move-down "Pomakni navzdol">
+<!ENTITY btn-import "Uvozi nastavitve ...">
+<!ENTITY btn-export "Izvozi nastavitve ...">
+<!ENTITY btn-browse "Prebrskaj ...">
+<!ENTITY btn-preview "Predogled">
+<!ENTITY btn-visit-site "Obišči stran">
+<!ENTITY btn-add.ak "D">
+<!ENTITY btn-modify.ak "S">
+<!ENTITY btn-remove.ak "O">
+<!ENTITY btn-migrate.ak "M">
+<!ENTITY btn-move-up.ak "g">
+<!ENTITY btn-move-down.ak "l">
+<!ENTITY btn-import.ak "z">
+<!ENTITY btn-export.ak "U">
+<!ENTITY btn-browse.ak "b">
+<!ENTITY btn-preview.ak "P">
+<!ENTITY btn-visit-site.ak "m">
+<!ENTITY migrate-title "Migracija z Upraviteljem Gmail">
+<!ENTITY migrate-select-accounts "Izberite račune, ki jih želite migrirati:">
+<!ENTITY migrate-login-accounts "Prijavi se v izbrane račune.">
+<!ENTITY login-title "Prijava z Upraviteljem Gmail">
+<!ENTITY login-header-label "Vnesite podatke o računu, v katerega se želite prijaviti:">
+<!ENTITY login-remember-password-label "Geslo si zapomni za drugič.">
+<!ENTITY alert-from "pošiljatelj">
+<!ENTITY alert-date "datum">
+<!ENTITY alert-subject "zadeva">
+<!ENTITY tab-location "Položaj zavihka">
+<!ENTITY tab-location-open "Odpri v:">
+<!ENTITY tab-location-blank "praznem zavihku (prvem prostem)">
+<!ENTITY tab-location-current "trenutnem oknu ali zavihku">
+<!ENTITY tab-location-existing "obstoječem oknu ali zavihku">
+<!ENTITY tab-location-focused "novem zavihku (v ospredju)">
+<!ENTITY tab-location-background "novem zavihku (v ozadju)">
+<!ENTITY tab-location-window "novem oknu">
+<!ENTITY options-title "Možnosti Upravitelja Gmail">
+<!ENTITY options-tab-general "Splošno">
+<!ENTITY options-tab-accounts "Računi">
+<!ENTITY options-tab-compose "Sestavi">
+<!ENTITY options-tab-security "Varnost">
+<!ENTITY options-tab-toolbar "Orodna vrstica">
+<!ENTITY options-tab-tooltip "Namig">
+<!ENTITY options-tab-notifications "Obvestila">
+<!ENTITY options-tab-help "Pomoč">
+<!ENTITY options-tab-debug "Razhroščevanje">
+<!ENTITY options-general-hide-context-menu "Skrij kontekstni meni Upravitelja Gmail.">
+<!ENTITY options-general-hide-tools-menu "Skrij meni orodij Upravitelja Gmail.">
+<!ENTITY options-general-startup "Zagon">
+<!ENTITY options-general-auto-login "Samodejno se prijavi v vse račune.">
+<!ENTITY options-accounts-auto-login "Samodejna prijava">
+<!ENTITY options-compose-mailto-links "Povezave mailto:">
+<!ENTITY options-compose-internet-links "Uporabi Upravitelja Gmail pri klikanju povezav mailto:.">
+<!ENTITY options-compose-prompt-for "Povprašaj za določen račun ...">
+<!ENTITY options-compose-default-account "Privzeti račun:">
+<!ENTITY options-compose-context-menu "Kontekstni meni">
+<!ENTITY options-compose-click-mailto "Kontekstni meni pokaži le ob kliku na povezave mailto:.">
+<!ENTITY options-security-passwords "Gesla">
+<!ENTITY options-security-never-save-passwords "Nikoli ne shrani gesel računov za pošto.">
+<!ENTITY options-security-connection "Povezava">
+<!ENTITY options-security-secured-connection "Vedno uporabi varno povezavo, ko preverjaš stanje računov.">
+<!ENTITY options-toolbar-switching-accounts "Preklapljanje med računi">
+<!ENTITY options-toolbar-auto-login "Samodejno se prijavi v račun, ko je izbran.">
+<!ENTITY options-toolbar-auto-check "Samodejno preveri račun, ko je izbran.">
+<!ENTITY options-toolbar-auto-switch "Samodejno preklopi na račun z novimi sporočili.">
+<!ENTITY options-toolbar-auto-switch-disclaimer "Ta možnost je na voljo le, če je prikazana ena orodna vrstica.">
+<!ENTITY options-toolbar-selected-account "Izbrani račun">
+<!ENTITY options-toolbar-left-click "Levi klik:">
+<!ENTITY options-toolbar-middle-click "Srednji klik:">
+<!ENTITY options-toolbar-prompt-options "Povprašaj za možnosti na voljo ...">
+<!ENTITY options-toolbar-check-messages "Preveri obstoj novih sporočil">
+<!ENTITY options-toolbar-compose-message "Sestavi novo e-sporočilo">
+<!ENTITY options-toolbar-reset-unread-count "Ponastavi število neprebranih ob odprtju računa.">
+<!ENTITY options-help-release-manager "Release Manager:">
+<!ENTITY options-help-forked-from "Forked from:">
+<!ENTITY options-help-based-on "Based on:">
+<!ENTITY options-help-join-community "Join the Community">
+<!ENTITY options-help-join-community-message "Gmail Manager-community is intended to be a community driven project. Getting started is as simple as creating a fork of the repository on GitHub.com. Gmail Manager-community is developed and distributed under the same license as the original Gmail Manager/Gmail Manager NG.">
+<!ENTITY options-help-translate-message "Interested in translating? Create your own GitHub fork of the repository and look for the files under locale/. If you're not a developer, you can create an issue and add the contents of your gmanager.dtd and gmanager.properties files.">
+<!ENTITY options-help-issues "Bug Support and Features">
+<!ENTITY options-help-issues-message "Found a bug or have a cool idea for a new feature? Open an issue in the issue tracker at GitHub.com.">
+<!ENTITY options-help-supporters "Thanks to the Supporters of Gmail Manager">
+<!ENTITY options-help-supporters-message "The following people donated to the original project. They deserve a special thanks for helping to make Gmail Manager a fantastic add on.">
+<!ENTITY options-help-author "Avtor:">
+<!ENTITY options-help-website "Spletna stran:">
+<!ENTITY options-help-contact "Stik">
+<!ENTITY options-help-questions-comments "Imate vprašanja in/ali pripombe?">
+<!ENTITY options-help-translate "Prevedi">
+<!ENTITY options-help-interested-translating "Vas zanima prevajanje?">
+<!ENTITY options-help-donate-paypal "Donirajte prek sistema PayPal">
+<!ENTITY options-help-support "Pomagajte podpirati Upravitelja Gmail in nadaljnji razvoj. S tem boste podprli razvoj te razširitve. Prav tako bomo vaše ime dodali na spodnjo spletno stran. Hvala vnaprej!">
+<!ENTITY options-help-click-here-paypal "Kliknite sem za donacijo PayPal ...">
+<!ENTITY options-help-thanks-to "Zahvale:">
+<!ENTITY options-account-title "Račun Upravitelja Gmail">
+<!ENTITY options-account-general-account "Račun">
+<!ENTITY options-account-general-startup "Zagon">
+<!ENTITY options-account-general-auto-login "Ob zagonu se samodejno prijavi v račun.">
+<!ENTITY options-account-toolbar-display-placement "Umestitev prikaza">
+<!ENTITY options-account-toolbar-display-toolbar "Prikaži v orodni vrstici">
+<!ENTITY options-account-toolbar-always-last "Vedno zadnji">
+<!ENTITY options-account-toolbar-specific-position "Položaj po meri">
+<!ENTITY options-account-toolbar-hide-count "Skrij število neprebranih iz prikaza.">
+<!ENTITY options-account-toolbar-hide-alias "Skrij prikaz vzdevka.">
+<!ENTITY options-account-toolbar-show-labels "Pokaži oznake le pri neprebrani pošti.">
+<!ENTITY options-account-toolbar-show-snippets "Pokaži odlomke iz nove pošte.">
+<!ENTITY options-account-toolbar-unread-count "Število neprebranih">
+<!ENTITY options-account-toolbar-unread-include "Vključi">
+<!ENTITY options-account-toolbar-unread-count-inbox "Prejeto">
+<!ENTITY options-account-toolbar-unread-toolbar-spam "Neželena pošta">
+<!ENTITY options-account-toolbar-unread-toolbar-labels "Nalepke">
+<!ENTITY options-account-notifications-check-messages "Preveri sporočila">
+<!ENTITY options-account-notifications-check-every "Preveri obstoj novih sporočil vsakih">
+<!ENTITY options-account-notifications-minutes "minut.">
+<!ENTITY options-account-notifications-snippets "Odlomki">
+<!ENTITY options-account-notifications-display-snippets "Prikaži odlomke, ko prispe nova pošta.">
+<!ENTITY options-account-notifications-sounds "Zvoki">
+<!ENTITY options-account-notifications-play-sound "Predvajaj določen zvok, ko prispe nova pošta.">
