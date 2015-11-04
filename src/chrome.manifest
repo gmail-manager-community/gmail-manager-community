@@ -29,49 +29,49 @@ contract @gmail-manager-community.github.com/gmanager/parser;1 {d0fe9af0-f7bc-11
 component {b07df9d0-f7dd-11da-974d-0800200c9a66} components/gmServiceGmail.js
 contract @gmail-manager-community.github.com/gmanager/service/gmail;1 {b07df9d0-f7dd-11da-974d-0800200c9a66}
 
-content gmanager jar:chrome/gmanager.jar!/content/
+content gmanager chrome/content/
 overlay chrome://browser/content/browser.xul chrome://gmanager/content/overlay.xul
 overlay chrome://navigator/content/navigator.xul chrome://gmanager/content/overlay.xul
 overlay chrome://songbird/content/xul/menuOverlay.xul chrome://gmanager/content/overlay.xul
 
-skin gmanager classic/1.0 jar:chrome/gmanager.jar!/skin/classic/
+skin gmanager classic/1.0 chrome/skin/classic/
 
-locale gmanager ar-SA jar:chrome/gmanager.jar!/locale/ar-SA/
-locale gmanager bg-BG jar:chrome/gmanager.jar!/locale/bg-BG/
-locale gmanager ca-AD jar:chrome/gmanager.jar!/locale/ca-AD/
-locale gmanager cs-CZ jar:chrome/gmanager.jar!/locale/cs-CZ/
-locale gmanager da-DK jar:chrome/gmanager.jar!/locale/da-DK/
-locale gmanager de-DE jar:chrome/gmanager.jar!/locale/de-DE/
-locale gmanager el-GR jar:chrome/gmanager.jar!/locale/el-GR/
-locale gmanager en-US jar:chrome/gmanager.jar!/locale/en-US/
-locale gmanager es-AR jar:chrome/gmanager.jar!/locale/es-AR/
-locale gmanager es-CL jar:chrome/gmanager.jar!/locale/es-CL/
-locale gmanager es-ES jar:chrome/gmanager.jar!/locale/es-ES/
-locale gmanager eu-ES jar:chrome/gmanager.jar!/locale/eu-ES/
-locale gmanager fa-IR jar:chrome/gmanager.jar!/locale/fa-IR/
-locale gmanager fi-FI jar:chrome/gmanager.jar!/locale/fi-FI/
-locale gmanager fr-FR jar:chrome/gmanager.jar!/locale/fr-FR/
-locale gmanager gl-ES jar:chrome/gmanager.jar!/locale/gl-ES/
-locale gmanager he-IL jar:chrome/gmanager.jar!/locale/he-IL/
-locale gmanager hr-HR jar:chrome/gmanager.jar!/locale/hr-HR/
-locale gmanager hu-HU jar:chrome/gmanager.jar!/locale/hu-HU/
-locale gmanager it-IT jar:chrome/gmanager.jar!/locale/it-IT/
-locale gmanager ja-JP jar:chrome/gmanager.jar!/locale/ja-JP/
-locale gmanager ko-KR jar:chrome/gmanager.jar!/locale/ko-KR/
-locale gmanager lt-LT jar:chrome/gmanager.jar!/locale/lt-LT/
-locale gmanager nl-NL jar:chrome/gmanager.jar!/locale/nl-NL/
-locale gmanager pl-PL jar:chrome/gmanager.jar!/locale/pl-PL/
-locale gmanager pt-BR jar:chrome/gmanager.jar!/locale/pt-BR/
-locale gmanager pt-PT jar:chrome/gmanager.jar!/locale/pt-PT/
-locale gmanager ro-RO jar:chrome/gmanager.jar!/locale/ro-RO/
-locale gmanager ru-RU jar:chrome/gmanager.jar!/locale/ru-RU/
-locale gmanager sk-SK jar:chrome/gmanager.jar!/locale/sk-SK/
-locale gmanager sl-SI jar:chrome/gmanager.jar!/locale/sl-SI/
-locale gmanager sr-RS jar:chrome/gmanager.jar!/locale/sr-RS/
-locale gmanager sv-SE jar:chrome/gmanager.jar!/locale/sv-SE/
-locale gmanager th-TH jar:chrome/gmanager.jar!/locale/th-TH/
-locale gmanager tr-TR jar:chrome/gmanager.jar!/locale/tr-TR/
-locale gmanager uk-UA jar:chrome/gmanager.jar!/locale/uk-UA/
-locale gmanager vi-VN jar:chrome/gmanager.jar!/locale/vi-VN/
-locale gmanager zh-CN jar:chrome/gmanager.jar!/locale/zh-CN/
-locale gmanager zh-TW jar:chrome/gmanager.jar!/locale/zh-TW/
+locale gmanager ar-SA chrome/locale/ar-SA/
+locale gmanager bg-BG chrome/locale/bg-BG/
+locale gmanager ca-AD chrome/locale/ca-AD/
+locale gmanager cs-CZ chrome/locale/cs-CZ/
+locale gmanager da-DK chrome/locale/da-DK/
+locale gmanager de-DE chrome/locale/de-DE/
+locale gmanager el-GR chrome/locale/el-GR/
+locale gmanager en-US chrome/locale/en-US/
+locale gmanager es-AR chrome/locale/es-AR/
+locale gmanager es-CL chrome/locale/es-CL/
+locale gmanager es-ES chrome/locale/es-ES/
+locale gmanager eu-ES chrome/locale/eu-ES/
+locale gmanager fa-IR chrome/locale/fa-IR/
+locale gmanager fi-FI chrome/locale/fi-FI/
+locale gmanager fr-FR chrome/locale/fr-FR/
+locale gmanager gl-ES chrome/locale/gl-ES/
+locale gmanager he-IL chrome/locale/he-IL/
+locale gmanager hr-HR chrome/locale/hr-HR/
+locale gmanager hu-HU chrome/locale/hu-HU/
+locale gmanager it-IT chrome/locale/it-IT/
+locale gmanager ja-JP chrome/locale/ja-JP/
+locale gmanager ko-KR chrome/locale/ko-KR/
+locale gmanager lt-LT chrome/locale/lt-LT/
+locale gmanager nl-NL chrome/locale/nl-NL/
+locale gmanager pl-PL chrome/locale/pl-PL/
+locale gmanager pt-BR chrome/locale/pt-BR/
+locale gmanager pt-PT chrome/locale/pt-PT/
+locale gmanager ro-RO chrome/locale/ro-RO/
+locale gmanager ru-RU chrome/locale/ru-RU/
+locale gmanager sk-SK chrome/locale/sk-SK/
+locale gmanager sl-SI chrome/locale/sl-SI/
+locale gmanager sr-RS chrome/locale/sr-RS/
+locale gmanager sv-SE chrome/locale/sv-SE/
+locale gmanager th-TH chrome/locale/th-TH/
+locale gmanager tr-TR chrome/locale/tr-TR/
+locale gmanager uk-UA chrome/locale/uk-UA/
+locale gmanager vi-VN chrome/locale/vi-VN/
+locale gmanager zh-CN chrome/locale/zh-CN/
+locale gmanager zh-TW chrome/locale/zh-TW/
