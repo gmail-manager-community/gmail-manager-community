@@ -48,16 +48,16 @@ Based on:
 			<Description>
 				<em:id>{a463f10c-3994-11da-9945-000d60ca027b}</em:id>
 				<em:minVersion>1.0</em:minVersion>
-				<em:maxVersion>2.6.*</em:maxVersion>
+				<em:maxVersion>3.5.3</em:maxVersion>
 			</Description>
 		</em:targetApplication>
 		
-		<!-- Seamonkey -->
+		<!-- SeaMonkey -->
 		<em:targetApplication>
 			<Description>
 				<em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
 				<em:minVersion>1.1</em:minVersion>
-				<em:maxVersion>2.0.*</em:maxVersion>
+				<em:maxVersion>2.41</em:maxVersion>
 			</Description>
 		</em:targetApplication>
 		
@@ -66,7 +66,7 @@ Based on:
 			<Description>
 				<em:id>songbird@songbirdnest.com</em:id>
 				<em:minVersion>1.0</em:minVersion>
-				<em:maxVersion>1.9.*</em:maxVersion>
+				<em:maxVersion>2.2.0</em:maxVersion>
 			</Description>
 		</em:targetApplication>
 	</Description>
