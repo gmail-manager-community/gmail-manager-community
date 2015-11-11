@@ -102,7 +102,7 @@ var gmanager_Alert = new function()
       
       this.FINAL_HEIGHT = window.outerHeight;
       
-      window.outerHeight = 1;
+      window.resizeTo(window.outerWidth, 1);
       window.moveTo((screen.availLeft + screen.availWidth - window.outerWidth) - 10, screen.availTop + screen.availHeight - window.outerHeight);
       
       this._startTimer(this.OPEN_STAGE, this.SLIDE_TIME);
@@ -133,8 +133,8 @@ var gmanager_Alert = new function()
       {
         if (window.outerHeight < this.FINAL_HEIGHT)
         {
-          window.screenY -= this.SLIDE_INCREMENT;
-          window.outerHeight += this.SLIDE_INCREMENT;
+          window.moveBy(0, -this.SLIDE_INCREMENT);
+          window.resizeBy(0, this.SLIDE_INCREMENT);
         }
         else
           this._startTimer(this.SLIDE_STAGE, this.OPEN_TIME);
@@ -157,8 +157,8 @@ var gmanager_Alert = new function()
       {
         if (window.outerHeight > 1)
         {
-          window.screenY += this.SLIDE_INCREMENT;
-          window.outerHeight -= this.SLIDE_INCREMENT;
+          window.moveBy(0, this.SLIDE_INCREMENT);
+          window.resizeBy(0, -this.SLIDE_INCREMENT);
         }
         else
           this.close();
