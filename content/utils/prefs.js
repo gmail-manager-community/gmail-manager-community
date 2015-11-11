@@ -5,7 +5,7 @@
 
 var gmanager_Prefs = new function()
 {
-  this.__proto__ = new gmanager_BundlePrefix("gmanager-prefs-");
+  gmanager_BundlePrefix.call(this, "gmanager-prefs-");
   
   this.NOTIFY_CHANGED = "gmanager-prefs-notify-changed";
   this.ELEMENT_PREFIX = "gm-prefs-";
@@ -126,3 +126,6 @@ var gmanager_Prefs = new function()
   
   this.init();
 }
+
+gmanager_Prefs.prototype = Object.create(gmanager_BundlePrefix.prototype);
+gmanager_Prefs.prototype.constructor = gmanager_Prefs;

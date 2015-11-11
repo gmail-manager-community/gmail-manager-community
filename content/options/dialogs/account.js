@@ -5,7 +5,7 @@
 
 var gmanager_OptionsAccount = new function()
 {
-  this.__proto__ = new gmanager_BundlePrefix("gmanager-options-");
+  gmanager_BundlePrefix.call(this, "gmanager-options-");
   
   this.load = function()
   {
@@ -141,3 +141,6 @@ var gmanager_OptionsAccount = new function()
     return true;
   }
 }
+
+gmanager_OptionsAccount.prototype = Object.create(gmanager_BundlePrefix.prototype);
+gmanager_OptionsAccount.prototype.constructor = gmanager_OptionsAccount;

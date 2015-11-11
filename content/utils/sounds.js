@@ -5,7 +5,7 @@
 
 var gmanager_Sounds = new function()
 {
-  this.__proto__ = new gmanager_BundlePrefix("gmanager-sounds-");
+  gmanager_BundlePrefix.call(this, "gmanager-sounds-");
   
   this.WAV_FILTER_TYPE = "*.ogg; *.wav";
   
@@ -51,3 +51,6 @@ var gmanager_Sounds = new function()
   
   this.init();
 }
+
+gmanager_Sounds.prototype = Object.create(gmanager_BundlePrefix.prototype);
+gmanager_Sounds.prototype.constructor = gmanager_Sounds;

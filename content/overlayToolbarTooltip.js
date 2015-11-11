@@ -5,7 +5,7 @@
 
 var gmanager_ToolbarTooltip = new function()
 {
-  this.__proto__ = new gmanager_BundlePrefix("gmanager-toolbar-tooltip-");
+  gmanager_BundlePrefix.call(this, "gmanager-toolbar-tooltip-");
   
   this.buildTooltip = function(aTooltip)
   {
@@ -226,3 +226,6 @@ var gmanager_ToolbarTooltip = new function()
     return elParent;
   }
 }
+
+gmanager_ToolbarTooltip.prototype = Object.create(gmanager_BundlePrefix.prototype);
+gmanager_ToolbarTooltip.prototype.constructor = gmanager_ToolbarTooltip;

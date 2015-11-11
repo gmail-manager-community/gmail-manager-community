@@ -5,7 +5,7 @@
 
 var gmanager_Alert = new function()
 {
-  this.__proto__ = new gmanager_BundlePrefix("gmanager-alert-");
+  gmanager_BundlePrefix.call(this, "gmanager-alert-");
   
   this.NOTIFY_ALERT_CLICKED  = "gmanager-alert-notify-clicked";
   this.NOTIFY_ALERT_FINISHED = "gmanager-alert-notify-finished";
@@ -261,3 +261,6 @@ var gmanager_Alert = new function()
     this._notifyObserver(this.NOTIFY_ALERT_FINISHED, this._account.email);
   }
 }
+
+gmanager_Alert.prototype = Object.create(gmanager_BundlePrefix.prototype);
+gmanager_Alert.prototype.constructor = gmanager_Alert;

@@ -5,7 +5,7 @@
 
 var gmanager_Migrate = new function()
 {
-  this.__proto__ = new gmanager_BundlePrefix("gmanager-migrate-");
+  gmanager_BundlePrefix.call(this, "gmanager-migrate-");
   
   this.load = function()
   {
@@ -94,3 +94,6 @@ var gmanager_Migrate = new function()
     return true;
   }
 }
+
+gmanager_Migrate.prototype = Object.create(gmanager_BundlePrefix.prototype);
+gmanager_Migrate.prototype.constructor = gmanager_Migrate;

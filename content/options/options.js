@@ -5,7 +5,7 @@
 
 var gmanager_Options = new function()
 {
-  this.__proto__ = new gmanager_BundlePrefix("gmanager-options-");
+  gmanager_BundlePrefix.call(this, "gmanager-options-");
   
   this.FILTER_TYPE_XML = "*.xml";
   
@@ -384,3 +384,6 @@ var gmanager_Options = new function()
     return true;
   }
 }
+
+gmanager_Options.prototype = Object.create(gmanager_BundlePrefix.prototype);
+gmanager_Options.prototype.constructor = gmanager_Options;

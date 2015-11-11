@@ -5,7 +5,7 @@
 
 var gmanager_ToolbarMenu = new function()
 {
-  this.__proto__ = new gmanager_BundlePrefix("gmanager-toolbar-menu-");
+  gmanager_BundlePrefix.call(this, "gmanager-toolbar-menu-");
   
   this.init = function()
   {
@@ -212,3 +212,6 @@ var gmanager_ToolbarMenu = new function()
   
   this.init();
 }
+
+gmanager_ToolbarMenu.prototype = Object.create(gmanager_BundlePrefix.prototype);
+gmanager_ToolbarMenu.prototype.constructor = gmanager_ToolbarMenu;

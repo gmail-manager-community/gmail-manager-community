@@ -5,7 +5,7 @@
 
 var gmanager_Login = new function()
 {
-  this.__proto__ = new gmanager_BundlePrefix("gmanager-login-");
+  gmanager_BundlePrefix.call(this, "gmanager-login-");
   
   this.load = function()
   {
@@ -103,3 +103,6 @@ var gmanager_Login = new function()
     return false;
   }
 }
+
+gmanager_Login.prototype = Object.create(gmanager_BundlePrefix.prototype);
+gmanager_Login.prototype.constructor = gmanager_Login;
