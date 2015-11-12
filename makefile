@@ -3,7 +3,7 @@
 
 VERSION = `sed -ne '/em:version/{s/.*<em:version>\(.*\)<\/em:version>.*/\1/p;q;}' install.rdf`
 PACKAGE = dist/gmail_manager_community-$(VERSION).xpi
-FILES = components content defaults locale skin chrome.manifest install.rdf license.txt
+FILES = chrome components defaults chrome.manifest install.rdf license.txt
 
 all: clean package
 
