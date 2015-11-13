@@ -93,11 +93,11 @@ gmManager.prototype = {
   
   _loadAccounts: function()
   {
-    var accountsTemp = new Array();
+    var accountsTemp = [];
     var accountElements = this._doc.getElementsByTagName("account");
     
     if (!this._accounts)
-      this._accounts = new Array();
+      this._accounts = [];
     
     for (var i = 0; i < accountElements.length; i++)
     {
@@ -208,7 +208,7 @@ gmManager.prototype = {
   
   getAccounts: function(aCount)
   {
-    var accounts = new Array();
+    var accounts = [];
     
     for (var email in this._accounts)
     {

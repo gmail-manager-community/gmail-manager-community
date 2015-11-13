@@ -142,7 +142,7 @@ gmParser.prototype = {
     var siStream = null;
     
     try {
-      var data = new String();
+      var data = "";
       
       // Load the input streams
       fiStream = Components.classes["@mozilla.org/network/file-input-stream;1"].createInstance(Components.interfaces.nsIFileInputStream);

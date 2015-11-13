@@ -154,7 +154,7 @@ gmAccount.prototype = {
   load: function(aNode)
   {
     this._node = aNode;
-    this._prefs = new Array();
+    this._prefs = [];
     
     if (this._type === null)
     {
