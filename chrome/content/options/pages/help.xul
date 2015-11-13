@@ -90,6 +90,7 @@
 						flex="1">
 						
 					<menuitem label="BabelZilla translators" site="http://www.babelzilla.org/"/>
+					<menuitem label="iHastr (RU)"/>
 					<menuitem label="Matthew D." site="http://www.demeusy.com/"/>
 					<menuitem label="Alfred L."/>
 					<menuitem label="Sam G."/>
