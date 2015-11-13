@@ -7,8 +7,6 @@ var gmanager_Options = new function()
 {
   gmanager_BundlePrefix.call(this, "gmanager-options-");
   
-  this.FILTER_TYPE_XML = "*.xml";
-  
   this.load = function()
   {
     // Load the accounts manager sandbox
@@ -271,13 +269,14 @@ var gmanager_Options = new function()
     {
       case "export":
         filePicker.init(window, this.getString("export"), nsIFilePicker.modeSave);
+        filePicker.defaultExtension = "xml";
         break;
       case "import":
         filePicker.init(window, this.getString("import"), nsIFilePicker.modeOpen);
         break;
     }
     
-    filePicker.appendFilter(this.getFString("xml-files", [this.FILTER_TYPE_XML]), this.FILTER_TYPE_XML);
+    filePicker.appendFilters(nsIFilePicker.filterXML);
     filePicker.show();
     
     return filePicker.file;
