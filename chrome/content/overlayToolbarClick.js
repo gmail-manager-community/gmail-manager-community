@@ -9,17 +9,14 @@ var gmanager_ToolbarClick = new function()
   {
     var toolbarItem = aEvent.target;
     
-    if (aEvent.button !== 2 && gmanager_Toolbars.isToolbarItem(toolbarItem))
-    {
+    if (aEvent.button !== 2 && gmanager_Toolbars.isToolbarItem(toolbarItem)) {
       var account = toolbarItem.displayAccount;
       
-      if (account)
-      {
+      if (account) {
         var manager = Components.classes["@gmail-manager-community.github.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
         var action = null;
         
-        switch (aEvent.button)
-        {
+        switch (aEvent.button) {
           case 0: // Left Click
             action = manager.global.getCharPref("toolbar-left-click");
             break;
@@ -30,14 +27,14 @@ var gmanager_ToolbarClick = new function()
             break;
         }
         
-        switch (action)
-        {
+        switch (action) {
           case "check-messages":
             // Check if the account is logged in
-            if (account.loggedIn)
+            if (account.loggedIn) {
               account.check();
-            else
+            } else {
               account.login(null);
+            }
             
             break;
           case "compose-message":
@@ -51,21 +48,22 @@ var gmanager_ToolbarClick = new function()
           case "window":
           {
             // Check if the account is logged in
-            if (account.loggedIn)
+            if (account.loggedIn) {
               gmanager_Accounts.openFolder(account.email, action);
-            else
+            } else {
               account.login(null);
+            }
             
             break;
           }
           default:
             break;
         }
-      }
-      else
+      } else {
         window.openDialog("chrome://gmanager/content/login/login.xul", "login", "centerscreen,chrome,modal");
+      }
     }
     
     return true;
-  }
-}
+  };
+};

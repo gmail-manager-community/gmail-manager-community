@@ -10,9 +10,10 @@ var gmanager_Bundle = new function()
   this.init = function()
   {
     var bundleService = Components.classes["@mozilla.org/intl/stringbundle;1"].getService(Components.interfaces.nsIStringBundleService);
-    if (bundleService)
+    if (bundleService) {
       this._bundle = bundleService.createBundle(this.PROPERTIES);
-  }
+    }
+  };
   
   this.getString = function(aName)
   {
@@ -22,7 +23,7 @@ var gmanager_Bundle = new function()
       gmanager_Utils.log("Error getting bundled string: " + e);
       return aName;
     }
-  }
+  };
   
   this.getFString = function(aName, aParams)
   {
@@ -32,10 +33,10 @@ var gmanager_Bundle = new function()
       gmanager_Utils.log("Error getting bundled string: " + e);
       return aName;
     }
-  }
+  };
   
   this.init();
-}
+};
 
 var gmanager_BundlePrefix = function(aPrefix)
 {
@@ -44,10 +45,10 @@ var gmanager_BundlePrefix = function(aPrefix)
   this.getString = function(aKey)
   {
     return gmanager_Bundle.getString(this.PREFIX + aKey);
-  }
+  };
   
   this.getFString = function(aKey, aParams)
   {
     return gmanager_Bundle.getFString(this.PREFIX + aKey, aParams);
-  }
-}
+  };
+};

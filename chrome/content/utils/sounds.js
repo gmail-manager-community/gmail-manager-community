@@ -14,7 +14,7 @@ var gmanager_Sounds = new function()
     this._ioService = Components.classes["@mozilla.org/network/io-service;1"].getService(Components.interfaces.nsIIOService);
     //this._soundService = Components.classes["@mozilla.org/sound;1"].createInstance(Components.interfaces.nsISound);
     //this._soundService.init();
-  }
+  };
   
   this.play = function(aPath)
   {
@@ -24,19 +24,20 @@ var gmanager_Sounds = new function()
       var localFile = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
       localFile.initWithPath(aPath);
       
-      if (localFile.exists())
+      if (localFile.exists()) {
         uri = this._ioService.newFileURI(localFile);
+      }
     } catch(e) {
       uri = this._ioService.newURI(aPath, null, null);
     }
     
     if (uri) {
       var audio = new Audio();
-      audio.src = uri.spec
+      audio.src = uri.spec;
       audio.play();
     }
       
-  }
+  };
   
   this.selectFile = function()
   {
@@ -47,10 +48,10 @@ var gmanager_Sounds = new function()
     filePicker.show();
     
     return (filePicker.file ? filePicker.file.path : null);
-  }
+  };
   
   this.init();
-}
+};
 
 gmanager_Sounds.prototype = Object.create(gmanager_BundlePrefix.prototype);
 gmanager_Sounds.prototype.constructor = gmanager_Sounds;

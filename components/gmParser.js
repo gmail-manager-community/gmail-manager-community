@@ -40,8 +40,7 @@ function gmParser()
   this._transformsDir.append("transforms");
   
   // Check if the transforms directory exists
-  if (!this._transformsDir.exists())
-  {
+  if (!this._transformsDir.exists()) {
     // This is used for development
     this._transformsDir = directoryService.get("ProfD", Components.interfaces.nsIFile);
     this._transformsDir.append("gmanager");
@@ -109,21 +108,21 @@ gmParser.prototype = {
     var doc = null;
     
     // Check if the specified file exists
-    if (aFile && aFile.exists())
-    {
+    if (aFile && aFile.exists()) {
       var docTemp = this._readFileToXML(aFile);
       
-      if (docTemp)
-      {
+      if (docTemp) {
         var docElementTemp = docTemp.documentElement;
         
-        if (docElementTemp && !docElementTemp.hasAttribute("version"))
+        if (docElementTemp && !docElementTemp.hasAttribute("version")) {
           docElementTemp.setAttribute("version", DEFAULT_VERSION);
+        }
         
         docTemp = this._transform(docTemp);
         
-        if (this._validate(docTemp))
+        if (this._validate(docTemp)) {
           doc = docTemp;
+        }
       }
     }
     
@@ -152,8 +151,7 @@ gmParser.prototype = {
       fiStream.init(aFile, 1, 0, false);
       siStream.init(fiStream);
       
-      while (siStream.available() > 0)
-      {
+      while (siStream.available() > 0) {
         // Read the data from the input stream
         var chunk = siStream.read(siStream.available());
         data += this._converter.ConvertToUnicode(chunk);      
@@ -166,10 +164,12 @@ gmParser.prototype = {
       doc = null;
     } finally {
       // Make sure the input streams are closed
-      if (!fiStream)
+      if (!fiStream) {
         fiStream.close();
-      if (!siStream)
+      }
+      if (!siStream) {
         siStream.close();
+      }
     }
     
     // Return the DOM document
@@ -197,8 +197,9 @@ gmParser.prototype = {
       
       // Make sure all of the data has been written
       var fin = this._converter.Finish();
-      if (fin && fin.length > 0)
+      if (fin && fin.length > 0) {
         foStream.write(fin, fin.length);
+      }
       
       // Success for writing to the file
       success = true;
@@ -207,8 +208,9 @@ gmParser.prototype = {
       success = false;
     } finally {
       // Make sure the output stream is closed
-      if (!foStream)
+      if (!foStream) {
         foStream.close();
+      }
     }
     
     // Return if successful or not
@@ -220,28 +222,25 @@ gmParser.prototype = {
     var globalResult = this._xpath(aDoc, "/prefs/account[@type=\"global\"]", UNORDERED_NODE_SNAPSHOT_TYPE);
     
     // Check if the global account is defined (required)
-    if (globalResult && globalResult.snapshotLength == 1)
-    {
+    if (globalResult && globalResult.snapshotLength == 1) {
       var globalNode = globalResult.snapshotItem(0);
       var nodeIdResults = this._xpath(this.globalNode, "/account/pref/@id", UNORDERED_NODE_SNAPSHOT_TYPE);
       
       // Validate the global account preferences
-      if (this._validateIds(globalNode, nodeIdResults))
-      {
+      if (this._validateIds(globalNode, nodeIdResults)) {
         var accountsResult = this._xpath(aDoc, "/prefs/account[@type and @email and @alias]", UNORDERED_NODE_SNAPSHOT_TYPE);
         
         // Check if any mail accounts are defined (not required)
-        if (accountsResult && accountsResult.snapshotLength > 0)
-        {
+        if (accountsResult && accountsResult.snapshotLength > 0) {
           nodeIdResults = this._xpath(this.accountNode, "/account/pref/@id", UNORDERED_NODE_SNAPSHOT_TYPE);
           
-          for (var i = 0; i < accountsResult.snapshotLength; i++)
-          {
+          for (var i = 0; i < accountsResult.snapshotLength; i++) {
             var accountNode = accountsResult.snapshotItem(i);
             
             // Validate the mail account preferences
-            if (!this._validateIds(accountNode, nodeIdResults))
+            if (!this._validateIds(accountNode, nodeIdResults)) {
               return false;
+            }
           }
         }
         
@@ -254,16 +253,17 @@ gmParser.prototype = {
   
   _validateIds: function(aNode, aNodeIdResults)
   {
-    if (!aNodeIdResults)
+    if (!aNodeIdResults) {
       return false;
+    }
     
-    for (var i = 0; i < aNodeIdResults.snapshotLength; i++)
-    {
+    for (var i = 0; i < aNodeIdResults.snapshotLength; i++) {
       var id = aNodeIdResults.snapshotItem(i).nodeValue;
       var nodeIdResult = this._xpath(aNode, "./pref[@id=\"" + id + "\"]", UNORDERED_NODE_SNAPSHOT_TYPE);
       
-      if (!nodeIdResult || nodeIdResult.snapshotLength != 1)
+      if (!nodeIdResult || nodeIdResult.snapshotLength != 1) {
         return false;
+      }
     }
     
     return true;
@@ -275,15 +275,13 @@ gmParser.prototype = {
     var versionResult = this._xpath(aDoc, "/prefs/@version", STRING_TYPE);
     
     // Check if the preferences version exists
-    if (versionResult)
-    {
+    if (versionResult) {
       // Get the preferences transform file
       var transformFile = this._transformsDir.clone();
       transformFile.append("prefs-" + versionResult.stringValue + ".xsl");
       
       // Check if the transform file exists
-      if (versionResult.stringValue != EXTENSION_VERSION && transformFile.exists())
-      {
+      if (versionResult.stringValue != EXTENSION_VERSION && transformFile.exists()) {
         try {
           // Import the transform file
           var processor = Components.classes["@mozilla.org/document-transformer;1?type=xslt"].createInstance(Components.interfaces.nsIXSLTProcessor);
@@ -324,20 +322,22 @@ gmParser.prototype = {
   QueryInterface: function(aIID)
   {
     if (aIID.equals(Components.interfaces.gmIParser) || 
-        aIID.equals(Components.interfaces.nsISupports))
+        aIID.equals(Components.interfaces.nsISupports)) {
       return this;
+    }
     throw Components.results.NS_ERROR_NO_INTERFACE;
   }
-}
+};
 
-if (Components.utils && Components.utils.import)
-{
+if (Components.utils && Components.utils.import) {
   Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
   
-  if (XPCOMUtils.generateNSGetFactory)
+  if (XPCOMUtils.generateNSGetFactory) {
     var NSGetFactory = XPCOMUtils.generateNSGetFactory([gmParser]);
-//  else
-//    var NSGetModule = XPCOMUtils.generateNSGetModule([gmParser]);
+  }
+  //else {
+  //  var NSGetModule = XPCOMUtils.generateNSGetModule([gmParser]);
+  //}
 }
 
 // TODO Remove; Obsolete in Firefox 2 (Gecko 1.8.1)
@@ -345,12 +345,13 @@ if (Components.utils && Components.utils.import)
 const gmanager_Factory = {
   createInstance: function(aOuter, aIID)
   {
-    if (aOuter != null)
+    if (aOuter != null) {
       throw Components.results.NS_ERROR_NO_AGGREGATION;
+    }
     
     return (new gmParser()).QueryInterface(aIID);
   }
-}
+};
 
 const gmanager_Module = {
   registerSelf: function(aCompMgr, aFileSpec, aLocation, aType)
@@ -375,11 +376,13 @@ const gmanager_Module = {
   
   getClassObject: function(aCompMgr, aCID, aIID)
   {
-    if (aCID.equals(GM_CLASS_ID))
+    if (aCID.equals(GM_CLASS_ID)) {
       return gmanager_Factory;
+    }
     
-    if (!aIID.equals(Components.interfaces.nsIFactory))
+    if (!aIID.equals(Components.interfaces.nsIFactory)) {
       throw Components.results.NS_ERROR_NOT_IMPLEMENTED;
+    }
     
     throw Components.results.NS_ERROR_NO_INTERFACE;
   },

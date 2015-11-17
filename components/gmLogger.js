@@ -29,8 +29,7 @@ gmLogger.prototype = {
   log: function(aMsg)
   {
     // Check if debug is enabled
-    if (this._debug)
-    {
+    if (this._debug) {
       // Log the message to the console
       this._console.logStringMessage("gmanager: " + aMsg);
     }
@@ -47,10 +46,8 @@ gmLogger.prototype = {
   
   observe: function(aSubject, aTopic, aData)
   {
-    if (aTopic == "nsPref:changed")
-    {
-      switch (aData)
-      {
+    if (aTopic == "nsPref:changed") {
+      switch (aData) {
         case "debug":
           // Toggle the logging status
           this._toggle();
@@ -68,20 +65,22 @@ gmLogger.prototype = {
   QueryInterface: function(aIID)
   {
     if (aIID.equals(Components.interfaces.gmILogger) || 
-        aIID.equals(Components.interfaces.nsISupports))
+        aIID.equals(Components.interfaces.nsISupports)) {
       return this;
+    }
     throw Components.results.NS_ERROR_NO_INTERFACE;
   }
-}
+};
 
-if (Components.utils && Components.utils.import)
-{
+if (Components.utils && Components.utils.import) {
   Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
   
-  if (XPCOMUtils.generateNSGetFactory)
+  if (XPCOMUtils.generateNSGetFactory) {
     var NSGetFactory = XPCOMUtils.generateNSGetFactory([gmLogger]);
-//  else
-//    var NSGetModule = XPCOMUtils.generateNSGetModule([gmLogger]);
+  }
+  //else {
+  //  var NSGetModule = XPCOMUtils.generateNSGetModule([gmLogger]);
+  //}
 }
 
 // TODO Remove; Obsolete in Firefox 2 (Gecko 1.8.1)
@@ -89,12 +88,13 @@ if (Components.utils && Components.utils.import)
 const gmanager_Factory = {
   createInstance: function(aOuter, aIID)
   {
-    if (aOuter != null)
+    if (aOuter != null) {
       throw Components.results.NS_ERROR_NO_AGGREGATION;
+    }
     
     return (new gmLogger()).QueryInterface(aIID);
   }
-}
+};
 
 const gmanager_Module = {
   registerSelf: function(aCompMgr, aFileSpec, aLocation, aType)
@@ -119,11 +119,13 @@ const gmanager_Module = {
   
   getClassObject: function(aCompMgr, aCID, aIID)
   {
-    if (aCID.equals(GM_CLASS_ID))
+    if (aCID.equals(GM_CLASS_ID)) {
       return gmanager_Factory;
+    }
     
-    if (!aIID.equals(Components.interfaces.nsIFactory))
+    if (!aIID.equals(Components.interfaces.nsIFactory)) {
       throw Components.results.NS_ERROR_NOT_IMPLEMENTED;
+    }
     
     throw Components.results.NS_ERROR_NO_INTERFACE;
   },

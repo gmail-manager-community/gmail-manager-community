@@ -27,8 +27,7 @@ var gmanager_Alert = new function()
     this._timer = Components.classes["@mozilla.org/timer;1"].createInstance(Components.interfaces.nsITimer);
     
     // Unwrap the window arguments; if available
-    if (window.arguments)
-    {
+    if (window.arguments) {
       // window.arguments[0] : mail account
       // window.arguments[1] : callback listener
       
@@ -37,13 +36,10 @@ var gmanager_Alert = new function()
     }
     
     // Check if the account is specified
-    if (this._account == null)
-    {
+    if (this._account == null) {
       // Close the window
       window.close();
-    }
-    else
-    {
+    } else {
       // Set the account header tooltip
       var header = document.getElementById("gmanager-alert-header");
       header.setAttribute("tooltiptext", this._account.alias);
@@ -62,22 +58,16 @@ var gmanager_Alert = new function()
       this._snippets = this._account.getSnippets({});
       
       // Check if the account is logged in
-      if (this._account.loggedIn)
-      {
+      if (this._account.loggedIn) {
         // Check if the account has any snippets
-        if (this._snippets.length === 0)
-        {
+        if (this._snippets.length === 0) {
           // Populate error message; account must have snippets
           this._populateError(this.getString("snippets"));
-        }
-        else
-        {
+        } else {
           // Populate the first snippet
           this.firstSnippet();
         }
-      }
-      else
-      {
+      } else {
         // Populate error message; account must be logged in
         this._populateError(this.getString("login"));
       }
@@ -86,14 +76,17 @@ var gmanager_Alert = new function()
         var prefService = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService);
         var prefBranch = prefService.getBranch("alerts.");
         
-        if (prefBranch.prefHasUserValue("slideIncrement"))
+        if (prefBranch.prefHasUserValue("slideIncrement")) {
           this.SLIDE_INCREMENT = prefBranch.getIntPref("slideIncrement");
+        }
         
-        if (prefBranch.prefHasUserValue("slideIncrementTime"))
+        if (prefBranch.prefHasUserValue("slideIncrementTime")) {
           this.SLIDE_TIME = prefBranch.getIntPref("slideIncrementTime");
+        }
         
-        if (prefBranch.prefHasUserValue("totalOpenTime"))
+        if (prefBranch.prefHasUserValue("totalOpenTime")) {
           this.OPEN_TIME = prefBranch.getIntPref("totalOpenTime");
+        }
       } catch(e) {
         gmanager_Utils.log("Error getting the alert preferences: " + e);
       }
@@ -107,61 +100,58 @@ var gmanager_Alert = new function()
       
       this._startTimer(this.OPEN_STAGE, this.SLIDE_TIME);
     }
-  }
+  };
   
   this.play = function(aEvent)
   {
     gmanager_Alert._isPlaying = true;
-  }
+  };
   
   this.pause = function(aEvent)
   {
     gmanager_Alert._isPlaying = false;
-  }
+  };
   
   this._startTimer = function(aStage, aInterval)
   {
     this._stage = aStage;
     this._timer.initWithCallback(this, aInterval, Components.interfaces.nsITimer.TYPE_REPEATING_SLACK);
-  }
+  };
   
   this.notify = function(aTimer)
   {
-    switch (this._stage)
-    {
+    switch (this._stage) {
       case this.OPEN_STAGE:
       {
-        if (window.outerHeight < this.FINAL_HEIGHT)
-        {
+        if (window.outerHeight < this.FINAL_HEIGHT) {
           window.moveBy(0, -this.SLIDE_INCREMENT);
           window.resizeBy(0, this.SLIDE_INCREMENT);
-        }
-        else
+        } else {
           this._startTimer(this.SLIDE_STAGE, this.OPEN_TIME);
+        }
         
         break;
       }
       case this.SLIDE_STAGE:
       {
-        if (this._isPlaying)
-        {
-          if (this._hasNext())
+        if (this._isPlaying) {
+          if (this._hasNext()) {
             this.nextSnippet();
-          else
+          } else {
             this._startTimer(this.CLOSE_STAGE, this.SLIDE_TIME);
+          }
         }
         
         break;
       }
       case this.CLOSE_STAGE:
       {
-        if (window.outerHeight > 1)
-        {
+        if (window.outerHeight > 1) {
           window.moveBy(0, this.SLIDE_INCREMENT);
           window.resizeBy(0, -this.SLIDE_INCREMENT);
-        }
-        else
+        } else {
           this.close();
+        }
         
         break;
       }
@@ -171,7 +161,7 @@ var gmanager_Alert = new function()
         break;
       }
     }
-  }
+  };
   
   this._populateError = function(aMsg)
   {
@@ -180,7 +170,7 @@ var gmanager_Alert = new function()
     document.getElementById("gmanager-alert-description").setAttribute("clickable", false);
     document.getElementById("gmanager-alert-description").removeAttribute("onclick");
     document.getElementById("gmanager-alert-description").firstChild.nodeValue = aMsg;
-  }
+  };
   
   this._populateSnippet = function(aIndex)
   {
@@ -194,49 +184,50 @@ var gmanager_Alert = new function()
     document.getElementById("gmanager-alert-details-date").value = gmanager_Utils.toUnicode(snippet.time);
     document.getElementById("gmanager-alert-details-subject").value = gmanager_Utils.toUnicode(snippet.subject);
     document.getElementById("gmanager-alert-description").firstChild.nodeValue = gmanager_Utils.toUnicode(snippet.msg);
-  }
+  };
   
   this.nextSnippet = function()
   {
-    if (this._hasNext())
+    if (this._hasNext()) {
       this._populateSnippet(this._snippetIndex + 1);
-  }
+    }
+  };
   
   this.previousSnippet = function()
   {
-    if (this._hasPrevious())
+    if (this._hasPrevious()) {
       this._populateSnippet(this._snippetIndex - 1);
-  }
+    }
+  };
   
   this.firstSnippet = function()
   {
     this._populateSnippet(0);
-  }
+  };
   
   this.lastSnippet = function()
   {
     this._populateSnippet(this._snippets.length - 1);
-  }
+  };
   
   this._hasNext = function()
   {
     return (this._snippetIndex < this._snippets.length - 1);
-  }
+  };
   
   this._hasPrevious = function()
   {
     return (this._snippetIndex > 0);
-  }
+  };
   
   this._notifyObserver = function(aTopic, aData)
   {
     // Check if the callback listener is specified
-    if (this._callback && typeof this._callback.observe === "function")
-    {
+    if (this._callback && typeof this._callback.observe === "function") {
       // Notify the observer about the alert
       this._callback.observe(null, aTopic, aData);
     }
-  }
+  };
   
   this.click = function()
   {
@@ -247,7 +238,7 @@ var gmanager_Alert = new function()
     
     // Close the alert
     this.close();
-  }
+  };
   
   this.close = function()
   {
@@ -259,8 +250,8 @@ var gmanager_Alert = new function()
     
     // Notify the observer that the alert has finished
     this._notifyObserver(this.NOTIFY_ALERT_FINISHED, this._account.email);
-  }
-}
+  };
+};
 
 gmanager_Alert.prototype = Object.create(gmanager_BundlePrefix.prototype);
 gmanager_Alert.prototype.constructor = gmanager_Alert;

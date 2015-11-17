@@ -12,39 +12,39 @@ var gmanager_Alerts = new function()
   
   this.display = function(aEmail)
   {
-    if (this._emails == null)
+    if (this._emails == null) {
       this._emails = [];
+    }
     
     var emailsRegExp = new RegExp("^(?:" + this._emails.join("|") + ")$", "i");
     
-    if (!emailsRegExp.test(aEmail))
-    {
+    if (!emailsRegExp.test(aEmail)) {
       this._emails.push(aEmail);
       
-      if (!gmanager_Utils.isWindow(this.ALERT_WINDOW_NAME))
+      if (!gmanager_Utils.isWindow(this.ALERT_WINDOW_NAME)) {
         this._displayNext();
+      }
     }
-  }
+  };
   
   this._displayNext = function()
   {
-    if (this._emails.length > 0)
-    {
+    if (this._emails.length > 0) {
       var manager = Components.classes["@gmail-manager-community.github.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
       
       this._email = this._emails.shift();
       
-      if (manager.isAccount(this._email))
+      if (manager.isAccount(this._email)) {
         window.openDialog("chrome://gmanager/content/alert/alert.xul", this.ALERT_WINDOW_NAME, "chrome,dialog=yes,titlebar=no,popup=yes", manager.getAccount(this._email), this);
-      else
+      } else {
         this._displayNext();
+      }
     }
-  }
+  };
   
   this.observe = function(aSubject, aTopic, aData)
   {
-    switch (aTopic)
-    {
+    switch (aTopic) {
       case this.NOTIFY_ALERT_CLICKED:
       {
         // aSubject : null
@@ -73,5 +73,5 @@ var gmanager_Alerts = new function()
         break;
       }
     }
-  }
-}
+  };
+};

@@ -10,16 +10,14 @@ var gmanager_Login = new function()
   this.load = function()
   {
     // Unwrap the window arguments; if available
-    if (window.arguments)
-    {
+    if (window.arguments) {
       // window.arguments[0] : mail account
       
       this._account = window.arguments[0];
     }
     
     // Check if the account is specified
-    if (this._account)
-    {
+    if (this._account) {
       var password = this._account.password;
       
       document.getElementById("gmanager-login-email").disabled = true;
@@ -29,13 +27,13 @@ var gmanager_Login = new function()
     }
     
     this.input();
-  }
+  };
   
   this.input = function()
   {
     document.getElementById("gmanager-login-password").disabled = (document.getElementById("gmanager-login-email").value === "");
     document.getElementById("gmanager-login-remember").disabled = (document.getElementById("gmanager-login-password").value === "");
-  }
+  };
   
   this.dialogAccept = function()
   {
@@ -46,33 +44,30 @@ var gmanager_Login = new function()
     var password = document.getElementById("gmanager-login-password").value;
     
     // Check if the email is valid
-    if (!gmanager_Utils.isEmail(email))
+    if (!gmanager_Utils.isEmail(email)) {
       errors.push(this.getString("valid-email"));
+    }
     
     // Check if the password is valid
-    if (passwordRegExp.test(password))
+    if (passwordRegExp.test(password)) {
       errors.push(this.getString("valid-password"));
+    }
     
     // Check if there were any errors
-    if (errors.length > 0)
-    {
+    if (errors.length > 0) {
       // Display the error message
       alert(errors.join("\n"));
-    }
-    else
-    {
+    } else {
       var manager = Components.classes["@gmail-manager-community.github.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
       var account = (this._account ? this._account : manager.getAccount(email));
       
       // Check if the account does not exist
-      if (account === null)
-      {
+      if (account === null) {
         // Create the account
         account = manager.addAccount("gmail", email, email, null, null);
         
         // Prompt the user to add the account
-        if (confirm(this.getString("email-doesnt-exist")))
-        {
+        if (confirm(this.getString("email-doesnt-exist"))) {
           // Save the accounts
           manager.save();
         }
@@ -83,13 +78,13 @@ var gmanager_Login = new function()
       }
       
       // Check if the account exists
-      if (account)
-      {
+      if (account) {
         // Check if the password should be saved
-        if (document.getElementById("gmanager-login-remember").checked)
+        if (document.getElementById("gmanager-login-remember").checked) {
           account.savePassword(password);
-        else
+        } else {
           account.removePassword();
+        }
         
         // Login to the account (supply the password since it may not be saved)
         account.login(password);
@@ -101,8 +96,8 @@ var gmanager_Login = new function()
     
     // Keep the dialog open
     return false;
-  }
-}
+  };
+};
 
 gmanager_Login.prototype = Object.create(gmanager_BundlePrefix.prototype);
 gmanager_Login.prototype.constructor = gmanager_Login;

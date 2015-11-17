@@ -12,8 +12,7 @@ var gmanager_Migrate = new function()
     var logins = null;
     
     // Unwrap the window arguments; if available
-    if (window.arguments)
-    {
+    if (window.arguments) {
       // window.arguments[0] : logins
       
       logins = window.arguments[0];
@@ -21,8 +20,7 @@ var gmanager_Migrate = new function()
     
     var accountsList = document.getElementById("gmanager-migrate-accounts");
     
-    if (logins && logins.length > 0)
-    {
+    if (logins && logins.length > 0) {
       logins.forEach(function(login, index, array) {
         var accountItem = document.createElement("listitem");
         accountItem.setAttribute("class", "gmanager-migrate-listitem");
@@ -30,9 +28,7 @@ var gmanager_Migrate = new function()
         accountItem.setAttribute("password", login.password);
         accountsList.appendChild(accountItem);
       });
-    }
-    else
-    {
+    } else {
       // Disable the accounts listbox (looks better)
       accountsList.disabled = true;
       
@@ -50,33 +46,30 @@ var gmanager_Migrate = new function()
     
     // Toggle the passwords (initially hidden)
     this.togglePasswords();
-  }
+  };
   
   this.togglePasswords = function()
   {
     var isHidden = document.getElementById("gmanager-migrate-accounts-password").collapsed;
     document.getElementById("gmanager-migrate-passwords").label = (isHidden ? this.getString("hide-passwords") : this.getString("show-passwords"));
     document.getElementById("gmanager-migrate-accounts-password").collapsed = !isHidden
-  }
+  };
   
   this.dialogAccept = function()
   {
     var manager = Components.classes["@gmail-manager-community.github.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
     var accountsList = document.getElementsByTagName("listitem");
     
-    for (var i = 0, n = accountsList.length; i < n; i++)
-    {
+    for (var i = 0, n = accountsList.length; i < n; i++) {
       var accountItem = accountsList[i];
       
       // Check if the account should be "migrated" (i.e. added)
-      if (accountItem.checked && !manager.isAccount(accountItem.email))
-      {
+      if (accountItem.checked && !manager.isAccount(accountItem.email)) {
         // Add the account
         var account = manager.addAccount("gmail", accountItem.email, accountItem.email, accountItem.password, null);
         
         // Check if the account should login
-        if (document.getElementById("gmanager-migrate-login").checked)
-        {
+        if (document.getElementById("gmanager-migrate-login").checked) {
           // Login to the account
           account.login(null);
         }
@@ -92,8 +85,8 @@ var gmanager_Migrate = new function()
     
     // Close the dialog
     return true;
-  }
-}
+  };
+};
 
 gmanager_Migrate.prototype = Object.create(gmanager_BundlePrefix.prototype);
 gmanager_Migrate.prototype.constructor = gmanager_Migrate;

@@ -121,16 +121,14 @@ gmServiceGmail.prototype = {
     
     var formMatches = aData.match(/<form[^>]+?id=["']gaia_loginform["'](?:.|\s)+?<\/form>/i);
     
-    if (formMatches && formMatches.length > 0)
-    {
+    if (formMatches && formMatches.length > 0) {
       var inputMatches = (formMatches[0].match(/<input[^>]+?\/?>/ig) || []);
       
       inputMatches.forEach(function(input, index, array) {
         try {
           var inputName = (input.match(/name=["'](.+?)["']/i) || [])[1];
           
-          if (inputName && !(inputName in loginData))
-          {
+          if (inputName && !(inputName in loginData)) {
             var inputValue = (input.match(/value=["'](.*?)["']/i) || [])[1];
             postData.push(inputName + "=" + (inputValue || ""));
           }
@@ -140,8 +138,9 @@ gmServiceGmail.prototype = {
       }, this);
     }
     
-    for (var name in loginData)
+    for (var name in loginData) {
       postData.push(name + "=" + loginData[name]);
+    }
     
     try {
       // TODO Add cookie to connection...
@@ -164,8 +163,9 @@ gmServiceGmail.prototype = {
         : this._cookieManager.findMatchingCookie(cookie, {}));
       
       // Check if the cookie exists, load if necessary
-      if (!hasCookie)
+      if (!hasCookie) {
         this._cookieLoader([cookie]);
+      }
     } catch(e) {
       this._log("Error loading Gmail Offline cookie: " + e);
     }
@@ -194,16 +194,18 @@ gmServiceGmail.prototype = {
   getLabels: function(aCount)
   {
     var labels = (this._labels || []);
-    if (aCount)
+    if (aCount) {
       aCount.value = labels.length;
+    }
     return labels;
   },
   
   getSnippets: function(aCount)
   {
     var snippets = (this._snippets || []);
-    if (aCount)
+    if (aCount) {
       aCount.value = snippets.length;
+    }
     return snippets;
   },
   
@@ -219,13 +221,10 @@ gmServiceGmail.prototype = {
     this._loginURL = "https://accounts.google.com/ServiceLoginAuth?service=mail";
 
     // Check if the email is hosted
-    if (this.isHosted)
-    {
+    if (this.isHosted) {
       this._checkURL = "https://mail.google.com/a/" + this.domain + "/?";
       this._atomURL = "https://mail.google.com/a/" + this.domain + "/feed/atom/";
-    }
-    else
-    {
+    } else {
       this._checkURL = "https://mail.google.com/mail/?";
       this._atomURL = "https://mail.google.com/mail/feed/atom/";
     }
@@ -234,18 +233,14 @@ gmServiceGmail.prototype = {
   login: function(aPassword)
   {
     // Check if already logged in or checking
-    if (!this.loggedIn && !this.checking)
-    {
+    if (!this.loggedIn && !this.checking) {
       const passwordRegExp = /^\s*$/;
       
       // Check if the password is specified
-      if (aPassword == null || passwordRegExp.test(aPassword))
-      {
+      if (aPassword == null || passwordRegExp.test(aPassword)) {
         // Password error, lets just give up
         this.logout(Components.interfaces.gmIService.STATE_ERROR_PASSWORD);
-      }
-      else
-      {
+      } else {
         // Save the password in case of connection timeout
         this._password = aPassword;
         
@@ -262,8 +257,9 @@ gmServiceGmail.prototype = {
   
   logout: function(/* Optional */ aStatus)
   {
-    if (this.checking)
+    if (this.checking) {
       this._setChecking(false);
+    }
     
     this._defaults();
     this._setStatus(aStatus || Components.interfaces.gmIService.STATE_LOGGED_OUT);
@@ -272,8 +268,7 @@ gmServiceGmail.prototype = {
   check: function()
   {
     // Check if already checking
-    if (!this.checking)
-    {
+    if (!this.checking) {
       // Set checking and the connection phase
       this._setChecking(true);
       this._connectionPhase = 1;
@@ -286,18 +281,16 @@ gmServiceGmail.prototype = {
   notify: function(aTimer)
   {
     // Check if already checking
-    if (this.checking)
-    {
+    if (this.checking) {
       // Timeout error, try again in 30 seconds
       this._setRetryError(Components.interfaces.gmIService.STATE_ERROR_TIMEOUT);
-    }
-    else
-    {
+    } else {
       // Check if already logged in
-      if (this.loggedIn)
+      if (this.loggedIn) {
         this.check();
-      else
+      } else {
         this.login(this._password);
+      }
     }
   },
   
@@ -309,10 +302,10 @@ gmServiceGmail.prototype = {
     this._spamUnread = 0;
     this._snippets = null;
     
-    if (this._labels)
-    {
-      for (var i = 0, n = this._labels.length; i < n; i++)
+    if (this._labels) {
+      for (var i = 0, n = this._labels.length; i < n; i++) {
         this._labels[i].unread = 0;
+      }
     }
     
     // Update the status so that any observers get notified 
@@ -329,16 +322,13 @@ gmServiceGmail.prototype = {
   
   _setChecking: function(aChecking)
   {
-    if (aChecking)
-    {
+    if (aChecking) {
       // Set the status connecting
       this._setStatus(Components.interfaces.gmIService.STATE_CONNECTING);
       
       // Start the timeout timer (30 seconds)
       this._startTimer(GM_TIMEOUT_INTERVAL);
-    }
-    else
-    {
+    } else {
       // Stop the timeout timer
       this._timer.cancel();
     }
@@ -393,46 +383,35 @@ gmServiceGmail.prototype = {
       this._log("http response status = " + httpChannel.responseStatus);
       this._log("http URI path = " + httpChannel.URI.path);
       
-      if (httpChannel.responseStatus !== 200) // Bad status
-      {
+      if (httpChannel.responseStatus !== 200) { // Bad status
         // Server error, try again in 30 seconds
         this._setRetryError(Components.interfaces.gmIService.STATE_ERROR_NETWORK);
-      }
-      else if (this._connectionPhase > 0)
-      {
+      } else if (this._connectionPhase > 0) {
         const loginRegExp = /\/(?:ServiceLoginAuth|LoginAction)/i;
         const cookieRegExp = /\/(?:SetSID|CheckCookie)/i;
         
-        if (loginRegExp.test(httpChannel.URI.path)) // Bad password
-        {
+        if (loginRegExp.test(httpChannel.URI.path)) { // Bad password
           // Check if already logged in
-          if (this.loggedIn)
-          {
+          if (this.loggedIn) {
             // Ok, lets try logging in again
             this.login(this._password);
-          }
-          else
-          {
+          } else {
             // Password error, lets just give up
             this.logout(Components.interfaces.gmIService.STATE_ERROR_PASSWORD);
           }
-        }
-        else if (cookieRegExp.test(httpChannel.URI.path)) // Bad cookie
-        {
+        } else if (cookieRegExp.test(httpChannel.URI.path)) { // Bad cookie
           try {
             this._log("data = " + aConnection.data);
             
             var redirectURL = (aConnection.data.match(/<meta.+?url=(?:'|&#39;)(.+?)(?:'|&#39;)/i) || [])[1];
             
-            if (redirectURL == null)
-            {
+            if (redirectURL == null) {
               this._log("Unable to parse meta tag, trying location.replace...");
               
               redirectURL = (aConnection.data.match(/location.replace\(["'](.+?)["']\)/i) || [])[1];
             }
             
-            if (redirectURL)
-            {
+            if (redirectURL) {
               this._log("redirect URL = " + redirectURL);
               
               redirectURL = decodeURIComponent(redirectURL);
@@ -456,8 +435,7 @@ gmServiceGmail.prototype = {
     }
     
     // Only continue if we're still checking!
-    if (this.checking)
-    {
+    if (this.checking) {
       const viewDataRegExp = /var\s+VIEW_DATA\s*=/i;
       
       // Get the connection data
@@ -465,12 +443,12 @@ gmServiceGmail.prototype = {
       
       //this._log("data = " + data);
       
-      if (viewDataRegExp.test(data))
+      if (viewDataRegExp.test(data)) {
         this._connectionPhase = 2;
+      }
       
       // Ok, everything looks good so far =)
-      switch (++this._connectionPhase)
-      {
+      switch (++this._connectionPhase) {
         case 1:
         {
           this._log("Begin login process by sending POST data...");
@@ -524,8 +502,9 @@ gmServiceGmail.prototype = {
               
               var key = element[0];
               
-              if (key in keyLabelMap)
+              if (key in keyLabelMap) {
                 this[keyLabelMap[key][0]] = Math.max(0, element[keyLabelMap[key][1]]);
+              }
             }, this);
             
             this._log("inboxUnread = " + this.inboxUnread);
@@ -544,16 +523,15 @@ gmServiceGmail.prototype = {
               });
             }, this);
             
-            if (this._labels.length > 0)
-            {
+            if (this._labels.length > 0) {
               this._log(this._labels.length + " labels(s) were found");
               
               this._labels.forEach(function(label, index, array) {
                 this._log(label.name + " (" + label.unread + (label.total > 0 ? " of " + label.total : "") + ")");
               }, this);
-            }
-            else
+            } else {
               this._log("no labels were found");
+            }
           } catch(e) {
             this._log("Error getting the unread counts: " + e);
           }
@@ -567,16 +545,12 @@ gmServiceGmail.prototype = {
             // Initialize the snippets
             this._snippets = [];
 
-            for (var i=0; i<msgs.length ; i++)
-            {
-              if (msgs[i][0] == "tb")
-              {
-                for (var j=0; j<msgs[i][2].length; j++)
-                {
+            for (var i=0; i<msgs.length ; i++) {
+              if (msgs[i][0] == "tb") {
+                for (var j=0; j<msgs[i][2].length; j++) {
                   var snippet = msgs[i][2][j];
                   // Check if the snippet is unread
-                  if (snippet[3] == 0)
-                  {
+                  if (snippet[3] == 0) {
                     this._snippets.push({
                       "id" : snippet[0],
                       "from" : this._replaceHtmlCodes(this._stripHtml(snippet[7])),
@@ -591,20 +565,19 @@ gmServiceGmail.prototype = {
               }
             }
             
-            if (this._snippets.length > 0)
-            {
+            if (this._snippets.length > 0) {
               this._log(this._snippets.length + " snippet(s) were found");
               
-              //for (var i = 0, n = this._snippets.length; i < n; i++)
-              //{
+              //for (var i = 0, n = this._snippets.length; i < n; i++) {
               //  var snippet = this._snippets[i];
               //
-              //  //for (var j in snippet)
-              //  //  this._log("snippet[" + i + "]." + j + " = " + snippet[j]);
+              //  for (var j in snippet) {
+              //    this._log("snippet[" + i + "]." + j + " = " + snippet[j]);
+              //  }
               //}
-            }
-            else
+            } else {
               this._log("no snippets were found");
+            }
           } catch(e) {
             this._log("Error getting the snippets: " + e);
           }
@@ -673,20 +646,22 @@ gmServiceGmail.prototype = {
   {
     if (aIID.equals(Components.interfaces.gmIServiceGmail) || 
         aIID.equals(Components.interfaces.gmIConnectionCallback) || 
-        aIID.equals(Components.interfaces.nsISupports))
+        aIID.equals(Components.interfaces.nsISupports)) {
       return this;
+    }
     throw Components.results.NS_ERROR_NO_INTERFACE;
   }
-}
+};
 
-if (Components.utils && Components.utils.import)
-{
+if (Components.utils && Components.utils.import) {
   Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
   
-  if (XPCOMUtils.generateNSGetFactory)
+  if (XPCOMUtils.generateNSGetFactory) {
     var NSGetFactory = XPCOMUtils.generateNSGetFactory([gmServiceGmail]);
-//  else
-//    var NSGetModule = XPCOMUtils.generateNSGetModule([gmServiceGmail]);
+  }
+  //else {
+  //  var NSGetModule = XPCOMUtils.generateNSGetModule([gmServiceGmail]);
+  //}
 }
 
 // TODO Remove; Obsolete in Firefox 2 (Gecko 1.8.1)
@@ -694,12 +669,13 @@ if (Components.utils && Components.utils.import)
 const gmanager_Factory = {
   createInstance: function(aOuter, aIID)
   {
-    if (aOuter != null)
+    if (aOuter != null) {
       throw Components.results.NS_ERROR_NO_AGGREGATION;
+    }
     
     return (new gmServiceGmail()).QueryInterface(aIID);
   }
-}
+};
 
 const gmanager_Module = {
   registerSelf: function(aCompMgr, aFileSpec, aLocation, aType)
@@ -724,11 +700,13 @@ const gmanager_Module = {
   
   getClassObject: function(aCompMgr, aCID, aIID)
   {
-    if (aCID.equals(GM_CLASS_ID))
+    if (aCID.equals(GM_CLASS_ID)) {
       return gmanager_Factory;
+    }
     
-    if (!aIID.equals(Components.interfaces.nsIFactory))
+    if (!aIID.equals(Components.interfaces.nsIFactory)) {
       throw Components.results.NS_ERROR_NOT_IMPLEMENTED;
+    }
     
     throw Components.results.NS_ERROR_NO_INTERFACE;
   },

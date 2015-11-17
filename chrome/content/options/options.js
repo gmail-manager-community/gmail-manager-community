@@ -15,15 +15,15 @@ var gmanager_Options = new function()
     
     var accounts = this._sandbox.getAccounts({});
     
-    for (var i = 0, n = accounts.length; i < n; i++)
+    for (var i = 0, n = accounts.length; i < n; i++) {
       accounts[i].node.setAttribute("password", accounts[i].password);
+    }
     
     // Get the last viewed page
     var pageValue = gmanager_Prefs.getCharPref("options-page");
     
     // Check if the debug page is visible
-    if (!gmanager_Prefs.getBoolPref("debug"))
-    {
+    if (!gmanager_Prefs.getBoolPref("debug")) {
       // Remove the debug page from the list of pages
       var debugPage = document.getElementById("gmanager-options-listbox").lastChild;
       debugPage.parentNode.removeChild(debugPage);
@@ -31,23 +31,21 @@ var gmanager_Options = new function()
     
     // Load the page
     this.loadPage(pageValue);
-  }
+  };
   
   this.command = function()
   {
     var pageIndex = document.getElementById("gmanager-options-listbox").selectedIndex;
     var pageDocument = document.getElementById("gmanager-options-iframe").contentDocument;
     
-    switch (pageIndex)
-    {
+    switch (pageIndex) {
       case 0: // general.xul
         break;
       case 1: // accounts.xul
       {
         var accountItem = pageDocument.getElementById("gmanager-options-accounts-listbox").selectedItem;
         
-        if (accountItem && this._sandbox.isAccount(accountItem.email))
-        {
+        if (accountItem && this._sandbox.isAccount(accountItem.email)) {
           var account = this._sandbox.getAccount(accountItem.email);
           account.setBoolPref("general-auto-login", accountItem.checked);
         }
@@ -73,8 +71,9 @@ var gmanager_Options = new function()
       {
         var contributorItem = pageDocument.getElementById("gmanager-options-help-contributors-list").selectedItem;
         
-        if (contributorItem)
+        if (contributorItem) {
           pageDocument.getElementById("gmanager-options-help-visit-button").disabled = !contributorItem.hasAttribute("site");
+        }
         
         break;
       }
@@ -85,7 +84,7 @@ var gmanager_Options = new function()
       default:
         break;
     }
-  }
+  };
   
   this.loadPage = function(aPageValue)
   {
@@ -96,8 +95,9 @@ var gmanager_Options = new function()
     pagesList.value = aPageValue;
     
     // Check if the page is valid
-    if (!pagesList.selectedItem)
+    if (!pagesList.selectedItem) {
       pagesList.selectedItem = pagesList.firstChild;
+    }
     
     // Save the page as last viewed
     gmanager_Prefs.setCharPref("options-page", pagesList.value);
@@ -107,15 +107,14 @@ var gmanager_Options = new function()
     
     // Display the page
     pageFrame.setAttribute("src", pagesList.value);
-  }
+  };
   
   this.loadPagePrefs = function()
   {
     var pageIndex = document.getElementById("gmanager-options-listbox").selectedIndex;
     var pageDocument = document.getElementById("gmanager-options-iframe").contentDocument;
     
-    switch (pageIndex)
-    {
+    switch (pageIndex) {
       case 0: // general.xul
         break;
       case 1: // accounts.xul
@@ -124,11 +123,11 @@ var gmanager_Options = new function()
         var accounts = this._sandbox.getAccounts({});
         
         // Make sure the list of accounts is empty
-        while (accountsList.getRowCount() > 0)
+        while (accountsList.getRowCount() > 0) {
           accountsList.removeItemAt(0);
+        }
         
-        for (var i = 0, n = accounts.length; i < n; i++)
-        {
+        for (var i = 0, n = accounts.length; i < n; i++) {
           var accountSandbox = accounts[i];
           var accountReal = this._manager.getAccount(accountSandbox.email);
           var accountItem = pageDocument.createElement("listitem");
@@ -175,8 +174,7 @@ var gmanager_Options = new function()
         // Populate the accounts
         this._populateAccounts(accountsPopup);
         
-        if (accounts.length > 0)
-        {
+        if (accounts.length > 0) {
           var menuSeparator = document.createElement("menuseparator");
           accountsPopup.insertBefore(menuSeparator, accountsPopup.firstChild);
           
@@ -196,31 +194,26 @@ var gmanager_Options = new function()
     
     // Update the page preferences
     this.command();
-  }
+  };
   
   this._populateAccounts = function(aPopup)
   {
     // Check if the popup is specified
-    if (aPopup)
-    {
+    if (aPopup) {
       var accounts = this._sandbox.getAccounts({});
       
       // Clear the menu items
       gmanager_Utils.clearKids(aPopup);
       
-      if (accounts.length > 0)
-      {
-        for (var i = 0, n = accounts.length; i < n; i++)
-        {
+      if (accounts.length > 0) {
+        for (var i = 0, n = accounts.length; i < n; i++) {
           // Create the email menu item
           var emailItem = document.createElement("menuitem");
           emailItem.setAttribute("label", accounts[i].email);
           emailItem.setAttribute("value", accounts[i].email);
           aPopup.appendChild(emailItem);
         }
-      }
-      else
-      {
+      } else {
         var emailItem = document.createElement("menuitem");
         emailItem.setAttribute("label", this.getString("no-accounts"));
         aPopup.appendChild(emailItem);
@@ -229,44 +222,41 @@ var gmanager_Options = new function()
       // Select the first menu item
       aPopup.parentNode.selectedItem = aPopup.firstChild;
     }
-  }
+  };
   
   this.importPrefs = function()
   {
     var file = this._selectFile("import");
-    if (file)
-    {
-      if (this._sandbox.importPrefs(file))
-      {
+    if (file) {
+      if (this._sandbox.importPrefs(file)) {
         // Update the page preferences
         this.loadPagePrefs();
         
         alert(this.getString("import-success"));
-      }
-      else
+      } else {
         alert(this.getString("import-error"));
+      }
     }
-  }
+  };
   
   this.exportPrefs = function()
   {
     var file = this._selectFile("export");
-    if (file)
-    {
+    if (file) {
       var success = this._sandbox.exportPrefs(file);
       
-      if (success)
+      if (success) {
         alert(this.getString("export-success"));
+      }
     }
-  }
+  };
   
   this._selectFile = function(aMode)
   {
     var nsIFilePicker = Components.interfaces.nsIFilePicker;
     var filePicker = Components.classes["@mozilla.org/filepicker;1"].createInstance(nsIFilePicker);
     
-    switch (aMode)
-    {
+    switch (aMode) {
       case "export":
         filePicker.init(window, this.getString("export"), nsIFilePicker.modeSave);
         filePicker.defaultExtension = "xml";
@@ -280,50 +270,47 @@ var gmanager_Options = new function()
     filePicker.show();
     
     return filePicker.file;
-  }
+  };
   
   this.selectAccount = function()
   {
     var pageDocument = document.getElementById("gmanager-options-iframe").contentDocument;
     var accountsList = pageDocument.getElementById("gmanager-options-accounts-listbox");
     
-    pageDocument.getElementById("gmanager-options-accounts-move-up-button").disabled = (accountsList.selectedIndex == 0)
+    pageDocument.getElementById("gmanager-options-accounts-move-up-button").disabled = (accountsList.selectedIndex == 0);
     pageDocument.getElementById("gmanager-options-accounts-move-down-button").disabled = (accountsList.selectedIndex == (accountsList.getRowCount() - 1));
     pageDocument.getElementById("gmanager-options-accounts-modify-button").disabled = (accountsList.selectedCount == 0);
     pageDocument.getElementById("gmanager-options-accounts-remove-button").disabled = (accountsList.selectedCount == 0);
-  }
+  };
   
   this.accountsAdd = function()
   {
     window.openDialog("chrome://gmanager/content/options/dialogs/account.xul", "account", "centerscreen,chrome,modal", this._sandbox);
     
     this.loadPagePrefs();
-  }
+  };
   
   this.accountsModify = function()
   {
     var pageDocument = document.getElementById("gmanager-options-iframe").contentDocument;
     var accountItem = pageDocument.getElementById("gmanager-options-accounts-listbox").selectedItem;
     
-    if (accountItem)
-    {
+    if (accountItem) {
       window.openDialog("chrome://gmanager/content/options/dialogs/account.xul", "account", "centerscreen,chrome,modal", this._sandbox, accountItem.email);
       
       this.loadPagePrefs();
     }
-  }
+  };
   
   this.accountsRemove = function()
   {
     var pageDocument = document.getElementById("gmanager-options-iframe").contentDocument;
     var accountItem = pageDocument.getElementById("gmanager-options-accounts-listbox").selectedItem;
     
-    if (accountItem)
-    {
+    if (accountItem) {
       var email = accountItem.email;
       
-      if (confirm(this.getFString("remove-account", [email])))
-      {
+      if (confirm(this.getFString("remove-account", [email]))) {
         // Remove the account
         this._sandbox.removeAccount(email);
         
@@ -331,22 +318,23 @@ var gmanager_Options = new function()
         accountItem.parentNode.removeChild(accountItem);
       }
     }
-  }
+  };
   
   this.helpVisitSite = function()
   {
     var pageDocument = document.getElementById("gmanager-options-iframe").contentDocument;
     var contributorItem = pageDocument.getElementById("gmanager-options-help-contributors-list").selectedItem;
     
-    if (contributorItem && contributorItem.hasAttribute("site"))
+    if (contributorItem && contributorItem.hasAttribute("site")) {
       gmanager_Utils.loadSimpleURI(contributorItem.getAttribute("site"));
-  }
+    }
+  };
   
   this.debugMigrate = function()
   {
     var logins = gmanager_Utils.getStoredLogins("https://www.google.com", "https://www.google.com", null);
     window.openDialog("chrome://gmanager/content/migrate/migrate.xul", "migrate", "centerscreen,chrome,modal,resizable", logins);
-  }
+  };
   
   this.debugLogin = function()
   {
@@ -354,14 +342,14 @@ var gmanager_Options = new function()
     var accountItem = pageDocument.getElementById("gmanager-options-debug-accounts-popup").parentNode.selectedItem;
     var account = this._manager.getAccount(accountItem.label);
     gmanager_Utils.showLogin(account);
-  }
+  };
   
   this.debugAlert = function()
   {
     var pageDocument = document.getElementById("gmanager-options-iframe").contentDocument;
     var accountItem = pageDocument.getElementById("gmanager-options-debug-accounts-popup").parentNode.selectedItem;
     gmanager_Alerts.display(accountItem.label);
-  }
+  };
   
   this.dialogAccept = function()
   {
@@ -381,8 +369,8 @@ var gmanager_Options = new function()
     
     // Close the window
     return true;
-  }
-}
+  };
+};
 
 gmanager_Options.prototype = Object.create(gmanager_BundlePrefix.prototype);
 gmanager_Options.prototype.constructor = gmanager_Options;

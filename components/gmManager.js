@@ -25,8 +25,9 @@ function gmManager()
   prefsDir.append("gmanager");
   
   // Make sure the preferences directory exists
-  if (!prefsDir.exists())
+  if (!prefsDir.exists()) {
     prefsDir.create(Components.interfaces.nsIFile.DIRECTORY_TYPE, 0777);
+  }
   
   // Initialize the main preferences file
   this._prefsXML = prefsDir.clone();
@@ -74,14 +75,12 @@ gmManager.prototype = {
     this._doc = this._parser.open(this._prefsXML);
     
     // Check if the doc exists
-    if (!this._doc)
-    {
+    if (!this._doc) {
       // Load the backup preferences file
       this._doc = this._parser.open(this._prefsBAK);
       
       // Check if the doc exists
-      if (!this._doc)
-      {
+      if (!this._doc) {
         this._doc = this._parser.emptyDoc.cloneNode(true);
         this._doc.documentElement.setAttribute("version", EXTENSION_VERSION);
       }
@@ -96,16 +95,15 @@ gmManager.prototype = {
     var accountsTemp = [];
     var accountElements = this._doc.getElementsByTagName("account");
     
-    if (!this._accounts)
+    if (!this._accounts) {
       this._accounts = [];
+    }
     
-    for (var i = 0; i < accountElements.length; i++)
-    {
+    for (var i = 0; i < accountElements.length; i++) {
       var account = this._createAccount(accountElements.item(i));
       var email = this._getEmail(account.node);
       
-      if (email in this._accounts)
-      {
+      if (email in this._accounts) {
         this._accounts[email].load(account.node);
         account = this._accounts[email];
         delete this._accounts[email];
@@ -120,8 +118,9 @@ gmManager.prototype = {
   
   _getEmail: function(aNode)
   {
-    if (aNode)
+    if (aNode) {
       return (aNode.hasAttribute("email") ? aNode.getAttribute("email") : GLOBAL_TYPE);
+    }
     return null;
   },
   
@@ -135,11 +134,11 @@ gmManager.prototype = {
   save: function()
   {
     // Check if the main preferences file exists
-    if (this._prefsXML.exists())
-    {
+    if (this._prefsXML.exists()) {
       // Check if the backup preferences file exists
-      if (this._prefsBAK.exists())
+      if (this._prefsBAK.exists()) {
         this._prefsBAK.remove(false);
+      }
       
       // Save the backup preferences file
       this._prefsXML.copyTo(null, this._prefsBAK.leafName);
@@ -147,17 +146,14 @@ gmManager.prototype = {
     
     var accountNodes = this._doc.getElementsByTagName("account");
     
-    for (var i = 0; i < accountNodes.length; i++)
-    {
+    for (var i = 0; i < accountNodes.length; i++) {
       var oldAccountNode = accountNodes.item(i);
       var oldAccountEmail = this._getEmail(oldAccountNode);
       
-      if (oldAccountEmail in this._accounts)
-      {
+      if (oldAccountEmail in this._accounts) {
         var newAccountNode = this._accounts[oldAccountEmail].node;
         
-        if (newAccountNode.hasAttribute("password"))
-        {
+        if (newAccountNode.hasAttribute("password")) {
           var password = newAccountNode.getAttribute("password");
           newAccountNode.removeAttribute("password");
           this._accounts[oldAccountEmail].savePassword(password);
@@ -165,24 +161,24 @@ gmManager.prototype = {
         
         // Replace the account node with the updated one
         this._doc.documentElement.replaceChild(newAccountNode, oldAccountNode);
-      }
-      else
+      } else {
         this._doc.documentElement.removeChild(oldAccountNode);
+      }
     }
     
     // Save the main preferences file
     this._parser.save(this._prefsXML, this._doc);
     
-    for (var email in this._accountsRemoved)
+    for (var email in this._accountsRemoved) {
       this._accountsRemoved[email].removePassword();
+    }
   },
   
   importPrefs: function(aFile)
   {
     var docTemp = this._parser.open(aFile);
     
-    if (docTemp)
-    {
+    if (docTemp) {
       this._doc = docTemp;
       
       // Load the accounts  
@@ -197,8 +193,7 @@ gmManager.prototype = {
     var docTemp = this._doc.cloneNode(true);
     var accountNodes = docTemp.getElementsByTagName("account");
     
-    for (var i = 0; i < accountNodes.length; i++)
-    {
+    for (var i = 0; i < accountNodes.length; i++) {
       var accountNode = accountNodes.item(i);
       accountNode.removeAttribute("password");
     }
@@ -210,22 +205,24 @@ gmManager.prototype = {
   {
     var accounts = [];
     
-    for (var email in this._accounts)
-    {
-      if (this._accounts[email].type != GLOBAL_TYPE)
+    for (var email in this._accounts) {
+      if (this._accounts[email].type != GLOBAL_TYPE) {
         accounts.push(this._accounts[email]);
+      }
     }
     
-    if (aCount)
-      aCount.value = accounts.length;       
+    if (aCount) {
+      aCount.value = accounts.length;
+    }
     
     return accounts;
   },
   
   getAccount: function(aEmail)
   {
-    if (aEmail in this._accounts)
+    if (aEmail in this._accounts) {
       return this._accounts[aEmail];
+    }
   },
   
   isAccount: function(aEmail)
@@ -236,8 +233,9 @@ gmManager.prototype = {
   addAccount: function(aType, aEmail, aAlias, aPassword, aNode)
   {
     // Check if the email account exists
-    if (aEmail in this._accounts)
+    if (aEmail in this._accounts) {
       return null;
+    }
     
     // Set the account node
     var node = (aNode ? aNode : this._parser.accountNode.cloneNode(true));
@@ -255,8 +253,7 @@ gmManager.prototype = {
     this._accounts[aEmail] = this._createAccount(node);
     
     // Check if the email account exists
-    if (aEmail in this._accountsRemoved)
-    {
+    if (aEmail in this._accountsRemoved) {
       // Remove the account
       delete this._accountsRemoved[aEmail];
     }
@@ -268,8 +265,7 @@ gmManager.prototype = {
   removeAccount: function(aEmail)
   {
     // Check if the email account exists
-    if (aEmail in this._accounts)
-    {
+    if (aEmail in this._accounts) {
       // Add the account to the removed list
       this._accountsRemoved[aEmail] = this._accounts[aEmail];
       
@@ -287,20 +283,22 @@ gmManager.prototype = {
   QueryInterface: function(aIID)
   {
     if (aIID.equals(Components.interfaces.gmIManager) || 
-        aIID.equals(Components.interfaces.nsISupports))
+        aIID.equals(Components.interfaces.nsISupports)) {
       return this;
+    }
     throw Components.results.NS_ERROR_NO_INTERFACE;
   }
-}
+};
 
-if (Components.utils && Components.utils.import)
-{
+if (Components.utils && Components.utils.import) {
   Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
   
-  if (XPCOMUtils.generateNSGetFactory)
+  if (XPCOMUtils.generateNSGetFactory) {
     var NSGetFactory = XPCOMUtils.generateNSGetFactory([gmManager]);
-//  else
-//    var NSGetModule = XPCOMUtils.generateNSGetModule([gmManager]);
+  }
+  //else {
+  //  var NSGetModule = XPCOMUtils.generateNSGetModule([gmManager]);
+  //}
 }
 
 // TODO Remove; Obsolete in Firefox 2 (Gecko 1.8.1)
@@ -308,12 +306,13 @@ if (Components.utils && Components.utils.import)
 const gmanager_Factory = {
   createInstance: function(aOuter, aIID)
   {
-    if (aOuter != null)
+    if (aOuter != null) {
       throw Components.results.NS_ERROR_NO_AGGREGATION;
+    }
     
     return (new gmManager()).QueryInterface(aIID);
   }
-}
+};
 
 const gmanager_Module = {
   registerSelf: function(aCompMgr, aFileSpec, aLocation, aType)
@@ -338,11 +337,13 @@ const gmanager_Module = {
   
   getClassObject: function(aCompMgr, aCID, aIID)
   {
-    if (aCID.equals(GM_CLASS_ID))
+    if (aCID.equals(GM_CLASS_ID)) {
       return gmanager_Factory;
+    }
     
-    if (!aIID.equals(Components.interfaces.nsIFactory))
+    if (!aIID.equals(Components.interfaces.nsIFactory)) {
       throw Components.results.NS_ERROR_NOT_IMPLEMENTED;
+    }
     
     throw Components.results.NS_ERROR_NO_INTERFACE;
   },

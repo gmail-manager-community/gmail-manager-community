@@ -54,11 +54,10 @@ gmAccount.prototype = {
       var loginInfo = this._getLoginInfo();
       
       // Check if the login info exists
-      if (loginInfo !== null)
+      if (loginInfo !== null) {
         password = loginInfo.password;
-    }
-    else
-    {
+      }
+    } else {
       // Load the password manager service
       var passwordManager = Components.classes["@mozilla.org/passwordmanager;1"].getService(Components.interfaces.nsIPasswordManagerInternal);
       
@@ -75,8 +74,9 @@ gmAccount.prototype = {
       }
       
       // Check if the password was found
-      if (passwordFound !== null)
+      if (passwordFound !== null) {
         password = passwordFound.value;
+      }
     }
     
     // Return the password
@@ -88,18 +88,20 @@ gmAccount.prototype = {
   {
     var unread = 0;
     
-    if (this.getBoolPref("toolbar-unread-count-inbox"))
+    if (this.getBoolPref("toolbar-unread-count-inbox")) {
       unread += this.inboxUnread;
+    }
     
-    if (this.getBoolPref("toolbar-unread-count-spam"))
+    if (this.getBoolPref("toolbar-unread-count-spam")) {
       unread += this.spamUnread;
+    }
     
-    if (this.getBoolPref("toolbar-unread-count-labels"))
-    {
+    if (this.getBoolPref("toolbar-unread-count-labels")) {
       var labels = this.getLabels({});
       
-      for (var i = 0; i < labels.length; i++)
+      for (var i = 0; i < labels.length; i++) {
         unread += labels[i].unread;
+      }
     }
     
     return unread;
@@ -127,19 +129,19 @@ gmAccount.prototype = {
   
   getCharPref: function(aId)
   {
-    if (aId in this._prefs)
-    {
+    if (aId in this._prefs) {
       var value = this._prefs[aId].getAttribute("value");
       this._log("Returning preference: " + aId + " = " + value);
       return value;
-    }
-    else
+    } else {
       this._log("Unknown preference: " + aId);
+    }
   },
   setCharPref: function(aId, aValue)
   {
-    if (aId in this._prefs)
+    if (aId in this._prefs) {
       this._prefs[aId].setAttribute("value", aValue);
+    }
   },
   
   getIntPref: function(aId)
@@ -156,25 +158,20 @@ gmAccount.prototype = {
     this._node = aNode;
     this._prefs = [];
     
-    if (this._type === null)
-    {
+    if (this._type === null) {
       // Set the account type
       this._type = this._node.getAttribute("type");
       
       // Check the account type
-      if (this._type === GLOBAL_TYPE)
-      {
+      if (this._type === GLOBAL_TYPE) {
         // Set the account email
         this._email = GLOBAL_TYPE;
-      }
-      else
-      {
+      } else {
         // Set the account email
         this._email = this._node.getAttribute("email");
         
         // Load the mail service
-        switch (this._type)
-        {
+        switch (this._type) {
           case ACCOUNT_TYPE_GMAIL:
             // Create the Gmail mail service
             this._service = Components.classes["@gmail-manager-community.github.com/gmanager/service/gmail;1"].createInstance(Components.interfaces.gmIServiceGmail);
@@ -195,19 +192,18 @@ gmAccount.prototype = {
     this._alias = this._node.getAttribute("alias");
     
     // Check if the password attribute is specified
-    if (this._node.hasAttribute("password"))
-    {
+    if (this._node.hasAttribute("password")) {
       // Save the account password
       this.savePassword(this._node.getAttribute("password"));
     }
     
     var prefs = this._node.getElementsByTagName("pref");
     
-    for (var i = 0, n = prefs.length; i < n; i++)
-    {
+    for (var i = 0, n = prefs.length; i < n; i++) {
       var pref = prefs[i];
-      if (pref.hasAttribute("id"))
+      if (pref.hasAttribute("id")) {
         this._prefs[pref.getAttribute("id")] = pref;
+      }
     }
   },
   
@@ -228,8 +224,7 @@ gmAccount.prototype = {
     var isPassword = (aPassword != null && aPassword.length > 0);
     
     // Check for Toolkit 1.9 (Firefox 3)
-    if ("@mozilla.org/login-manager;1" in Components.classes)
-    {
+    if ("@mozilla.org/login-manager;1" in Components.classes) {
       // Load the login manager service
       var loginManager = Components.classes["@mozilla.org/login-manager;1"].getService(Components.interfaces.nsILoginManager);
       
@@ -237,36 +232,34 @@ gmAccount.prototype = {
       var loginInfo = this._getLoginInfo();
       
       // Check if the password is specified
-      if (isPassword)
-      {
+      if (isPassword) {
         // Create the updated login info
         var nsLoginInfo = new Components.Constructor("@mozilla.org/login-manager/loginInfo;1", Components.interfaces.nsILoginInfo, "init");
         var newLoginInfo = new nsLoginInfo(PASSWORD_SITE, "/", null, this._email, aPassword, "", "");
         
         // Check if the login info exists
-        if (loginInfo === null)
+        if (loginInfo === null) {
           loginManager.addLogin(newLoginInfo);
-        else
+        } else {
           loginManager.modifyLogin(loginInfo, newLoginInfo);
-      }
-      else
-      {
+        }
+      } else {
         // Check if the login info exists
-        if (loginInfo !== null)
+        if (loginInfo !== null) {
           loginManager.removeLogin(loginInfo);
+        }
       }
-    }
-    else
-    {
+    } else {
       // Load the password manager service
       var passwordManager = Components.classes["@mozilla.org/passwordmanager;1"].getService(Components.interfaces.nsIPasswordManager);
       
       try {
         // Check if the password is specified
-        if (isPassword)
+        if (isPassword) {
           passwordManager.addUser(PASSWORD_SITE, this._email, aPassword);
-        else
+        } else {
           passwordManager.removeUser(PASSWORD_SITE, this._email);
+        }
       } catch(e) {
         this._log("Error updating the password: " + e);
       }
@@ -282,10 +275,10 @@ gmAccount.prototype = {
     var logins = loginManager.findLogins({}, PASSWORD_SITE, "/", null);
     
     // Search for the matching login info
-    for (var i = 0, n = logins.length; i < n; i++)
-    {
-      if (logins[i].username === this._email)
+    for (var i = 0, n = logins.length; i < n; i++) {
+      if (logins[i].username === this._email) {
         return logins[i];
+      }
     }
     
     return null;
@@ -296,32 +289,35 @@ gmAccount.prototype = {
    */
   init: function(aEmail)
   {
-    if (this._service)
+    if (this._service) {
       this._service.init(aEmail);
+    }
   },
   
   getFolder: function(/* Optional */ aPassword, aFolderId)
   {
-    if (this._service)
+    if (this._service) {
       return this._service.getFolder((aPassword || this.password), aFolderId);
+    }
   },
   
   getMessage: function(/* Optional */ aPassword, aMessageId)
   {
-    if (this._service)
+    if (this._service) {
       return this._service.getMessage((aPassword || this.password), aMessageId);
+    }
   },
   
   getCompose: function(/* Optional */ aPassword, aHref)
   {
-    if (this._service)
+    if (this._service) {
       return this._service.getCompose((aPassword || this.password), aHref);
+    }
   },
   
   login: function(/* Optional */ aPassword)
   {
-    if (this._service)
-    {
+    if (this._service) {
       this._lastUnread = 0;
       this._service.login(aPassword || this.password);
       this._startTimer();
@@ -330,14 +326,14 @@ gmAccount.prototype = {
   
   logout: function()
   {
-    if (this._service)
+    if (this._service) {
       this._service.logout();
+    }
   },
   
   check: function()
   {
-    if (this._service)
-    {
+    if (this._service) {
       this._lastUnread = this.unread;
       this._service.check();
       this._startTimer();
@@ -346,8 +342,7 @@ gmAccount.prototype = {
   
   resetUnread: function()
   {
-    if (this._service)
-    {
+    if (this._service) {
       this._service.resetUnread();
       this._startTimer();
     }
@@ -356,16 +351,18 @@ gmAccount.prototype = {
   getLabels: function(aCount)
   {
     var labels = (this._service ? this._service.getLabels({}) : []);
-    if (aCount)
+    if (aCount) {
       aCount.value = labels.length;
+    }
     return labels;
   },
   
   getSnippets: function(aCount)
   {
     var snippets = (this._service ? this._service.getSnippets({}) : []);
-    if (aCount)
+    if (aCount) {
       aCount.value = snippets.length;
+    }
     return snippets;
   },
   
@@ -374,13 +371,11 @@ gmAccount.prototype = {
     // Stop the check timer
     this._timer.cancel();
     
-    if (this.getBoolPref("notifications-check"))
-    {
+    if (this.getBoolPref("notifications-check")) {
       var interval = (this.getIntPref("notifications-check-interval") * 60000);
       
       // Check if the interval is valid
-      if (!isNaN(interval) && interval > 0)
-      {
+      if (!isNaN(interval) && interval > 0) {
         // Start the check timer, fire only once
         this._timer.initWithCallback(this, interval, Components.interfaces.nsITimer.TYPE_ONE_SHOT);
       }
@@ -389,8 +384,9 @@ gmAccount.prototype = {
   
   notify: function(aTimer)
   {
-    if (this.loggedIn)
+    if (this.loggedIn) {
       this.check();
+    }
   },
   
   classDescription: GM_CLASS_NAME,
@@ -401,21 +397,23 @@ gmAccount.prototype = {
   
   QueryInterface: function(aIID)
   {
-    if (aIID.equals(Components.interfaces.gmIAccount) || 
-        aIID.equals(Components.interfaces.nsISupports))
+    if (aIID.equals(Components.interfaces.gmIAccount) ||
+        aIID.equals(Components.interfaces.nsISupports)) {
       return this;
+    }
     throw Components.results.NS_ERROR_NO_INTERFACE;
   }
-}
+};
 
-if (Components.utils && Components.utils.import)
-{
+if (Components.utils && Components.utils.import) {
   Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
   
-  if (XPCOMUtils.generateNSGetFactory)
+  if (XPCOMUtils.generateNSGetFactory) {
     var NSGetFactory = XPCOMUtils.generateNSGetFactory([gmAccount]);
-//  else
-//    var NSGetModule = XPCOMUtils.generateNSGetModule([gmAccount]);
+  }
+  //else {
+  //  var NSGetModule = XPCOMUtils.generateNSGetModule([gmAccount]);
+  //}
 }
 
 // TODO Remove; Obsolete in Firefox 2 (Gecko 1.8.1)
@@ -423,12 +421,12 @@ if (Components.utils && Components.utils.import)
 const gmanager_Factory = {
   createInstance: function(aOuter, aIID)
   {
-    if (aOuter != null)
+    if (aOuter != null) {
       throw Components.results.NS_ERROR_NO_AGGREGATION;
-    
+    }
     return (new gmAccount()).QueryInterface(aIID);
   }
-}
+};
 
 const gmanager_Module = {
   registerSelf: function(aCompMgr, aFileSpec, aLocation, aType)
@@ -453,11 +451,13 @@ const gmanager_Module = {
   
   getClassObject: function(aCompMgr, aCID, aIID)
   {
-    if (aCID.equals(GM_CLASS_ID))
+    if (aCID.equals(GM_CLASS_ID)) {
       return gmanager_Factory;
+    }
     
-    if (!aIID.equals(Components.interfaces.nsIFactory))
+    if (!aIID.equals(Components.interfaces.nsIFactory)) {
       throw Components.results.NS_ERROR_NOT_IMPLEMENTED;
+    }
     
     throw Components.results.NS_ERROR_NO_INTERFACE;
   },

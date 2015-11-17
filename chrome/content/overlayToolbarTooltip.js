@@ -14,14 +14,12 @@ var gmanager_ToolbarTooltip = new function()
     // Clear the menu
     gmanager_Utils.clearKids(aTooltip);
     
-    if (gmanager_Toolbars.isToolbarItem(toolbarItem))
-    {
+    if (gmanager_Toolbars.isToolbarItem(toolbarItem)) {
       var account = toolbarItem.displayAccount;
       var hasDetails = false;
       
       // Check if the account exists
-      if (account)
-      {
+      if (account) {
         // Account Header
         aTooltip.appendChild(this._buildAccountHeader(account));
         
@@ -29,13 +27,10 @@ var gmanager_ToolbarTooltip = new function()
         hasDetails = account.loggedIn;
       }
       
-      if (hasDetails)
-      {
+      if (hasDetails) {
         // Account Details
         aTooltip.appendChild(this._buildAccountDetails(account));
-      }
-      else
-      {
+      } else {
         // Account Status
         aTooltip.appendChild(this._buildAccountStatus(account));
       }
@@ -43,14 +38,14 @@ var gmanager_ToolbarTooltip = new function()
     
     // Show the tooltip
     return true;
-  }
+  };
   
   this._createLabel = function(aValue)
   {
     var label = document.createElement("label");
     label.setAttribute("value", aValue);
     return label;
-  }
+  };
   
   this._buildAccountHeader = function(aAccount)
   {
@@ -73,16 +68,17 @@ var gmanager_ToolbarTooltip = new function()
     
     var bundleKey = null;
     
-    if (aAccount.status === Components.interfaces.gmIService.STATE_CONNECTING)
+    if (aAccount.status === Components.interfaces.gmIService.STATE_CONNECTING) {
       bundleKey = (aAccount.loggedIn ? "checking-mail" : "logging-in");
-    else
+    } else {
       bundleKey = (aAccount.loggedIn ? "logged-in" : "logged-out");
+    }
     
     // Account Status
     elParent.appendChild(this._createLabel(this.getString(bundleKey)));
     
     return elParent;
-  }
+  };
   
   this._buildAccountDetails = function(aAccount)
   {
@@ -112,8 +108,7 @@ var gmanager_ToolbarTooltip = new function()
     
     // TODO Add option to show/hide labels
     
-    if (true)
-    {
+    if (true) {
       var elGrid = document.createElement("grid");
       var elRows = document.createElement("rows");
       var labels = aAccount.getLabels({});
@@ -132,12 +127,12 @@ var gmanager_ToolbarTooltip = new function()
         
         // TODO Add option to show/hide labels with unread mail
         
-        if (isUnread || !aAccount.getBoolPref("toolbar-tooltip-show-labels"))
+        if (isUnread || !aAccount.getBoolPref("toolbar-tooltip-show-labels")) {
           elRows.appendChild(elRow);
+        }
       }, this);
       
-      if (elRows.hasChildNodes())
-      {
+      if (elRows.hasChildNodes()) {
         elGrid.appendChild(elRows);
         elParent.appendChild(elGrid);
       }
@@ -146,13 +141,11 @@ var gmanager_ToolbarTooltip = new function()
     // Space Used
     elParent.appendChild(this._createLabel(this.getFString("space-used", [aAccount.spaceUsed, aAccount.percentUsed, aAccount.totalSpace])));
     
-    if (aAccount.getBoolPref("toolbar-tooltip-show-snippets"))
-    {
+    if (aAccount.getBoolPref("toolbar-tooltip-show-snippets")) {
       // Snippets
       var snippets = aAccount.getSnippets({});
       
-      if (snippets.length > 0)
-      {
+      if (snippets.length > 0) {
         // Separator
         el = document.createElement("separator");
         el.setAttribute("class", "groove");
@@ -160,8 +153,7 @@ var gmanager_ToolbarTooltip = new function()
         
         // TODO Add option for number of snippets to show
         
-        for (var i = 0, n = Math.min(10, snippets.length); i < n; i++)
-        {
+        for (var i = 0, n = Math.min(10, snippets.length); i < n; i++) {
           var elVbox = document.createElement("vbox");
           elVbox.setAttribute("class", "gmanager-tooltip-details-snippet");
           
@@ -190,17 +182,15 @@ var gmanager_ToolbarTooltip = new function()
     }
     
     return elParent;
-  }
+  };
   
   this._buildAccountStatus = function(/* Optional */ aAccount)
   {
     var bundleKey = "msg-logged-out";
     
     // Check if the account is specified
-    if (aAccount)
-    {
-      switch (aAccount.status)
-      {
+    if (aAccount) {
+      switch (aAccount.status) {
         case Components.interfaces.gmIService.STATE_CONNECTING:
           bundleKey = "msg-connecting";
           break;
@@ -220,12 +210,13 @@ var gmanager_ToolbarTooltip = new function()
     elParent.setAttribute("id", "gmanager-tooltip-details");
     
     var bundleStrings = this.getString(bundleKey).split("|");
-    for (var i = 0, n = bundleStrings.length; i < n; i++)
+    for (var i = 0, n = bundleStrings.length; i < n; i++) {
       elParent.appendChild(this._createLabel(bundleStrings[i]));
+    }
     
     return elParent;
-  }
-}
+  };
+};
 
 gmanager_ToolbarTooltip.prototype = Object.create(gmanager_BundlePrefix.prototype);
 gmanager_ToolbarTooltip.prototype.constructor = gmanager_ToolbarTooltip;

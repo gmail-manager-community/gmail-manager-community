@@ -35,20 +35,18 @@ gmConnection.prototype = {
   {
     var cookies = [];
     
-    for (var cookieHost in this._cookies)
-    {
-      for (var cookiePath in this._cookies[cookieHost])
-      {
-        for (var cookieName in this._cookies[cookieHost][cookiePath])
-        {
+    for (var cookieHost in this._cookies) {
+      for (var cookiePath in this._cookies[cookieHost]) {
+        for (var cookieName in this._cookies[cookieHost][cookiePath]) {
           var cookie = this._cookies[cookieHost][cookiePath][cookieName];
           cookies.push(cookie);
         }
       }
     }
     
-    if (aCount)
+    if (aCount) {
       aCount.value = cookies.length;
+    }
     
     return cookies;
   },
@@ -70,8 +68,9 @@ gmConnection.prototype = {
     scriptableInputStream.init(stream);
     
     // Read the stream data
-    while (scriptableInputStream.available())
+    while (scriptableInputStream.available()) {
       this._data += scriptableInputStream.read(4096);
+    }
   },
   
   sendAsync: function(aUrl, aData, aCallback)
@@ -95,8 +94,7 @@ gmConnection.prototype = {
     this._channel = ioService.newChannelFromURI(uri);
     
     // Check for POST data
-    if (typeof aData === "string")
-    {
+    if (typeof aData === "string") {
       var stringInputStream = Components.classes["@mozilla.org/io/string-input-stream;1"].createInstance(Components.interfaces.nsIStringInputStream);
       stringInputStream.setData(aData, aData.length);
       
@@ -121,37 +119,28 @@ gmConnection.prototype = {
   observe: function(aSubject, aTopic, aData)
   {
     // Check if this is the channel being followed
-    if (aSubject === this._channel)
-    {
+    if (aSubject === this._channel) {
       // Get the HTTP channel
       var httpChannel = aSubject.QueryInterface(Components.interfaces.nsIHttpChannel);
       
-      switch (aTopic)
-      {
+      switch (aTopic) {
         case "http-on-modify-request":
         {
           // Clears the cookies
           httpChannel.setRequestHeader("Cookie", "", false);
           
-          for (var cookieHost in this._cookies)
-          {
+          for (var cookieHost in this._cookies) {
             // Check if the cookie should be added to this request
-            if (httpChannel.URI.host.indexOf(cookieHost) > -1)
-            {
-              for (var cookiePath in this._cookies[cookieHost])
-              {
-                for (var cookieName in this._cookies[cookieHost][cookiePath])
-                {
+            if (httpChannel.URI.host.indexOf(cookieHost) > -1) {
+              for (var cookiePath in this._cookies[cookieHost]) {
+                for (var cookieName in this._cookies[cookieHost][cookiePath]) {
                   var cookie = this._cookies[cookieHost][cookiePath][cookieName];
                   
                   // Check if the cookie has expired
-                  if (Date.parse(cookie.expires) < Date.now())
-                  {
+                  if (Date.parse(cookie.expires) < Date.now()) {
                     // Delete the cookie since it has expired
                     delete this._cookies[cookieHost][cookiePath][cookieName];
-                  }
-                  else
-                  {
+                  } else {
                     // Add the cookie to the request header
                     httpChannel.setRequestHeader("Cookie", cookie.pair, true);
                   }
@@ -181,58 +170,56 @@ gmConnection.prototype = {
                 expires: null,
               };
               
-              for (var i = 0, n = cookieTokens.length; i < n; i++)
-              {
+              for (var i = 0, n = cookieTokens.length; i < n; i++) {
                 var cookieToken = cookieTokens[i];
                 var cookieTokenPair = cookieToken.match(/(.+?)=(.*)/);
                 
-                if (cookieTokenPair === null)
-                {
-                  if (/^\s*Secure\s*$/i.test(cookieToken))
+                if (cookieTokenPair === null) {
+                  if (/^\s*Secure\s*$/i.test(cookieToken)) {
                     cookie.isSecure = true;
-                  else if (/^\s*HttpOnly\s*$/i.test(cookieToken))
+                  } else if (/^\s*HttpOnly\s*$/i.test(cookieToken)) {
                     cookie.isHttpOnly = true;
-                  else
+                  } else {
                     this._logger.log("Cookie token not handled: " + cookieToken);
-                }
-                else
-                {
+                  }
+                } else {
                   var cookieTokenAttr = cookieTokenPair[1];
                   var cookieTokenValue = cookieTokenPair[2];
                   
-                  if (i === 0)
-                  {
+                  if (i === 0) {
                     cookie.pair = cookieTokenAttr + "=" + cookieTokenValue;
                     cookie.name = cookieTokenAttr;
                     cookie.value = cookieTokenValue;
-                  }
-                  else if (/^\s*Domain\s*$/i.test(cookieTokenAttr))
+                  } else if (/^\s*Domain\s*$/i.test(cookieTokenAttr)) {
                     cookie.host = cookieTokenValue;
-                  else if (/^\s*Path\s*$/i.test(cookieTokenAttr))
+                  } else if (/^\s*Path\s*$/i.test(cookieTokenAttr)) {
                     cookie.path = cookieTokenValue;
-                  else if (/^\s*Expires\s*$/i.test(cookieTokenAttr))
+                  } else if (/^\s*Expires\s*$/i.test(cookieTokenAttr)) {
                     cookie.expires = cookieTokenValue.replace(/-/g, " ");
-                  else
+                  } else {
                     this._logger.log("Cookie token attribute not handled: " + cookieTokenAttr);
+                  }
                 }
               }
               
-              if (cookie.expires === null)
-              {
+              if (cookie.expires === null) {
                 cookie.isSession = true;
                 cookie.expires = Math.pow(2, 34);
               }
               
               this._logger.log("raw cookie = " + rawCookie);
               
-              for (var i in cookie)
+              for (var i in cookie) {
                 this._logger.log("cookie " + i + " = " + cookie[i]);
+              }
               
-              if (this._cookies[cookie.host] == null)
+              if (this._cookies[cookie.host] == null) {
                 this._cookies[cookie.host] = {};
+              }
               
-              if (this._cookies[cookie.host][cookie.path] == null)
+              if (this._cookies[cookie.host][cookie.path] == null) {
                 this._cookies[cookie.host][cookie.path] = {};
+              }
               
               this._cookies[cookie.host][cookie.path][cookie.name] = cookie;
             }, this);
@@ -259,8 +246,9 @@ gmConnection.prototype = {
     this._data = aData;
     
     // Check if the callback function was specified
-    if (this._callback && typeof this._callback.callback === "function")
+    if (this._callback && typeof this._callback.callback === "function") {
       this._callback.callback(this);
+    }
   },
   
   observer: function(aThis)
@@ -327,11 +315,12 @@ gmConnection.prototype = {
       {
         if (aIID.equals(Components.interfaces.nsIStreamListener) || 
             aIID.equals(Components.interfaces.nsIChannelEventSink) || 
-            aIID.equals(Components.interfaces.nsIProgressEventSink) || 
-            aIID.equals(Components.interfaces.nsIHttpEventSink) || 
+            aIID.equals(Components.interfaces.nsIProgressEventSink) ||
+            aIID.equals(Components.interfaces.nsIHttpEventSink) ||
             aIID.equals(Components.interfaces.nsIInterfaceRequestor) || 
-            aIID.equals(Components.interfaces.nsISupports))
+            aIID.equals(Components.interfaces.nsISupports)) {
           return this;
+        }
         throw Components.results.NS_ERROR_NO_INTERFACE;
       }
     });
@@ -345,21 +334,23 @@ gmConnection.prototype = {
   
   QueryInterface: function(aIID)
   {
-    if (aIID.equals(Components.interfaces.gmIConnection) || 
-        aIID.equals(Components.interfaces.nsISupports))
+    if (aIID.equals(Components.interfaces.gmIConnection) ||
+        aIID.equals(Components.interfaces.nsISupports)) {
       return this;
+    }
     throw Components.results.NS_ERROR_NO_INTERFACE;
   }
-}
+};
 
-if (Components.utils && Components.utils.import)
-{
+if (Components.utils && Components.utils.import) {
   Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
   
-  if (XPCOMUtils.generateNSGetFactory)
+  if (XPCOMUtils.generateNSGetFactory) {
     var NSGetFactory = XPCOMUtils.generateNSGetFactory([gmConnection]);
-//  else
-//    var NSGetModule = XPCOMUtils.generateNSGetModule([gmConnection]);
+  }
+  //else {
+  //  var NSGetModule = XPCOMUtils.generateNSGetModule([gmConnection]);
+  //}
 }
 
 // TODO Remove; Obsolete in Firefox 2 (Gecko 1.8.1)
@@ -367,12 +358,13 @@ if (Components.utils && Components.utils.import)
 const gmanager_Factory = {
   createInstance: function(aOuter, aIID)
   {
-    if (aOuter != null)
+    if (aOuter != null) {
       throw Components.results.NS_ERROR_NO_AGGREGATION;
+    }
     
     return (new gmConnection()).QueryInterface(aIID);
   }
-}
+};
 
 const gmanager_Module = {
   registerSelf: function(aCompMgr, aFileSpec, aLocation, aType)
@@ -397,11 +389,13 @@ const gmanager_Module = {
   
   getClassObject: function(aCompMgr, aCID, aIID)
   {
-    if (aCID.equals(GM_CLASS_ID))
+    if (aCID.equals(GM_CLASS_ID)) {
       return gmanager_Factory;
+    }
     
-    if (!aIID.equals(Components.interfaces.nsIFactory))
+    if (!aIID.equals(Components.interfaces.nsIFactory)) {
       throw Components.results.NS_ERROR_NOT_IMPLEMENTED;
+    }
     
     throw Components.results.NS_ERROR_NO_INTERFACE;
   },

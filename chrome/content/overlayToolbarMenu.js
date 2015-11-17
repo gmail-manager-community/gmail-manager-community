@@ -11,7 +11,7 @@ var gmanager_ToolbarMenu = new function()
   {
     // Load the accounts manager
     this._manager = Components.classes["@gmail-manager-community.github.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
-  }
+  };
   
   this._createMenuitem = function(aLabel)
   {
@@ -19,7 +19,7 @@ var gmanager_ToolbarMenu = new function()
     menuitem.setAttribute("label", this.getString(aLabel));
     menuitem.setAttribute("accesskey", this.getString(aLabel + "-ak"));
     return menuitem;
-  }
+  };
   
   this.buildMenu = function(aPopup)
   {
@@ -42,13 +42,13 @@ var gmanager_ToolbarMenu = new function()
     aPopup.appendChild(document.createElement("menuseparator"));
     
     // Check if any accounts exist
-    if (accounts.length > 0)
-    {
+    if (accounts.length > 0) {
       var toolbarItem = aPopup.parentNode;
       var numLoggedIn = 0;
       
-      for (var i = 0, n = accounts.length; i < n; i++)
+      for (var i = 0, n = accounts.length; i < n; i++) {
         numLoggedIn += (accounts[i].loggedIn ? 1 : 0);
+      }
       
       // Login All Accounts
       menuitem = this._createMenuitem("login-all-accounts");
@@ -71,22 +71,17 @@ var gmanager_ToolbarMenu = new function()
       // Separator
       aPopup.appendChild(document.createElement("menuseparator"));
       
-      if (gmanager_Toolbars.isToolbarItem(toolbarItem))
-      {
+      if (gmanager_Toolbars.isToolbarItem(toolbarItem)) {
         var toolbarAccount = toolbarItem.account;
         var displayAccount = toolbarItem.displayAccount;
         
-        if (displayAccount)
-        {
-          if (displayAccount.loggedIn)
-          {
+        if (displayAccount) {
+          if (displayAccount.loggedIn) {
             // Logout Selected Account
             menuitem = this._createMenuitem("logout-selected-account");
             menuitem.addEventListener("command", function() { gmanager_Accounts.logoutAccount(displayAccount.email); }, false);
             aPopup.appendChild(menuitem);
-          }
-          else
-          {
+          } else {
             // Login Selected Account
             menuitem = this._createMenuitem("login-selected-account");
             menuitem.addEventListener("command", function() { gmanager_Accounts.loginAccount(displayAccount.email); }, false);
@@ -127,9 +122,7 @@ var gmanager_ToolbarMenu = new function()
         // Separator
         aPopup.appendChild(document.createElement("menuseparator"));
       }
-    }
-    else
-    {
+    } else {
       // Login Account...
       menuitem = this._createMenuitem("login-account");
       menuitem.addEventListener("command", function() { gmanager_Utils.showLogin(); }, false);
@@ -152,7 +145,7 @@ var gmanager_ToolbarMenu = new function()
     
     // Show the menu
     return true;
-  }
+  };
   
   this.buildComposeMenu = function(aPopup)
   {
@@ -168,8 +161,7 @@ var gmanager_ToolbarMenu = new function()
     aPopup.appendChild(menuitem);
     
     // Check if any accounts exist
-    if (accounts.length > 0)
-    {
+    if (accounts.length > 0) {
       // Separator
       aPopup.appendChild(document.createElement("menuseparator"));
       
@@ -183,7 +175,7 @@ var gmanager_ToolbarMenu = new function()
     
     // Show the menu
     return true;
-  }
+  };
   
   this.composeAccount = function(aEmail)
   {
@@ -191,27 +183,28 @@ var gmanager_ToolbarMenu = new function()
     var href = gmanager_Utils.getHref(document.popupNode);
     
     gmanager_Accounts.openCompose(aEmail, location, href);
-  }
+  };
   
   this.switchAccount = function(aEmail)
   {
-    if (this._manager.isAccount(aEmail))
-    {
+    if (this._manager.isAccount(aEmail)) {
       var account = this._manager.getAccount(aEmail);
       var toolbarItem = document.popupNode;
       
-      if (gmanager_Toolbars.isToolbarItem(toolbarItem))
+      if (gmanager_Toolbars.isToolbarItem(toolbarItem)) {
         toolbarItem.displayAccount = account;
+      }
       
-      if (account.loggedIn && this._manager.global.getBoolPref("toolbar-auto-check"))
+      if (account.loggedIn && this._manager.global.getBoolPref("toolbar-auto-check")) {
         account.check();
-      else if (!account.loggedIn && this._manager.global.getBoolPref("toolbar-auto-login"))
+      } else if (!account.loggedIn && this._manager.global.getBoolPref("toolbar-auto-login")) {
         account.login(null);
+      }
     }
-  }
+  };
   
   this.init();
-}
+};
 
 gmanager_ToolbarMenu.prototype = Object.create(gmanager_BundlePrefix.prototype);
 gmanager_ToolbarMenu.prototype.constructor = gmanager_ToolbarMenu;

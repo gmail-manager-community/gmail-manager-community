@@ -21,13 +21,11 @@ function gmanager_ContentAreaClick(aEvent)
   var global = manager.global;
   var href = gmanager_Utils.getHref(aEvent.target);
   
-  switch (aEvent.button)
-  {
+  switch (aEvent.button) {
     case 0: // Left Click
     case 1: // Middle Click
     {
-      if (global.getBoolPref("compose-mailto-links") && gmanager_Utils.isMailto(href))
-      {
+      if (global.getBoolPref("compose-mailto-links") && gmanager_Utils.isMailto(href)) {
         var email = global.getCharPref("compose-mailto-default");
         var location = global.getCharPref("compose-tab-location");
         
@@ -43,8 +41,9 @@ function gmanager_ContentAreaClick(aEvent)
     {
       var isHidden = global.getBoolPref("general-hide-context-menu");
       
-      if (!isHidden && !gmanager_Utils.isMailto(href))
+      if (!isHidden && !gmanager_Utils.isMailto(href)) {
         isHidden = global.getBoolPref("compose-context-menu");
+      }
       
       document.getElementById("gmanager-context-menu-separator").hidden = isHidden;
       document.getElementById("gmanager-context-menu").hidden = isHidden;
@@ -85,14 +84,14 @@ var gmanager_Overlay = new function()
     
     // Toggle the Tools menu
     this._toggleToolsMenu();
-  }
+  };
   
   this.unload = function()
   {
     // Remove the observers
     this._observer.removeObserver(this, gmanager_Prefs.NOTIFY_CHANGED);
     this._observer.removeObserver(this, gmanager_Accounts.NOTIFY_STATE);
-  }
+  };
   
   this._welcome = function(aCurrentVersion)
   {
@@ -103,16 +102,13 @@ var gmanager_Overlay = new function()
     gmanager_Utils.log("Current version = " + aCurrentVersion);
     
     // Check for previous version
-    if (previousVersion < "0.7")
-    {
+    if (previousVersion < "0.7") {
       // Check if the preference exists
-      if (gmanager_Prefs.hasPref("current"))
-      {
+      if (gmanager_Prefs.hasPref("current")) {
         var email = gmanager_Prefs.getCharPref("current");
         
         // Check if the account exists
-        if (this._manager.isAccount(email))
-        {
+        if (this._manager.isAccount(email)) {
           var account = this._manager.getAccount(email);
           
           // Set the account to be displayed
@@ -125,13 +121,13 @@ var gmanager_Overlay = new function()
     }
     
     // Check for first time running (i.e. just installed)
-    if (gmanager_Prefs.getBoolPref("first-time"))
-    {
+    if (gmanager_Prefs.getBoolPref("first-time")) {
       var logins = gmanager_Utils.getStoredLogins("https://www.google.com", "https://www.google.com", null);
       
       // Check if there are any logins
-      if (logins.length > 0)
+      if (logins.length > 0) {
         window.openDialog("chrome://gmanager/content/migrate/migrate.xul", "migrate", "centerscreen,chrome,resizable=yes", logins);
+      }
       
       // Mark the extension as having already run
       gmanager_Prefs.setBoolPref("first-time", false);
@@ -139,7 +135,7 @@ var gmanager_Overlay = new function()
     
     // Set the current version
     gmanager_Prefs.setCharPref("version", aCurrentVersion);
-  }
+  };
   
   this._loadAccounts = function(aStartupFlag)
   {
@@ -151,44 +147,40 @@ var gmanager_Overlay = new function()
       var toolbarItem = gmanager_Toolbars.getToolbarItem(account.email);
       
       // Check if the toolbar item exists
-      if (toolbarItem)
-      {
+      if (toolbarItem) {
         // Update the toolbar item
         toolbarItem.update();
-      }
-      else
-      {
+      } else {
         // Create the toolbar item
         toolbarItem = gmanager_Toolbars.createToolbarItem(account.email);
       }
       
       // Check if the account should automatically login
-      if (aStartupFlag && (isAutoLogin || account.getBoolPref("general-auto-login")))
+      if (aStartupFlag && (isAutoLogin || account.getBoolPref("general-auto-login"))) {
         account.login(null);
+      }
     });
     
     // Check if the default toolbar item exists
-    if (defaultToolbarItem === null)
-    {
+    if (defaultToolbarItem === null) {
       // Create the default toolbar item
       defaultToolbarItem = gmanager_Toolbars.createToolbarItem();
     }
     
     // Show the default toolbar item if there are no accounts
     defaultToolbarItem.hidden = (accounts.length > 0);
-  }
+  };
   
   this._toggleToolsMenu = function()
   {
     var toolsMenu = document.getElementById("gmanager-tools-menu");
     
     // Check if the Tools menu exists
-    if (toolsMenu)
-    {
+    if (toolsMenu) {
       // Display the Tools menu based on the preference
       toolsMenu.collapsed = this._manager.global.getBoolPref("general-hide-tools-menu");
     }
-  }
+  };
   
   this.observe = function(aSubject, aTopic, aData)
   {
@@ -196,8 +188,7 @@ var gmanager_Overlay = new function()
     gmanager_Utils.log("aTopic = " + aTopic);
     gmanager_Utils.log("aData = " + aData);
     
-    if (aTopic === gmanager_Prefs.NOTIFY_CHANGED)
-    {
+    if (aTopic === gmanager_Prefs.NOTIFY_CHANGED) {
       // aSubject : null
       // aTopic   : gmanager_Prefs.NOTIFY_CHANGED
       // aData    : null
@@ -207,30 +198,24 @@ var gmanager_Overlay = new function()
       
       // Toggle the Tools menu
       this._toggleToolsMenu();
-    }
-    else if (aTopic === gmanager_Accounts.NOTIFY_STATE)
-    {
+    } else if (aTopic === gmanager_Accounts.NOTIFY_STATE) {
       // aSubject : null
       // aTopic   : gmanager_Accounts.NOTIFY_STATE
       // aData    : email (e.g. longfocus@gmail.com)
       
       // Check if the account exists
-      if (this._manager.isAccount(aData))
-      {
+      if (this._manager.isAccount(aData)) {
         var account = this._manager.getAccount(aData);
         
-        switch (account.status)
-        {
+        switch (account.status) {
           case Components.interfaces.gmIService.STATE_CONNECTING:
           case Components.interfaces.gmIService.STATE_LOGGED_OUT:
             break;
           case Components.interfaces.gmIService.STATE_LOGGED_IN:
           {
-            if (account.newMail)
-            {
+            if (account.newMail) {
               // Play sound
-              if (account.getBoolPref("notifications-sounds"))
-              {
+              if (account.getBoolPref("notifications-sounds")) {
                 var file = account.getCharPref("notifications-sounds-file");
                 
                 gmanager_Utils.log("Playing sound file: " + file);
@@ -238,15 +223,13 @@ var gmanager_Overlay = new function()
               }
               
               // Show snippets
-              if (account.getBoolPref("notifications-display-snippets"))
-              {
+              if (account.getBoolPref("notifications-display-snippets")) {
                 gmanager_Utils.log("Displaying alerts for: " + account.email);
                 gmanager_Alerts.display(account.email);
               }
               
               // Switch accounts
-              if (this._manager.global.getBoolPref("toolbar-auto-switch"))
-              {
+              if (this._manager.global.getBoolPref("toolbar-auto-switch")) {
                 gmanager_Utils.log("Switching to account: " + account.email);
                 
                 var accounts = this._manager.getAccounts({});
@@ -255,8 +238,9 @@ var gmanager_Overlay = new function()
                   var toolbarItem = gmanager_Toolbars.getToolbarItem(otherAccount.email);
                   
                   // Check if the toolbar item exists and is not hidden
-                  if (toolbarItem && !toolbarItem.hidden)
+                  if (toolbarItem && !toolbarItem.hidden) {
                     toolbarItem.displayAccount = account;
+                  }
                 });
               }
             }
@@ -280,5 +264,5 @@ var gmanager_Overlay = new function()
         }
       }
     }
-  }
-}
+  };
+};
