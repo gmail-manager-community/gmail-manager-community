@@ -3,84 +3,74 @@
 // Forked from Gmail Manager NG by Erik Nedwidek (https://github.com/nedwidek)
 // Based on Gmail Manager by Todd Long <longfocus@gmail.com>
 
-var gmanager_Prefs = new function()
-{
+var gmanager_Prefs = new function() {
   gmanager_BundlePrefix.call(this, "gmanager-prefs-");
-  
+
   this.NOTIFY_CHANGED = "gmanager-prefs-notify-changed";
   this.ELEMENT_PREFIX = "gm-prefs-";
   this.BRANCH = "extensions.gmanager.";
-  
-  this.init = function()
-  {
+
+  this.init = function() {
     var prefService = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService);
     this._prefBranch = prefService.getBranch(this.BRANCH);
   };
-  
-  this.hasPref = function(aName)
-  {
+
+  this.hasPref = function(aName) {
     return this._prefBranch.prefHasUserValue(aName);
   };
-  
-  this.getBoolPref = function(aName)
-  {
+
+  this.getBoolPref = function(aName) {
     return this._prefBranch.getBoolPref(aName);
   };
-  
-  this.setBoolPref = function(aName, aValue)
-  {
+
+  this.setBoolPref = function(aName, aValue) {
     this._prefBranch.setBoolPref(aName, aValue);
   };
-  
-  this.getCharPref = function(aName)
-  {
+
+  this.getCharPref = function(aName) {
     return this._prefBranch.getCharPref(aName);
   };
-  
-  this.setCharPref = function(aName, aValue)
-  {
+
+  this.setCharPref = function(aName, aValue) {
     this._prefBranch.setCharPref(aName, aValue);
   };
-  
-  this.getIntPref = function(aName)
-  {
+
+  this.getIntPref = function(aName) {
     return this._prefBranch.getIntPref(aName);
   };
-  
-  this.setIntPref = function(aName, aValue)
-  {
+
+  this.setIntPref = function(aName, aValue) {
     this._prefBranch.setIntPref(aName, aValue);
   };
-  
-  this.loadPrefs = function(aNode, aDocument)
-  {
+
+  this.loadPrefs = function(aNode, aDocument) {
     var prefs = aNode.getElementsByTagName("pref");
-    
+
     for (var i = 0, n = prefs.length; i < n; i++) {
       var element = aDocument.getElementById(this.ELEMENT_PREFIX + prefs[i].getAttribute("id"));
-      
+
       if (element) {
         var value = prefs[i].getAttribute("value");
-        
+
         switch (element.localName) {
           case "checkbox":
             element.checked = (value === "true");
             break;
           case "menupopup":
             element.parentNode.value = value;
-            
+
             if (element.parentNode.selectedItem === null) {
               // TODO Remove; Obsolete in Firefox 3.6 (Gecko 1.9.2)
-              
+
               if (value === "addon-bar") {
                 element.parentNode.value = "status-bar";
               }
-              
+
               if (element.parentNode.selectedItem === null) {
                 element.parentNode.selectedItem = element.firstChild;
               }
             }
-            
+
             break;
           case "radiogroup":
           case "textbox":
@@ -92,14 +82,13 @@ var gmanager_Prefs = new function()
       }
     }
   };
-  
-  this.savePrefs = function(aNode, aDocument)
-  {
+
+  this.savePrefs = function(aNode, aDocument) {
     var prefs = aNode.getElementsByTagName("pref");
-    
+
     for (var i = 0, n = prefs.length; i < n; i++) {
       var element = aDocument.getElementById(this.ELEMENT_PREFIX + prefs[i].getAttribute("id"));
-      
+
       if (element) {
         switch (element.localName) {
           case "checkbox":
@@ -118,7 +107,7 @@ var gmanager_Prefs = new function()
       }
     }
   };
-  
+
   this.init();
 };
 

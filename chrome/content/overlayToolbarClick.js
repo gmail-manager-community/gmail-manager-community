@@ -3,19 +3,17 @@
 // Forked from Gmail Manager NG by Erik Nedwidek (https://github.com/nedwidek)
 // Based on Gmail Manager by Todd Long <longfocus@gmail.com>
 
-var gmanager_ToolbarClick = new function()
-{
-  this.click = function(aEvent)
-  {
+var gmanager_ToolbarClick = new function() {
+  this.click = function(aEvent) {
     var toolbarItem = aEvent.target;
-    
+
     if (aEvent.button !== 2 && gmanager_Toolbars.isToolbarItem(toolbarItem)) {
       var account = toolbarItem.displayAccount;
-      
+
       if (account) {
         var manager = Components.classes["@gmail-manager-community.github.com/gmanager/manager;1"].getService(Components.interfaces.gmIManager);
         var action = null;
-        
+
         switch (aEvent.button) {
           case 0: // Left Click
             action = manager.global.getCharPref("toolbar-left-click");
@@ -26,7 +24,7 @@ var gmanager_ToolbarClick = new function()
           default:
             break;
         }
-        
+
         switch (action) {
           case "check-messages":
             // Check if the account is logged in
@@ -35,7 +33,7 @@ var gmanager_ToolbarClick = new function()
             } else {
               account.login(null);
             }
-            
+
             break;
           case "compose-message":
             gmanager_Accounts.openCompose(account.email, manager.global.getCharPref("compose-tab-location"), null);
@@ -53,7 +51,7 @@ var gmanager_ToolbarClick = new function()
             } else {
               account.login(null);
             }
-            
+
             break;
           }
           default:
@@ -63,7 +61,7 @@ var gmanager_ToolbarClick = new function()
         window.openDialog("chrome://gmanager/content/login/login.xul", "login", "centerscreen,chrome,modal");
       }
     }
-    
+
     return true;
   };
 };

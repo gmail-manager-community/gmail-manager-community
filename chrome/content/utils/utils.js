@@ -3,42 +3,37 @@
 // Forked from Gmail Manager NG by Erik Nedwidek (https://github.com/nedwidek)
 // Based on Gmail Manager by Todd Long <longfocus@gmail.com>
 
-var gmanager_Utils = new function()
-{
+var gmanager_Utils = new function() {
   this.WEBSITE = "https://github.com/gmail-manager-community/gmail-manager-community";
-  
-  this.init = function()
-  {
+
+  this.init = function() {
     // Get the logger service
     this._logger = Components.classes["@gmail-manager-community.github.com/gmanager/logger;1"].getService(Components.interfaces.gmILogger);
-    
+
     // Get the platform version
     this._platformVersion = Components.classes["@mozilla.org/xre/app-info;1"].getService(Components.interfaces.nsIXULAppInfo).platformVersion;
-    
+
     // Create the unicode converter
     this._unicodeConverter = Components.classes["@mozilla.org/intl/scriptableunicodeconverter"].createInstance(Components.interfaces.nsIScriptableUnicodeConverter);
   };
-  
-  this.log = function(aMsg, /* Optional */ aEmail)
-  {
+
+  this.log = function(aMsg, /* Optional */ aEmail) {
     this._logger.log((aEmail ? "(" + aEmail + ") " : "") + aMsg);
   };
-  
-  this.getPlatformVersion = function()
-  {
+
+  this.getPlatformVersion = function() {
     return this._platformVersion;
   };
-  
-  this.getBrowser = function()
-  {
+
+  this.getBrowser = function() {
     var browser = null;
-    
+
     if (typeof getBrowser === "function") {
       browser = getBrowser();
     } else {
       var windowMediator = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
       var recentWindow = windowMediator.getMostRecentWindow("navigator:browser");
-      
+
       if (recentWindow) {
         if (recentWindow.gBrowser) {
           browser = recentWindow.gBrowser;
@@ -51,28 +46,26 @@ var gmanager_Utils = new function()
         this.log("Unable to get the most recent window.");
       }
     }
-    
+
     return browser;
   };
-  
-  this.getDocument = function()
-  {
+
+  this.getDocument = function() {
     var browser = this.getBrowser();
     return (browser ? browser.ownerDocument : null);
   };
-  
-  this.getStoredLogins = function(aHostname, aActionURL, aUsername)
-  {
+
+  this.getStoredLogins = function(aHostname, aActionURL, aUsername) {
     var logins = [];
-    
+
     // Check for Toolkit 1.9 (Firefox 3)
     if (Components.classes["@mozilla.org/login-manager;1"]) {
       // Get the nsILoginManager service
       var loginManager = Components.classes["@mozilla.org/login-manager;1"].getService(Components.interfaces.nsILoginManager);
-      
+
       // Find logins that match the hostname and action URL
       var loginInfos = (aHostname ? loginManager.findLogins({}, aHostname, aActionURL, null) : loginManager.getAllLogins({}));
-      
+
       for (var i = 0, n = loginInfos.length; i < n; i++) {
         // Check if the login matches the username
         if (aUsername == null || loginInfos[i].username === aUsername) {
@@ -82,15 +75,15 @@ var gmanager_Utils = new function()
     } else if (Components.classes["@mozilla.org/passwordmanager;1"]) {
       // Get the nsIPasswordManager service
       var passwordManager = Components.classes["@mozilla.org/passwordmanager;1"].getService(Components.interfaces.nsIPasswordManager);
-      
+
       // Enumerate through the passwords 
       var passwordEnumerator = passwordManager.enumerator;
-      
+
       while (passwordEnumerator.hasMoreElements()) {
         var password = passwordEnumerator.getNext().QueryInterface(Components.interfaces.nsIPassword);
-        
+
         // Check if the login matches the hostname and username
-        if ((aHostname == null || password.host === aHostname) && 
+        if ((aHostname == null || password.host === aHostname) &&
             (aUsername == null || password.user === aUsername)) {
           logins.push({
             hostname: password.host,
@@ -100,18 +93,17 @@ var gmanager_Utils = new function()
         }
       }
     }
-    
+
     // Return the logins
     return logins;
   };
-  
-  this.getHref = function(aNode)
-  {
+
+  this.getHref = function(aNode) {
     var linkNode = null;
-    
+
     if (aNode && aNode instanceof Node) {
       var targetNode = aNode;
-      
+
       while (targetNode) {
         if (targetNode instanceof HTMLAnchorElement ||
             targetNode instanceof HTMLAreaElement ||
@@ -120,43 +112,38 @@ var gmanager_Utils = new function()
             linkNode = targetNode;
           }
         }
-        
+
         targetNode = targetNode.parentNode;
       }
     }
-    
+
     return (linkNode ? (linkNode.href || linkNode.getAttributeNS("http://www.w3.org/1999/xlink", "href")) : null);
   };
-  
-  this.isEmail = function(aEmail)
-  {
+
+  this.isEmail = function(aEmail) {
     const emailRegExp = /^.+@.+\..+$/;
     return emailRegExp.test(aEmail);
   };
-  
-  this.isMailto = function(aHref)
-  {
+
+  this.isMailto = function(aHref) {
     const mailtoRegExp = /^mailto:/i;
     return mailtoRegExp.test(aHref);
   };
-  
-  this.showLogin = function(/* Optional */ aAccount)
-  {
+
+  this.showLogin = function(/* Optional */ aAccount) {
     var loginWindowName = "gmanager-login-" + (aAccount ? aAccount.email : "empty");
-    
+
     if (!this.isWindow(loginWindowName)) {
       window.openDialog("chrome://gmanager/content/login/login.xul", loginWindowName, "centerscreen,chrome,dependent=no", aAccount);
     }
   };
-  
-  this.isWindow = function(aName)
-  {
+
+  this.isWindow = function(aName) {
     var windowWatcher = Components.classes["@mozilla.org/embedcomp/window-watcher;1"].getService(Components.interfaces.nsIWindowWatcher);
     return (windowWatcher && windowWatcher.getWindowByName(aName, null) !== null);
   };
-  
-  this.toStyleStatus = function(aStatus)
-  {
+
+  this.toStyleStatus = function(aStatus) {
     switch (aStatus) {
       case Components.interfaces.gmIService.STATE_CONNECTING:
         return "connecting";
@@ -172,34 +159,31 @@ var gmanager_Utils = new function()
         return "unknown";
     }
   };
-  
-  this.toUnicode = function(aString)
-  {
+
+  this.toUnicode = function(aString) {
     try {
       // Required for some reason otherwise encoding is lost
       this._unicodeConverter.charset = "UTF-8";
-      
+
       // Return the unicode converted string
       return this._unicodeConverter.ConvertToUnicode(aString);
-    } catch(e) {
+    } catch (e) {
       this.log("Error converting to unicode: " + e);
       return aString;
     }
   };
-  
-  this.clearKids = function(aNode)
-  {
+
+  this.clearKids = function(aNode) {
     if (aNode && aNode instanceof Node) {
       while (aNode.hasChildNodes()) {
         aNode.removeChild(aNode.lastChild);
       }
     }
   };
-  
-  this.loadSimpleURI = function(aUrl)
-  {
+
+  this.loadSimpleURI = function(aUrl) {
     const GM_EXTENSION_ID = "gmail-manager-community@gmail-manager-community.github.com";
-    
+
     Components.utils.import("resource://gre/modules/AddonManager.jsm");
 
     var self = this;
@@ -208,28 +192,27 @@ var gmanager_Utils = new function()
       self.loadURI(aUrl, self.WEBSITE + "/" + aAddon.version + "/", null, "background");
     });
   };
-  
-  this.loadURI = function(aUrl, aReferrerUrl, aData, aLocation)
-  {
+
+  this.loadURI = function(aUrl, aReferrerUrl, aData, aLocation) {
     var tabbrowser = this.getBrowser();
     var referrerUri = null;
     var mimeInputStream = null;
-    
+
     if (typeof aReferrerUrl === "string") {
       var ioService = Components.classes["@mozilla.org/network/io-service;1"].createInstance(Components.interfaces.nsIIOService);
       referrerUri = ioService.newURI(aReferrerUrl, null, null);
     }
-    
+
     if (typeof aData === "string") {
       var stringInputStream = Components.classes["@mozilla.org/io/string-input-stream;1"].createInstance(Components.interfaces.nsIStringInputStream);
       stringInputStream.setData(aData, aData.length);
-      
+
       mimeInputStream = Components.classes["@mozilla.org/network/mime-input-stream;1"].createInstance(Components.interfaces.nsIMIMEInputStream);
       mimeInputStream.addHeader("Content-Type", "application/x-www-form-urlencoded");
       mimeInputStream.addContentLength = true;
       mimeInputStream.setData(stringInputStream);
     }
-    
+
     switch (aLocation) {
       case "blank":
       case "existing":
@@ -237,19 +220,19 @@ var gmanager_Utils = new function()
         var browsers = tabbrowser.browsers;
         var hostname = (aLocation === "blank" ? "" : "mail.google.com");
         var browser = null;
-        
-        for (var i = 0, n = browsers.length ; i < n && browser === null; i++) {
+
+        for (var i = 0, n = browsers.length; i < n && browser === null; i++) {
           if (browsers[i].currentURI.asciiHost === hostname) {
             browser = browsers[i];
           }
         }
-        
+
         if (browser) {
           browser.webNavigation.loadURI(aUrl, Components.interfaces.nsIWebNavigation.LOAD_FLAGS_NONE, referrerUri, mimeInputStream, null);
         } else {
           this.loadURI(aUrl, aReferrerUrl, aData, "background");
         }
-        
+
         break;
       }
       case "current":
@@ -270,15 +253,14 @@ var gmanager_Utils = new function()
         break;
     }
   };
-  
-  this.loadDefaultMail = function(aHref)
-  {
+
+  this.loadDefaultMail = function(aHref) {
     var externalProtocolService = Components.classes["@mozilla.org/uriloader/external-protocol-service;1"].getService(Components.interfaces.nsIExternalProtocolService);
     var ioService = Components.classes["@mozilla.org/network/io-service;1"].getService(Components.interfaces.nsIIOService);
     var uri = ioService.newURI((this.isMailto(aHref) ? aHref : "mailto:"), null, null);
-    
+
     externalProtocolService.loadUrl(uri);
   };
-  
+
   this.init();
 };
