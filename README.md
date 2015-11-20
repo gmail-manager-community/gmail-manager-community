@@ -11,11 +11,11 @@ Development of those extensions appears to have stopped in February 2012 and Mar
 ## Developers ##
 
 To build XPI package, you need few tools available from your PATH:
-- **sed**
-- **zip**
-- **make** (optional)
+- *sed*
+- *zip*
+- *make* (optional)
 
-Run `./make.sh`, or `make` (if **make** is installed).
+Run `./make.sh`, or `make` (if *make* is installed).
 
 New XPI is created in `dist` directory.
 
@@ -26,4 +26,4 @@ Packaging process writes logs to `xpipackage.out` file.
 ### Debug ###
 
 Firefox [Add-on Debugger](https://developer.mozilla.org/en-US/Add-ons/Add-on_Debugger) is only available for *restartless and SDK-based add-ons*.
-So, to debug **Gmail Manager-community**, please use *[Browser Toolbox](https://developer.mozilla.org/en-US/docs/Tools/Browser_Toolbox) and use its Debugger tool*.
+So, to debug **Gmail Manager-community**, please use *[Browser Toolbox](https://developer.mozilla.org/en-US/docs/Tools/Browser_Toolbox) and its Debugger tool*.
