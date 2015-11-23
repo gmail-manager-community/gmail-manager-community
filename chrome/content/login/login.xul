@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://gmanager/content/login/login.css" type="text/css"?>
+
+<!-- 
+  Gmail Manager-community
+  Alexis THOMAS (https://github.com/ath0mas)
+  Forked from Gmail Manager NG by Erik Nedwidek (https://github.com/nedwidek)
+  Based on Gmail Manager by Todd Long <longfocus@gmail.com>
+ -->
+
+<!DOCTYPE dialog SYSTEM "chrome://gmanager/locale/gmanager.dtd">
+
+<dialog id="gmanager-login"
+        title="&login-title;"
+        persist="screenX, screenY"
+        buttons="accept, cancel"
+        ondialogaccept="return gmanager_Login.dialogAccept();"
+        oninput="gmanager_Login.input();"
+        onload="gmanager_Login.load();"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+    <script type="application/x-javascript" src="chrome://gmanager/content/utils/bundle.js" />
+    <script type="application/x-javascript" src="chrome://gmanager/content/utils/utils.js" />
+    <script type="application/x-javascript" src="chrome://gmanager/content/login/login.js" />
+
+    <label value="&login-header-label;" />
+
+    <separator class="thin" />
+
+    <grid flex="1">
+        <rows>
+            <row align="center">
+                <label value="&common-email;:"
+                       control="gmanager-login-email" />
+
+                <textbox id="gmanager-login-email" />
+            </row>
+
+            <row align="center">
+                <label value="&common-password;:"
+                       control="gmanager-login-password" />
+
+                <textbox id="gmanager-login-password"
+                         type="password" />
+            </row>
+        </rows>
+    </grid>
+
+    <checkbox id="gmanager-login-remember"
+              class="gmanager-indent"
+              label="&login-remember-password-label;" />
+
+    <separator class="thin" />
+</dialog>

@@ -1,0 +1,15 @@
+@import url("chrome://global/skin/");
+@import url("chrome://gmanager/skin/overlay.css");
+
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/*
+  Gmail Manager-community
+  Alexis THOMAS (https://github.com/ath0mas)
+  Forked from Gmail Manager NG by Erik Nedwidek (https://github.com/nedwidek)
+  Based on Gmail Manager by Todd Long <longfocus@gmail.com>
+*/
+
+#gmanager-login-email {
+    min-width: 250px;
+}

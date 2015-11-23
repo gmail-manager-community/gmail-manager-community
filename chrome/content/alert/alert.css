@@ -1,0 +1,56 @@
+@import url("chrome://global/skin/");
+@import url("chrome://gmanager/skin/overlay.css");
+
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/*
+  Gmail Manager-community
+  Alexis THOMAS (https://github.com/ath0mas)
+  Forked from Gmail Manager NG by Erik Nedwidek (https://github.com/nedwidek)
+  Based on Gmail Manager by Todd Long <longfocus@gmail.com>
+*/
+
+#gmanager-alert {
+    background-color: -moz-Dialog;
+    border: 2px solid #7B969C;
+    height: 120px;
+    padding: 4px 2px;
+    width: 375px;
+}
+
+#gmanager-alert image[src] {
+    opacity: 0.5;
+}
+
+#gmanager-alert image[src]:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+#gmanager-alert-header, #gmanager-alert-description {
+    min-width: 375px;
+    max-width: 375px;
+}
+
+#gmanager-alert-header {
+    -moz-box-align: center;
+    padding-bottom: 3px;
+}
+
+#gmanager-alert-details {
+    padding: 0 0 4px 0;
+}
+
+#gmanager-alert-description {
+    margin: 0;
+    padding: 0 6px;
+}
+
+#gmanager-alert-description[clickable="true"] {
+    color: #1455D6;
+    cursor: pointer;
+}
+
+#gmanager-alert-description[clickable="true"]:hover {
+    color: #424F63;
+}
