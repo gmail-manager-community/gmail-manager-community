@@ -1,8 +1,9 @@
-chromepackage.out
-xpipackage.out
-
 # IntelliJ IDEA
+.idea/
 *.iml
 *.ipr
 *.iws
-.idea/
+
+# gmanager
+*.xpi
+*.out

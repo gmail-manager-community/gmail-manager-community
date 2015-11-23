@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://gmanager/content/options/options.css" type="text/css"?>
+
+<!-- 
+  Gmail Manager-community
+  Alexis THOMAS (https://github.com/ath0mas)
+  Forked from Gmail Manager NG by Erik Nedwidek (https://github.com/nedwidek)
+  Based on Gmail Manager by Todd Long <longfocus@gmail.com>
+ -->
+
+<!DOCTYPE page SYSTEM "chrome://gmanager/locale/gmanager.dtd">
+
+<page id="gmanager-options-security"
+      onload="parent.gmanager_Options.loadPagePrefs();"
+      xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+    <groupbox>
+        <caption label="&options-security-passwords;" />
+
+        <checkbox id="gm-prefs-security-never-save-passwords"
+                  label="&options-security-never-save-passwords;" />
+    </groupbox>
+
+    <groupbox>
+        <caption label="&options-security-connection;" />
+
+        <checkbox id="gm-prefs-security-secured-connection"
+                  label="&options-security-secured-connection;" />
+    </groupbox>
+</page>
