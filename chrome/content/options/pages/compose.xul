@@ -11,79 +11,79 @@
 <!DOCTYPE page SYSTEM "chrome://gmanager/locale/gmanager.dtd">
 
 <page id="gmanager-options-compose"
-	onload="parent.gmanager_Options.loadPagePrefs();"
-	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-	
-	<groupbox align="center"
-			orient="horizontal">
-			
-		<caption label="&tab-location;"/>
-		
-		<label value="&tab-location-open;"/>
-		
-		<menulist>
-			<menupopup id="gm-prefs-compose-tab-location">
-				<menuitem label="&tab-location-blank;"
-						value="blank"/>
-						
-				<menuitem label="&tab-location-current;"
-						value="current"/>
-						
-				<menuitem label="&tab-location-existing;"
-						value="existing"/>
-						
-				<menuitem label="&tab-location-focused;"
-						value="focused"/>
-						
-				<menuitem label="&tab-location-background;"
-						value="background"/>
-						
-				<menuitem label="&tab-location-window;"
-						value="window"/>
-			</menupopup>
-		</menulist>
-	</groupbox>
-	
-	<groupbox>
-		<caption label="&options-compose-mailto-links;"/>
-		
-		<checkbox id="gm-prefs-compose-mailto-links"
-				label="&options-compose-internet-links;"/>
-				
-		<hbox class="gmanager-indent"
-			align="center">
-			
-			<label id="options-compose-default-account"
-				value="&options-compose-default-account;"/>
-				
-			<menulist>
-				<menupopup id="gm-prefs-compose-mailto-default"/>
-			</menulist>
-		</hbox>
-		
-		<!-- 
-		<radiogroup id="gm-prefs-compose-mailto-action"
-					class="gmanager-indent">
-					
-			<radio label="&options-compose-prompt-for;"
-				value="prompt-for"/>
-				
-			<hbox>
-				<radio label="&options-compose-default-account;"
-					value="specific-email"/>
-					
-				<menulist>
-					<menupopup id="gm-prefs-compose-mailto-default"/>
-				</menulist>
-			</hbox>
-		</radiogroup>
-		 -->
-	</groupbox>
-	
-	<groupbox>
-		<caption label="&options-compose-context-menu;"/>
-		
-		<checkbox id="gm-prefs-compose-context-menu"
-				label="&options-compose-click-mailto;"/>
-	</groupbox>
+      onload="parent.gmanager_Options.loadPagePrefs();"
+      xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+    <groupbox align="center"
+              orient="horizontal">
+
+        <caption label="&tab-location;" />
+
+        <label value="&tab-location-open;" />
+
+        <menulist>
+            <menupopup id="gm-prefs-compose-tab-location">
+                <menuitem label="&tab-location-blank;"
+                          value="blank" />
+
+                <menuitem label="&tab-location-current;"
+                          value="current" />
+
+                <menuitem label="&tab-location-existing;"
+                          value="existing" />
+
+                <menuitem label="&tab-location-focused;"
+                          value="focused" />
+
+                <menuitem label="&tab-location-background;"
+                          value="background" />
+
+                <menuitem label="&tab-location-window;"
+                          value="window" />
+            </menupopup>
+        </menulist>
+    </groupbox>
+
+    <groupbox>
+        <caption label="&options-compose-mailto-links;" />
+
+        <checkbox id="gm-prefs-compose-mailto-links"
+                  label="&options-compose-internet-links;" />
+
+        <hbox class="gmanager-indent"
+              align="center">
+
+            <label id="options-compose-default-account"
+                   value="&options-compose-default-account;" />
+
+            <menulist>
+                <menupopup id="gm-prefs-compose-mailto-default" />
+            </menulist>
+        </hbox>
+
+        <!--
+        <radiogroup id="gm-prefs-compose-mailto-action"
+                    class="gmanager-indent">
+
+            <radio label="&options-compose-prompt-for;"
+                value="prompt-for"/>
+
+            <hbox>
+                <radio label="&options-compose-default-account;"
+                    value="specific-email"/>
+
+                <menulist>
+                    <menupopup id="gm-prefs-compose-mailto-default"/>
+                </menulist>
+            </hbox>
+        </radiogroup>
+         -->
+    </groupbox>
+
+    <groupbox>
+        <caption label="&options-compose-context-menu;" />
+
+        <checkbox id="gm-prefs-compose-context-menu"
+                  label="&options-compose-click-mailto;" />
+    </groupbox>
 </page>

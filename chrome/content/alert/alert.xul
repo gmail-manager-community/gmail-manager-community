@@ -11,88 +11,88 @@
 <!DOCTYPE window SYSTEM "chrome://gmanager/locale/gmanager.dtd">
 
 <window id="gmanager-alert"
-		align="start"
-		onload="gmanager_Alert.load();"
-		xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-		
-	<script type="application/x-javascript" src="chrome://gmanager/content/utils/bundle.js"/>
-	<script type="application/x-javascript" src="chrome://gmanager/content/utils/utils.js"/>
-	<script type="application/x-javascript" src="chrome://gmanager/content/alert/alert.js"/>
-	<script type="application/x-javascript">
-	  <![CDATA[
-	    window.addEventListener("mouseover", gmanager_Alert.pause, false);
-	    window.addEventListener("mouseout", gmanager_Alert.play, false);
-	  ]]>
-	</script>
-	
-	<vbox>
-		<hbox id="gmanager-alert-header">
-			<image id="gmanager-alert-header-image"
-				class="gmanager-icon"
-				iconsize="small"/>
-				
-			<label id="gmanager-alert-header-alias"
-				class="gmanager-alias gmanager-bold"
-				crop="end"
-				maxwidth="175px"/>
-				
-			<hbox id="gmanager-alert-navigation">
-				<spacer minwidth="10px"/>
-				
-				<image src="chrome://gmanager/skin/alert/first.png"
-					onclick="gmanager_Alert.firstSnippet();"/>
-					
-				<image src="chrome://gmanager/skin/alert/previous.png"
-					onclick="gmanager_Alert.previousSnippet();"/>
-					
-				<label id="gmanager-alert-header-count"/>
-				
-				<image src="chrome://gmanager/skin/alert/next.png"
-					onclick="gmanager_Alert.nextSnippet();"/>
-					
-				<image src="chrome://gmanager/skin/alert/last.png"
-					onclick="gmanager_Alert.lastSnippet();"/>
-			</hbox>
-			
-			<spacer flex="1"/>
-			
-			<image src="chrome://gmanager/skin/alert/close.png"
-				onclick="gmanager_Alert.close();"/>
-		</hbox>
-		
-		<separator class="groove"/>
-		
-		<grid id="gmanager-alert-details"
-			flex="1">
-			
-			<rows>
-				<row align="center">
-					<label value="&alert-from;"/>
-					
-					<label id="gmanager-alert-details-from"
-						crop="end"/>
-				</row>
-				
-				<row align="center">
-					<label value="&alert-date;"/>
-					
-					<label id="gmanager-alert-details-date"
-						crop="end"/>
-				</row>
-				
-				<row align="center">
-					<label value="&alert-subject;"/>
-					
-					<label id="gmanager-alert-details-subject"
-						crop="end"/>
-				</row>
-			</rows>
-		</grid>
-		
-		<description id="gmanager-alert-description"
-					crop="end"
-					clickable="true"
-					onclick="gmanager_Alert.click();">
-		</description>
-	</vbox>
+        align="start"
+        onload="gmanager_Alert.load();"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+    <script type="application/x-javascript" src="chrome://gmanager/content/utils/bundle.js" />
+    <script type="application/x-javascript" src="chrome://gmanager/content/utils/utils.js" />
+    <script type="application/x-javascript" src="chrome://gmanager/content/alert/alert.js" />
+    <script type="application/x-javascript">
+        <![CDATA[
+            window.addEventListener("mouseover", gmanager_Alert.pause, false);
+            window.addEventListener("mouseout", gmanager_Alert.play, false);
+        ]]>
+    </script>
+
+    <vbox>
+        <hbox id="gmanager-alert-header">
+            <image id="gmanager-alert-header-image"
+                   class="gmanager-icon"
+                   iconsize="small" />
+
+            <label id="gmanager-alert-header-alias"
+                   class="gmanager-alias gmanager-bold"
+                   crop="end"
+                   maxwidth="175px" />
+
+            <hbox id="gmanager-alert-navigation">
+                <spacer minwidth="10px" />
+
+                <image src="chrome://gmanager/skin/alert/first.png"
+                       onclick="gmanager_Alert.firstSnippet();" />
+
+                <image src="chrome://gmanager/skin/alert/previous.png"
+                       onclick="gmanager_Alert.previousSnippet();" />
+
+                <label id="gmanager-alert-header-count" />
+
+                <image src="chrome://gmanager/skin/alert/next.png"
+                       onclick="gmanager_Alert.nextSnippet();" />
+
+                <image src="chrome://gmanager/skin/alert/last.png"
+                       onclick="gmanager_Alert.lastSnippet();" />
+            </hbox>
+
+            <spacer flex="1" />
+
+            <image src="chrome://gmanager/skin/alert/close.png"
+                   onclick="gmanager_Alert.close();" />
+        </hbox>
+
+        <separator class="groove" />
+
+        <grid id="gmanager-alert-details"
+              flex="1">
+
+            <rows>
+                <row align="center">
+                    <label value="&alert-from;" />
+
+                    <label id="gmanager-alert-details-from"
+                           crop="end" />
+                </row>
+
+                <row align="center">
+                    <label value="&alert-date;" />
+
+                    <label id="gmanager-alert-details-date"
+                           crop="end" />
+                </row>
+
+                <row align="center">
+                    <label value="&alert-subject;" />
+
+                    <label id="gmanager-alert-details-subject"
+                           crop="end" />
+                </row>
+            </rows>
+        </grid>
+
+        <description id="gmanager-alert-description"
+                     crop="end"
+                     clickable="true"
+                     onclick="gmanager_Alert.click();">
+        </description>
+    </vbox>
 </window>

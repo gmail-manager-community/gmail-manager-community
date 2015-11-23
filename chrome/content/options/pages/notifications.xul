@@ -11,19 +11,19 @@
 <!DOCTYPE page SYSTEM "chrome://gmanager/locale/gmanager.dtd">
 
 <page id="gmanager-options-notifications"
-	onload="parent.gmanager_Options.loadPagePrefs();"
-	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-	
-	<groupbox>
-		<caption label="&options-tab-toolbar;"/>
-		
-		<checkbox id="gm-prefs-toolbar-auto-switch"
-				label="&options-toolbar-auto-switch;"/>
-				
-		<!-- <hbox class="gmanager-indent">
-			
-			<label class="gmanager-disclaimer"
-				value="&options-toolbar-auto-switch-disclaimer;"/>
-		</hbox> -->
-	</groupbox>
+      onload="parent.gmanager_Options.loadPagePrefs();"
+      xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+    <groupbox>
+        <caption label="&options-tab-toolbar;" />
+
+        <checkbox id="gm-prefs-toolbar-auto-switch"
+                  label="&options-toolbar-auto-switch;" />
+
+        <!-- <hbox class="gmanager-indent">
+
+            <label class="gmanager-disclaimer"
+                value="&options-toolbar-auto-switch-disclaimer;"/>
+        </hbox> -->
+    </groupbox>
 </page>

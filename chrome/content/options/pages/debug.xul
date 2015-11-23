@@ -11,30 +11,30 @@
 <!DOCTYPE page SYSTEM "chrome://gmanager/locale/gmanager.dtd">
 
 <page id="gmanager-options-debug"
-	onload="parent.gmanager_Options.loadPagePrefs();"
-	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-	
-	<groupbox>
-		<caption label="Accounts"/>
-		
-		<hbox>
-			<menulist>
-				<menupopup id="gmanager-options-debug-accounts-popup"/>
-			</menulist>
-			
-			<button id="gmanager-options-debug-login-button"
-					label="Launch Login"
-					oncommand="parent.gmanager_Options.debugLogin();"/>
-					
-			<button id="gmanager-options-debug-alert-button"
-					label="Launch Alert"
-					oncommand="parent.gmanager_Options.debugAlert();"/>
-					
-			<spacer flex="1"/>
-			
-			<button id="gmanager-options-debug-login-button"
-					label="Launch Migrate"
-					oncommand="parent.gmanager_Options.debugMigrate();"/>
-		</hbox>
-	</groupbox>
+      onload="parent.gmanager_Options.loadPagePrefs();"
+      xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+    <groupbox>
+        <caption label="Accounts" />
+
+        <hbox>
+            <menulist>
+                <menupopup id="gmanager-options-debug-accounts-popup" />
+            </menulist>
+
+            <button id="gmanager-options-debug-login-button"
+                    label="Launch Login"
+                    oncommand="parent.gmanager_Options.debugLogin();" />
+
+            <button id="gmanager-options-debug-alert-button"
+                    label="Launch Alert"
+                    oncommand="parent.gmanager_Options.debugAlert();" />
+
+            <spacer flex="1" />
+
+            <button id="gmanager-options-debug-login-button"
+                    label="Launch Migrate"
+                    oncommand="parent.gmanager_Options.debugMigrate();" />
+        </hbox>
+    </groupbox>
 </page>
