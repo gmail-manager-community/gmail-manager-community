@@ -2,6 +2,8 @@
 
 Installable from: https://addons.mozilla.org/en-US/firefox/addon/gmail-manager-community/
 
+[![Get the add-on](https://blog.mozilla.org/addons/files/2015/11/AMO-button_2.png)](https://addons.mozilla.org/en-US/firefox/addon/gmail-manager-community/)
+
 This Firefox extension is a fork of [Gmail Manager NG](https://addons.mozilla.org/en-US/firefox/addon/gmail-manager-ng/) by Erik Nedwidek, itself forked from [Gmail Manager](https://addons.mozilla.org/en-US/firefox/addon/gmail-manager/) by Todd Long.
 Development of those extensions appears to have stopped in February 2012 and March 2011.
 
