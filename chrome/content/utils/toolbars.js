@@ -19,7 +19,9 @@ var gmanager_Toolbars = new function() {
     this.TOOLBARS.forEach(function(toolbar, index, array) {
       var toolbarElements = doc.getElementsByTagName(toolbar);
       for (var i = 0; i < toolbarElements.length; i++) {
-        toolbars.push(toolbarElements[i]);
+        if (toolbarElements[i].id !== "addon-bar") {
+          toolbars.push(toolbarElements[i]);
+        }
       }
     });
 
@@ -27,7 +29,7 @@ var gmanager_Toolbars = new function() {
   };
 
   this.getDefaultToolbar = function() {
-    var toolbar = document.getElementById("addon-bar");
+    var toolbar = document.getElementById("nav-bar");
 
     // TODO Remove; Obsolete in Firefox 3.6 (Gecko 1.9.2)
 

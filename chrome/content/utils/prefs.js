@@ -62,7 +62,7 @@ var gmanager_Prefs = new function() {
             if (element.parentNode.selectedItem === null) {
               // TODO Remove; Obsolete in Firefox 3.6 (Gecko 1.9.2)
 
-              if (value === "addon-bar") {
+              if (value === "nav-bar") {
                 element.parentNode.value = "status-bar";
               }
 
