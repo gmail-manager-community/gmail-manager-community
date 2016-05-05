@@ -19,6 +19,7 @@ var gmanager_Alert = new function() {
   this.OPEN_TIME = 2000;
 
   this._isPlaying = true;
+  this.internalHeightCounter = 0;
 
   this.load = function() {
     // Load the services
@@ -121,6 +122,7 @@ var gmanager_Alert = new function() {
           window.moveBy(0, -this.SLIDE_INCREMENT);
           window.resizeBy(0, this.SLIDE_INCREMENT);
         } else {
+          this.internalHeightCounter = this.FINAL_HEIGHT;
           this._startTimer(this.SLIDE_STAGE, this.OPEN_TIME);
         }
 
@@ -140,9 +142,11 @@ var gmanager_Alert = new function() {
       }
       case this.CLOSE_STAGE:
       {
-        if (window.outerHeight > 1) {
+        if (this.internalHeightCounter > 1) {
           window.moveBy(0, this.SLIDE_INCREMENT);
           window.resizeBy(0, -this.SLIDE_INCREMENT);
+
+          this.internalHeightCounter -= this.SLIDE_INCREMENT;
         } else {
           this.close();
         }
@@ -152,6 +156,7 @@ var gmanager_Alert = new function() {
       default:
       {
         gmanager_Utils.log("Unknown stage...definitely should not be here!");
+        this.close();
         break;
       }
     }
