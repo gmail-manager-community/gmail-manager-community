@@ -14,12 +14,12 @@ var gmanager_Alert = new function() {
   this.SLIDE_STAGE = 30;
 
   this.FINAL_HEIGHT = 100;
+  this.MINIMAL_HEIGHT = 1;
   this.SLIDE_INCREMENT = 1;
   this.SLIDE_TIME = 10;
   this.OPEN_TIME = 2000;
 
   this._isPlaying = true;
-  this.internalHeightCounter = 0;
 
   this.load = function() {
     // Load the services
@@ -94,7 +94,8 @@ var gmanager_Alert = new function() {
 
       this.FINAL_HEIGHT = window.outerHeight;
 
-      window.resizeTo(window.outerWidth, 1);
+      window.resizeTo(window.outerWidth, this.MINIMAL_HEIGHT);
+      this.MINIMAL_HEIGHT = window.outerHeight; // resizeTo/resizeBy may have been 'restricted' (by the browser?) to set expected value
       window.moveTo((screen.availLeft + screen.availWidth - window.outerWidth) - 10, screen.availTop + screen.availHeight - window.outerHeight);
 
       this._startTimer(this.OPEN_STAGE, this.SLIDE_TIME);
@@ -122,7 +123,6 @@ var gmanager_Alert = new function() {
           window.moveBy(0, -this.SLIDE_INCREMENT);
           window.resizeBy(0, this.SLIDE_INCREMENT);
         } else {
-          this.internalHeightCounter = this.FINAL_HEIGHT;
           this._startTimer(this.SLIDE_STAGE, this.OPEN_TIME);
         }
 
@@ -142,11 +142,9 @@ var gmanager_Alert = new function() {
       }
       case this.CLOSE_STAGE:
       {
-        if (this.internalHeightCounter > 1) {
+        if (window.outerHeight > this.MINIMAL_HEIGHT) {
           window.moveBy(0, this.SLIDE_INCREMENT);
           window.resizeBy(0, -this.SLIDE_INCREMENT);
-
-          this.internalHeightCounter -= this.SLIDE_INCREMENT;
         } else {
           this.close();
         }
@@ -155,7 +153,7 @@ var gmanager_Alert = new function() {
       }
       default:
       {
-        gmanager_Utils.log("Unknown stage...definitely should not be here!");
+        gmanager_Utils.log("Unknown stage... definitely should not be here!");
         this.close();
         break;
       }
