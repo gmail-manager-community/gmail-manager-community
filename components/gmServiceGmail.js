@@ -557,12 +557,14 @@ gmServiceGmail.prototype = {
                   var snippet = msgs[i][2][j];
                   // Check if the snippet is unread
                   if (snippet[3] == 0) {
+            	    var subject = this._replaceHtmlCodes(this._stripHtml(snippet[9]));
+            	    var msg = this._replaceHtmlCodes(this._stripHtml(snippet[10]));
                     this._snippets.push({
                       "id": snippet[0],
                       "from": this._replaceHtmlCodes(this._stripHtml(snippet[7])),
                       "email": (snippet[7].match(/email=["'](.+?)["']/i) || [])[1],
-                      "subject": this._replaceHtmlCodes(this._stripHtml(snippet[9])),
-                      "msg": this._replaceHtmlCodes(this._stripHtml(snippet[10])),
+                      "subject": subject,
+                      "msg": msg || subject,
                       "date": this._replaceHtmlCodes(this._stripHtml(snippet[14])),
                       "time": snippet[15]
                     });
