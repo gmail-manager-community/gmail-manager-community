@@ -13,12 +13,11 @@ var gmanager_Alert = new function() {
   this.CLOSE_STAGE = 20;
   this.SLIDE_STAGE = 30;
 
+  this.SLIDE_INCREMENT = 1;
   this.SLIDE_TIME = 10;
   this.OPEN_TIME = 2000;
 
   this._isPlaying = true;
-  this._vert = true;
-  this.SLIDE_INCREMENT = this._vert ? 1 : 3;
 
   this.load = function() {
     // Load the services
@@ -89,78 +88,16 @@ var gmanager_Alert = new function() {
         gmanager_Utils.log("Error getting the alert preferences: " + e);
       }
 
-	  this.alterCmd('sizeTo');
-      
-      gmanager_Utils.log(
-		  "screen.availLeft: " + screen.availLeft + ", screen.availWidth: " + screen.availWidth + ", " +
-		  "screen.availTop: " + screen.availTop + ", screen.availHeight: " + screen.availHeight
-	  );
+      window.sizeToContent();
 
-      if(this._vert) {
-    	  this.alterCmd('moveTo', 
-			  screen.availLeft + screen.availWidth - window.outerWidth,
-			  screen.availTop + screen.availHeight - window.outerHeight
-    	  );
-    	  this.MIN_Y = window.screenY;
-    	  
-    	  this.alterCmd('moveBy', 
-			  0,
-			  window.outerHeight
-    	  );
-    	  this.MAX_Y = window.screenY;
-      }
-      else {
-    	  this.alterCmd('moveTo', 
-			  screen.availLeft + screen.availWidth - window.outerWidth,
-			  screen.availTop + screen.availHeight - window.outerHeight
-    	  );
-    	  this.MIN_X = window.screenX;
-    	  
-    	  this.alterCmd('moveBy', 
-			  window.outerWidth,
-			  0
-    	  );
-    	  this.MAX_X = window.screenX;
-      }
-      
+      window.moveTo(screen.availLeft + screen.availWidth - window.outerWidth, screen.availTop + screen.availHeight - window.outerHeight);
+      this.MIN_Y = window.screenY;
+
+      window.moveBy(0, window.outerHeight);
+      this.MAX_Y = window.screenY;
+
       this._startTimer(this.OPEN_STAGE, this.SLIDE_TIME);
     }
-  };
-  
-  this.alterCmd = function(cmd, wx, hy) {
-      gmanager_Utils.log(
-		  cmd + "(" + wx + ", " + hy + "),\t" +
-		  "width: " + window.outerWidth + ", height: " + window.outerHeight + ",\t" +
-		  "x: " + window.screenX + ", y: " + window.screenY
-	  );
-      
-	  switch(cmd) {
-		  case 'sizeTo': {
-		      sizeToContent();
-		      break;
-		  }
-		  case 'resizeTo': {
-			  window.resizeTo(wx, hy);
-			  break;
-		  }
-		  case 'resizeBy': {
-			  window.resizeBy(wx, hy);
-			  break;
-		  }
-		  case 'moveTo': {
-			  window.moveTo(wx, hy);
-			  break;
-		  }
-		  case 'moveBy': {
-			  window.moveBy(wx, hy);
-			  break;
-		  }
-	  }
-
-      gmanager_Utils.log(
-		  "after width: " + window.outerWidth + ", height: " + window.outerHeight + ", " +
-		  "x: " + window.screenX + ", y: " + window.screenY
-	  );
   };
 
   this.play = function(aEvent) {
@@ -180,10 +117,8 @@ var gmanager_Alert = new function() {
     switch (this._stage) {
       case this.OPEN_STAGE:
       {
-    	if (this._vert && (window.screenY > this.MIN_Y)) {
-          this.alterCmd('moveBy', 0, -this.SLIDE_INCREMENT);
-    	} else if (!this._vert && (window.screenX > this.MIN_X)) {
-          this.alterCmd('moveBy', -this.SLIDE_INCREMENT, 0);
+        if (window.screenY > this.MIN_Y) {
+          window.moveBy(0, -this.SLIDE_INCREMENT);
         } else {
           this._startTimer(this.SLIDE_STAGE, this.OPEN_TIME);
         }
@@ -204,11 +139,9 @@ var gmanager_Alert = new function() {
       }
       case this.CLOSE_STAGE:
       {
-        if (this._vert && (window.screenY < this.MAX_Y)) {
-    	  this.alterCmd('moveBy', 0, this.SLIDE_INCREMENT);
-        } else if (!this._vert && (window.screenX < this.MAX_X)) {
-		  this.alterCmd('moveBy', this.SLIDE_INCREMENT, 0);
-    	} else {
+        if (window.screenY < this.MAX_Y) {
+          window.moveBy(0, this.SLIDE_INCREMENT);
+        } else {
           this.close();
         }
 

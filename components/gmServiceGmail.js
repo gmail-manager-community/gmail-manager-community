@@ -555,8 +555,8 @@ gmServiceGmail.prototype = {
                   var snippet = msgs[i][2][j];
                   // Check if the snippet is unread
                   if (snippet[3] == 0) {
-            	    var subject = this._replaceHtmlCodes(this._stripHtml(snippet[9]));
-            	    var msg = this._replaceHtmlCodes(this._stripHtml(snippet[10]));
+                    var subject = this._replaceHtmlCodes(this._stripHtml(snippet[9]));
+                    var msg = this._replaceHtmlCodes(this._stripHtml(snippet[10]));
                     this._snippets.push({
                       "id": snippet[0],
                       "from": this._replaceHtmlCodes(this._stripHtml(snippet[7])),
