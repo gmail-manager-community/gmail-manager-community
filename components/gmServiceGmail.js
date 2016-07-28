@@ -477,7 +477,7 @@ gmServiceGmail.prototype = {
 
           try {
             // Quota
-            var quMatches = JSON.parse(data.match(/\["qu",.+?]/)[0].replace(/,(?=,)/g, ',""'));
+            var quMatches = JSON.parse(data.match(/\["qu",.+?]/)[0]);
             this._spaceUsed = quMatches[1];
             this._totalSpace = quMatches[2];
             this._percentUsed = quMatches[3];
@@ -493,7 +493,6 @@ gmServiceGmail.prototype = {
             // Inbox/Drafts/Spam/Labels
             var ldMatchesPre = data.match(/\["ld",(?:.|\s)+?(?:\s*[\[\]]){3}/)[0];
             ldMatchesPre = ldMatchesPre.replace(/(\r\n|\r|\n)/gm, '');
-            ldMatchesPre = ldMatchesPre.replace(/,(?=,)/g, ',""');
             // hex escape sequences changed to unicode sequences (for example: '&', '<' and '>')
             ldMatchesPre = ldMatchesPre.replace(/\\\\x/g, '\\u005c\\u0078').replace(/\\x([0-9a-f]{2})/g, '\\u00$1');
             var ldMatches = JSON.parse(ldMatchesPre);
@@ -546,7 +545,6 @@ gmServiceGmail.prototype = {
             var loc1 = data.indexOf("var VIEW_DATA=[[");
             var loc2 = data.lastIndexOf("var GM_TIMING_END_CHUNK2");
             var viewData = data.substring(loc1 + 14, loc2 - 2);
-            viewData = viewData.replace(/,(?=,)/g, ',""').replace(/,(?=[],])/g, ',""').replace(/\[(?=,)/g, '[""');
             var msgs = JSON.parse(viewData);
             // Initialize the snippets
             this._snippets = [];
