@@ -83,8 +83,11 @@ gmConnection.prototype = {
     var ioService = Components.classes["@mozilla.org/network/io-service;1"].createInstance(Components.interfaces.nsIIOService);
     var uri = ioService.newURI(aUrl, null, null);
 
+    Components.utils.import("resource://gre/modules/Services.jsm");
+
     // Create the HTTP channel
-    this._channel = ioService.newChannelFromURI(uri);
+    this._channel = ioService.newChannelFromURI2(uri, null, Services.scriptSecurityManager.getSystemPrincipal(), null,
+      Components.interfaces.nsILoadInfo.SEC_NORMAL, Components.interfaces.nsIContentPolicy.TYPE_OTHER);
 
     // Check for POST data
     if (typeof aData === "string") {
