@@ -162,7 +162,7 @@ gmConnection.prototype = {
                 isSecure: false,
                 isHttpOnly: false,
                 isSession: false,
-                expires: null,
+                expires: null
               };
 
               for (var i = 0, n = cookieTokens.length; i < n; i++) {

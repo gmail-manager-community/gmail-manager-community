@@ -200,12 +200,7 @@ gmServiceGmail.prototype = {
     aCookies.forEach(function(cookie, index, array) {
       this._log("cookie name = " + cookie.name);
       this._log("cookie value = " + cookie.value);
-
-      try {
-        this._cookieManager.add(cookie.host, cookie.path, cookie.name, cookie.value, cookie.isSecure, cookie.isHttpOnly, cookie.isSession, cookie.expires);
-      } catch (e) {
-        this._cookieManager.add(cookie.host, cookie.path, cookie.name, cookie.value, cookie.isSecure, cookie.isSession, cookie.expires);
-      }
+      this._cookieManager.add(cookie.host, cookie.path, cookie.name, cookie.value, cookie.isSecure, cookie.isHttpOnly, cookie.isSession, cookie.expires);
     }, this);
 
     this._log("The cookie loader is done!");
