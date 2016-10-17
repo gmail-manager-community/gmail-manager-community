@@ -16,7 +16,7 @@
                  icontype="gmail"
                  status="logged-out"
                  onclick="gmanager_ToolbarClick.click(event);"
-                 ondraggesture="gmanager_ToolbarMove.initDrag(event);">
+                 ondragstart="gmanager_ToolbarMove.initDrag(event);">
 
             <xul:hbox align="center"
                       tooltip="_child">

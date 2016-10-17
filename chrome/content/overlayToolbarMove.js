@@ -7,11 +7,6 @@ var gmanager_ToolbarMove = new function() {
   this.TOOLBAR_FLAVOUR = "text/" + gmanager_Toolbars.TOOLBAR_ITEM_ID;
   this.DRAGDROP_ACTION = Components.interfaces.nsIDragService.DRAGDROP_ACTION_MOVE;
 
-  this.init = function() {
-    // Get the "drop" type listener; Firefox 3.5 (Gecko 1.9.1)
-    this._dropType = (gmanager_Utils.getPlatformVersion() >= "1.9.1" ? "drop" : "dragdrop");
-  };
-
   this.initDrag = function(aEvent) {
     this._toolbars = gmanager_Toolbars.getToolbars();
     this._dragOverItem = null;
@@ -82,14 +77,14 @@ var gmanager_ToolbarMove = new function() {
   this._addToolbarListeners = function() {
     this._toolbars.forEach(function(toolbar, index, array) {
       toolbar.addEventListener("dragover", this._onToolbarDragOver, false);
-      toolbar.addEventListener(this._dropType, this._onToolbarDragDrop, false);
+      toolbar.addEventListener("drop", this._onToolbarDragDrop, false);
     }, this);
   };
 
   this._removeToolbarListeners = function() {
     this._toolbars.forEach(function(toolbar, index, array) {
       toolbar.removeEventListener("dragover", this._onToolbarDragOver, false);
-      toolbar.removeEventListener(this._dropType, this._onToolbarDragDrop, false);
+      toolbar.removeEventListener("drop", this._onToolbarDragDrop, false);
     }, this);
   };
 
@@ -348,6 +343,4 @@ var gmanager_ToolbarMove = new function() {
     flavours.appendFlavour(this.TOOLBAR_FLAVOUR);
     return flavours;
   };
-
-  this.init();
 };
