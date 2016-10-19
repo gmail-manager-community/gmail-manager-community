@@ -248,7 +248,7 @@ gmParser.prototype = {
     }
 
     for (var i = 0; i < aNodeIdResults.snapshotLength; i++) {
-      var id = aNodeIdResults.snapshotItem(i).nodeValue;
+      var id = aNodeIdResults.snapshotItem(i).value;
       var nodeIdResult = this._xpath(aNode, "./pref[@id=\"" + id + "\"]", UNORDERED_NODE_SNAPSHOT_TYPE);
 
       if (!nodeIdResult || nodeIdResult.snapshotLength != 1) {

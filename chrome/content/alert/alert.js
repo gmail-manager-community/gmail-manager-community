@@ -161,7 +161,7 @@ var gmanager_Alert = new function() {
     document.getElementById("gmanager-alert-details").collapsed = true;
     document.getElementById("gmanager-alert-description").setAttribute("clickable", false);
     document.getElementById("gmanager-alert-description").removeAttribute("onclick");
-    document.getElementById("gmanager-alert-description").firstChild.nodeValue = aMsg;
+    document.getElementById("gmanager-alert-description").firstChild.value = aMsg;
   };
 
   this._populateSnippet = function(aIndex) {
@@ -174,7 +174,7 @@ var gmanager_Alert = new function() {
     document.getElementById("gmanager-alert-details-from").value = gmanager_Utils.toUnicode(snippet.from);
     document.getElementById("gmanager-alert-details-date").value = gmanager_Utils.toUnicode(snippet.time);
     document.getElementById("gmanager-alert-details-subject").value = gmanager_Utils.toUnicode(snippet.subject);
-    document.getElementById("gmanager-alert-description").firstChild.nodeValue = gmanager_Utils.toUnicode(snippet.msg);
+    document.getElementById("gmanager-alert-description").firstChild.value = gmanager_Utils.toUnicode(snippet.msg);
   };
 
   this.nextSnippet = function() {
