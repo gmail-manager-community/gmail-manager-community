@@ -120,13 +120,20 @@ gmServiceGmail.prototype = {
     var connection = Components.classes["@gmail-manager-community.github.com/gmanager/connection;1"].createInstance(Components.interfaces.gmIConnection);
     connection.send(this._loginURL, null);
 
-    var serviceURI = {
-      "url": this._loginURL,
-      "data": this._getFirstStepPostData(connection.data, (aPassword || this._password), aContinueData)
-    };
+    var data = connection.data;
+    var postUrl = this._extractActionUrlFromFormData(data);
+    connection.send(postUrl, this._getFirstStepPostData(data), this);
+
+    data = connection.data;
+    postUrl = this._extractActionUrlFromFormData(data);
 
     // Load the connection cookies
     this._cookieLoader(connection.getCookies({}));
+
+    var serviceURI = {
+      "url": postUrl,
+      "data": this._getSecondStepPostData(connection.data, (aPassword || this._password), aContinueData)
+    };
 
     return serviceURI;
   },
@@ -233,10 +240,17 @@ gmServiceGmail.prototype = {
   _cookieLoader: function(aCookies) {
     this._log("Start the cookie loader...");
 
-    aCookies.forEach(function(cookie, index, array) {
+    aCookies.forEach(function(cookie) {
       this._log("cookie name = " + cookie.name);
       this._log("cookie value = " + cookie.value);
-      this._cookieManager.add(cookie.host, cookie.path, cookie.name, cookie.value, cookie.isSecure, cookie.isHttpOnly, cookie.isSession, cookie.expires);
+
+      // If cookie.expires equals to 0 then the cookie should be set as a session cookie. It doesn't happen so need to set expiration time manually.
+      // Expiration time is in seconds from epoch, now will be 60 seconds from now
+      var cookieExpirationTime = !cookie.expires
+        ? cookie.expires = Math.floor(new Date() / 1000) + 60
+        : cookie.expires;
+
+      this._cookieManager.add(cookie.host, cookie.path, cookie.name, cookie.value, cookie.isSecure, cookie.isHttpOnly, cookie.isSession, cookieExpirationTime);
     }, this);
 
     this._log("The cookie loader is done!");

@@ -74,7 +74,7 @@ var gmanager_Accounts = new function() {
   this.openFolder = function(aEmail, aLocation, aFolderId) {
     if (this._manager.isAccount(aEmail)) {
       var account = this._manager.getAccount(aEmail);
-      var folder = account.getFolder(null, aFolderId);
+      var folder = account.getFolder(account.password, aFolderId);
 
       // Check if the unread count should be reset
       if (this._manager.global.getBoolPref("toolbar-reset-unread-count")) {
