@@ -88,7 +88,7 @@ var gmanager_Accounts = new function() {
   this.openMessage = function(aEmail, aLocation, aMessageId) {
     if (this._manager.isAccount(aEmail)) {
       var account = this._manager.getAccount(aEmail);
-      var message = account.getMessage(null, aMessageId);
+      var message = account.getMessage(account.password, aMessageId);
 
       // Check if the unread count should be reset
       if (this._manager.global.getBoolPref("toolbar-reset-unread-count")) {
