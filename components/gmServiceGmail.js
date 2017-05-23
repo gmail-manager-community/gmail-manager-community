@@ -247,7 +247,7 @@ gmServiceGmail.prototype = {
       // If cookie.expires equals to 0 then the cookie should be set as a session cookie. It doesn't happen so need to set expiration time manually.
       // Expiration time is in seconds from epoch, now will be 60 seconds from now
       var cookieExpirationTime = !cookie.expires
-        ? cookie.expires = Math.floor(new Date() / 1000) + 60
+        ? Math.floor(new Date() / 1000) + 60
         : cookie.expires;
 
       this._cookieManager.add(cookie.host, cookie.path, cookie.name, cookie.value, cookie.isSecure, cookie.isHttpOnly, cookie.isSession, cookieExpirationTime);

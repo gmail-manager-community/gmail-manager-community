@@ -161,7 +161,7 @@ var gmanager_Alert = new function() {
     document.getElementById("gmanager-alert-details").collapsed = true;
     document.getElementById("gmanager-alert-description").setAttribute("clickable", false);
     document.getElementById("gmanager-alert-description").removeAttribute("onclick");
-    document.getElementById("gmanager-alert-description").firstChild.value = aMsg;
+    document.getElementById("gmanager-alert-description").value = aMsg;
   };
 
   this._populateSnippet = function(aIndex) {
