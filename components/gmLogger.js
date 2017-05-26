@@ -17,9 +17,9 @@ function gmLogger() {
   this._branch.addObserver("", this, false);
 
   // Get the current debug preference value (silent)
-  //this._debug = this._branch.getBoolPref("debug");
-  this._debug = true;
+  this._debug = this._branch.getBoolPref("debug");
 }
+
 gmLogger.prototype = {
   _console: null,
   _branch: null,

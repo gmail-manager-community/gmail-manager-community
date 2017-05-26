@@ -120,49 +120,25 @@ gmServiceGmail.prototype = {
     var connection = Components.classes["@gmail-manager-community.github.com/gmanager/connection;1"].createInstance(Components.interfaces.gmIConnection);
     connection.send(this._loginURL, null);
 
-    var serviceURI = {
-      "url": this._loginURL,
-      "data": this._getPostData(connection.data, (aPassword || this._password), aContinueData)
-    };
+    var data = connection.data;
+    var postUrl = this._extractActionUrlFromFormData(data);
+    connection.send(postUrl, this._getFirstStepPostData(data), this);
+
+    data = connection.data;
+    postUrl = this._extractActionUrlFromFormData(data);
 
     // Load the connection cookies
     this._cookieLoader(connection.getCookies({}));
 
+    var serviceURI = {
+      "url": postUrl,
+      "data": this._getSecondStepPostData(connection.data, (aPassword || this._password), aContinueData)
+    };
+
     return serviceURI;
   },
 
-  _getPostData: function(aData, aPassword, /* Optional */ aContinueData) {
-    var postData = [];
-    var loginData = {
-      "service": "mail",
-      "continue": encodeURIComponent(this._checkURL + (aContinueData || "")),
-      "Email": encodeURIComponent(this.email),
-      "Passwd": encodeURIComponent(aPassword)
-    };
-
-    var formMatches = aData.match(/<form[^>]+?id=["']gaia_loginform["'](?:.|\s)+?<\/form>/i);
-
-    if (formMatches && formMatches.length > 0) {
-      var inputMatches = (formMatches[0].match(/<input[^>]+?\/?>/ig) || []);
-
-      inputMatches.forEach(function(input, index, array) {
-        try {
-          var inputName = (input.match(/name=["'](.+?)["']/i) || [])[1];
-
-          if (inputName && !(inputName in loginData)) {
-            var inputValue = (input.match(/value=["'](.*?)["']/i) || [])[1];
-            postData.push(inputName + "=" + (inputValue || ""));
-          }
-        } catch (e) {
-          this._log("Error getting the form input: " + e);
-        }
-      }, this);
-    }
-
-    for (var name in loginData) {
-      postData.push(name + "=" + loginData[name]);
-    }
-
+  _handleOfflineCookieForPostData: function () {
     try {
       // TODO Add cookie to connection...
 
@@ -190,6 +166,73 @@ gmServiceGmail.prototype = {
     } catch (e) {
       this._log("Error loading Gmail Offline cookie: " + e);
     }
+  },
+
+  _extractPostData: function (aData, loginData) {
+    var postData = [];
+
+    var formMatches = aData.match(/<form[^>]+?id=["']gaia_loginform["'](?:.|\s)+?<\/form>/i);
+
+    if (formMatches && formMatches.length > 0) {
+      var inputMatches = (formMatches[0].match(/<input[^>]+?\/?>/ig) || []);
+
+      inputMatches.forEach(function (input, index, array) {
+        try {
+          var inputName = (input.match(/name=["'](.+?)["']/i) || [])[1];
+
+          if (inputName && !(inputName in loginData)) {
+            var inputValue = (input.match(/value=["'](.*?)["']/i) || [])[1];
+            postData.push(inputName + "=" + (inputValue || ""));
+          }
+        } catch (e) {
+          this._log("Error getting the form input: " + e);
+        }
+      }, this);
+    }
+
+    for (var name in loginData) {
+      postData.push(name + "=" + loginData[name]);
+    }
+
+
+    return postData;
+  },
+
+  _extractActionUrlFromFormData: function(aData) {
+    var actionMatchRegex = /<form[^>]+?(?:id=["']gaia_loginform["'])?[^>]+?action=["'](.+?)["'][^>]*?(?:id=["']gaia_loginform["'])?.*?>/im;
+
+    var match = actionMatchRegex.exec(aData);
+
+    if (match !== null) {
+      return match[1];
+    }
+
+    return null;
+  },
+
+  _getFirstStepPostData: function(aData) {
+    var loginFirstStepData = {
+      "Email": encodeURIComponent(this.email),
+      "Passwd": ""
+    };
+
+    var postData = this._extractPostData(aData, loginFirstStepData);
+
+    this._handleOfflineCookieForPostData();
+
+    return postData.join("&");
+  },
+
+  _getSecondStepPostData: function(aData, aPassword, /* Optional */ aContinueData) {
+    var loginSecondStepData = {
+      "continue": encodeURIComponent(this._checkURL + (aContinueData || "")),
+      "Email": encodeURIComponent(this.email),
+      "Passwd": encodeURIComponent(aPassword)
+    };
+
+    var postData = this._extractPostData(aData, loginSecondStepData);
+
+    this._handleOfflineCookieForPostData();
 
     return postData.join("&");
   },
@@ -197,10 +240,15 @@ gmServiceGmail.prototype = {
   _cookieLoader: function(aCookies) {
     this._log("Start the cookie loader...");
 
-    aCookies.forEach(function(cookie, index, array) {
+    aCookies.forEach(function(cookie) {
       this._log("cookie name = " + cookie.name);
       this._log("cookie value = " + cookie.value);
-      this._cookieManager.add(cookie.host, cookie.path, cookie.name, cookie.value, cookie.isSecure, cookie.isHttpOnly, cookie.isSession, cookie.expires);
+
+      // If cookie.expires equals to 0 then the cookie should be set as a session cookie. It doesn't happen so need to set expiration time manually.
+      // Expiration time is in seconds from epoch, now will be 60 seconds from now
+      var cookieExpirationTime = cookie.expires || Math.floor(new Date() / 1000) + 60;
+
+      this._cookieManager.add(cookie.host, cookie.path, cookie.name, cookie.value, cookie.isSecure, cookie.isHttpOnly, cookie.isSession, cookieExpirationTime);
     }, this);
 
     this._log("The cookie loader is done!");
@@ -230,7 +278,7 @@ gmServiceGmail.prototype = {
     this._username = this.email.split("@")[0];
     this._domain = this.email.split("@")[1];
 
-    this._loginURL = "https://accounts.google.com/ServiceLoginAuth?service=mail";
+    this._loginURL = "https://accounts.google.com/ServiceLogin?continue=https%3A%2F%2Fmail.google.com%2Fmail&rip=1&nojavascript=1";
 
     // Check if the email is hosted
     if (this.isHosted) {
@@ -388,10 +436,10 @@ gmServiceGmail.prototype = {
         // Server error, try again in 30 seconds
         this._setRetryError(Components.interfaces.gmIService.STATE_ERROR_NETWORK);
       } else if (this._connectionPhase > 0) {
-        const loginRegExp = /\/(?:ServiceLoginAuth|LoginAction)/i;
-        const cookieRegExp = /\/(?:SetSID|CheckCookie)/i;
+        const badPasswordRegex = /\/(?:ServiceLoginAuth|LoginAction|password)/i;
+        const badCookieRegExp = /\/(?:SetSID|CheckCookie|ServiceLogin)/i;
 
-        if (loginRegExp.test(httpChannel.URI.path)) { // Bad password
+        if (badPasswordRegex.test(httpChannel.URI.path)) { // Bad password
           // Check if already logged in
           if (this.loggedIn) {
             // Ok, lets try logging in again
@@ -400,34 +448,10 @@ gmServiceGmail.prototype = {
             // Password error, lets just give up
             this.logout(Components.interfaces.gmIService.STATE_ERROR_PASSWORD);
           }
-        } else if (cookieRegExp.test(httpChannel.URI.path)) { // Bad cookie
-          try {
-            this._log("data = " + aConnection.data);
-
-            var redirectURL = (aConnection.data.match(/<meta.+?url=(?:'|&#39;)(.+?)(?:'|&#39;)/i) || [])[1];
-
-            if (redirectURL == null) {
-              this._log("Unable to parse meta tag, trying location.replace...");
-
-              redirectURL = (aConnection.data.match(/location.replace\(["'](.+?)["']\)/i) || [])[1];
-            }
-
-            if (redirectURL) {
-              this._log("redirect URL = " + redirectURL);
-
-              redirectURL = decodeURIComponent(redirectURL);
-
-              this._log("redirect URL (decoded) = " + redirectURL);
-
-              // Send the server request
-              this._connection.sendAsync(redirectURL, null, this);
-
-              // Let the redirect URL do the work
-              return;
-            }
-          } catch (e) {
-            this._log("Error getting the redirect URL: " + e);
-          }
+        } else if (badCookieRegExp.test(httpChannel.URI.path)) { // Bad cookie
+          // Need to login again to get the proper cookie
+          this.login(this._password);
+          return;
         }
       }
     } catch (e) {
@@ -442,8 +466,6 @@ gmServiceGmail.prototype = {
       // Get the connection data
       var data = aConnection.data;
 
-      //this._log("data = " + data);
-
       if (viewDataRegExp.test(data)) {
         this._connectionPhase = 2;
       }
@@ -452,18 +474,31 @@ gmServiceGmail.prototype = {
       switch (++this._connectionPhase) {
         case 1:
         {
-          this._log("Begin login process by sending POST data...");
+          this._log("Begin the login process by sending the first step POST data...");
 
-          // Send the server request
-          this._connection.sendAsync(this._loginURL, this._getPostData(data, this._password), this);
+          var postUrl = this._extractActionUrlFromFormData(data);
+
+          if(postUrl) {
+            // Send the server request
+            this._connection.sendAsync(postUrl, this._getFirstStepPostData(data), this);
+          } else {
+            // Should not happens as we get the 200 response code, but...
+            this._log("Can not extract proper post Url from the data for the first POST step.")
+          }
           break;
         }
         case 2:
         {
-          this._log("Unable to find VIEW_DATA, trying again...");
+          this._log("Continue the login process by sending the second step POST data...");
+          var postUrl = this._extractActionUrlFromFormData(data);
 
-          // Send the server request
-          this._connection.sendAsync(this._checkURL + "labs=0", null, this);
+          if(postUrl) {
+            // Send the server request
+            this._connection.sendAsync(postUrl, this._getSecondStepPostData(data, this._password), this);
+          } else {
+            // Should not happens as we get the 200 response code, but...
+            this._log("Can not extract proper post Url from the data for the second POST step.")
+          }
           break;
         }
         case 3:

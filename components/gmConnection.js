@@ -48,6 +48,9 @@ gmConnection.prototype = {
   },
 
   send: function(aUrl, aData) {
+    // Clear data
+    this._data = "";
+
     // Initialize the channel
     this._initChannel(aUrl, aData);
 
