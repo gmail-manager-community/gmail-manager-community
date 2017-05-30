@@ -12,6 +12,9 @@ Development of those extensions appears to have stopped in February 2012 and Mar
 
 ## Cookies ##
 
+Inside "Privacy" > "History" settings from Firefox **Options** page:
+- you should have "Always use private browsing mode" **unchecked** and "Accept cookies from sites" **checked**
+
 Since Firefox 45, if you use **Privacy Badger** add-on, you may be unable to log in to your accounts:
 - in the **Privacy Badger** settings, allow cookies for **accounts.google.com**.
 
